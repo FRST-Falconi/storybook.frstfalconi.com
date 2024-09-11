@@ -1,6 +1,6 @@
 import { ExclamationIcon, GoalIcon, LocalizationIcon, StarIcon } from '@shared/icons'
 import * as Styles from './progressGoalBarStyles'
-import {useProgressGoalBar } from './useProgressGoalBar'
+import { useProgressGoalBar } from './useProgressGoalBar'
 
 interface ProgressGoalBarProps {
     start: number //valor inicial
@@ -9,7 +9,11 @@ interface ProgressGoalBarProps {
 }
 
 export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) => {
-    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult} = useProgressGoalBar({ start, current, goal })
+    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved } = useProgressGoalBar({
+        start,
+        current,
+        goal
+    })
 
     return (
         <Styles.WrapperProgressGoalBar>
@@ -21,28 +25,33 @@ export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) 
                 <Styles.StartIndicator position={positions.start}>
                     <LocalizationIcon />
                 </Styles.StartIndicator>
-                <Styles.IndicatorText position={positions.start}>
-                        <>
-                            <p>{start}</p>
-                            <p>INÍCIO</p>
-                        </>
+                <Styles.IndicatorText
+                    noResult={noResult}
+                    position={positions.start}
+                    isGoalReached={isGoalReached}
+                    isGoalExceeded={isGoalExceeded}
+                    resultEvolved={resultEvolved}
+                    start={positions.start}
+                >
+                    <>
+                        <Styles.Number>{start}</Styles.Number>
+                        <Styles.TypeProgressText>{noResult ? positions.currenText : positions.currentTextInit}</Styles.TypeProgressText>
+                    </>
                 </Styles.IndicatorText>
 
-                {/* posicao relativa */}
                 {!isGoalReached && (
                     <>
                         <Styles.CurrentIndicator status={positions.currentVariant} position={positions.current}>
                             {isGoalExceeded ? <StarIcon /> : <ExclamationIcon />}
                         </Styles.CurrentIndicator>
-                        <Styles.IndicatorText position={positions.current}>
-                            {
-                                !noResult &&
+                        <Styles.IndicatorTextCurrent position={positions.current} noGoal={noGoal} noResult={noResult}>
+                            {!noResult && (
                                 <>
-                                <p>{current}</p>
-                                <p>{positions.currenText}</p>
+                                    <Styles.Number>{current}</Styles.Number>
+                                    <Styles.TypeProgressText>{positions.currenText}</Styles.TypeProgressText>
                                 </>
-                            }
-                        </Styles.IndicatorText>
+                            )}
+                        </Styles.IndicatorTextCurrent>
                     </>
                 )}
 
@@ -54,8 +63,8 @@ export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) 
                     <GoalIcon />
                 </Styles.EndIndicator>
                 <Styles.IndicatorText position={positions.goal}>
-                    <p>{goal}</p>
-                    <p>META</p>
+                    <Styles.Number>{goal}</Styles.Number>
+                    <Styles.TypeProgressText>META</Styles.TypeProgressText>
                 </Styles.IndicatorText>
 
                 {/*  posicao relativa */}

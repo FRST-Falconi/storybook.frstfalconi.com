@@ -24,5 +24,7 @@ export const MESSAGES = {
         </div>
     ),
     currentTextResult: <div>RESULTADO</div> ,
-    currentTextInitAndResult: <div>INÍCIO E RESULTADO</div> 
+    currentTextInitAndResult: <div>INÍCIO E RESULTADO</div> ,
+    currentTextInit: <div>INÍCIO</div>, 
+    currentTextMeta: <div>META</div>
 }

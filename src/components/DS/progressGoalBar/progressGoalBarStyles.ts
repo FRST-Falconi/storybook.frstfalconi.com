@@ -49,7 +49,7 @@ export const CurrentIndicator = styled.div<{ position: number, status: CurrentVa
     height: 26px;
     display: flex;
     border-radius: 50%;
-    align-items: center;
+    align-items: center;   
     justify-content: center;
     background: ${({ status }) => {
         switch (status) {
@@ -59,7 +59,7 @@ export const CurrentIndicator = styled.div<{ position: number, status: CurrentVa
                 return '#C03535'; // Cor não saiu do lugar ou diminuiu o atual
             case CurrentVariant.Normal:
             default:
-                return '#EB903D'; // Cor padrão
+                return '#EB903D'; 
         }
     }};
     border: ${({ status }) => {
@@ -107,14 +107,14 @@ export const ProgressBarColor = styled.div<ProgressBarColorProps>`
     top: 0;
     z-index: 1;
     background: ${({ isGoalExceeded, hasRegressed }) => {
-    if (hasRegressed) {
-      return '#C90017';
-    } else if (isGoalExceeded) {
-      return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 60%, rgba(255, 215, 0, 1) 100%)';
-    } else {
-      return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 4%)';
-    }
-  }};
+        if (hasRegressed) {
+            return '#C90017';
+        } else if (isGoalExceeded) {
+            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 60%, rgba(255, 215, 0, 1) 100%)';
+        } else {
+            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 4%)';
+        }
+    }};
 `;
 
 export const TextUP = styled.div`
@@ -126,16 +126,59 @@ export const TextUP = styled.div`
     margin-bottom: 24px;
 `
 
-export const IndicatorText = styled.div<{ position: number }>`
+export const IndicatorText = styled.div<{ position: number, noResult?: boolean, isGoalExceeded?: boolean, isGoalReached?: boolean, resultEvolved?: boolean, start?: number }>`
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    top: 100%; /* Ajuste conforme necessário */
+    align-items: ${({ noResult, isGoalReached, isGoalExceeded, resultEvolved, start }) =>
+        noResult || isGoalReached || isGoalExceeded || resultEvolved || start === 0 ? 'start' : 'center'};
+    top: 100%; 
     left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'}); /* Posiciona o texto com base na posição do indicador */
-    margin-top: 8px; /* Espaço entre o indicador e o texto */
-    font-size: 12px; /* Tamanho da fonte */
-    color: #333; /* Cor do texto */
-    white-space: nowrap; /* Impede quebra de linha */
+    margin-top: 8px; 
+    font-size: 12px; 
+    color: #333;
+    white-space: nowrap; 
+`;
+
+export const IndicatorTextCurrent = styled.div<{ position: number, noGoal: boolean, noResult: boolean }>`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items:  ${({ noGoal, noResult }) => noGoal || noResult ? 'start' : 'center'};
+    top: 100%; 
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 37px'}); 
+    margin-top: 8px;
+    font-size: 12px; 
+    color: #333; 
+    white-space: nowrap;
 
 `;
+
+export const IndicatorStart = styled.div<{ position: number }>`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    top: 100%;
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'});
+    margin-top: 8px; 
+    font-size: 12px;
+    color: #333;
+    white-space: nowrap; 
+
+`;
+
+export const Number = styled.p`
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18.77px;
+    color: #444444;
+`
+
+export const TypeProgressText = styled.p`
+    font-family: 'Work Sans';
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 11.73px;
+`
