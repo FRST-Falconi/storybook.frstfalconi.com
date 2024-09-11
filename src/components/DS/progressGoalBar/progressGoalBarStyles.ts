@@ -1,12 +1,14 @@
 import styled from 'styled-components'
+import { CurrentVariant, CurrentVariantValue } from './useProgressGoalBar';
 
 
 interface ProgressBarColorProps {
     width: number;
+    isGoalExceeded: boolean
 }
 
 
-export const WrapperProgressGoalBar=styled.div`
+export const WrapperProgressGoalBar = styled.div`
     display: flex;
     flex-direction: column;
 `
@@ -24,7 +26,7 @@ export const ProgressGoalBarContainer = styled.div`
 `
 
 
-export const StartIndicator = styled.div<{position: number}>`
+export const StartIndicator = styled.div<{ position: number }>`
     width: 26px;
     height: 26px;
     border-radius: 50%;
@@ -37,12 +39,11 @@ export const StartIndicator = styled.div<{position: number}>`
     font-size: 12px;
     font-weight: bold;
     position: relative;
-    left: -13px;
-    left: ${({ position }) => position}%;
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 26px'});
     z-index: 2;
 `;
 
-export const CurrentIndicator = styled.div<{position: number, status: 'normal' | 'exceeded' | 'warning'}>`
+export const CurrentIndicator = styled.div<{ position: number, status: CurrentVariantValue }>`
     width: 26px;
     height: 26px;
     display: flex;
@@ -51,22 +52,22 @@ export const CurrentIndicator = styled.div<{position: number, status: 'normal' |
     justify-content: center;
     background: ${({ status }) => {
         switch (status) {
-            case 'exceeded':
+            case CurrentVariant.Star:
                 return '#FDB437'; // Cor para quando a meta é excedida
-            case 'warning':
+            case CurrentVariant.Warning:
                 return '#C03535'; // Cor não saiu do lugar ou diminuiu o atual
-            case 'normal':
+            case CurrentVariant.Normal:
             default:
                 return '#EB903D'; // Cor padrão
         }
     }};
     border: ${({ status }) => {
         switch (status) {
-            case 'exceeded':
+            case CurrentVariant.Star:
                 return '3px solid #FED182'; // Borda para quando a meta é excedida
-            case 'warning':
+            case CurrentVariant.Warning:
                 return '3px solid #E25454'; // Cor não saiu do lugar ou diminuiu o atual
-            case 'normal':
+            case CurrentVariant.Normal:
             default:
                 return '3px solid #F0B37D'; // Borda padrão
         }
@@ -77,7 +78,7 @@ export const CurrentIndicator = styled.div<{position: number, status: 'normal' |
     z-index: 2;
 `;
 
-export const EndIndicator = styled.div<{position: number, isGoalReached: boolean, isGoalExceeded: boolean}>`
+export const EndIndicator = styled.div<{ position: number, isGoalReached: boolean, isGoalExceeded: boolean }>`
     width: 26px;
     height: 26px;
     border-radius: 50%;
@@ -96,9 +97,12 @@ export const EndIndicator = styled.div<{position: number, isGoalReached: boolean
 `;
 
 
-export const ProgressBarColor= styled.div<ProgressBarColorProps>`
+export const ProgressBarColor = styled.div<ProgressBarColorProps>`
     height: 100%;
-    background: linear-gradient(90deg, rgba(161,162,171,1) 4%, rgba(251,141,40,1) 80%);
+    background: ${({ isGoalExceeded }) =>
+        isGoalExceeded
+            ? 'linear-gradient(90deg, rgba(161,162,171,1) 4%, rgba(251,141,40,1) 60%, rgba(255,215,0,1) 100%)'
+            : 'linear-gradient(90deg, rgba(161,162,171,1) 4%, rgba(251,141,40,1) 4%)'};
     border-radius: 50px;
     width: ${({ width }) => width}%;
     position: absolute;
@@ -116,13 +120,16 @@ export const TextUP = styled.div`
     margin-bottom: 24px;
 `
 
-export const IndicatorText = styled.div<{position: number}>`
+export const IndicatorText = styled.div<{ position: number }>`
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 100%; /* Ajuste conforme necessário */
-    left: ${props => props.position}%; /* Posiciona o texto com base na posição do indicador */
-    transform: translateX(-50%); /* Centraliza o texto horizontalmente */
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'}); /* Posiciona o texto com base na posição do indicador */
     margin-top: 8px; /* Espaço entre o indicador e o texto */
     font-size: 12px; /* Tamanho da fonte */
     color: #333; /* Cor do texto */
     white-space: nowrap; /* Impede quebra de linha */
+
 `;

@@ -1,8 +1,16 @@
 import { useMemo } from 'react'
+import { MESSAGES } from './progressTexts';
 
-function calculatePercentageRelativeToRange(start: number, middle: number, end: number): number {
+function toRange(start: number, middle: number, end: number): number {
     return ((middle - start) / (end - start)) * 100
 }
+
+export enum CurrentVariant {
+    Normal = 'Normal',
+    Warning = 'Warning',
+    Star = 'star'
+}
+export type CurrentVariantValue = (typeof CurrentVariant)[keyof typeof CurrentVariant]
 
 export const useProgressGoalBar = ({ start, current, goal }) => {
     const startValue = start < goal ? start : goal
@@ -10,8 +18,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
     const currentValue = current
 
     const isGoalReached = currentValue === goal
-    const isGoalExceeded = start < goal && currentValue > goal || start > goal && currentValue < goal
-    const isNOGoalWarning = currentValue === startValue || currentValue < startValue
+    const isNoGoal = currentValue === start
+    const noResult = (start < goal && currentValue == start) ||  (start > goal && currentValue == start)
 
     // Cálculo do progresso
     const progressPercentage = useMemo(() => {
@@ -26,78 +34,137 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         return Math.min(Math.max(Math.abs(percentage), 0), 100)
     }, [currentValue, start, goal])
 
-    // Definindo a mensagem de progresso
-    const progressMessage = useMemo(() => {
-        if (currentValue === goal) {
-            // Atingiu a meta, independentemente de ser para aumentar ou diminuir
-            return 'Este resultado atingiu a meta definida! 🎉'
-        } else if (isGoalExceeded) {
-            // Superou a endValue, independentemente de ser para aumentar ou diminuir
-            return (
-                <div>
-                    Este resultado <strong>superou a meta</strong> definida! 🎉
-                </div>
-            )
-        } else if (currentValue < startValue) {
-            // Caso o valor esteja abaixo do início, significa que regrediu
-            return (
-                <div>
-                    Este resultado <strong>não atingiu</strong> a meta definida e <strong>regrediu</strong> em relação
-                    ao valor inicial.
-                </div>
-            )
-        } else if (currentValue === startValue) {
-            // Não houve progresso em relação ao valor inicial
-            return (
-                <div>
-                    Este desafio <strong>não obteve resultados</strong> e <strong>não atingiu</strong> a meta definida.
-                </div>
-            )
-        } else {
-            // Evoluiu, mas ainda não atingiu a meta
-            return (
-                <div>
-                    Este <strong>resultado evoluiu</strong>, mas <strong>não atingiu</strong> a meta definida.
-                </div>
-            )
-        }
-    }, [currentValue, startValue, endValue, goal])
 
-    const startIndicatorPosition = useMemo(() => {
-        if (goal > start && currentValue < startValue)
-            return calculatePercentageRelativeToRange(currentValue, start, endValue)
-        if (goal < start && currentValue > startValue)
-            return calculatePercentageRelativeToRange(start, currentValue, goal)
-        return 0
-    }, [startValue, currentValue, endValue])
+    const positions = useMemo(() => {
+        // reachedGoalIncrease
+        if (start < goal && currentValue > start && currentValue == goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: 100,
+                barRef: 'goal',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.reachedGoal,
+            }
 
-    const currentIndicatorPosition = useMemo(() => {
-        if (goal > start && currentValue < startValue) return 0
-        if (goal > start && currentValue > endValue) return 100
-        if (goal < start && currentValue < startValue) return 100
-        if (goal < start && currentValue > endValue) return 0
-        return calculatePercentageRelativeToRange(start, currentValue, goal)
-    }, [startValue, currentValue, endValue])
+        // reachedGoalDecreased
+        if (start > goal && currentValue == goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: 100,
+                barRef: 'goal',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.reachedGoal,
+            }
 
-    const endIndicatorPosition = useMemo(() => {
-        if (goal > start && currentValue > endValue)
-            return calculatePercentageRelativeToRange(startValue, endValue, currentValue)
-        if (goal < start && currentValue < endValue)
-            return calculatePercentageRelativeToRange(start, goal, currentValue)
-        return 100
-    }, [endValue, currentValue])
+        // exceededTargetIncrease
+        if (start < goal && currentValue > start && currentValue > goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: toRange(start, goal, currentValue),
+                barRef: 'current',
+                currentVariant: CurrentVariant.Star,
+                message: MESSAGES.progressExceeded,
+                currenText: MESSAGES.currentTextResult
+            }
+
+        // exceededTargetDecreased
+        if (start > goal && currentValue < goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: toRange(start, goal, currentValue),
+                barRef: 'current',
+                currentVariant: CurrentVariant.Star,
+                message: MESSAGES.progressExceeded,
+                currenText: MESSAGES.currentTextResult
+            }
+
+        // GrowingWithoutReachingGoal
+        if (start < goal && currentValue > start && currentValue < goal)
+            return {
+                start: 0,
+                current: toRange(start, currentValue, goal),
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.progressImproved,
+                currenText: MESSAGES.currentTextResult
+            }
+
+        // DecreasingWithoutGoal
+        if (start > goal && currentValue > goal && currentValue < start)
+            return {
+                start: 0,
+                current: toRange(start, currentValue, goal),
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.progressImproved,
+                currenText: MESSAGES.currentTextResult
+            }
+
+        // noResultsIncrease
+        if (start < goal && currentValue == start)
+            return {
+                start: 0,
+                current: 0,
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoResults,
+                currenText: MESSAGES.currentTextInitAndResult
+            }
+
+        // noResultsDecreased
+        if (start > goal && currentValue == start)
+            return {
+                start: 0,
+                current: 0,
+                goal: 100,
+                bar: 'current',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoResults,
+                currenText: MESSAGES.currentTextInitAndResult
+            }
+
+        // noGoalIncrease
+        if (start < goal && currentValue < start)
+            return {
+                start: toRange(currentValue, start, goal),
+                current: 0,
+                goal: 100,
+                barRef: 'start',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoGoal,
+                currenText: MESSAGES.currentTextResult
+            }
+
+        // noGoalDecreased
+        if (start > goal && currentValue > start)
+            return {
+                start: toRange(currentValue, start, goal),
+                current: 0,
+                goal: 100,
+                barRef: 'start',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoGoal,
+                currenText:  MESSAGES.currentTextResult
+            }
+    }, [])
+
+    const isGoalExceeded = useMemo(() => positions.currentVariant == CurrentVariant.Star, [positions])
 
     return {
-        calculatePercentageRelativeToRange,
-        progressMessage,
         progressPercentage,
         currentValue,
         endValue,
         isGoalReached,
-        startIndicatorPosition,
-        currentIndicatorPosition,
-        endIndicatorPosition,
         isGoalExceeded,
-        isNOGoalWarning
+        isNoGoal,
+        positions,
+        noResult
     }
 }

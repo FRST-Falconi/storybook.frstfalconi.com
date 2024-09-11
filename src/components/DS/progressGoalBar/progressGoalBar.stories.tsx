@@ -42,14 +42,14 @@ exceededTargetDecreased.args = {
 export const GrowingWithoutReachingGoal = Template.bind({})
 GrowingWithoutReachingGoal.args = {
     start: 10,
-    current: 70,
+    current: 60,
     goal: 80
 }
 
 export const DecreasingWithoutGoal = Template.bind({})
 DecreasingWithoutGoal.args = {
     start: 40,
-    current: 15,
+    current: 15, // 
     goal: 5
 }
 
@@ -70,15 +70,14 @@ noResultsDecreased.args = {
 
 export const noGoalIncrease = Template.bind({})
 noGoalIncrease.args = {
-    start: 10,
-    current: 5,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
+    start: 60,
+    current: 50,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
     goal: 80
 }
 
 export const noGoalDecreased = Template.bind({})
 noGoalDecreased.args = {
-    start: 40,
-    current: 50,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
-
+    start: 20,
+    current: 30,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
     goal: 5
 }
