@@ -140,6 +140,18 @@ function WarningIcon$1({ fill, width, height }) {
 function FRSTLogo({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '92', height: height ? height : '29', viewBox: "0 0 92 29", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M5.65283 5.79883H23.0488V0.000112057H5.65283V5.79883Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M76.6865 29H82.4851V7.24833H76.6865V29Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M67.9883 0.0423484V5.84106H91.183V0.0423484H67.9883Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M60.1725 12.0406C55.6756 10.9699 54.9673 10.9269 54.9673 8.18607C54.9673 6.08764 55.6097 5.79865 58.4791 5.79865C59.2456 5.79865 60.0151 5.79865 60.6958 5.94355L60.7304 0.154449C60.1601 -6.48499e-05 59.6993 -6.48499e-05 58.9732 -6.48499e-05C51.136 -6.48499e-05 49.123 2.31875 49.123 8.01472C49.123 14.1818 50.1509 15.5522 57.046 17.0513C61.7142 18.079 62.1896 18.2339 62.1896 20.8034C62.1896 23.2017 60.8484 23.1946 57.5507 23.1946C56.5639 23.1946 55.811 23.1946 54.9413 23.0496V28.8483C55.811 28.9932 56.6036 28.9932 57.527 28.9932C66.5386 28.9932 67.9768 26.4993 67.9768 20.8462C67.9768 15.236 67.8813 13.8819 60.1725 12.0406Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M20.1496 13.0452H5.65303L0 15.8787L1.57347 21.3824L5.65303 19.2136V28.9915H11.4517V18.8438H20.1496V13.0452Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M43.3443 11.5735V7.27213C43.3443 3.25592 40.0886 -6.48499e-05 36.0722 -6.48499e-05H28.8477V5.79865H34.8031C36.318 5.79865 37.5457 7.02658 37.5457 8.54109V10.3045C37.5457 11.819 36.318 13.047 34.8031 13.047H28.8477V18.8455H30.9999L38.4154 28.9932L43.3443 25.0793L38.5443 18.3814C38.9133 18.2948 39.1938 18.192 39.339 18.0701C41.714 16.8734 43.3443 14.4145 43.3443 11.5735Z", fill: fill ?? 'white' })] }));
 }
+function GoalIcon() {
+    return (jsxRuntime.jsx("svg", { width: "11", height: "12", viewBox: "0 0 11 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M10.1339 7.50819C10.1821 7.60088 10.1774 7.71153 10.1198 7.79974C10.0623 7.88795 9.96275 7.94178 9.85542 7.94178H2.0779V11.2356C2.0779 11.566 1.79946 11.8337 1.4557 11.8337C1.11193 11.8337 0.833496 11.566 0.833496 11.2356V7.04917C0.833496 7.04917 0.833496 7.04768 0.833496 7.04618V2.85826C0.833496 1.37358 2.08879 0.166992 3.6334 0.166992H9.85542C9.96275 0.166992 10.0639 0.220818 10.1198 0.309032C10.1774 0.397245 10.1821 0.506392 10.1339 0.600586L8.54568 3.65369C8.41502 3.90487 8.41502 4.2054 8.54568 4.45658L10.1339 7.50968V7.50819Z", fill: "white" }) }));
+}
+function ExclamationIcon() {
+    return (jsxRuntime.jsx("svg", { width: "23", height: "22", viewBox: "0 0 23 22", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.4998 5.58366C12.0957 5.58366 12.5832 6.07116 12.5832 6.66699V11.0003C12.5832 11.5962 12.0957 12.0837 11.4998 12.0837C10.904 12.0837 10.4165 11.5962 10.4165 11.0003V6.66699C10.4165 6.07116 10.904 5.58366 11.4998 5.58366ZM11.4998 14.2503C12.0957 14.2503 12.5832 14.7378 12.5832 15.3337C12.5832 15.9295 12.0957 16.417 11.4998 16.417C10.904 16.417 10.4165 15.9295 10.4165 15.3337C10.4165 14.7378 10.904 14.2503 11.4998 14.2503Z", fill: "white" }) }));
+}
+function StarIcon$1() {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "13", viewBox: "0 0 14 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.57085 0.717765C6.7649 0.393208 7.2351 0.393208 7.42915 0.717765L9.18631 3.65671C9.25631 3.77378 9.37108 3.85717 9.50405 3.88756L12.8421 4.65054C13.2108 4.7348 13.3561 5.18198 13.1074 5.46682L10.8553 8.04618C10.7656 8.14892 10.7217 8.28385 10.7339 8.41969L11.0398 11.8302C11.0736 12.2068 10.6932 12.4832 10.3454 12.3347L7.19637 10.9899C7.07094 10.9363 6.92906 10.9363 6.80363 10.9899L3.65458 12.3347C3.30682 12.4832 2.92643 12.2068 2.96021 11.8302L3.2661 8.41969C3.27828 8.28385 3.23444 8.14892 3.14473 8.04618L0.892626 5.46682C0.643919 5.18198 0.789216 4.7348 1.15785 4.65054L4.49595 3.88756C4.62892 3.85717 4.74369 3.77378 4.81369 3.65671L6.57085 0.717765Z", fill: "white" }) }));
+}
+function LocalizationIcon() {
+    return (jsxRuntime.jsx("svg", { width: "15", height: "14", viewBox: "0 0 15 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.74461 5.77226C8.74461 6.44769 8.18461 7.00033 7.50016 7.00033C6.81572 7.00033 6.25572 6.44769 6.25572 5.77226C6.25572 5.09682 6.81572 4.54419 7.50016 4.54419C8.18461 4.54419 8.74461 5.09682 8.74461 5.77226ZM12.1668 5.77226C12.1668 9.50559 9.26105 11.8451 8.01661 12.674C7.86105 12.7845 7.68061 12.8337 7.50016 12.8337C7.31972 12.8337 7.13928 12.7845 6.9775 12.674C5.73305 11.8451 2.8335 9.51173 2.8335 5.77226C2.8335 3.14418 4.83705 1.16699 7.50016 1.16699C10.1633 1.16699 12.1668 3.14418 12.1668 5.77226ZM9.98905 5.77226C9.98905 4.41524 8.87527 3.31611 7.50016 3.31611C6.12505 3.31611 5.01127 4.41524 5.01127 5.77226C5.01127 7.12927 6.12505 8.2284 7.50016 8.2284C8.87527 8.2284 9.98905 7.12927 9.98905 5.77226Z", fill: "white" }) }));
+}
 function FRSTLogoBig({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '142', height: height ? height : '40', viewBox: "0 0 142 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.77222 7.99854H35.7659V0.000332832H8.77222V7.99854Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M118.996 40H127.994V9.99779H118.996V40Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M105.499 0.05795V8.05615H141.491V0.05795H105.499Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M93.3707 16.6074C86.3928 15.1306 85.2937 15.0713 85.2937 11.2909C85.2937 8.39651 86.2906 7.99791 90.743 7.99791C91.9324 7.99791 93.1265 7.99791 94.1828 8.19776L94.2365 0.212822C93.3515 -0.000297546 92.6365 -0.000297546 91.5098 -0.000297546C79.3487 -0.000297546 76.2251 3.19806 76.2251 11.0545C76.2251 19.5609 77.8201 21.451 88.5193 23.5188C95.7631 24.9363 96.5008 25.1499 96.5008 28.694C96.5008 32.002 94.4195 31.9923 89.3025 31.9923C87.7712 31.9923 86.6029 31.9923 85.2534 31.7923V39.7904C86.6029 39.9902 87.8328 39.9902 89.2657 39.9902C103.249 39.9902 105.481 36.5505 105.481 28.753C105.481 21.0149 105.333 19.1472 93.3707 16.6074Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M31.2666 17.9928H8.77192L0 21.9011L2.44158 29.4923L8.77192 26.5009V39.9875H17.7697V25.9908H31.2666V17.9928Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M67.2584 15.9632V10.0303C67.2584 4.4907 62.2065 -0.000297546 55.9742 -0.000297546H44.7637V7.99791H54.0049C56.3555 7.99791 58.2606 9.69159 58.2606 11.7806V14.2129C58.2606 16.3019 56.3555 17.9955 54.0049 17.9955H44.7637V25.9935H48.1034L59.6102 39.9902L67.2584 34.5918L59.8101 25.3533C60.3827 25.2339 60.8179 25.0922 61.0433 24.924C64.7287 23.2734 67.2584 19.8818 67.2584 15.9632Z", fill: fill ?? 'white' })] }));
 }
@@ -8127,6 +8139,349 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                                 boxShadow: ' 0px 25px 18px -20px #22222233;',
                                                 display: variant === 'impediment' || isEditing ? 'none' : 'block'
                                             }, children: jsxRuntime.jsx("div", { style: { width: '100%', overflow: 'hidden' }, children: editDescription }) }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
+};
+
+const MESSAGES = {
+    reachedGoal: jsxRuntime.jsx("div", { children: "Este resultado atingiu a meta definida! \uD83C\uDF89" }),
+    progressExceeded: (jsxRuntime.jsxs("div", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "superou a meta" }), " definida! \uD83C\uDF89"] })),
+    progressImproved: (jsxRuntime.jsxs("div", { children: ["Este ", jsxRuntime.jsx("strong", { children: "resultado evoluiu" }), ", mas ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
+    progressNoResults: (jsxRuntime.jsxs("div", { children: ["Este desafio ", jsxRuntime.jsx("strong", { children: "n\u00E3o obteve resultados" }), " e ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
+    progressNoGoal: (jsxRuntime.jsxs("div", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida e ", jsxRuntime.jsx("strong", { children: "regrediu" }), " em rela\u00E7\u00E3o ao valor inicial"] })),
+    currentTextResult: jsxRuntime.jsx("div", { children: "RESULTADO" }),
+    currentTextInitAndResult: jsxRuntime.jsx("div", { children: "IN\u00CDCIO E RESULTADO" }),
+    currentTextInit: jsxRuntime.jsx("div", { children: "IN\u00CDCIO" }),
+    currentTextMeta: jsxRuntime.jsx("div", { children: "META" })
+};
+
+function toRange(start, middle, end) {
+    return ((middle - start) / (end - start)) * 100;
+}
+var CurrentVariant;
+(function (CurrentVariant) {
+    CurrentVariant["Normal"] = "Normal";
+    CurrentVariant["Warning"] = "Warning";
+    CurrentVariant["Star"] = "star";
+})(CurrentVariant || (CurrentVariant = {}));
+const useProgressGoalBar = ({ start, current, goal }) => {
+    const endValue = start > goal ? start : goal;
+    const currentValue = current;
+    const isGoalReached = currentValue === goal;
+    const isNoGoal = currentValue === start;
+    const noGoal = (start < goal && currentValue < start) || (start > goal && currentValue > start);
+    const noResult = (start < goal && currentValue == start) || (start > goal && currentValue == start);
+    const resultEvolved = (start < goal && currentValue > start && currentValue);
+    // Cálculo do progresso
+    const progressPercentage = React.useMemo(() => {
+        let percentage;
+        if (start < goal) {
+            percentage = ((currentValue - start) / (goal - start)) * 100;
+        }
+        else {
+            percentage = ((start - currentValue) / (start - goal)) * 100;
+        }
+        return Math.min(Math.max(Math.abs(percentage), 0), 100);
+    }, [currentValue, start, goal]);
+    const positions = React.useMemo(() => {
+        // reachedGoalIncrease
+        if (start < goal && currentValue > start && currentValue == goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: 100,
+                barRef: 'goal',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.reachedGoal,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // reachedGoalDecreased
+        if (start > goal && currentValue == goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: 100,
+                barRef: 'goal',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.reachedGoal,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // exceededTargetIncrease
+        if (start < goal && currentValue > start && currentValue > goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: toRange(start, goal, currentValue),
+                barRef: 'current',
+                currentVariant: CurrentVariant.Star,
+                message: MESSAGES.progressExceeded,
+                currenText: MESSAGES.currentTextResult,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // exceededTargetDecreased
+        if (start > goal && currentValue < goal)
+            return {
+                start: 0,
+                current: 100,
+                goal: toRange(start, goal, currentValue),
+                barRef: 'current',
+                currentVariant: CurrentVariant.Star,
+                message: MESSAGES.progressExceeded,
+                currenText: MESSAGES.currentTextResult,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // GrowingWithoutReachingGoal
+        if (start < goal && currentValue > start && currentValue < goal)
+            return {
+                start: 0,
+                current: toRange(start, currentValue, goal),
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.progressImproved,
+                currenText: MESSAGES.currentTextResult,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // DecreasingWithoutGoal
+        if (start > goal && currentValue > goal && currentValue < start)
+            return {
+                start: 0,
+                current: toRange(start, currentValue, goal),
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant.Normal,
+                message: MESSAGES.progressImproved,
+                currenText: MESSAGES.currentTextResult,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // noResultsIncrease
+        if (start < goal && currentValue == start)
+            return {
+                start: 0,
+                current: 0,
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoResults,
+                currenText: MESSAGES.currentTextInitAndResult
+            };
+        // noResultsDecreased
+        if (start > goal && currentValue == start)
+            return {
+                start: 0,
+                current: 0,
+                goal: 100,
+                bar: 'current',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoResults,
+                currenText: MESSAGES.currentTextInitAndResult
+            };
+        // noGoalIncrease
+        if (start < goal && currentValue < start)
+            return {
+                start: toRange(currentValue, start, goal),
+                current: 0,
+                goal: 100,
+                barRef: 'start',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoGoal,
+                currenText: MESSAGES.currentTextResult,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+        // noGoalDecreased
+        if (start > goal && currentValue > start)
+            return {
+                start: toRange(currentValue, start, goal),
+                current: 0,
+                goal: 100,
+                barRef: 'start',
+                currentVariant: CurrentVariant.Warning,
+                message: MESSAGES.progressNoGoal,
+                currenText: MESSAGES.currentTextResult,
+                currentTextInit: MESSAGES.currentTextInit
+            };
+    }, []);
+    const isGoalExceeded = React.useMemo(() => positions.currentVariant == CurrentVariant.Star, [positions]);
+    return {
+        progressPercentage,
+        currentValue,
+        endValue,
+        isGoalReached,
+        isGoalExceeded,
+        isNoGoal,
+        positions,
+        noGoal,
+        noResult,
+        resultEvolved
+    };
+};
+
+const WrapperProgressGoalBar = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+`;
+const ProgressGoalBarContainer = styled__default["default"].div `
+    width: 346px;
+    background-color:#D7D7D7;
+    height: 16px;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items:center;
+    z-index: 0;
+`;
+const StartIndicator = styled__default["default"].div `
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #8D8E96;
+    border: 3px solid #BFBFC4       ;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 26px'});
+    z-index: 2;
+`;
+const CurrentIndicator = styled__default["default"].div `
+    width: 26px;
+    height: 26px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;   
+    justify-content: center;
+    background: ${({ status }) => {
+    switch (status) {
+        case CurrentVariant.Star:
+            return '#FDB437'; // Cor para quando a meta é excedida
+        case CurrentVariant.Warning:
+            return '#C03535'; // Cor não saiu do lugar ou diminuiu o atual
+        case CurrentVariant.Normal:
+        default:
+            return '#EB903D';
+    }
+}};
+    border: ${({ status }) => {
+    switch (status) {
+        case CurrentVariant.Star:
+            return '3px solid #FED182'; // Borda para quando a meta é excedida
+        case CurrentVariant.Warning:
+            return '3px solid #E25454'; // Cor não saiu do lugar ou diminuiu o atual
+        case CurrentVariant.Normal:
+        default:
+            return '3px solid #F0B37D'; // Borda padrão
+    }
+}};
+    position: absolute;
+    top: -5px;
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 16px'});
+    z-index: 2;
+`;
+const EndIndicator = styled__default["default"].div `
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: ${({ isGoalReached, isGoalExceeded }) => isGoalReached || isGoalExceeded ? '#F18624' : '#757575'};
+    border: ${({ isGoalReached, isGoalExceeded }) => isGoalReached || isGoalExceeded ? '3px solid #FFA24C' : '3px solid #9C9C9C'};
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    /* left: calc(346px - 50px); */
+    left: calc(${({ position }) => position}% - 52px);
+    z-index: 2;
+`;
+const ProgressBarColor = styled__default["default"].div `
+    height: 100%;
+    border-radius: 50px;
+    width: ${({ width }) => width}%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: ${({ isGoalExceeded, hasRegressed }) => {
+    if (hasRegressed) {
+        return '#C90017';
+    }
+    else if (isGoalExceeded) {
+        return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 60%, rgba(255, 215, 0, 1) 100%)';
+    }
+    else {
+        return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 4%)';
+    }
+}};
+`;
+const TextUP = styled__default["default"].div `
+    font-size: 14px;
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 500;
+    color: #444444;
+    margin-bottom: 24px;
+`;
+const IndicatorText = styled__default["default"].div `
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: ${({ noResult, isGoalReached, isGoalExceeded, resultEvolved, start }) => noResult || isGoalReached || isGoalExceeded || resultEvolved || start === 0 ? 'start' : 'center'};
+    top: 100%; 
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'}); /* Posiciona o texto com base na posição do indicador */
+    margin-top: 8px; 
+    font-size: 12px; 
+    color: #333;
+    white-space: nowrap; 
+`;
+const IndicatorTextCurrent = styled__default["default"].div `
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items:  ${({ noGoal, noResult }) => noGoal || noResult ? 'start' : 'center'};
+    top: 100%; 
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 37px'}); 
+    margin-top: 8px;
+    font-size: 12px; 
+    color: #333; 
+    white-space: nowrap;
+
+`;
+styled__default["default"].div `
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    top: 100%;
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'});
+    margin-top: 8px; 
+    font-size: 12px;
+    color: #333;
+    white-space: nowrap; 
+
+`;
+const Number$1 = styled__default["default"].p `
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18.77px;
+    color: #444444;
+`;
+const TypeProgressText = styled__default["default"].p `
+    font-family: 'Work Sans';
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 11.73px;
+`;
+
+const ProgressGoalBar = ({ start, current, goal }) => {
+    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved } = useProgressGoalBar({
+        start,
+        current,
+        goal
+    });
+    return (jsxRuntime.jsxs(WrapperProgressGoalBar, { children: [jsxRuntime.jsx(TextUP, { children: positions.message }), jsxRuntime.jsxs(ProgressGoalBarContainer, { children: [jsxRuntime.jsx(StartIndicator, { position: positions.start, children: jsxRuntime.jsx(LocalizationIcon, {}) }), jsxRuntime.jsx(IndicatorText, { noResult: noResult, position: positions.start, isGoalReached: isGoalReached, isGoalExceeded: isGoalExceeded, resultEvolved: resultEvolved, start: positions.start, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Number$1, { children: start }), jsxRuntime.jsx(TypeProgressText, { children: noResult ? positions.currenText : positions.currentTextInit })] }) }), !isGoalReached && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CurrentIndicator, { status: positions.currentVariant, position: positions.current, children: isGoalExceeded ? jsxRuntime.jsx(StarIcon$1, {}) : jsxRuntime.jsx(ExclamationIcon, {}) }), jsxRuntime.jsx(IndicatorTextCurrent, { position: positions.current, noGoal: noGoal, noResult: noResult, children: !noResult && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Number$1, { children: current }), jsxRuntime.jsx(TypeProgressText, { children: positions.currenText })] })) })] })), jsxRuntime.jsx(EndIndicator, { position: positions.goal, isGoalExceeded: isGoalExceeded, isGoalReached: isGoalReached, children: jsxRuntime.jsx(GoalIcon, {}) }), jsxRuntime.jsxs(IndicatorText, { position: positions.goal, children: [jsxRuntime.jsx(Number$1, { children: goal }), jsxRuntime.jsx(TypeProgressText, { children: "META" })] }), jsxRuntime.jsx(ProgressBarColor, { isGoalExceeded: isGoalExceeded, width: positions[positions.barRef], hasRegressed: noGoal })] })] }));
 };
 
 const ModalContainer = styled__default["default"].div `
@@ -22701,6 +23056,7 @@ exports.PopOver = PopOver;
 exports.PopOverLXP = PopOverLXP;
 exports.PostFeed = PostFeed;
 exports.ProgressBar = ProgressBar$1;
+exports.ProgressGoalBar = ProgressGoalBar;
 exports.QuantidadeDesafios = QuantidadeDesafios;
 exports.Rating = Rating;
 exports.ResourceInfoDrop = ResourceInfoDrop;

@@ -95,6 +95,7 @@ export { default as OnboardingProgressMenu } from './src/components/DS/onboardin
 export { default as CardUser } from './src/components/DS/cardUser'
 export { default as ImpedimentosTab } from './src/components/DS/impedimentosTab'
 export { HypothesisAndImpediment } from './src/components/DS/hypotesisAndImpediment'
+export {ProgressGoalBar} from './src/components/DS/progressGoalBar'
 export {ConfirmationModal} from './src/components/DS/ConfirmationModal'
 
 export { default as SearchField } from './src/components/search-field'
