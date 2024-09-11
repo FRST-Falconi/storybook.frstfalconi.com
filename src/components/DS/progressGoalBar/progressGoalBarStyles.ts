@@ -5,6 +5,7 @@ import { CurrentVariant, CurrentVariantValue } from './useProgressGoalBar';
 interface ProgressBarColorProps {
     width: number;
     isGoalExceeded: boolean
+    hasRegressed: boolean
 }
 
 
@@ -99,16 +100,21 @@ export const EndIndicator = styled.div<{ position: number, isGoalReached: boolea
 
 export const ProgressBarColor = styled.div<ProgressBarColorProps>`
     height: 100%;
-    background: ${({ isGoalExceeded }) =>
-        isGoalExceeded
-            ? 'linear-gradient(90deg, rgba(161,162,171,1) 4%, rgba(251,141,40,1) 60%, rgba(255,215,0,1) 100%)'
-            : 'linear-gradient(90deg, rgba(161,162,171,1) 4%, rgba(251,141,40,1) 4%)'};
     border-radius: 50px;
     width: ${({ width }) => width}%;
     position: absolute;
     left: 0;
     top: 0;
     z-index: 1;
+    background: ${({ isGoalExceeded, hasRegressed }) => {
+    if (hasRegressed) {
+      return '#C90017';
+    } else if (isGoalExceeded) {
+      return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 60%, rgba(255, 215, 0, 1) 100%)';
+    } else {
+      return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 4%)';
+    }
+  }};
 `;
 
 export const TextUP = styled.div`

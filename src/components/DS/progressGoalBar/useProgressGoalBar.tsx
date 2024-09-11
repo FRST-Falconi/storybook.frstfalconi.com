@@ -19,7 +19,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
 
     const isGoalReached = currentValue === goal
     const isNoGoal = currentValue === start
-    const noResult = (start < goal && currentValue == start) ||  (start > goal && currentValue == start)
+    const noGoal = (start < goal && currentValue < start) ||  (start > goal && currentValue > start)
+    const noResult = (start < goal && currentValue == start) || (start > goal && currentValue == start)
 
     // Cálculo do progresso
     const progressPercentage = useMemo(() => {
@@ -165,6 +166,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         isGoalExceeded,
         isNoGoal,
         positions,
+        noGoal,
         noResult
     }
 }

@@ -9,7 +9,7 @@ interface ProgressGoalBarProps {
 }
 
 export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) => {
-    const { isGoalExceeded, isGoalReached, positions, noResult } = useProgressGoalBar({ start, current, goal })
+    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult} = useProgressGoalBar({ start, current, goal })
 
     return (
         <Styles.WrapperProgressGoalBar>
@@ -62,6 +62,7 @@ export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) 
                 <Styles.ProgressBarColor
                     isGoalExceeded={isGoalExceeded}
                     width={positions[positions.barRef]}
+                    hasRegressed={noGoal}
                 ></Styles.ProgressBarColor>
             </Styles.ProgressGoalBarContainer>
         </Styles.WrapperProgressGoalBar>
