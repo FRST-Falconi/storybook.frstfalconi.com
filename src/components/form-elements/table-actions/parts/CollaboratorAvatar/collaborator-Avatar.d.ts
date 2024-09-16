@@ -5,4 +5,6 @@ export interface ICollaboratorAvatar {
   uuid?: string;
   labelTextVisitProfile?: string;
   align?: string;
+  isResponsible?: boolean;
+  userName?: string;
 }

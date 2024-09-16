@@ -7,6 +7,7 @@ export const ContainerDropdown = styled('div')`
     border-radius: 8px;
     box-shadow: 0px 5px 15px 0px #00000040;
     background-color: #FFFFFF;
+    width: 300px;
 `
 
 export const DropdownRow = styled('div')`
@@ -19,6 +20,10 @@ export const DropdownRow = styled('div')`
         font-size: 16px;
         line-height: 1.1;
         font-weight: 400;
+        color: ${({theme}) => theme.colors.neutralsGrey1};
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden
     }
 
     :first-child {

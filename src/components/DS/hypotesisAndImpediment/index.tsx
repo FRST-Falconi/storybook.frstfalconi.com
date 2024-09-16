@@ -1,13 +1,14 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
 import MenuMore from '@components/menu-more'
-import { AddIcon, EditIcon, StarPrioritize, TrashDelete } from '@shared/icons'
+import { AddAction, EditHipoteses, StarPrioritize, TrashHipoteses } from '@shared/icons'
 import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
 import { Voting } from './Voting'
 import { EditHypotesisAndImpediment } from './editHypotesisAndImpediment'
+import { TextField } from '@mui/material'
 
 export const HypothesisAndImpediment = ({
     description,
@@ -44,7 +45,34 @@ export const HypothesisAndImpediment = ({
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
     const isOwnerGoal = authorGoalId === authorId
-
+    const options = [
+        hasUpdownButtons && userLoggedId === authorGoalId &&
+        ({
+            startIcon: <StarPrioritize stroke={type === 'prioritize' ? "#9C9C9C" : "#222222"} />,
+            description: 'Priorizar',
+            onClick: () => onPrioritize(id),
+            disabled: type === 'prioritize',
+            color: type === 'prioritize' ? '#9C9C9C' : '#222222'
+        }),
+        {
+            startIcon: <EditHipoteses />,
+            description: 'Editar',
+            onClick: (e) => setIsEditing(true)
+        },
+        hasAddActions &&
+        ({
+            startIcon: <AddAction />,
+            description: 'Adicionar ações',
+            onClick: () => onAddActions(id),
+            color: '#222222'
+        }),
+        {
+            startIcon: <TrashHipoteses />,
+            description: 'Excluir',
+            onClick: () => onDeleteHipotesisOrImpediment(id),
+            color: '#C00F00'
+        }
+    ].filter(item => item)
 
     useEffect(() => {
         setEditDescription(description)
@@ -60,11 +88,14 @@ export const HypothesisAndImpediment = ({
     const avatarBorder = isOwnerGoal ? `2px solid ${Styles.borderAvatar[variant][type]}` : 'none'
 
     const handleSaveDescription = () => {
-        onSaveEditHipotesisOrImpediment(editDescription)
-        setIsEditing(false)
+        if(isEditing) {
+            onSaveEditHipotesisOrImpediment(editDescription)
+            setIsEditing(false)
+        }
     }
 
     const handleCancel = () => {
+        setEditDescription(description)
         setIsEditing(false)
     }
 
@@ -79,16 +110,52 @@ export const HypothesisAndImpediment = ({
 
         return false
     }, [type, hasEditHipotesisOrImpediment, authorGoalId, authorId, userLoggedId])
+    const clickTimeoutRef = useRef(null);
 
     const handleClickAction = (event) => {
-        event.stopPropagation();
-        onClickAction()
+        if (clickTimeoutRef.current) {
+            clearTimeout(clickTimeoutRef.current); 
+        }
+    
+        clickTimeoutRef.current = setTimeout(() => {
+            if(!isEditing) { 
+                event.stopPropagation();
+                onClickAction()
+            }
+        }, 300);
     };
+
+    const inputRef = useRef(null);
+    
+    const handleBlur = () => {
+        setEditDescription(description)
+        setIsEditing(false)
+    };
+
+    const handleChange = (event) => {
+        setEditDescription(event.target.value);
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleSaveDescription()
+        } else if (event.key === 'Escape') {
+            handleCancel();
+        }
+    };
+
+    useEffect(() => {
+        if (isEditing && inputRef.current) {
+            setTimeout(() => {
+                inputRef.current.focus();
+            }, 200)
+        }
+    }, [isEditing]);
 
     return (
         <>
             <Styles.MainContainer>
-                {isEditing ? (
+                {/*isEditing ? (
                     <EditHypotesisAndImpediment
                         setEditDescription={setEditDescription}
                         editDescription={editDescription}
@@ -96,7 +163,7 @@ export const HypothesisAndImpediment = ({
                         onCancel={handleCancel}
                         originalDescription={description}
                     />
-                ) : (
+                ) : (*/}
                     <Styles.ContainerHypotheis type={type} variant={variant}>
                         {
                             hasUpdownButtons &&
@@ -126,42 +193,79 @@ export const HypothesisAndImpediment = ({
                             >
                                 <Avatar
                                     src={avatar}
-                                    size={isOwnerGoal ? '28px' : '24px'}
+                                    size={isOwnerGoal ? '24px' : '24px'}
                                     border={avatarBorder}
-                                    style={{ marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }}
+                                    style={{ cursor: 'pointer', marginLeft: '16px' }}
                                     onClick={() => handleViewProfile(authorId)}
                                 />
                             </Tooltip>
                             <Styles.Title>{title}</Styles.Title>
-                            <Styles.Separator type={type} variant={variant} />
-                            
-                            <Styles.Description onClick={handleClickAction}>
-                                <Tooltip
-                                    content={'Clique na hipótese para ver as ações vinculadas'}
-                                    direction={'bottom'}
-                                    wrapperWidth='100%'
-                                    style={{
-                                        fontFamily: 'PT Sans',
-                                        fontWeight: 400,
-                                        fontSize: '14px',
-                                        color: '#757575',
-                                        width: '171px',
-                                        height: '52px',
-                                        top: '8px',
-                                        left: '4px',
-                                        whiteSpace: 'wrap',
-                                        boxShadow: ' 0px 25px 18px -20px #22222233;',
-                                        display: variant === 'impediment' ? 'none' : 'block'
-                                    }}
-                                >
-                                    <div style={{ width: '100%' }}>
-                                        {editDescription}
-                                    </div>
-                                </Tooltip>
+
+                                    
+                            <Styles.Description
+                                type={type}
+                                variant={variant}
+                                onClick={handleClickAction}       
+                                onDoubleClick={() => {
+                                    if (clickTimeoutRef.current) {
+                                        clearTimeout(clickTimeoutRef.current);
+                                    }
+                                    if(hasEditHipotesisOrImpediment) setIsEditing(true)
+                                }}
+                                style={{height: isEditing ? "auto": "fit-content"}}
+                            >
+                                {isEditing ?
+                                    <TextField
+                                        inputRef={inputRef}
+                                        value={editDescription}
+                                        onBlur={handleSaveDescription}
+                                        onChange={handleChange}
+                                        onKeyDown={handleKeyDown}
+                                        multiline
+                                        fullWidth
+                                        variant='standard'
+                                        InputProps={{
+                                            disableUnderline: true,
+                                            style:{
+                                                fontFamily: 'PT Sans',
+                                                fontSize: '14px',
+                                                lineHeight: 1.3
+                                            },
+                                        }}
+                                        onFocus={(e) =>
+                                            e.currentTarget.setSelectionRange(
+                                            e.currentTarget.value.length,
+                                            e.currentTarget.value.length
+                                        )}
+                                    />
+                                    :
+                                    <Tooltip
+                                        content={'Clique na hipótese para ver as ações vinculadas'}
+                                        direction={'bottom'}
+                                        wrapperWidth='100%'
+                                        style={{
+                                            fontFamily: 'PT Sans',
+                                            fontWeight: 400,
+                                            fontSize: '14px',
+                                            color: '#757575',
+                                            width: '171px',
+                                            height: '52px',
+                                            top: '8px',
+                                            left: '4px',
+                                            whiteSpace: 'wrap',
+                                            boxShadow: ' 0px 25px 18px -20px #22222233;',
+                                            display: variant === 'impediment' || isEditing ? 'none' : 'block'
+                                        }}
+                                    >
+                                        <div style={{ width: '100%' ,overflow: 'hidden' }}>
+                                            {editDescription}
+                                        </div>
+                                    </Tooltip>
+                                }
 
                             </Styles.Description>
 
-                            {hasVoting && (
+                            {!isEditing && hasVoting && (
                                 <Voting
                                     voteText={voteText}
                                     type={type}
@@ -174,45 +278,16 @@ export const HypothesisAndImpediment = ({
                                     popperStyle={popperStyle}
                                 />
                             )}
-                            {validHasEditHipotesisOrImpediment && (
+                            {!isEditing && validHasEditHipotesisOrImpediment && (
                                 <MenuMore
-                                    options={
-                                        [
-                                            hasUpdownButtons && userLoggedId === authorGoalId &&
-                                            ({
-                                                startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#9C9C9C" : "#222222"} />,
-                                                description: 'Priorizar',
-                                                onClick: () => onPrioritize(id),
-                                                disabled: type === 'prioritize',
-                                                color: type === 'prioritize' ? '#9C9C9C' : '#222222'
-                                            }),
-                                            {
-                                                startIcon: <EditIcon fill="#222222" width="24px" height='24px' />,
-                                                description: 'Editar',
-                                                onClick: (e) => setIsEditing(true)
-                                            },
-                                            hasAddActions && isOwnerGoal &&
-                                            ({
-                                                startIcon: <AddIcon fill="#222222" width="24px" height='24px' />,
-                                                description: 'Adicionar ações',
-                                                onClick: () => onAddActions(id),
-                                                color: '#222222'
-                                            }),
-                                            {
-                                                startIcon: <TrashDelete fill="#C00F00" />,
-                                                description: 'Excluir',
-                                                onClick: () => onDeleteHipotesisOrImpediment(id),
-                                                color: '#C00F00'
-                                            }
-                                        ]
-                                    }
+                                    options={options}
                                     isContainerOptions={true}
                                     closeAfterClick
                                 />
                             )}
                         </Styles.SplitContainerDescription>
                     </Styles.ContainerHypotheis>
-                )}
+                {/*)*/}
             </Styles.MainContainer>
         </>
     )

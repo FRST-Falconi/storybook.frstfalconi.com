@@ -1,5 +1,5 @@
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as Styled from './threadComments.styles'
 import { IThreadComments } from './threadComments.types'
 import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply'
@@ -37,8 +37,9 @@ export const ThreadComments = ({
   likeButtonText,
   toViewText,
   answersText,
-  answerText,
+  answerText
 }: IThreadComments) => {
+  const threadOpenByDefault = mainComment?.thread_open
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
   const [showReplyInput, setShowReplyInput] = useState(false)
@@ -50,7 +51,7 @@ export const ThreadComments = ({
     }
     setReplysOnClickCounter((prevShowReplysOnClickCounter) => prevShowReplysOnClickCounter + 1)
     if (showReplysOnClickCounter >= 1) {
-      setVisibleReplies(listReplyComments.length)
+      setVisibleReplies(listReplyComments?.length)
     }
     setShowAnswers(true)
   }
@@ -62,6 +63,13 @@ export const ThreadComments = ({
   const handleCommentReply = () => {
     setShowReplyInput(true)
   }
+
+  useEffect(() => {
+    if (threadOpenByDefault) {
+      setShowAnswers(true)
+      setVisibleReplies(listReplyComments?.length)
+    }
+  }, [threadOpenByDefault])
 
   const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id
 
@@ -174,6 +182,7 @@ export const ThreadComments = ({
                   toViewText={toViewText}
                   answersText={answersText}
                   answerText={answerText}
+                  threadOpenByDefault={!!threadOpenByDefault}
                 />
               </div>
             ))}

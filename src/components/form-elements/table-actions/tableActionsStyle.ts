@@ -88,9 +88,7 @@ export const WrapperEmptyStateCaseButton = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding-right: 40px; 
-  padding-left: 42px;          
+  width: 100%;     
 `
 
 export const WrapperButtonEmpty = styled.div`

@@ -12,8 +12,8 @@ export const ContainerVoting = styled.div<VariantColorStyle>`
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 68px;
-    width: max-content;
+    /* min-width: 68px; */
+    width: fit-content;
     height: 36px;
     padding: 4px;
     cursor: pointer;
