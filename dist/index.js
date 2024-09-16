@@ -19790,21 +19790,16 @@ function ModalShowUsers({ isOpen, handleClose, goalUsers = [], goalOwner, onClic
 function UsersChallenge({ goalUsers = [], goalOwner, hasOnlyAutor, onUserNameClick, onClickAvatar, isCardVersion }) {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const maxVisibleUsers = 5;
-    const reorderedUsers = [
-        ...goalUsers.filter((user) => user.isGoalOwner),
-        ...goalUsers.filter((user) => !user.isGoalOwner)
-    ];
-    const remainingUsersCount = reorderedUsers.length - maxVisibleUsers;
-    return (jsxRuntime.jsxs(Container$1, { children: [hasOnlyAutor ? (jsxRuntime.jsxs(AvatarInfo, { children: [jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(material.Avatar, { sx: { width: 56, height: 56 }, className: 'avatar-image-only-owner', src: goalOwner.avatarImage, onClick: () => onClickAvatar(goalOwner.userId) }) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Typography, { sx: {
-                                    color: isCardVersion ? '#222222' : '#f7f9fc',
+    const reorderedUsers = goalUsers.sort((a, b) => b.isGoalOwner - a.isGoalOwner);
+    const visibleUsers = reorderedUsers.slice(0, maxVisibleUsers);
+    const remainingUsersCount = Math.max(reorderedUsers.length - maxVisibleUsers, 0);
+    const handleAvatarClick = (userId) => onClickAvatar(userId);
+    return (jsxRuntime.jsxs(Container$1, { children: [hasOnlyAutor ? (jsxRuntime.jsxs(AvatarInfo, { children: [jsxRuntime.jsx(material.Avatar, { sx: { width: 56, height: 56 }, src: goalOwner.avatarImage, className: "avatar-image-only-owner", onClick: () => handleAvatarClick(goalOwner.userId) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Typography, { sx: {
+                                    color: isCardVersion ? '#222' : '#f7f9fc',
                                     fontWeight: 700,
-                                    fontSize: '16px',
-                                    fontFamily: 'PT Sans'
-                                }, children: goalOwner.userName }), jsxRuntime.jsx(GoalInfoCompany, { children: `${goalOwner.areaName} · ${goalOwner.companyName}` }), jsxRuntime.jsx(GoalInfoCompany, { children: `${goalOwner.createData} dias atrás` })] })] })) : (jsxRuntime.jsxs(AvatarsSection, { children: [jsxRuntime.jsx(material.AvatarGroup, { renderSurplus: () => (jsxRuntime.jsxs("span", { onClick: () => {
-                                setIsModalOpen(true);
-                            }, children: ["+", remainingUsersCount] })), spacing: "small", children: reorderedUsers.map((user) => (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Avatar, { alt: user.userName, sx: { width: 48, height: 48 }, className: user.isGoalOwner ? 'avatar-image-owner' : 'avatar-image-user', src: user.avatarImage, onClick: () => onClickAvatar(user.userId) }), user.isGoalOwner && (jsxRuntime.jsx(AvatarAutor, { children: jsxRuntime.jsx("p", { children: "Autor" }) }))] }, user.userId))) }), jsxRuntime.jsx(AllAvatarUsers, { children: jsxRuntime.jsxs(material.Box, { children: [reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (jsxRuntime.jsxs("span", { className: `list-users ${user.isGoalOwner ? 'owner' : 'not-owner'}`, onClick: () => onUserNameClick(user.userId), children: [user.userName, index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '] }, user.userId))), remainingUsersCount > 0 && (jsxRuntime.jsxs("span", { onClick: () => {
-                                        setIsModalOpen(true);
-                                    }, className: "more-users", children: [' ', "e mais ", remainingUsersCount, " pessoa", remainingUsersCount > 1 ? 's' : ''] }))] }) })] })), jsxRuntime.jsx(ModalShowUsers, { isOpen: isModalOpen, handleClose: () => setIsModalOpen(false), goalOwner: goalOwner, goalUsers: goalUsers, onClickAvatar: onClickAvatar })] }));
+                                    fontSize: 16,
+                                    fontFamily: 'PT Sans',
+                                }, children: goalOwner.userName }), jsxRuntime.jsx(GoalInfoCompany, { children: `${goalOwner.areaName} · ${goalOwner.companyName}` }), jsxRuntime.jsx(GoalInfoCompany, { children: `${goalOwner.createData} dias atrás` })] })] })) : (jsxRuntime.jsxs(AvatarsSection, { children: [jsxRuntime.jsx(material.AvatarGroup, { renderSurplus: () => jsxRuntime.jsxs("span", { onClick: () => setIsModalOpen(true), children: ["+", remainingUsersCount] }), spacing: "small", children: visibleUsers.map((user) => (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Avatar, { sx: { width: 48, height: 48 }, src: user.avatarImage, className: user.isGoalOwner ? 'avatar-image-owner' : 'avatar-image-user', onClick: () => handleAvatarClick(user.userId) }), user.isGoalOwner && jsxRuntime.jsx(AvatarAutor, { children: jsxRuntime.jsx("p", { children: "Autor" }) })] }, user.userId))) }), jsxRuntime.jsx(AllAvatarUsers, { children: jsxRuntime.jsxs(material.Box, { children: [visibleUsers.map((user, index) => (jsxRuntime.jsxs("span", { className: `list-users ${user.isGoalOwner ? 'owner' : 'not-owner'}`, onClick: () => onUserNameClick(user.userId), children: [user.userName, index < visibleUsers.length - 1 && ', '] }, user.userId))), remainingUsersCount > 0 && (jsxRuntime.jsxs("span", { onClick: () => setIsModalOpen(true), className: "more-users", children: ["e mais ", remainingUsersCount, " pessoa", remainingUsersCount > 1 ? 's' : ''] }))] }) })] })), jsxRuntime.jsx(ModalShowUsers, { isOpen: isModalOpen, handleClose: () => setIsModalOpen(false), goalOwner: goalOwner, goalUsers: goalUsers, onClickAvatar: handleAvatarClick })] }));
 }
 
 const Div = styled__default["default"].div `
