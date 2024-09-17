@@ -99,16 +99,18 @@ export default function UsersChallenge({
                     </AvatarGroup>
 
                     <S.AllAvatarUsers>
-                        <Box>
+                        <Box display={'flex'} gap={'4px'} alignItems={'center'} flexWrap={"wrap"}>
                             {reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (
-                                <span
-                                    className={`list-users ${user.author ? 'owner' : 'not-owner'}`}
-                                    onClick={() => onUserNameClick(user.user_uuid)}
-                                    key={user.user_uuid}
-                                >
-                                    {user.name}
-                                    {index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '}
-                                </span>
+                                <Box onClick={() => onUserNameClick(user.user_uuid)} key={user.user_uuid} color={"#FFF"}>
+                                    <span className={`list-users ${user.author ? 'owner' : 'not-owner'}`}>
+                                        {user.name}
+                                    </span>
+                                    {index === reorderedUsers.slice(0, maxVisibleUsers).length - 2 ? (
+                                        <span style={{ color: '#fff', fontFamily: 'PT Sans', fontWeight: "bold" }}> e </span>
+                                    ) : (
+                                        index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '
+                                    )}
+                                </Box>
                             ))}
 
                             {remainingUsersCount > 0 && (
