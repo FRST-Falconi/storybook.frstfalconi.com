@@ -147,7 +147,7 @@ function ExclamationIcon() {
     return (jsxRuntime.jsx("svg", { width: "23", height: "22", viewBox: "0 0 23 22", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.4998 5.58366C12.0957 5.58366 12.5832 6.07116 12.5832 6.66699V11.0003C12.5832 11.5962 12.0957 12.0837 11.4998 12.0837C10.904 12.0837 10.4165 11.5962 10.4165 11.0003V6.66699C10.4165 6.07116 10.904 5.58366 11.4998 5.58366ZM11.4998 14.2503C12.0957 14.2503 12.5832 14.7378 12.5832 15.3337C12.5832 15.9295 12.0957 16.417 11.4998 16.417C10.904 16.417 10.4165 15.9295 10.4165 15.3337C10.4165 14.7378 10.904 14.2503 11.4998 14.2503Z", fill: "white" }) }));
 }
 function StarIcon$1() {
-    return (jsxRuntime.jsx("svg", { width: "14", height: "13", viewBox: "0 0 14 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.57085 0.717765C6.7649 0.393208 7.2351 0.393208 7.42915 0.717765L9.18631 3.65671C9.25631 3.77378 9.37108 3.85717 9.50405 3.88756L12.8421 4.65054C13.2108 4.7348 13.3561 5.18198 13.1074 5.46682L10.8553 8.04618C10.7656 8.14892 10.7217 8.28385 10.7339 8.41969L11.0398 11.8302C11.0736 12.2068 10.6932 12.4832 10.3454 12.3347L7.19637 10.9899C7.07094 10.9363 6.92906 10.9363 6.80363 10.9899L3.65458 12.3347C3.30682 12.4832 2.92643 12.2068 2.96021 11.8302L3.2661 8.41969C3.27828 8.28385 3.23444 8.14892 3.14473 8.04618L0.892626 5.46682C0.643919 5.18198 0.789216 4.7348 1.15785 4.65054L4.49595 3.88756C4.62892 3.85717 4.74369 3.77378 4.81369 3.65671L6.57085 0.717765Z", fill: "white" }) }));
+    return (jsxRuntime.jsx("svg", { width: "16", height: "15", viewBox: "0 0 16 15", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.10583 1.78577C7.47454 1.04941 8.52546 1.04941 8.89417 1.78578L10.2379 4.46942C10.3846 4.76228 10.6653 4.96476 10.9895 5.01147L13.9722 5.44126C14.7966 5.56004 15.123 6.57552 14.5222 7.15236L12.3838 9.20561C12.1439 9.436 12.0342 9.77062 12.0912 10.0983L12.5982 13.0121C12.74 13.8272 11.8872 14.4521 11.1527 14.0713L8.46025 12.6755C8.17166 12.5259 7.82834 12.5259 7.53975 12.6755L4.8473 14.0713C4.11284 14.4521 3.26005 13.8272 3.40185 13.0122L3.9088 10.0983C3.96581 9.77062 3.85614 9.436 3.61619 9.20561L1.47778 7.15236C0.877006 6.57552 1.2034 5.56004 2.02776 5.44126L5.01053 5.01147C5.33469 4.96476 5.61544 4.76227 5.76208 4.46942L7.10583 1.78577Z", fill: "#FDAE15", stroke: "#FDAE15", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
 }
 function LocalizationIcon() {
     return (jsxRuntime.jsx("svg", { width: "15", height: "14", viewBox: "0 0 15 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.74461 5.77226C8.74461 6.44769 8.18461 7.00033 7.50016 7.00033C6.81572 7.00033 6.25572 6.44769 6.25572 5.77226C6.25572 5.09682 6.81572 4.54419 7.50016 4.54419C8.18461 4.54419 8.74461 5.09682 8.74461 5.77226ZM12.1668 5.77226C12.1668 9.50559 9.26105 11.8451 8.01661 12.674C7.86105 12.7845 7.68061 12.8337 7.50016 12.8337C7.31972 12.8337 7.13928 12.7845 6.9775 12.674C5.73305 11.8451 2.8335 9.51173 2.8335 5.77226C2.8335 3.14418 4.83705 1.16699 7.50016 1.16699C10.1633 1.16699 12.1668 3.14418 12.1668 5.77226ZM9.98905 5.77226C9.98905 4.41524 8.87527 3.31611 7.50016 3.31611C6.12505 3.31611 5.01127 4.41524 5.01127 5.77226C5.01127 7.12927 6.12505 8.2284 7.50016 8.2284C8.87527 8.2284 9.98905 7.12927 9.98905 5.77226Z", fill: "white" }) }));
@@ -19586,220 +19586,257 @@ function LearningCycleCard({ id, tag, name, favorite, labels, modulesList, handl
 }
 
 const Container$1 = styled__default["default"].div `
-  display: flex;
-
-  .avatar-image-only-owner {
-    border: 3px solid #e2e8f0 !important;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .avatar-image-owner {
-    border: 2px solid #f26818 !important;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .avatar-image-user {
-    border: 2px solid #e2e8f0 !important;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+    display: flex;
+    .avatar-image-only-owner {
+        border: 3px solid #e2e8f0 !important;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .avatar-image-owner {
+        border: 2px solid #f26818 !important;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .avatar-image-user {
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 `;
 const AvatarAutor = styled__default["default"].div `
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9;
-  background: #f26818;
-  border-radius: 18px;
-  right: 0.2rem;
-  height: 12px;
-  bottom: 10px;
-
-  > p {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 10px;
-  }
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    background: #f26818;
+    border-radius: 18px;
+    right: 0.5rem;
+    height: 12px;
+    bottom: 10px;
+    > p {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 10px;
+    }
 `;
 const AvatarInfo = styled__default["default"].div `
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 `;
 const GoalInfoCompany = styled__default["default"].p `
-  color: #bdbdbd;
-  font-family: PT Sans;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+    color: #bdbdbd;
+    font-family: PT Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 `;
 const AllAvatarUsers = styled__default["default"].div `
-  margin-left: 10px;
-  max-width: 34rem;
-  margin-bottom: 6px;
-
-  .list-users {
-    font-weight: 700;
-    font-size: 16px;
-    font-family: 'PT Sans';
-    color: #f7f9fc;
-    cursor: pointer;
-    &:hover {
-      color: #f18624;
-      text-decoration: underline #f18624;
+    margin-left: 10px;
+    max-width: 34rem;
+    margin-bottom: 6px;
+    .list-users {
+        font-weight: 700;
+        font-size: 16px;
+        font-family: 'PT Sans';
+        color: #f7f9fc;
+        cursor: pointer;
+        &:hover {
+            color: #f18624;
+            text-decoration: underline #f18624;
+        }
     }
-  }
-
-  .owner {
-    color: #f18624;
-  }
-
-  .not-owner {
-    color: #f7f9fc;
-  }
-
-  .more-users {
-    color: #f7f9fc;
-    font-weight: 700;
-    font-size: 16px;
-    font-family: 'PT Sans';
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
+    .owner {
+        color: #f18624;
+    }
+    .not-owner {
+        color: #f7f9fc;
+    }
+    .more-users {
+        color: #f7f9fc;
+        font-weight: 700;
+        font-size: 16px;
+        font-family: 'PT Sans';
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:active {
+            text-decoration: underline #f18624;
+            color: #f18624;
+        }
     }
 
-    &:active {
-      text-decoration: underline #f18624;
-      color: #f18624;
-    }
-  }
+  
 `;
 const AvatarsSection = styled__default["default"].div `
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .MuiAvatarGroup-avatar {
+        margin: -4px !important;
+    }
+    .plus-users {
+        width: 48px !important;
+        height: 48px !important;
+        background-color: #444444 !important;
+        border-radius: 50% !important;
+        font-weight: bold !important;
+        cursor: pointer;
+        border: none !important;
 
-  .css-sxh3gq-MuiAvatar-root-MuiAvatarGroup-avatar {
-    width: 48px !important;
-    height: 48px !important;
-    background-color: #444444 !important;
-    border-radius: 50% !important;
-    font-weight: bold !important;
-    cursor: pointer;
-    border: none !important;
-  }
+        >span{
+            font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: -1px;
+    color: #FFFFFF;
+}
+        }
 `;
 
 const ModalBox = styled__default["default"](material.Box) `
-  background-color: #fff;
-  max-width: 670px;
-  max-height: 80%;
-  padding-top: 11px;
-  position: relative;
-  border-radius: 10px;
-  font-family: 'Work Sans', sans-serif;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    background-color: #fff;
+    max-width: 670px;
+    max-height: 80%;
+    padding-top: 11px;
+    position: relative;
+    border-radius: 10px;
+    font-family: 'Work Sans', sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `;
 const CloseButton = styled__default["default"].div `
-  cursor: pointer;
-  padding: 0rem 2rem 0rem 0rem;
-  display: flex;
-  justify-content: flex-end;
+    cursor: pointer;
+    padding: 0rem 2rem 0rem 0rem;
+    display: flex;
+    justify-content: flex-end;
 `;
 const Container = styled__default["default"].div `
-  overflow: auto;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-bottom: -4px;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: -4px;
 
-  > p {
-    color: #222222;
-    font-weight: bold;
-    font-size: 20px;
-    font-family: 'Work Sans';
-  }
+    > p {
+        color: #222222;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'Work Sans';
+    }
 `;
 const ModalTitle = styled__default["default"].div `
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0rem 0rem 1rem 2rem;
-  > p {
-    color: #222222;
-    font-weight: bold;
-    font-size: 20px;
-    font-family: 'Work Sans';
-  }
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0rem 0rem 1rem 2rem;
+    > p {
+        color: #222222;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'Work Sans';
+    }
 `;
 const ListOfUsers = styled__default["default"].div `
-  width: 100%;
-  padding: 0rem 1rem 0rem 1rem;
-  overflow-y: auto;
-  height: 430px;
+    width: 100%;
+    padding: 0rem 1rem 0rem 1rem;
+    overflow-y: auto;
+    height: 430px;
+    border-bottom: 1px solid #e0e0e0;
+
+    ::-webkit-scrollbar {
+        width: 8px; 
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #888; 
+        border-radius: 15px; 
+        border: 2px solid #f1f1f1; 
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555; 
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: #BDBDBD #f1f1f1;
 `;
 const UsersInfo = styled__default["default"].div `
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 9px;
-  > p {
-    font-family: 'PT Sans';
-    font-weight: bold;
-    font-size: 16px;
-    color: #222222;
-  }
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 9px;
 
-  > span {
-    color: #757575;
-    font-size: 14px;
-    font-family: 'PT Sans';
-    font-weight: 400;
-  }
+    > p {
+        font-family: 'PT Sans';
+        font-weight: bold;
+        font-size: 16px;
+        color: #222222;
+    }
+
+    > span {
+        color: #757575;
+        font-size: 14px;
+        font-family: 'PT Sans';
+        font-weight: 400;
+    }
 `;
 const Autor = styled__default["default"].div `
-  background: #444444;
-  padding: 6px 16px 6px 16px;
-  border-radius: 18px;
-  height: 30px;
-  width: 87px;
-  display: flex;
-  align-items: center;
-  > p {
-    color: #ffffff;
-    font-size: 14px;
-    font-family: 'PT Sans';
-    font-weight: 400;
-    margin-left: 4px;
-  }
+    background: #444444;
+    padding: 6px 16px 6px 16px;
+    border-radius: 18px;
+    height: 30px;
+    width: 87px;
+    display: flex;
+    align-items: center;
+    > p {
+        color: #ffffff;
+        font-size: 14px;
+        font-family: 'PT Sans';
+        font-weight: 400;
+        margin-left: 4px;
+    }
+`;
+const ListOfUsersContent = styled__default["default"].div `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
 `;
 
-function ModalShowUsers({ isOpen, handleClose, goalUsers = [], goalOwner, onClickAvatar }) {
-    return (jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: handleClose, children: jsxRuntime.jsx(ModalBox, { children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsxs(ModalTitle, { children: [jsxRuntime.jsx(material.Typography, { component: 'p', children: "Grupo de execu\u00E7\u00E3o do desafio" }), jsxRuntime.jsx(CloseButton, { onClick: handleClose, children: jsxRuntime.jsx(CloseIcon, { stroke: '#000' }) })] }), jsxRuntime.jsx(material.Divider, { style: { width: '100%', color: '#E0E0E0' } }), jsxRuntime.jsx(ListOfUsers, { children: goalUsers.map((user) => (jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', justifyContent: "space-between", width: "100%", children: [jsxRuntime.jsxs(material.Box, { display: 'flex', flexDirection: 'column', marginTop: '9px', width: "100%", children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', gap: '9px', children: [jsxRuntime.jsx(material.Avatar, { src: user.avatarImage, sx: { width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }, onClick: () => onClickAvatar(user.userId) }), jsxRuntime.jsxs(UsersInfo, { children: [jsxRuntime.jsx("p", { children: user.userName }), user.areaName && jsxRuntime.jsx("span", { children: user.areaName })] })] }), jsxRuntime.jsx(material.Divider, { style: { width: '100%', color: '#E0E0E0' } })] }, user.userId), jsxRuntime.jsx(material.Box, { children: user.isGoalOwner && (jsxRuntime.jsxs(Autor, { children: [jsxRuntime.jsx(StarIcon$1, {}), jsxRuntime.jsx("p", { children: "Autor" })] })) })] }))) })] }) }) }));
+function ModalShowUsers({ isOpen, handleClose, goalUsers = [], onClickAvatar }) {
+    console.log('goalUsers', goalUsers);
+    return (jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: handleClose, children: jsxRuntime.jsx(ModalBox, { children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsxs(ModalTitle, { children: [jsxRuntime.jsx(material.Typography, { component: 'p', children: "Grupo de execu\u00E7\u00E3o do desafio" }), jsxRuntime.jsx(CloseButton, { onClick: handleClose, children: jsxRuntime.jsx(CloseIcon, { stroke: '#000' }) })] }), jsxRuntime.jsx(material.Divider, { style: { width: '100%', color: '#E0E0E0' } }), jsxRuntime.jsx(ListOfUsers, { children: goalUsers.map((user) => (jsxRuntime.jsxs(ListOfUsersContent, { children: [jsxRuntime.jsx(material.Box, { display: 'flex', flexDirection: 'column', marginTop: '9px', width: "100%", children: jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', gap: '9px', children: [jsxRuntime.jsx(material.Avatar, { src: user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', sx: { width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }, onClick: () => onClickAvatar(user.user_uuid) }), jsxRuntime.jsxs(UsersInfo, { children: [jsxRuntime.jsx("p", { children: user.name }), user.area_name && jsxRuntime.jsx("span", { children: user.area_name })] })] }) }), jsxRuntime.jsx(material.Box, { children: user.author && (jsxRuntime.jsxs(Autor, { children: [jsxRuntime.jsx(StarIcon$1, {}), jsxRuntime.jsx("p", { children: "Autor" })] })) })] }, user.user_uuid))) })] }) }) }));
 }
 
-function UsersChallenge({ goalUsers = [], goalOwner, hasOnlyAutor, onUserNameClick, onClickAvatar, isCardVersion }) {
+function UsersChallenge({ goalUsers = [], hasOnlyAutor, onUserNameClick, onClickAvatar, isCardVersion, avatar, name, userId, areaName, companyName, createData }) {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
-    const maxVisibleUsers = 5;
-    const reorderedUsers = goalUsers.sort((a, b) => b.isGoalOwner - a.isGoalOwner);
-    const visibleUsers = reorderedUsers.slice(0, maxVisibleUsers);
-    const remainingUsersCount = Math.max(reorderedUsers.length - maxVisibleUsers, 0);
-    const handleAvatarClick = (userId) => onClickAvatar(userId);
-    return (jsxRuntime.jsxs(Container$1, { children: [hasOnlyAutor ? (jsxRuntime.jsxs(AvatarInfo, { children: [jsxRuntime.jsx(material.Avatar, { sx: { width: 56, height: 56 }, src: goalOwner.avatarImage, className: "avatar-image-only-owner", onClick: () => handleAvatarClick(goalOwner.userId) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Typography, { sx: {
-                                    color: isCardVersion ? '#222' : '#f7f9fc',
+    const maxVisibleUsers = 4;
+    const reorderedUsers = [...goalUsers.filter((user) => user.author), ...goalUsers.filter((user) => !user.author)];
+    const remainingUsersCount = reorderedUsers.length - maxVisibleUsers;
+    return (jsxRuntime.jsxs(Container$1, { children: [hasOnlyAutor ? (jsxRuntime.jsxs(AvatarInfo, { children: [jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(material.Avatar, { sx: { width: 56, height: 56 }, className: 'avatar-image-only-owner', src: avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: () => onClickAvatar(userId) }) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Typography, { sx: {
+                                    color: isCardVersion ? '#222222' : '#f7f9fc',
                                     fontWeight: 700,
-                                    fontSize: 16,
-                                    fontFamily: 'PT Sans',
-                                }, children: goalOwner.userName }), jsxRuntime.jsx(GoalInfoCompany, { children: `${goalOwner.areaName} · ${goalOwner.companyName}` }), jsxRuntime.jsx(GoalInfoCompany, { children: `${goalOwner.createData} dias atrás` })] })] })) : (jsxRuntime.jsxs(AvatarsSection, { children: [jsxRuntime.jsx(material.AvatarGroup, { renderSurplus: () => jsxRuntime.jsxs("span", { onClick: () => setIsModalOpen(true), children: ["+", remainingUsersCount] }), spacing: "small", children: visibleUsers.map((user) => (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Avatar, { sx: { width: 48, height: 48 }, src: user.avatarImage, className: user.isGoalOwner ? 'avatar-image-owner' : 'avatar-image-user', onClick: () => handleAvatarClick(user.userId) }), user.isGoalOwner && jsxRuntime.jsx(AvatarAutor, { children: jsxRuntime.jsx("p", { children: "Autor" }) })] }, user.userId))) }), jsxRuntime.jsx(AllAvatarUsers, { children: jsxRuntime.jsxs(material.Box, { children: [visibleUsers.map((user, index) => (jsxRuntime.jsxs("span", { className: `list-users ${user.isGoalOwner ? 'owner' : 'not-owner'}`, onClick: () => onUserNameClick(user.userId), children: [user.userName, index < visibleUsers.length - 1 && ', '] }, user.userId))), remainingUsersCount > 0 && (jsxRuntime.jsxs("span", { onClick: () => setIsModalOpen(true), className: "more-users", children: ["e mais ", remainingUsersCount, " pessoa", remainingUsersCount > 1 ? 's' : ''] }))] }) })] })), jsxRuntime.jsx(ModalShowUsers, { isOpen: isModalOpen, handleClose: () => setIsModalOpen(false), goalOwner: goalOwner, goalUsers: goalUsers, onClickAvatar: handleAvatarClick })] }));
+                                    fontSize: '16px',
+                                    fontFamily: 'PT Sans'
+                                }, onClick: () => onUserNameClick(userId), children: name }), jsxRuntime.jsx(GoalInfoCompany, { children: `${areaName} · ${companyName}` }), jsxRuntime.jsx(GoalInfoCompany, { children: `${createData} dias atrás` })] })] })) : (jsxRuntime.jsxs(AvatarsSection, { children: [jsxRuntime.jsxs(material.AvatarGroup, { spacing: "small", children: [reorderedUsers.slice(0, maxVisibleUsers).map((user) => (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Avatar, { alt: user.name, sx: { width: 48, height: 48 }, className: user.author ? 'avatar-image-owner' : 'avatar-image-user', src: user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: () => onClickAvatar(user.user_uuid) }), user.author && (jsxRuntime.jsx(AvatarAutor, { children: jsxRuntime.jsx("p", { children: "Autor" }) }))] }, user.user_uuid))), remainingUsersCount > 0 && (jsxRuntime.jsx("div", { className: "plus-users", onClick: () => setIsModalOpen(true), children: jsxRuntime.jsxs("span", { children: ["+", remainingUsersCount] }) }))] }), jsxRuntime.jsx(AllAvatarUsers, { children: jsxRuntime.jsxs(material.Box, { children: [reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (jsxRuntime.jsxs("span", { className: `list-users ${user.author ? 'owner' : 'not-owner'}`, onClick: () => onUserNameClick(user.user_uuid), children: [user.name, index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '] }, user.user_uuid))), remainingUsersCount > 0 && (jsxRuntime.jsxs("span", { onClick: () => {
+                                        setIsModalOpen(true);
+                                    }, className: "more-users", children: [' ', "e mais ", remainingUsersCount, " pessoa", remainingUsersCount > 1 ? 's' : ''] }))] }) })] })), jsxRuntime.jsx(ModalShowUsers, { isOpen: isModalOpen, handleClose: () => setIsModalOpen(false), goalUsers: goalUsers, onClickAvatar: onClickAvatar })] }));
 }
 
 const Div = styled__default["default"].div `

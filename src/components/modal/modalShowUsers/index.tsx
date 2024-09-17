@@ -2,7 +2,8 @@ import { Avatar, Box, Modal, Typography, Divider } from '@mui/material'
 import * as S from './styles'
 import { CloseIcon, StarIcon } from '@shared/icons'
 
-export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], goalOwner, onClickAvatar }) {
+export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], onClickAvatar }) {
+  console.log('goalUsers', goalUsers)
   return (
     <Modal open={isOpen} onClose={handleClose}>
       <S.ModalBox>
@@ -16,31 +17,30 @@ export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], go
           <Divider style={{ width: '100%', color: '#E0E0E0' }} />
           <S.ListOfUsers>
             {goalUsers.map((user) => (
-              <Box display={'flex'} alignItems={'center'} justifyContent={"space-between"} width={"100%"}>
-                <Box key={user.userId} display={'flex'} flexDirection={'column'} marginTop={'9px'} width={"100%"} >
+              <S.ListOfUsersContent key={user.user_uuid}>
+                <Box display={'flex'} flexDirection={'column'} marginTop={'9px'} width={"100%"} >
                   <Box display={'flex'} alignItems={'center'} gap={'9px'}>
                     <Avatar
-                      src={user.avatarImage}
+                      src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} 
                       sx={{ width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }}
-                      onClick={() => onClickAvatar(user.userId)}
+                      onClick={() => onClickAvatar(user.user_uuid)}
                     />
                     <S.UsersInfo>
-                      <p>{user.userName}</p>
-                      {user.areaName && <span>{user.areaName}</span>}
+                      <p>{user.name}</p>
+                      {user.area_name && <span>{user.area_name}</span>}
                     </S.UsersInfo>
                   </Box>
 
-                  <Divider style={{ width: '100%', color: '#E0E0E0' }} />
                 </Box>
                 <Box>
-                  {user.isGoalOwner && (
+                  {user.author && (
                     <S.Autor>
                       <StarIcon />
                       <p>Autor</p>
                     </S.Autor>
                   )}
                 </Box>
-              </Box>
+              </S.ListOfUsersContent>
             ))}
           </S.ListOfUsers>
         </S.Container>
