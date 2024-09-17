@@ -4,93 +4,116 @@ import * as S from './styles'
 import ModalShowUsers from '@components/modal/modalShowUsers'
 
 export default function UsersChallenge({
-  goalUsers = [],
-  goalOwner,
-  hasOnlyAutor,
-  onUserNameClick,
-  onClickAvatar,
-  isCardVersion
+    goalUsers = [],
+    hasOnlyAutor,
+    onUserNameClick,
+    onClickAvatar,
+    isCardVersion,
+    avatar,
+    name,
+    userId,
+    areaName,
+    companyName,
+    createData
 }) {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const maxVisibleUsers = 5
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const reorderedUsers = goalUsers.sort((a, b) => b.isGoalOwner - a.isGoalOwner)
-  const visibleUsers = reorderedUsers.slice(0, maxVisibleUsers)
-  const remainingUsersCount = Math.max(reorderedUsers.length - maxVisibleUsers, 0)
+    const maxVisibleUsers = 4
 
-  const handleAvatarClick = (userId) => onClickAvatar(userId)
+    const reorderedUsers = [...goalUsers.filter((user) => user.author), ...goalUsers.filter((user) => !user.author)]
 
-  return (
-    <S.Container>
-      {hasOnlyAutor ? (
-        <S.AvatarInfo>
-          <Avatar
-            sx={{ width: 56, height: 56 }}
-            src={goalOwner.avatarImage}
-            className="avatar-image-only-owner"
-            onClick={() => handleAvatarClick(goalOwner.userId)}
-          />
-          <Box>
-            <Typography
-              sx={{
-                color: isCardVersion ? '#222' : '#f7f9fc',
-                fontWeight: 700,
-                fontSize: 16,
-                fontFamily: 'PT Sans',
-              }}
-            >
-              {goalOwner.userName}
-            </Typography>
-            <S.GoalInfoCompany>{`${goalOwner.areaName} · ${goalOwner.companyName}`}</S.GoalInfoCompany>
-            <S.GoalInfoCompany>{`${goalOwner.createData} dias atrás`}</S.GoalInfoCompany>
-          </Box>
-        </S.AvatarInfo>
-      ) : (
-        <S.AvatarsSection>
-          <AvatarGroup
-            renderSurplus={() => <span onClick={() => setIsModalOpen(true)}>+{remainingUsersCount}</span>}
-            spacing="small"
-          >
-            {visibleUsers.map((user) => (
-              <Box key={user.userId}>
-                <Avatar
-                  sx={{ width: 48, height: 48 }}
-                  src={user.avatarImage}
-                  className={user.isGoalOwner ? 'avatar-image-owner' : 'avatar-image-user'}
-                  onClick={() => handleAvatarClick(user.userId)}
-                />
-                {user.isGoalOwner && <S.AvatarAutor><p>Autor</p></S.AvatarAutor>}
-              </Box>
-            ))}
-          </AvatarGroup>
-          <S.AllAvatarUsers>
-            <Box>
-              {visibleUsers.map((user, index) => (
-                <span
-                  key={user.userId}
-                  className={`list-users ${user.isGoalOwner ? 'owner' : 'not-owner'}`}
-                  onClick={() => onUserNameClick(user.userId)}
-                >
-                  {user.userName}
-                  {index < visibleUsers.length - 1 && ', '}
-                </span>
-              ))}
-              {remainingUsersCount > 0 && (
-                <span onClick={() => setIsModalOpen(true)} className="more-users">
-                  e mais {remainingUsersCount} pessoa{remainingUsersCount > 1 ? 's' : ''}
-                </span>
-              )}
-            </Box>
-          </S.AllAvatarUsers>
-        </S.AvatarsSection>
-      )}
-      <ModalShowUsers
-        isOpen={isModalOpen}
-        handleClose={() => setIsModalOpen(false)}
-        goalOwner={goalOwner}
-        goalUsers={goalUsers}
-        onClickAvatar={handleAvatarClick}
-      />
-    </S.Container>
-  )
+    const remainingUsersCount = reorderedUsers.length - maxVisibleUsers
+
+    return (
+        <S.Container>
+            {hasOnlyAutor ? (
+                <S.AvatarInfo>
+                    <Box>
+                        <Avatar
+                            sx={{ width: 56, height: 56 }}
+                            className={'avatar-image-only-owner'}
+                            src={avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                            onClick={() => onClickAvatar(userId)}
+                        />
+                    </Box>
+                    <Box>
+                        <Typography
+                            sx={{
+                                color: isCardVersion ? '#222222' : '#f7f9fc',
+                                fontWeight: 700,
+                                fontSize: '16px',
+                                fontFamily: 'PT Sans'
+                            }}
+                            onClick={() => onUserNameClick(userId)}
+                        >
+                            {name}
+                        </Typography>
+                        <S.GoalInfoCompany>{`${areaName} · ${companyName}`}</S.GoalInfoCompany>
+                        <S.GoalInfoCompany>{`${createData} dias atrás`}</S.GoalInfoCompany>
+                    </Box>
+                </S.AvatarInfo>
+            ) : (
+                <S.AvatarsSection>
+                    <AvatarGroup spacing="small">
+                        {reorderedUsers.slice(0, maxVisibleUsers).map((user) => (
+                            <Box key={user.user_uuid}>
+                                <Avatar
+                                    alt={user.name}
+                                    sx={{ width: 48, height: 48 }}
+                                    className={user.author ? 'avatar-image-owner' : 'avatar-image-user'}
+                                    src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                                    onClick={() => onClickAvatar(user.user_uuid)}
+                                />
+                                {user.author && (
+                                    <S.AvatarAutor>
+                                        <p>Autor</p>
+                                    </S.AvatarAutor>
+                                )}
+                            </Box>
+                        ))}
+                        {remainingUsersCount > 0 && (
+                            <div className="plus-users" onClick={() => setIsModalOpen(true)}>
+                                <span>+{remainingUsersCount}</span>
+                            </div>
+                        )}
+                    </AvatarGroup>
+
+                    <S.AllAvatarUsers>
+                        <Box>
+                            {reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (
+                                <span
+                                    className={`list-users ${user.author ? 'owner' : 'not-owner'}`}
+                                    onClick={() => onUserNameClick(user.user_uuid)}
+                                    key={user.user_uuid}
+                                >
+                                    {user.name}
+                                    {index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '}
+                                </span>
+                            ))}
+
+                            {remainingUsersCount > 0 && (
+                                <span
+                                    onClick={() => {
+                                        setIsModalOpen(true)
+                                    }}
+                                    className="more-users"
+                                >
+                                    {' '}
+                                    e mais {remainingUsersCount} pessoa
+                                    {remainingUsersCount > 1 ? 's' : ''}
+                                </span>
+                            )}
+                        </Box>
+                    </S.AllAvatarUsers>
+                </S.AvatarsSection>
+            )}
+
+            <ModalShowUsers
+                isOpen={isModalOpen}
+                handleClose={() => setIsModalOpen(false)}
+                goalUsers={goalUsers}
+                onClickAvatar={onClickAvatar}
+            />
+        </S.Container>
+    )
 }

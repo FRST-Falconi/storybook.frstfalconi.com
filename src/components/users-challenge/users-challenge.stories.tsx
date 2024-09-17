@@ -4,8 +4,8 @@ import UsersChallenge from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'DS/UsersChallenge',
-  component: UsersChallenge
+    title: 'DS/UsersChallenge',
+    component: UsersChallenge
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -14,94 +14,85 @@ const Template = (args) => <UsersChallenge {...args} />
 export const AllUsers = Template.bind({})
 
 AllUsers.args = {
-  avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
   hasOnlyAutor: false,
-  handleClick: () => console.log('Clicou'),
   onUserNameClick: () => console.log('Clicou no nome'),
-  onAvatarUserClick: () => console.log('Clicou na foto do avatar'),
+  onClickAvatar: () => console.log('Clicou na foto do avatar'),
   goalUsers: [
-    {
-      userName: 'Isabella Lopes',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=female',
-      userId: '1',
-      isGoalOwner: true,
-      areaName: 'Administração'
-    },
-    {
-      userName: 'Marcela Vieira de Souza Lima',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=female',
-      userId: '2',
-      isGoalOwner: false,
-      areaName: 'Financeiro'
-    },
-    {
-      userName: 'Paulo Mendes',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
-      userId: '3',
-      isGoalOwner: false,
-      areaName: 'Tecnologia da informação'
-    },
-    {
-      userName: ' Clarice Tavares Guimarães',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=female',
-      userId: '4',
-      isGoalOwner: false,
-      areaName: 'Recursos humanos'
-    },
-    {
-      userName: 'Vitor Felipe',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
-      userId: '5',
-      isGoalOwner: false,
-      areaName: 'Diretoria'
-    },
-    {
-      userName: 'Rebecca Gomes',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=female',
-      userId: '6',
-      isGoalOwner: false,
-      areaName: 'Administração'
-    },
-    {
-      userName: 'João Vitor',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
-      userId: '7',
-      isGoalOwner: false,
-      areaName: 'Financeiro'
-    },
-    {
-      userName: 'Ana Betriz Silva',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=female',
-      userId: '8',
-      isGoalOwner: false,
-      areaName: 'Diretoria'
-    },
-    {
-      userName: 'Bruno Silva',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
-      userId: '9',
-      isGoalOwner: false,
-      areaName: 'Diretoria'
-    },
+      {
+          name: 'Isabella Lopes',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+          user_uuid: '1',
+          author: true,
+          area_name: 'Administração'
+      },
+      {
+          name: 'Marcela Vieira de Souza Lima',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+          user_uuid: '2',
+          author: false,
+          area_name: 'Financeiro'
+      },
+      {
+          name: 'Paulo Mendes',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+          user_uuid: '3',
+          author: false,
+          area_name: 'Tecnologia da informação'
+      },
+      {
+          name: 'Clarice Tavares Guimarães',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+          user_uuid: '4',
+          author: false,
+          area_name: 'Recursos humanos'
+      },
+      {
+          name: 'Vitor Felipe',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+          user_uuid: '5',
+          author: false,
+          area_name: 'Diretoria'
+      },
+      {
+          name: 'Rebecca Gomes',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+          user_uuid: '6',
+          author: false,
+          area_name: 'Administração'
+      },
+      {
+          name: 'João Vitor',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+          user_uuid: '7',
+          author: false,
+          area_name: 'Financeiro'
+      },
+      {
+          name: 'Ana Beatriz Silva',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+          user_uuid: '8',
+          author: false,
+          area_name: 'Diretoria'
+      },
+      {
+          name: 'Bruno Silva',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+          user_uuid: '9',
+          author: false,
+          area_name: 'Diretoria'
+      }
   ]
 }
 
+
 export const AutorOnly = Template.bind({})
 AutorOnly.args = {
-  avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
-  hasOnlyAutor: true,
-  handleClick: () => console.log('Clicou'),
-  goalOwner: 
-    {
-      userName: 'José da Silva',
-      avatarImage: 'https://xsgames.co/randomusers/avatar.php?g=male',
-      userId: '1',
-      isGoalOwner: true,
-      areaName: 'Tecnologia da informação',
-      companyName: 'FRST Falconi',
-      createData: "10"
-    },
-  
+    avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+    hasOnlyAutor: true,
+    onClickAvatar: () => console.log('Clicou no avatar'),
+    name: 'José da Silva',
+    userUuid: '1',
+    areaName: 'Administração',
+    companyName: 'Falconi',
+    createData: 10
 }
-
-
