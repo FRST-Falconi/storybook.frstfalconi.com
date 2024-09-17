@@ -13,7 +13,8 @@ export const reachedGoalIncrease  = Template.bind({})
 reachedGoalIncrease.args = {
     start: 10,
     current: 80,
-    goal: 80
+    goal: 80,
+    isVisibleMessage: false
 }
 
 export const reachedGoalDecreased = Template.bind({})
