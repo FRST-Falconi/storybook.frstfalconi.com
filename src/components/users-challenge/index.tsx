@@ -3,6 +3,26 @@ import { useState } from 'react'
 import * as S from './styles'
 import ModalShowUsers from '@components/modal/modalShowUsers'
 
+interface User {
+    user_uuid: string
+    name: string
+    avatar?: string
+    author?: boolean
+}
+interface UsersChallengeProps {
+    goalUsers?: User[]
+    hasOnlyAutor?: boolean
+    onUserNameClick?: (userId: string) => void
+    onClickAvatar?: (userId: string) => void
+    isCardVersion?: boolean
+    avatar?: string
+    name?: string
+    userId?: string
+    areaName?: string
+    companyName?: string
+    createData?: string | number
+}
+
 export default function UsersChallenge({
     goalUsers = [],
     hasOnlyAutor,
@@ -15,7 +35,7 @@ export default function UsersChallenge({
     areaName,
     companyName,
     createData
-}) {
+}: UsersChallengeProps) {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const maxVisibleUsers = 4
