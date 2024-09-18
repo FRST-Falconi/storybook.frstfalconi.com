@@ -6,9 +6,10 @@ interface ProgressGoalBarProps {
     start: number //valor inicial
     current: number // valor alcancado
     goal: number // meta a ser alcancada
+    isVisibleMessage?: boolean
 }
 
-export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) => {
+export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true }: ProgressGoalBarProps) => {
     const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved } = useProgressGoalBar({
         start,
         current,
@@ -18,7 +19,7 @@ export const ProgressGoalBar = ({ start, current, goal }: ProgressGoalBarProps) 
     return (
         <Styles.WrapperProgressGoalBar>
             {/* Texto acima da barra */}
-            <Styles.TextUP>{positions.message}</Styles.TextUP>
+            { isVisibleMessage && <Styles.TextUP>{positions.message}</Styles.TextUP>}
 
             {/* Barra de progresso */}
             <Styles.ProgressGoalBarContainer>
