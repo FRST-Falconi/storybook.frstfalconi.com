@@ -3,6 +3,26 @@ import { useState } from 'react'
 import * as S from './styles'
 import ModalShowUsers from '@components/modal/modalShowUsers'
 
+interface User {
+    user_uuid: string
+    name: string
+    avatar?: string
+    author?: boolean
+}
+interface UsersChallengeProps {
+    goalUsers?: User[]
+    hasOnlyAutor?: boolean
+    onUserNameClick?: (userId: string) => void
+    onClickAvatar?: (userId: string) => void
+    isCardVersion?: boolean
+    avatar?: string
+    name?: string
+    userId?: string
+    areaName?: string
+    companyName?: string
+    createData?: string | number
+}
+
 export default function UsersChallenge({
     goalUsers = [],
     hasOnlyAutor,
@@ -15,7 +35,7 @@ export default function UsersChallenge({
     areaName,
     companyName,
     createData
-}) {
+}: UsersChallengeProps) {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const maxVisibleUsers = 4
@@ -79,16 +99,18 @@ export default function UsersChallenge({
                     </AvatarGroup>
 
                     <S.AllAvatarUsers>
-                        <Box>
+                        <Box display={'flex'} gap={'4px'} alignItems={'center'} flexWrap={"wrap"}>
                             {reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (
-                                <span
-                                    className={`list-users ${user.author ? 'owner' : 'not-owner'}`}
-                                    onClick={() => onUserNameClick(user.user_uuid)}
-                                    key={user.user_uuid}
-                                >
-                                    {user.name}
-                                    {index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '}
-                                </span>
+                                <Box onClick={() => onUserNameClick(user.user_uuid)} key={user.user_uuid} color={"#FFF"}>
+                                    <span className={`list-users ${user.author ? 'owner' : 'not-owner'}`}>
+                                        {user.name}
+                                    </span>
+                                    {index === reorderedUsers.slice(0, maxVisibleUsers).length - 2 ? (
+                                        <span style={{ color: '#fff', fontFamily: 'PT Sans', fontWeight: "bold" }}> e </span>
+                                    ) : (
+                                        index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '
+                                    )}
+                                </Box>
                             ))}
 
                             {remainingUsersCount > 0 && (
