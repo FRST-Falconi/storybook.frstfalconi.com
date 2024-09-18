@@ -3,7 +3,9 @@ import * as S from './styles'
 import { CloseIcon, StarIcon } from '@shared/icons'
 
 export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], onClickAvatar }) {
-  console.log('goalUsers', goalUsers)
+  
+  const sortedUsers = [...goalUsers].sort((a, b) => b.author - a.author);
+
   return (
     <Modal open={isOpen} onClose={handleClose}>
       <S.ModalBox>
@@ -16,12 +18,12 @@ export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], on
           </S.ModalTitle>
           <Divider style={{ width: '100%', color: '#E0E0E0' }} />
           <S.ListOfUsers>
-            {goalUsers.map((user) => (
+            {sortedUsers.map((user) => (
               <S.ListOfUsersContent key={user.user_uuid}>
-                <Box display={'flex'} flexDirection={'column'} marginTop={'9px'} width={"100%"} >
+                <Box display={'flex'} flexDirection={'column'} marginTop={'9px'} width={"100%"}>
                   <Box display={'flex'} alignItems={'center'} gap={'9px'}>
                     <Avatar
-                      src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} 
+                      src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
                       sx={{ width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }}
                       onClick={() => onClickAvatar(user.user_uuid)}
                     />
@@ -30,7 +32,6 @@ export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], on
                       {user.area_name && <span>{user.area_name}</span>}
                     </S.UsersInfo>
                   </Box>
-
                 </Box>
                 <Box>
                   {user.author && (

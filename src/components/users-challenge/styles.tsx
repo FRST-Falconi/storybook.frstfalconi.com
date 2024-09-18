@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Box, Typography } from '@mui/material';
 
 export const Container = styled.div`
     display: flex;
@@ -52,7 +53,7 @@ export const GoalInfoCompany = styled.p`
     line-height: normal;
 `
 
-export const AllAvatarUsers = styled.div`
+export const AllAvatarUsers = styled(({ isCardVersion, ...rest }) => <Box {...rest} />)`
     margin-left: 10px;
     max-width: 34rem;
     margin-bottom: 6px;
@@ -60,7 +61,7 @@ export const AllAvatarUsers = styled.div`
         font-weight: 700;
         font-size: 16px;
         font-family: 'PT Sans';
-        color: #f7f9fc;
+        color: ${({ isCardVersion }) => (isCardVersion ? '#7e7e7e' : '#f7f9fc')}; 
         cursor: pointer;
         &:hover {
             color: #f18624;
@@ -71,10 +72,10 @@ export const AllAvatarUsers = styled.div`
         color: #f18624;
     }
     .not-owner {
-        color: #f7f9fc;
+        color: ${({ isCardVersion }) => (isCardVersion ? '#222222' : '#f7f9fc')};
     }
     .more-users {
-        color: #f7f9fc;
+        color: ${({ isCardVersion }) => (isCardVersion ? '#222222' : '#f7f9fc')};
         font-weight: 700;
         font-size: 16px;
         font-family: 'PT Sans';
@@ -87,8 +88,6 @@ export const AllAvatarUsers = styled.div`
             color: #f18624;
         }
     }
-
-  
 `
 export const AvatarsSection = styled.div`
     display: flex;
@@ -106,15 +105,21 @@ export const AvatarsSection = styled.div`
         cursor: pointer;
         border: none !important;
 
-        >span{
+        > span {
             font-size: 19px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin-top: -1px;
-    color: #FFFFFF;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            margin-top: -1px;
+            color: #ffffff;
         }
+    }
 `
+export const StyledTypography = styled(({ isCardVersion, ...rest }) => <Typography {...rest} />)`
+  color: ${({ isCardVersion }) => (isCardVersion ? '#7e7e7e' : '#bdbdbd')};
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  font-family: 'PT Sans' !important;
+`;

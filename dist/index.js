@@ -19626,7 +19626,7 @@ const AvatarInfo = styled__default["default"].div `
     justify-content: center;
     gap: 10px;
 `;
-const GoalInfoCompany = styled__default["default"].p `
+styled__default["default"].p `
     color: #bdbdbd;
     font-family: PT Sans;
     font-size: 12px;
@@ -19634,7 +19634,7 @@ const GoalInfoCompany = styled__default["default"].p `
     font-weight: 400;
     line-height: normal;
 `;
-const AllAvatarUsers = styled__default["default"].div `
+const AllAvatarUsers = styled__default["default"](({ isCardVersion, ...rest }) => jsxRuntime.jsx(material.Box, { ...rest })) `
     margin-left: 10px;
     max-width: 34rem;
     margin-bottom: 6px;
@@ -19642,7 +19642,7 @@ const AllAvatarUsers = styled__default["default"].div `
         font-weight: 700;
         font-size: 16px;
         font-family: 'PT Sans';
-        color: #f7f9fc;
+        color: ${({ isCardVersion }) => (isCardVersion ? '#7e7e7e' : '#f7f9fc')}; 
         cursor: pointer;
         &:hover {
             color: #f18624;
@@ -19653,10 +19653,10 @@ const AllAvatarUsers = styled__default["default"].div `
         color: #f18624;
     }
     .not-owner {
-        color: #f7f9fc;
+        color: ${({ isCardVersion }) => (isCardVersion ? '#222222' : '#f7f9fc')};
     }
     .more-users {
-        color: #f7f9fc;
+        color: ${({ isCardVersion }) => (isCardVersion ? '#222222' : '#f7f9fc')};
         font-weight: 700;
         font-size: 16px;
         font-family: 'PT Sans';
@@ -19669,8 +19669,6 @@ const AllAvatarUsers = styled__default["default"].div `
             color: #f18624;
         }
     }
-
-  
 `;
 const AvatarsSection = styled__default["default"].div `
     display: flex;
@@ -19688,17 +19686,23 @@ const AvatarsSection = styled__default["default"].div `
         cursor: pointer;
         border: none !important;
 
-        >span{
+        > span {
             font-size: 19px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin-top: -1px;
-    color: #FFFFFF;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            margin-top: -1px;
+            color: #ffffff;
         }
+    }
+`;
+const StyledTypography = styled__default["default"](({ isCardVersion, ...rest }) => jsxRuntime.jsx(material.Typography, { ...rest })) `
+  color: ${({ isCardVersion }) => (isCardVersion ? '#7e7e7e' : '#bdbdbd')};
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  font-family: 'PT Sans' !important;
 `;
 
 const ModalBox = styled__default["default"](material.Box) `
@@ -19820,8 +19824,8 @@ const ListOfUsersContent = styled__default["default"].div `
 `;
 
 function ModalShowUsers({ isOpen, handleClose, goalUsers = [], onClickAvatar }) {
-    console.log('goalUsers', goalUsers);
-    return (jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: handleClose, children: jsxRuntime.jsx(ModalBox, { children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsxs(ModalTitle, { children: [jsxRuntime.jsx(material.Typography, { component: 'p', children: "Grupo de execu\u00E7\u00E3o do desafio" }), jsxRuntime.jsx(CloseButton, { onClick: handleClose, children: jsxRuntime.jsx(CloseIcon, { stroke: '#000' }) })] }), jsxRuntime.jsx(material.Divider, { style: { width: '100%', color: '#E0E0E0' } }), jsxRuntime.jsx(ListOfUsers, { children: goalUsers.map((user) => (jsxRuntime.jsxs(ListOfUsersContent, { children: [jsxRuntime.jsx(material.Box, { display: 'flex', flexDirection: 'column', marginTop: '9px', width: "100%", children: jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', gap: '9px', children: [jsxRuntime.jsx(material.Avatar, { src: user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', sx: { width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }, onClick: () => onClickAvatar(user.user_uuid) }), jsxRuntime.jsxs(UsersInfo, { children: [jsxRuntime.jsx("p", { children: user.name }), user.area_name && jsxRuntime.jsx("span", { children: user.area_name })] })] }) }), jsxRuntime.jsx(material.Box, { children: user.author && (jsxRuntime.jsxs(Autor, { children: [jsxRuntime.jsx(StarIcon$1, {}), jsxRuntime.jsx("p", { children: "Autor" })] })) })] }, user.user_uuid))) })] }) }) }));
+    const sortedUsers = [...goalUsers].sort((a, b) => b.author - a.author);
+    return (jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: handleClose, children: jsxRuntime.jsx(ModalBox, { children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsxs(ModalTitle, { children: [jsxRuntime.jsx(material.Typography, { component: 'p', children: "Grupo de execu\u00E7\u00E3o do desafio" }), jsxRuntime.jsx(CloseButton, { onClick: handleClose, children: jsxRuntime.jsx(CloseIcon, { stroke: '#000' }) })] }), jsxRuntime.jsx(material.Divider, { style: { width: '100%', color: '#E0E0E0' } }), jsxRuntime.jsx(ListOfUsers, { children: sortedUsers.map((user) => (jsxRuntime.jsxs(ListOfUsersContent, { children: [jsxRuntime.jsx(material.Box, { display: 'flex', flexDirection: 'column', marginTop: '9px', width: "100%", children: jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', gap: '9px', children: [jsxRuntime.jsx(material.Avatar, { src: user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', sx: { width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }, onClick: () => onClickAvatar(user.user_uuid) }), jsxRuntime.jsxs(UsersInfo, { children: [jsxRuntime.jsx("p", { children: user.name }), user.area_name && jsxRuntime.jsx("span", { children: user.area_name })] })] }) }), jsxRuntime.jsx(material.Box, { children: user.author && (jsxRuntime.jsxs(Autor, { children: [jsxRuntime.jsx(StarIcon$1, {}), jsxRuntime.jsx("p", { children: "Autor" })] })) })] }, user.user_uuid))) })] }) }) }));
 }
 
 function UsersChallenge({ goalUsers = [], hasOnlyAutor, onUserNameClick, onClickAvatar, isCardVersion, avatar, name, userId, areaName, companyName, createData }) {
@@ -19829,12 +19833,13 @@ function UsersChallenge({ goalUsers = [], hasOnlyAutor, onUserNameClick, onClick
     const maxVisibleUsers = 4;
     const reorderedUsers = [...goalUsers.filter((user) => user.author), ...goalUsers.filter((user) => !user.author)];
     const remainingUsersCount = reorderedUsers.length - maxVisibleUsers;
-    return (jsxRuntime.jsxs(Container$1, { children: [hasOnlyAutor ? (jsxRuntime.jsxs(AvatarInfo, { children: [jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(material.Avatar, { sx: { width: 56, height: 56 }, className: 'avatar-image-only-owner', src: avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: () => onClickAvatar(userId) }) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Typography, { sx: {
+    return (jsxRuntime.jsxs(Container$1, { children: [hasOnlyAutor ? (jsxRuntime.jsxs(AvatarInfo, { children: [jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(material.Avatar, { sx: { width: 56, height: 56, cursor: 'pointer' }, className: isCardVersion ? '' : 'avatar-image-only-owner', src: avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: () => onClickAvatar(userId) }) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Typography, { sx: {
                                     color: isCardVersion ? '#222222' : '#f7f9fc',
                                     fontWeight: 700,
                                     fontSize: '16px',
-                                    fontFamily: 'PT Sans'
-                                }, onClick: () => onUserNameClick(userId), children: name }), jsxRuntime.jsx(GoalInfoCompany, { children: `${areaName} · ${companyName}` }), jsxRuntime.jsx(GoalInfoCompany, { children: `${createData} dias atrás` })] })] })) : (jsxRuntime.jsxs(AvatarsSection, { children: [jsxRuntime.jsxs(material.AvatarGroup, { spacing: "small", children: [reorderedUsers.slice(0, maxVisibleUsers).map((user) => (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Avatar, { alt: user.name, sx: { width: 48, height: 48 }, className: user.author ? 'avatar-image-owner' : 'avatar-image-user', src: user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: () => onClickAvatar(user.user_uuid) }), user.author && (jsxRuntime.jsx(AvatarAutor, { children: jsxRuntime.jsx("p", { children: "Autor" }) }))] }, user.user_uuid))), remainingUsersCount > 0 && (jsxRuntime.jsx("div", { className: "plus-users", onClick: () => setIsModalOpen(true), children: jsxRuntime.jsxs("span", { children: ["+", remainingUsersCount] }) }))] }), jsxRuntime.jsx(AllAvatarUsers, { children: jsxRuntime.jsxs(material.Box, { display: 'flex', gap: '4px', alignItems: 'center', flexWrap: "wrap", children: [reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (jsxRuntime.jsxs(material.Box, { onClick: () => onUserNameClick(user.user_uuid), color: "#FFF", children: [jsxRuntime.jsx("span", { className: `list-users ${user.author ? 'owner' : 'not-owner'}`, children: user.name }), index === reorderedUsers.slice(0, maxVisibleUsers).length - 2 ? (jsxRuntime.jsx("span", { style: { color: '#fff', fontFamily: 'PT Sans', fontWeight: "bold" }, children: " e " })) : (index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', ')] }, user.user_uuid))), remainingUsersCount > 0 && (jsxRuntime.jsxs("span", { onClick: () => {
+                                    fontFamily: 'PT Sans',
+                                    cursor: 'pointer'
+                                }, onClick: () => onUserNameClick(userId), children: name }), jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(StyledTypography, { isCardVersion: isCardVersion, children: [`${areaName} `, " \u00B7 ", ` ${companyName}`] }) }), !isCardVersion && jsxRuntime.jsx(StyledTypography, { children: `${createData}` })] })] })) : (jsxRuntime.jsxs(AvatarsSection, { children: [jsxRuntime.jsxs(material.AvatarGroup, { spacing: "small", children: [reorderedUsers.slice(0, maxVisibleUsers).map((user) => (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Avatar, { alt: user.name, sx: { width: 48, height: 48 }, className: user.author ? 'avatar-image-owner' : 'avatar-image-user', src: user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: () => onClickAvatar(user.user_uuid) }), user.author && (jsxRuntime.jsx(AvatarAutor, { children: jsxRuntime.jsx("p", { children: "Autor" }) }))] }, user.user_uuid))), remainingUsersCount > 0 && (jsxRuntime.jsx("div", { className: "plus-users", onClick: () => setIsModalOpen(true), children: jsxRuntime.jsxs("span", { children: ["+", remainingUsersCount] }) }))] }), jsxRuntime.jsx(AllAvatarUsers, { isCardVersion: isCardVersion, children: jsxRuntime.jsxs(material.Box, { display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap', children: [reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (jsxRuntime.jsxs(material.Box, { onClick: () => onUserNameClick(user.user_uuid), color: isCardVersion ? '#222222' : "#fff", children: [jsxRuntime.jsx("span", { className: `list-users ${user.author ? 'owner' : 'not-owner'}`, children: user.name }), index === reorderedUsers.slice(0, maxVisibleUsers).length - 2 ? (jsxRuntime.jsxs("span", { style: { color: isCardVersion ? '#222222' : '#fff', fontFamily: 'PT Sans', fontWeight: 'bold' }, children: [' ', "e", ' '] })) : (index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', ')] }, user.user_uuid))), remainingUsersCount > 0 && (jsxRuntime.jsxs("span", { onClick: () => {
                                         setIsModalOpen(true);
                                     }, className: "more-users", children: [' ', "e mais ", remainingUsersCount, " pessoa", remainingUsersCount > 1 ? 's' : ''] }))] }) })] })), jsxRuntime.jsx(ModalShowUsers, { isOpen: isModalOpen, handleClose: () => setIsModalOpen(false), goalUsers: goalUsers, onClickAvatar: onClickAvatar })] }));
 }

@@ -50,8 +50,8 @@ export default function UsersChallenge({
                 <S.AvatarInfo>
                     <Box>
                         <Avatar
-                            sx={{ width: 56, height: 56 }}
-                            className={'avatar-image-only-owner'}
+                            sx={{ width: 56, height: 56, cursor: 'pointer' }}
+                            className={isCardVersion ? '' : 'avatar-image-only-owner'}
                             src={avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
                             onClick={() => onClickAvatar(userId)}
                         />
@@ -62,14 +62,20 @@ export default function UsersChallenge({
                                 color: isCardVersion ? '#222222' : '#f7f9fc',
                                 fontWeight: 700,
                                 fontSize: '16px',
-                                fontFamily: 'PT Sans'
+                                fontFamily: 'PT Sans',
+                                cursor: 'pointer'
                             }}
                             onClick={() => onUserNameClick(userId)}
                         >
                             {name}
                         </Typography>
-                        <S.GoalInfoCompany>{`${areaName} · ${companyName}`}</S.GoalInfoCompany>
-                        <S.GoalInfoCompany>{`${createData} dias atrás`}</S.GoalInfoCompany>
+                        <Box>
+                            <S.StyledTypography isCardVersion={isCardVersion}>
+                                {`${areaName} `} · {` ${companyName}`}
+                            </S.StyledTypography>
+                        </Box>
+
+                        {!isCardVersion && <S.StyledTypography>{`${createData}`}</S.StyledTypography>}
                     </Box>
                 </S.AvatarInfo>
             ) : (
@@ -98,15 +104,22 @@ export default function UsersChallenge({
                         )}
                     </AvatarGroup>
 
-                    <S.AllAvatarUsers>
-                        <Box display={'flex'} gap={'4px'} alignItems={'center'} flexWrap={"wrap"}>
+                    <S.AllAvatarUsers isCardVersion={isCardVersion}>
+                        <Box display={'flex'} gap={'4px'} alignItems={'center'} flexWrap={'wrap'}>
                             {reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (
-                                <Box onClick={() => onUserNameClick(user.user_uuid)} key={user.user_uuid} color={"#FFF"}>
+                                <Box
+                                    onClick={() => onUserNameClick(user.user_uuid)}
+                                    key={user.user_uuid}
+                                    color={isCardVersion ? '#222222' : "#fff"}
+                                >
                                     <span className={`list-users ${user.author ? 'owner' : 'not-owner'}`}>
                                         {user.name}
                                     </span>
                                     {index === reorderedUsers.slice(0, maxVisibleUsers).length - 2 ? (
-                                        <span style={{ color: '#fff', fontFamily: 'PT Sans', fontWeight: "bold" }}> e </span>
+                                        <span style={{ color: isCardVersion ? '#222222' : '#fff', fontFamily: 'PT Sans', fontWeight: 'bold' }}>
+                                            {' '}
+                                            e{' '}
+                                        </span>
                                     ) : (
                                         index < reorderedUsers.slice(0, maxVisibleUsers).length - 1 && ', '
                                     )}
