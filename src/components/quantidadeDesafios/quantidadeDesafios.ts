@@ -10,16 +10,17 @@ export const ContainerItemDesafio = styled.div`
   width: 100%;
   padding: 1rem;
   display: flex;
+  flex-direction: column;
   background-size: 100%;
   background-position: top 5rem;
   background-position: -2rem;
   justify-content: center;
   margin-bottom: 1rem;
 `
-export const containerTitleDesafio = styled.div`
+export const containerTitleDesafio = styled.div<({hasFish})>`
   width: 100%;
   height: 24px;
-  padding: 0 4rem;
+  ${({hasFish}) => hasFish ? "padding-left: 2rem":"padding: 0 4rem"};
   display: flex;
   flex-direction: row;
 `

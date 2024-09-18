@@ -42,3 +42,41 @@ normal.args = {
     percentage: '50%'
   }
 }
+
+
+export const normalWithFinished = Template.bind({})
+normalWithFinished.args = {
+  languagem: 'es',
+  definicao: {
+    title: 'Definição (meta)',
+    count: 111,
+    percentage: '10.93%',
+    title_en: 'Definição (meta)',
+    title_es: 'Definição (meta)'
+  },
+  hipoteses: {
+    title: 'Plano de ação',
+    count: 222,
+    percentage: '20.88%'
+  },
+  testes: {
+    title: 'Execução',
+    count: 333,
+    percentage: '30.54%'
+  },
+  resultados: {
+    title: 'Resultado',
+    count: 444,
+    percentage: '40.92%'
+  },
+  proximosPassos: {
+    title: 'Próximos passos',
+    count: 555,
+    percentage: '50.14%'
+  },
+  finalizados: {
+    title: 'Finalizados',
+    count: 666,
+    percentage: '60.22%'
+  }
+}

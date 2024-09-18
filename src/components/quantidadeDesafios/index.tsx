@@ -1,5 +1,6 @@
 import * as Styles from './quantidadeDesafios'
 import { Stats } from './stats'
+import { StatsWithResult } from './statsWithResult'
 interface ObjItemDesafio {
   title: string
   count: number
@@ -14,6 +15,7 @@ interface ObjQuantidadeDesafio {
   testes: ObjItemDesafio
   resultados: ObjItemDesafio
   proximosPassos: ObjItemDesafio
+  finalizados?: ObjItemDesafio
   languagem?: string
 }
 
@@ -23,20 +25,32 @@ export default function QuantidadeDesafios({
   testes,
   resultados,
   proximosPassos,
+  finalizados,
   languagem
 }: ObjQuantidadeDesafio) {
   return (
     <Styles.ContainerDesafios>
       <Styles.ContainerItemDesafio>
-        <Stats
-          definicao={definicao}
-          hipoteses={hipoteses}
-          testes={testes}
-          resultados={resultados}
-          proximosPassos={proximosPassos}
-        />
+        {!finalizados ? 
+          <Stats
+            definicao={definicao}
+            hipoteses={hipoteses}
+            testes={testes}
+            resultados={resultados}
+            proximosPassos={proximosPassos}
+          />
+        :
+          <StatsWithResult
+            definicao={definicao}
+            hipoteses={hipoteses}
+            testes={testes}
+            resultados={resultados}
+            proximosPassos={proximosPassos}
+            finalizados={finalizados}
+          /> 
+        }
       </Styles.ContainerItemDesafio>
-      <Styles.containerTitleDesafio>
+      <Styles.containerTitleDesafio hasFish={!!finalizados}>
         <Styles.TitleDesafiosWhite>
           {languagem
             ? languagem === 'en-US'
@@ -102,6 +116,19 @@ export default function QuantidadeDesafios({
               : proximosPassos.title
             : proximosPassos.title}
         </Styles.TitleDesafiosWhite>
+        {finalizados && <Styles.TitleDesafiosGrey>
+          {languagem
+            ? languagem === 'en-US'
+              ? finalizados.title_en
+                ? finalizados.title_en
+                : finalizados.title
+              : languagem === 'es'
+              ? finalizados.title_es
+                ? finalizados.title_es
+                : finalizados.title
+              : finalizados.title
+            : finalizados.title}
+        </Styles.TitleDesafiosGrey>}
       </Styles.containerTitleDesafio>
     </Styles.ContainerDesafios>
   )
