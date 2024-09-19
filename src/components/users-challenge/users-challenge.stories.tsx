@@ -17,6 +17,7 @@ AllUsers.args = {
   hasOnlyAutor: false,
   onUserNameClick: () => console.log('Clicou no nome'),
   onClickAvatar: () => console.log('Clicou na foto do avatar'),
+  variant: 'feed',
   goalUsers: [
       {
           name: 'Isabella Lopes',
@@ -95,4 +96,5 @@ AutorOnly.args = {
     areaName: 'Administração',
     companyName: 'Falconi',
     createData: "10 dias atrás",
+    variant: 'vitrine',
 }
