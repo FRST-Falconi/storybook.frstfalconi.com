@@ -17,12 +17,13 @@ AllUsers.args = {
   hasOnlyAutor: false,
   onUserNameClick: () => console.log('Clicou no nome'),
   onClickAvatar: () => console.log('Clicou na foto do avatar'),
+  variant: 'feed',
   goalUsers: [
       {
           name: 'Isabella Lopes',
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
           user_uuid: '1',
-          author: true,
+          author: false,
           area_name: 'Administração'
       },
       {
@@ -57,7 +58,7 @@ AllUsers.args = {
           name: 'Rebecca Gomes',
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
           user_uuid: '6',
-          author: false,
+          author: true,
           area_name: 'Administração'
       },
       {
@@ -94,5 +95,6 @@ AutorOnly.args = {
     userUuid: '1',
     areaName: 'Administração',
     companyName: 'Falconi',
-    createData: 10
+    createData: "10 dias atrás",
+    variant: 'vitrine',
 }

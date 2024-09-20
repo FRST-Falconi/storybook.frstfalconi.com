@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import { Box, Typography } from '@mui/material';
 
 export const Container = styled.div`
     display: flex;
     .avatar-image-only-owner {
-        border: 3px solid #e2e8f0 !important;
+        border: 2px solid #e2e8f0 !important;
         border-radius: 50%;
         cursor: pointer;
     }
@@ -53,7 +52,7 @@ export const GoalInfoCompany = styled.p`
     line-height: normal;
 `
 
-export const AllAvatarUsers = styled(({ isCardVersion, ...rest }) => <Box {...rest} />)`
+export const AllAvatarUsers = styled.div`
     margin-left: 10px;
     max-width: 34rem;
     margin-bottom: 6px;
@@ -61,7 +60,7 @@ export const AllAvatarUsers = styled(({ isCardVersion, ...rest }) => <Box {...re
         font-weight: 700;
         font-size: 16px;
         font-family: 'PT Sans';
-        color: ${({ isCardVersion }) => (isCardVersion ? '#7e7e7e' : '#f7f9fc')}; 
+        color: #7e7e7e;
         cursor: pointer;
         &:hover {
             color: #f18624;
@@ -72,10 +71,10 @@ export const AllAvatarUsers = styled(({ isCardVersion, ...rest }) => <Box {...re
         color: #f18624;
     }
     .not-owner {
-        color: ${({ isCardVersion }) => (isCardVersion ? '#222222' : '#f7f9fc')};
+        color: #222222;
     }
     .more-users {
-        color: ${({ isCardVersion }) => (isCardVersion ? '#222222' : '#f7f9fc')};
+        color: #222222;
         font-weight: 700;
         font-size: 16px;
         font-family: 'PT Sans';
@@ -93,6 +92,8 @@ export const AvatarsSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
     .MuiAvatarGroup-avatar {
         margin: -4px !important;
     }
@@ -117,9 +118,9 @@ export const AvatarsSection = styled.div`
         }
     }
 `
-export const StyledTypography = styled(({ isCardVersion, ...rest }) => <Typography {...rest} />)`
-  color: ${({ isCardVersion }) => (isCardVersion ? '#7e7e7e' : '#bdbdbd')};
-  font-weight: 400 !important;
-  font-size: 12px !important;
-  font-family: 'PT Sans' !important;
-`;
+export const StyledTypography = styled.p`
+    color: #7e7e7e;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    font-family: 'PT Sans' !important;
+`
