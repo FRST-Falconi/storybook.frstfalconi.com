@@ -23047,16 +23047,19 @@ const WrapperCollaboratorAvatar = styled__default["default"].div `
 `;
 
 function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align, isResponsible, userName }) {
-    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: userName ? userName : (labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil'), trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx("div", { onClick: (event) => {
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "right", content: userName ? userName : labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: {
+                textAlign: 'center',
+                whiteSpace: 'nowrap'
+            }, children: jsxRuntime.jsx("div", { onClick: (event) => {
                     event.stopPropagation();
                     onPressAvatar?.(uuid);
                 }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', isActiveClick: !!(onPressAvatar && uuid), style: {
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        overflow: "hidden",
-                        borderRadius: "50%",
-                        border: isResponsible ? "2px solid #31AAAA" : "2px solid transparent",
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        overflow: 'hidden',
+                        borderRadius: '50%',
+                        border: isResponsible ? '2px solid #31AAAA' : '2px solid transparent'
                     } }) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
 }
 
