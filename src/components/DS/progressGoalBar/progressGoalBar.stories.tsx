@@ -14,7 +14,7 @@ reachedGoalIncrease.args = {
     start: 10,
     current: 80,
     goal: 80,
-    isVisibleMessage: false
+    isVisibleMessage: true
 }
 
 export const reachedGoalDecreased = Template.bind({})
