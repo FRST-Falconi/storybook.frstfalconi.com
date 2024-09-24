@@ -110,9 +110,9 @@ export const ProgressBarColor = styled.div<ProgressBarColorProps>`
         if (hasRegressed) {
             return '#C90017';
         } else if (isGoalExceeded) {
-            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 60%, rgba(255, 215, 0, 1) 100%)';
+            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 33%, rgba(251, 141, 40, 1) 78%, rgba(255, 215, 0, 1) 100%)';
         } else {
-            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 4%, rgba(251, 141, 40, 1) 4%)';
+            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 33%, rgba(251, 141, 40, 1) 65%)';
         }
     }};
 `;

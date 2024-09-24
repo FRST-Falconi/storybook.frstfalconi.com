@@ -43,7 +43,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                 {!isGoalReached && (
                     <>
                         <Styles.CurrentIndicator status={positions.currentVariant} position={positions.current}>
-                            {isGoalExceeded ? <StarIcon /> : <ExclamationIcon />}
+                            {isGoalExceeded ? <StarIcon color='white' width={14} height={13}/> : <ExclamationIcon />}
                         </Styles.CurrentIndicator>
                         <Styles.IndicatorTextCurrent position={positions.current} noGoal={noGoal} noResult={noResult}>
                             {!noResult && (
