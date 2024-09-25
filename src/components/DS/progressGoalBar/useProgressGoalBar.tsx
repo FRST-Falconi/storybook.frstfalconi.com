@@ -167,7 +167,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
             }
     }, [])
 
-    const isGoalExceeded = useMemo(() => positions.currentVariant == CurrentVariant.Star, [positions])
+    const isGoalExceeded = useMemo(() => positions?.currentVariant == CurrentVariant?.Star, [positions])
 
     return {
         progressPercentage,
