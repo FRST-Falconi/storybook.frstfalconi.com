@@ -8317,7 +8317,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
                 currentTextInit: MESSAGES.currentTextInit
             };
     }, []);
-    const isGoalExceeded = React.useMemo(() => positions.currentVariant == CurrentVariant.Star, [positions]);
+    const isGoalExceeded = React.useMemo(() => positions?.currentVariant == CurrentVariant?.Star, [positions]);
     return {
         progressPercentage,
         currentValue,
