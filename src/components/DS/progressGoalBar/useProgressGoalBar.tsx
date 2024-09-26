@@ -23,6 +23,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
     const noGoal = (start < goal && currentValue < start) ||  (start > goal && currentValue > start)
     const noResult = (start < goal && currentValue == start) || (start > goal && currentValue == start)
     const resultEvolved = (start < goal && currentValue > start && currentValue)
+    const stabilizeExceeding = (start === goal && currentValue > start && currentValue > goal)
 
     // Cálculo do progresso
     const progressPercentage = useMemo(() => {
@@ -75,6 +76,20 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currenText: MESSAGES?.currentTextResult,
                 currentTextInit: MESSAGES?.currentTextInit
             }
+
+
+            //stabilizeExceeding
+            if (start === goal && currentValue > start && currentValue > goal)
+                return {
+                    start: 0,
+                    current: 100,
+                    goal: 0,
+                    barRef: 'current',
+                    currentVariant: CurrentVariant?.Star,
+                    message: MESSAGES?.progressExceeded,
+                    currenText: MESSAGES?.currentTextResult,
+                    stabilizeExceedingText: MESSAGES?.stabilizeExceedingText
+                }
 
         // exceededTargetDecreased
         if (start > goal && currentValue < goal)
@@ -179,6 +194,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         positions,
         noGoal,
         noResult,
-        resultEvolved
+        resultEvolved,
+        stabilizeExceeding
     }
 }

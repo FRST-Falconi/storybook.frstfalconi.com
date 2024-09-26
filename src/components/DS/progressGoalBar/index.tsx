@@ -10,13 +10,21 @@ interface ProgressGoalBarProps {
 }
 
 export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true }: ProgressGoalBarProps) => {
-    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved } = useProgressGoalBar({
+    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved, stabilizeExceeding } = useProgressGoalBar({
         start,
         current,
         goal
     })
 
-    console.log('start:',start,'current:', current,'goal:', goal)
+    const getDisplayText = () => {
+        if (noResult) {
+            return positions?.currenText;
+        } else if (stabilizeExceeding) {
+            return positions?.stabilizeExceedingText;
+        } else {
+            return positions?.currentTextInit;
+        }
+    };
 
     return (
         <Styles.WrapperProgressGoalBar>
@@ -38,7 +46,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                 >
                     <>
                         <Styles.Number>{start}</Styles.Number>
-                        <Styles.TypeProgressText>{noResult ? positions?.currenText : positions?.currentTextInit}</Styles.TypeProgressText>
+                        <Styles.TypeProgressText>{getDisplayText()}</Styles.TypeProgressText>
                     </>
                 </Styles.IndicatorText>
 
@@ -57,7 +65,8 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                         </Styles.IndicatorTextCurrent>
                     </>
                 )}
-
+                {stabilizeExceeding ? '' : 
+                
                 <Styles.EndIndicator
                     position={positions?.goal}
                     isGoalExceeded={isGoalExceeded}
@@ -65,17 +74,21 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                 >
                     <GoalIcon />
                 </Styles.EndIndicator>
+
+                }
+
                 <Styles.IndicatorText position={positions?.goal}>
-                    <Styles.Number>{goal}</Styles.Number>
-                    <Styles.TypeProgressText>META</Styles.TypeProgressText>
+                    <Styles.Number>{!stabilizeExceeding && goal}</Styles.Number>
+                    <Styles.TypeProgressText>{!stabilizeExceeding && 'META'}</Styles.TypeProgressText>
                 </Styles.IndicatorText>
 
                 {/*  posicao relativa */}
                 <Styles.ProgressBarColor
                     isGoalExceeded={isGoalExceeded}
-                    width={positions && positions.barRef !== undefined && positions[positions.barRef] !== undefined ? positions[positions.barRef] : 0}                    hasRegressed={noGoal}
+                    width={positions[positions.barRef]}
+                    hasRegressed={noGoal}
                 ></Styles.ProgressBarColor>
-                    {console.log(positions[positions?.barRef])}
+                
             </Styles.ProgressGoalBarContainer>
         </Styles.WrapperProgressGoalBar>
     )

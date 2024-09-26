@@ -11,9 +11,17 @@ const Template = (args) => <ProgressGoalBar {...args} />
 //atingiu a meta
 export const reachedGoalIncrease  = Template.bind({})
 reachedGoalIncrease.args = {
-    start: 10,
-    current: 80,
-    goal: 80,
+    start: 5,
+    current: 12,
+    goal: 12,
+    isVisibleMessage: true
+}
+
+export const stabilizeExceeding  = Template.bind({})
+stabilizeExceeding.args = {
+    start: 12,
+    current: 34,
+    goal: 12,
     isVisibleMessage: true
 }
 
