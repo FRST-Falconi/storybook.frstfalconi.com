@@ -16,6 +16,8 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
         goal
     })
 
+    console.log('start:',start,'current:', current,'goal:', goal)
+
     return (
         <Styles.WrapperProgressGoalBar>
             {/* Texto acima da barra */}
