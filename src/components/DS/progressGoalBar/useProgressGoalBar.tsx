@@ -46,9 +46,9 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 100,
                 goal: 100,
                 barRef: 'goal',
-                currentVariant: CurrentVariant.Normal,
-                message: MESSAGES.reachedGoal,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Normal,
+                message: MESSAGES?.reachedGoal,
+                currentTextInit: MESSAGES?.currentTextInit
             }
 
         // reachedGoalDecreased
@@ -58,9 +58,9 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 100,
                 goal: 100,
                 barRef: 'goal',
-                currentVariant: CurrentVariant.Normal,
-                message: MESSAGES.reachedGoal,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Normal,
+                message: MESSAGES?.reachedGoal,
+                currentTextInit: MESSAGES?.currentTextInit
             }
 
         // exceededTargetIncrease
@@ -70,10 +70,10 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 100,
                 goal: toRange(start, goal, currentValue),
                 barRef: 'current',
-                currentVariant: CurrentVariant.Star,
-                message: MESSAGES.progressExceeded,
-                currenText: MESSAGES.currentTextResult,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Star,
+                message: MESSAGES?.progressExceeded,
+                currenText: MESSAGES?.currentTextResult,
+                currentTextInit: MESSAGES?.currentTextInit
             }
 
         // exceededTargetDecreased
@@ -83,10 +83,10 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 100,
                 goal: toRange(start, goal, currentValue),
                 barRef: 'current',
-                currentVariant: CurrentVariant.Star,
-                message: MESSAGES.progressExceeded,
-                currenText: MESSAGES.currentTextResult,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Star,
+                message: MESSAGES?.progressExceeded,
+                currenText: MESSAGES?.currentTextResult,
+                currentTextInit: MESSAGES?.currentTextInit
             }
 
         // GrowingWithoutReachingGoal
@@ -96,10 +96,10 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: toRange(start, currentValue, goal),
                 goal: 100,
                 barRef: 'current',
-                currentVariant: CurrentVariant.Normal,
-                message: MESSAGES.progressImproved,
-                currenText: MESSAGES.currentTextResult,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Normal,
+                message: MESSAGES?.progressImproved,
+                currenText: MESSAGES?.currentTextResult,
+                currentTextInit: MESSAGES?.currentTextInit
             }
 
         // DecreasingWithoutGoal
@@ -109,10 +109,10 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: toRange(start, currentValue, goal),
                 goal: 100,
                 barRef: 'current',
-                currentVariant: CurrentVariant.Normal,
-                message: MESSAGES.progressImproved,
-                currenText: MESSAGES.currentTextResult,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Normal,
+                message: MESSAGES?.progressImproved,
+                currenText: MESSAGES?.currentTextResult,
+                currentTextInit: MESSAGES?.currentTextInit
             }
 
         // noResultsIncrease
@@ -122,9 +122,9 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 0,
                 goal: 100,
                 barRef: 'current',
-                currentVariant: CurrentVariant.Warning,
-                message: MESSAGES.progressNoResults,
-                currenText: MESSAGES.currentTextInitAndResult
+                currentVariant: CurrentVariant?.Warning,
+                message: MESSAGES?.progressNoResults,
+                currenText: MESSAGES?.currentTextInitAndResult
             }
 
         // noResultsDecreased
@@ -134,9 +134,9 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 0,
                 goal: 100,
                 bar: 'current',
-                currentVariant: CurrentVariant.Warning,
-                message: MESSAGES.progressNoResults,
-                currenText: MESSAGES.currentTextInitAndResult
+                currentVariant: CurrentVariant?.Warning,
+                message: MESSAGES?.progressNoResults,
+                currenText: MESSAGES?.currentTextInitAndResult
             }
 
         // noGoalIncrease
@@ -146,10 +146,10 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 0,
                 goal: 100,
                 barRef: 'start',
-                currentVariant: CurrentVariant.Warning,
-                message: MESSAGES.progressNoGoal,
-                currenText: MESSAGES.currentTextResult,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Warning,
+                message: MESSAGES?.progressNoGoal,
+                currenText: MESSAGES?.currentTextResult,
+                currentTextInit: MESSAGES?.currentTextInit
 
             }
 
@@ -160,10 +160,10 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 current: 0,
                 goal: 100,
                 barRef: 'start',
-                currentVariant: CurrentVariant.Warning,
-                message: MESSAGES.progressNoGoal,
-                currenText:  MESSAGES.currentTextResult,
-                currentTextInit: MESSAGES.currentTextInit
+                currentVariant: CurrentVariant?.Warning,
+                message: MESSAGES?.progressNoGoal,
+                currenText:  MESSAGES?.currentTextResult,
+                currentTextInit: MESSAGES?.currentTextInit
             }
     }, [])
 
