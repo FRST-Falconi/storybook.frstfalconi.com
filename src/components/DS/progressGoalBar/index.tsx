@@ -76,6 +76,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                     width={positions[positions?.barRef]}
                     hasRegressed={noGoal}
                 ></Styles.ProgressBarColor>
+                    {console.log(positions[positions?.barRef])}
             </Styles.ProgressGoalBarContainer>
         </Styles.WrapperProgressGoalBar>
     )
