@@ -24,6 +24,9 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
     const noResult = (start < goal && currentValue == start) || (start > goal && currentValue == start)
     const resultEvolved = (start < goal && currentValue > start && currentValue)
     const stabilizeExceeding = (start === goal && currentValue > start && currentValue > goal)
+    const stabilize = (start === goal && currentValue === goal && start === currentValue)
+    const isGoalDecreased = start > goal && currentValue == goal
+    const isGoalIncrease = start < goal && currentValue > start && currentValue == goal
 
     // Cálculo do progresso
     const progressPercentage = useMemo(() => {
@@ -49,7 +52,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 barRef: 'goal',
                 currentVariant: CurrentVariant?.Normal,
                 message: MESSAGES?.reachedGoal,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // reachedGoalDecreased
@@ -61,7 +65,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 barRef: 'goal',
                 currentVariant: CurrentVariant?.Normal,
                 message: MESSAGES?.reachedGoal,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // exceededTargetIncrease
@@ -74,7 +79,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentVariant: CurrentVariant?.Star,
                 message: MESSAGES?.progressExceeded,
                 currenText: MESSAGES?.currentTextResult,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
 
@@ -83,13 +89,28 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 return {
                     start: 0,
                     current: 100,
-                    goal: 0,
+                    goal: 14,
                     barRef: 'current',
                     currentVariant: CurrentVariant?.Star,
                     message: MESSAGES?.progressExceeded,
                     currenText: MESSAGES?.currentTextResult,
                     stabilizeExceedingText: MESSAGES?.stabilizeExceedingText
                 }
+
+            //stabilize
+            if (start === goal && currentValue === goal && start === currentValue)
+                return {
+                    start: 0,
+                    current: 100,
+                    goal: 100,
+                    barRef: 'current',
+                    currentVariant: CurrentVariant?.Star,
+                    message: MESSAGES?.reachedGoal,
+                    currentTextInit: MESSAGES?.currentTextInit,
+                    textGoal: MESSAGES.textGoal
+                }
+
+
 
         // exceededTargetDecreased
         if (start > goal && currentValue < goal)
@@ -101,7 +122,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentVariant: CurrentVariant?.Star,
                 message: MESSAGES?.progressExceeded,
                 currenText: MESSAGES?.currentTextResult,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // GrowingWithoutReachingGoal
@@ -114,7 +136,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentVariant: CurrentVariant?.Normal,
                 message: MESSAGES?.progressImproved,
                 currenText: MESSAGES?.currentTextResult,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // DecreasingWithoutGoal
@@ -127,7 +150,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentVariant: CurrentVariant?.Normal,
                 message: MESSAGES?.progressImproved,
                 currenText: MESSAGES?.currentTextResult,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // noResultsIncrease
@@ -139,7 +163,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 barRef: 'current',
                 currentVariant: CurrentVariant?.Warning,
                 message: MESSAGES?.progressNoResults,
-                currenText: MESSAGES?.currentTextInitAndResult
+                currenText: MESSAGES?.currentTextInitAndResult,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // noResultsDecreased
@@ -151,7 +176,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 bar: 'current',
                 currentVariant: CurrentVariant?.Warning,
                 message: MESSAGES?.progressNoResults,
-                currenText: MESSAGES?.currentTextInitAndResult
+                currenText: MESSAGES?.currentTextInitAndResult,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
 
         // noGoalIncrease
@@ -164,7 +190,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentVariant: CurrentVariant?.Warning,
                 message: MESSAGES?.progressNoGoal,
                 currenText: MESSAGES?.currentTextResult,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
 
             }
 
@@ -178,7 +205,8 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentVariant: CurrentVariant?.Warning,
                 message: MESSAGES?.progressNoGoal,
                 currenText:  MESSAGES?.currentTextResult,
-                currentTextInit: MESSAGES?.currentTextInit
+                currentTextInit: MESSAGES?.currentTextInit,
+                TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
     }, [])
 
@@ -195,6 +223,9 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         noGoal,
         noResult,
         resultEvolved,
-        stabilizeExceeding
+        stabilizeExceeding,
+        stabilize,
+        isGoalDecreased,
+        isGoalIncrease
     }
 }

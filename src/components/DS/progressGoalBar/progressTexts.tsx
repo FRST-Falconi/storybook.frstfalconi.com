@@ -26,5 +26,7 @@ export const MESSAGES = {
     currentTextResult: <div>RESULTADO</div> ,
     currentTextInitAndResult: <div>INÍCIO E RESULTADO</div> ,
     currentTextInit: <div>INÍCIO</div>, 
-    stabilizeExceedingText: <div>INÍCIO E META</div>
+    stabilizeExceedingText: <div>INÍCIO E META</div>,
+    textGoal: <div>META E RESULTADO</div>,
+    TextoGoalDefault: <div>META</div>
 }
