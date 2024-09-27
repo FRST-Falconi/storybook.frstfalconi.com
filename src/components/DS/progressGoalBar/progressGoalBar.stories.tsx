@@ -25,6 +25,14 @@ stabilizeExceeding.args = {
     isVisibleMessage: true
 }
 
+export const stabilize  = Template.bind({})
+stabilize.args = {
+    start: 10, //inicio
+    current: 10, //valor final
+    goal: 10, // meta
+    isVisibleMessage: true
+}
+
 export const reachedGoalDecreased = Template.bind({})
 reachedGoalDecreased.args = {
     start: 40,

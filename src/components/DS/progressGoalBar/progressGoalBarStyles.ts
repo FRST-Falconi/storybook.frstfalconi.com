@@ -6,6 +6,9 @@ interface ProgressBarColorProps {
     width: number;
     isGoalExceeded: boolean
     hasRegressed: boolean
+    isGoalIncrese: boolean
+    isGoalDecreased: boolean
+    stabileze: boolean
 }
 
 
@@ -106,12 +109,14 @@ export const ProgressBarColor = styled.div<ProgressBarColorProps>`
     left: 0;
     top: 0;
     z-index: 1;
-    background: ${({ isGoalExceeded, hasRegressed }) => {
+    background: ${({ isGoalExceeded, hasRegressed, isGoalDecreased, isGoalIncrese, stabileze}) => {
         if (hasRegressed) {
             return '#C90017';
-        } else if (isGoalExceeded) {
-            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 33%, rgba(251, 141, 40, 1) 78%, rgba(255, 215, 0, 1) 100%)';
-        } else {
+        }  else if (isGoalDecreased || isGoalIncrese || stabileze){
+            return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 0%, rgba(251, 141, 40, 1) 10%)';
+        }else if (isGoalExceeded) {
+            return 'linear-gradient(90deg,  rgba(251, 141, 40, 1) 78%, rgba(255, 215, 0, 1) 100%)';
+        }else{
             return 'linear-gradient(90deg, rgba(161, 162, 171, 1) 33%, rgba(251, 141, 40, 1) 65%)';
         }
     }};
@@ -126,14 +131,33 @@ export const TextUP = styled.div`
     margin-bottom: 24px;
 `
 
-export const IndicatorText = styled.div<{ position: number, noResult?: boolean, isGoalExceeded?: boolean, isGoalReached?: boolean, resultEvolved?: boolean, start?: number }>`
+export const IndicatorText = styled.div<{ position: number, noResult?: boolean, isGoalExceeded?: boolean, isGoalReached?: boolean, resultEvolved?: boolean, start?: number, stabilize?:boolean}>`
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: ${({ noResult, isGoalReached, isGoalExceeded, resultEvolved, start }) =>
         noResult || isGoalReached || isGoalExceeded || resultEvolved || start === 0 ? 'start' : 'center'};
     top: 100%; 
-    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'}); /* Posiciona o texto com base na posição do indicador */
+    /* left: calc(${({ position }) => position}% ${({ position }) => position && '- 59px'}); */
+    left:  ${({ position, stabilize}) => 
+    stabilize
+        ? `calc(${position}% - 59px)` 
+        : `calc(${position}% - 26px)`};  /* Posiciona o texto com base na posição do indicador */
+    margin-top: 8px; 
+    font-size: 12px; 
+    color: #333;
+    white-space: nowrap; 
+`;
+
+
+export const IndicatorTextInit= styled.div<{ position: number, noResult?: boolean, isGoalExceeded?: boolean, isGoalReached?: boolean, resultEvolved?: boolean, start?: number, stabilize?:boolean}>`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: ${({ noResult, isGoalReached, isGoalExceeded, resultEvolved, start }) =>
+        noResult || isGoalReached || isGoalExceeded || resultEvolved || start === 0 ? 'start' : 'center'};
+    top: 100%; 
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'});
     margin-top: 8px; 
     font-size: 12px; 
     color: #333;
@@ -146,7 +170,7 @@ export const IndicatorTextCurrent = styled.div<{ position: number, noGoal: boole
     flex-direction: column;
     align-items:  ${({ noGoal, noResult }) => noGoal || noResult ? 'start' : 'center'};
     top: 100%; 
-    left: calc(${({ position }) => position}% ${({ position }) => position && '- 37px'}); 
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 30px'}); 
     margin-top: 8px;
     font-size: 12px; 
     color: #333; 
