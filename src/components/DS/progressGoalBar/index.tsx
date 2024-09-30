@@ -96,7 +96,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                 {/*  posicao relativa */}
                 <Styles.ProgressBarColor
                     isGoalExceeded={isGoalExceeded}
-                    width={positions[positions.barRef]}
+                    width={positions?.[positions?.barRef]}
                     hasRegressed={noGoal}
                     isGoalDecreased={isGoalDecreased}
                     isGoalIncrese={isGoalIncrease}
