@@ -4256,13 +4256,13 @@ styled__default["default"].div `
     border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
     position: absolute;
 `;
-const LimitCharsContainer = styled__default["default"].div `
+const LimitCharsContainer$1 = styled__default["default"].div `
  display:flex;
  justify-content: flex-start;
  align-items: center;
  margin-left: 10px;
 `;
-const LimitCharsExceededMessage = styled__default["default"].span `
+const LimitCharsExceededMessage$1 = styled__default["default"].span `
     color: ${({ theme }) => theme.colors.linkError};
     font-size: 12px;
     margin-left: 5px;
@@ -4864,7 +4864,7 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
                             }, "data-text": "enter", suppressContentEditableWarning: true, onPaste: handlePaste, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
-                            } }))] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder && showCharacterCounter && (jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] })) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
+                            } }))] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder && showCharacterCounter && (jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] })) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer$1, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage$1, { children: limitMessageExceeded })] }))] }) }));
 }
 
 const HeaderWrapper$1 = styled__default["default"].div `
@@ -7725,36 +7725,36 @@ const backgroundColors$2 = {
     hypothesis: {
         prioritize: '#FAB637',
         owner: '#f8d784',
-        suggested: '#FBEECF',
+        suggested: '#FBEECF'
     },
     impediment: {
         prioritize: '#D2ADE3',
         owner: '#E5CBF1',
-        suggested: '#EFE1F6',
+        suggested: '#EFE1F6'
     }
 };
 const separatorColors = {
     hypothesis: {
         prioritize: '#CF8E11',
         owner: '#C8A561',
-        suggested: '#E1CCA5',
+        suggested: '#E1CCA5'
     },
     impediment: {
         prioritize: '#AA83C3',
         owner: '#BF9AD6',
-        suggested: '#DAB4EC',
+        suggested: '#DAB4EC'
     }
 };
 const borderAvatar = {
     hypothesis: {
         prioritize: '#C48000',
         owner: '#EE9F08',
-        suggested: '#EE9F08',
+        suggested: '#EE9F08'
     },
     impediment: {
         prioritize: '#AD46FF',
         owner: '#AD46FF',
-        suggested: '#AD46FF',
+        suggested: '#AD46FF'
     }
 };
 const MainContainer = styled__default["default"].div `
@@ -7791,7 +7791,7 @@ const SplitContainerDescription = styled__default["default"].div `
     width: 100%;
 `;
 styled__default["default"].div `
-    height: 24px; 
+    height: 24px;
     width: 1px;
     margin-left: 14px;
     margin-right: 14px;
@@ -7820,6 +7820,17 @@ const Description$4 = styled__default["default"].span `
             border-left: 1px solid ${border};
         `;
 }}
+`;
+const LimitCharsContainer = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 4px;
+`;
+const LimitCharsExceededMessage = styled__default["default"].span `
+    color: #a50000;
+    font-size: 12px;
+    margin-left: 5px;
 `;
 
 const backgroundColors$1 = {
@@ -8017,44 +8028,45 @@ const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote
                                     jsxRuntime.jsxs("div", { onClick: handleChangeVote, children: [jsxRuntime.jsx(SwitchVoteIcon, {}), "Trocar voto"] })] })) : (jsxRuntime.jsxs("span", { children: [votersList?.length, " ", votersList?.length > 1 ? 'votos' : 'voto'] })) })] })) : (jsxRuntime.jsx(ContainerVoting, { type: type, children: jsxRuntime.jsxs(ContainerTitleVoting, { onClick: onVote, children: [jsxRuntime.jsx(NewVoteIcon, {}), jsxRuntime.jsx(TitleVoting, { children: voteText })] }) })) }));
 };
 
-const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index, authorGoalId, // id do dono do desafio
-userLoggedId, authorName, // nome autor da hipotese ou do impedimento
-handleViewProfile, authorId, // id do autor do impedimento ou da hipotese
-hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDeleteVote, onChangeVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions, popperStyle }) => {
+const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index, authorGoalId, userLoggedId, authorName, handleViewProfile, authorId, hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDeleteVote, onChangeVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions, popperStyle }) => {
     const [editDescription, setEditDescription] = React.useState(description);
     const [isEditing, setIsEditing] = React.useState(false);
     const isOwnerGoal = authorGoalId === authorId;
+    const limitCaraterers = variant === 'impediment' ? 365 : 200;
+    const [isLimitExceeded, setIsLimitExceeded] = React.useState(false);
     const options = [
-        hasUpdownButtons && userLoggedId === authorGoalId &&
-            ({
-                startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),
-                description: 'Priorizar',
-                onClick: () => onPrioritize(id),
-                disabled: type === 'prioritize',
-                color: type === 'prioritize' ? '#9C9C9C' : '#222222'
-            }),
+        hasUpdownButtons &&
+            userLoggedId === authorGoalId && {
+            startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: type === 'prioritize' ? '#9C9C9C' : '#222222' }),
+            description: 'Priorizar',
+            onClick: () => onPrioritize(id),
+            disabled: type === 'prioritize',
+            color: type === 'prioritize' ? '#9C9C9C' : '#222222'
+        },
         {
             startIcon: jsxRuntime.jsx(EditHipoteses, {}),
             description: 'Editar',
             onClick: (e) => setIsEditing(true)
         },
-        hasAddActions &&
-            ({
-                startIcon: jsxRuntime.jsx(AddAction, {}),
-                description: 'Adicionar ações',
-                onClick: () => onAddActions(id),
-                color: '#222222'
-            }),
+        hasAddActions && {
+            startIcon: jsxRuntime.jsx(AddAction, {}),
+            description: 'Adicionar ações',
+            onClick: () => onAddActions(id),
+            color: '#222222'
+        },
         {
             startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
             description: 'Excluir',
             onClick: () => onDeleteHipotesisOrImpediment(id),
             color: '#C00F00'
         }
-    ].filter(item => item);
+    ].filter((item) => item);
     React.useEffect(() => {
         setEditDescription(description);
     }, [description]);
+    React.useEffect(() => {
+        editDescription?.length >= limitCaraterers ? setIsLimitExceeded(true) : setIsLimitExceeded(false);
+    }, [editDescription]);
     const title = React.useMemo(() => {
         if (type === 'prioritize' && variant === 'hypothesis')
             return 'HIPÓTESE PRIORIZADA';
@@ -8099,7 +8111,13 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
     };
     const inputRef = React.useRef(null);
     const handleChange = (event) => {
-        setEditDescription(event.target.value);
+        if (limitCaraterers > editDescription?.length || event.target.value?.length < editDescription?.length) {
+            let newValue = event.target.value;
+            if (newValue.length > limitCaraterers) {
+                newValue = newValue.substring(0, limitCaraterers);
+            }
+            setEditDescription(newValue);
+        }
     };
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -8116,47 +8134,43 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
             }, 200);
         }
     }, [isEditing]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(ContainerHypotheis, { type: type, variant: variant, children: [hasUpdownButtons &&
-                        jsxRuntime.jsx(UpDownButtons, { type: type, variant: variant, onDownClick: () => onDown(id, index), onUpClick: () => onUp(id, index) }), jsxRuntime.jsxs(SplitContainerDescription, { children: [jsxRuntime.jsx(Tooltip$2, { content: authorName, direction: 'bottom', style: {
-                                    fontFamily: 'PT Sans',
-                                    fontWeight: 400,
-                                    fontSize: '14px',
-                                    color: 'rgba(117, 117, 117, 1)',
-                                    width: 'fit-content',
-                                    height: '31px',
-                                    top: '8px',
-                                    left: '4px',
-                                    whiteSpace: 'nowrap',
-                                    boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '24px' : '24px', border: avatarBorder, style: { cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Description$4, { type: type, variant: variant, onClick: handleClickAction, onDoubleClick: () => {
-                                    if (clickTimeoutRef.current) {
-                                        clearTimeout(clickTimeoutRef.current);
-                                    }
-                                    if (hasEditHipotesisOrImpediment)
-                                        setIsEditing(true);
-                                }, style: { height: isEditing ? "auto" : "fit-content" }, children: isEditing ?
-                                    jsxRuntime.jsx(material.TextField, { inputRef: inputRef, value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, multiline: true, fullWidth: true, variant: 'standard', InputProps: {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(ContainerHypotheis, { type: type, variant: variant, children: [hasUpdownButtons && (jsxRuntime.jsx(UpDownButtons, { type: type, variant: variant, onDownClick: () => onDown(id, index), onUpClick: () => onUp(id, index) })), jsxRuntime.jsxs(SplitContainerDescription, { children: [jsxRuntime.jsx(Tooltip$2, { content: authorName, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '24px' : '24px', border: avatarBorder, style: { cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Description$4, { type: type, variant: variant, onClick: handleClickAction, onDoubleClick: () => {
+                                        if (clickTimeoutRef.current) {
+                                            clearTimeout(clickTimeoutRef.current);
+                                        }
+                                        if (hasEditHipotesisOrImpediment)
+                                            setIsEditing(true);
+                                    }, style: { height: isEditing ? 'auto' : 'fit-content' }, children: isEditing ? (jsxRuntime.jsx(material.TextField, { inputRef: inputRef, value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, multiline: true, fullWidth: true, variant: "standard", InputProps: {
                                             disableUnderline: true,
                                             style: {
                                                 fontFamily: 'PT Sans',
                                                 fontSize: '14px',
                                                 lineHeight: 1.3
-                                            },
-                                        }, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) })
-                                    :
-                                        jsxRuntime.jsx(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
-                                                fontFamily: 'PT Sans',
-                                                fontWeight: 400,
-                                                fontSize: '14px',
-                                                color: '#757575',
-                                                width: '171px',
-                                                height: '52px',
-                                                top: '8px',
-                                                left: '4px',
-                                                whiteSpace: 'wrap',
-                                                boxShadow: ' 0px 25px 18px -20px #22222233;',
-                                                display: variant === 'impediment' || isEditing ? 'none' : 'block'
-                                            }, children: jsxRuntime.jsx("div", { style: { width: '100%', overflow: 'hidden' }, children: editDescription }) }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
+                                            }
+                                        }, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) })) : (jsxRuntime.jsx(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: "100%", style: {
+                                            fontFamily: 'PT Sans',
+                                            fontWeight: 400,
+                                            fontSize: '14px',
+                                            color: '#757575',
+                                            width: '171px',
+                                            height: '52px',
+                                            top: '8px',
+                                            left: '4px',
+                                            whiteSpace: 'wrap',
+                                            boxShadow: ' 0px 25px 18px -20px #22222233;',
+                                            display: variant === 'impediment' || isEditing ? 'none' : 'block'
+                                        }, children: jsxRuntime.jsx("div", { style: { width: '100%', overflow: 'hidden' }, children: editDescription }) })) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }), isEditing && isLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, { color: "#A50000" }), jsxRuntime.jsx(LimitCharsExceededMessage, { children: 'Você atingiu a quantidade máxima de caracteres' })] }))] }));
 };
 
 const MESSAGES = {

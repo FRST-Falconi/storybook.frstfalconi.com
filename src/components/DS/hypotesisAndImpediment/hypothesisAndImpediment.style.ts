@@ -1,42 +1,42 @@
 import styled, { css } from 'styled-components'
-import { VariantColorStyle } from './hypothesisAndImpediment';
+import { VariantColorStyle } from './hypothesisAndImpediment'
 
 const backgroundColors = {
     hypothesis: {
         prioritize: '#FAB637',
         owner: '#f8d784',
-        suggested: '#FBEECF',
+        suggested: '#FBEECF'
     },
     impediment: {
         prioritize: '#D2ADE3',
         owner: '#E5CBF1',
-        suggested: '#EFE1F6',
+        suggested: '#EFE1F6'
     }
-};
+}
 
 const separatorColors = {
     hypothesis: {
         prioritize: '#CF8E11',
         owner: '#C8A561',
-        suggested: '#E1CCA5',
+        suggested: '#E1CCA5'
     },
     impediment: {
         prioritize: '#AA83C3',
         owner: '#BF9AD6',
-        suggested: '#DAB4EC',
+        suggested: '#DAB4EC'
     }
 }
 
-export const borderAvatar ={
+export const borderAvatar = {
     hypothesis: {
         prioritize: '#C48000',
         owner: '#EE9F08',
-        suggested: '#EE9F08',
+        suggested: '#EE9F08'
     },
     impediment: {
         prioritize: '#AD46FF',
-        owner: '#AD46FF',    
-        suggested: '#AD46FF',
+        owner: '#AD46FF',
+        suggested: '#AD46FF'
     }
 }
 
@@ -59,10 +59,10 @@ export const ContainerHypotheis = styled.div<VariantColorStyle>`
     border-radius: 8px;
 
     ${({ type, variant }) => {
-        const backgroundColor = backgroundColors[variant][type];
+        const backgroundColor = backgroundColors[variant][type]
         return css`
             background: ${backgroundColor};
-        `;
+        `
     }}
 `
 
@@ -76,24 +76,23 @@ export const SplitContainerDescription = styled.div`
     width: 100%;
 `
 
-
-export const Separator = styled.div<{ type: string, variant: string }>`
-    height: 24px; 
+export const Separator = styled.div<{ type: string; variant: string }>`
+    height: 24px;
     width: 1px;
     margin-left: 14px;
     margin-right: 14px;
     ${({ type, variant }) => {
-        const border = separatorColors[variant][type];
+        const border = separatorColors[variant][type]
         return css`
             border: 1px solid ${border};
-        `;
+        `
     }}
 `
 export const Title = styled.span`
     font-weight: 700;
     white-space: nowrap;
 `
-export const Description = styled.span<{ type: string, variant: string }>`
+export const Description = styled.span<{ type: string; variant: string }>`
     font-weight: 400;
     display: flex;
     flex-grow: 1;
@@ -102,9 +101,22 @@ export const Description = styled.span<{ type: string, variant: string }>`
     padding: 6px 16px 6px 16px;
 
     ${({ type, variant }) => {
-        const border = separatorColors[variant][type];
+        const border = separatorColors[variant][type]
         return css`
             border-left: 1px solid ${border};
-        `;
+        `
     }}
+`
+
+export const LimitCharsContainer = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 4px;
+`
+
+export const LimitCharsExceededMessage = styled.span`
+    color: #a50000;
+    font-size: 12px;
+    margin-left: 5px;
 `
