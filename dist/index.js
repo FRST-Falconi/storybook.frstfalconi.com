@@ -7501,226 +7501,6 @@ const ContainerModal = styled__default["default"]('div') `
     box-shadow: 0px 5px 15px 0px #00000040;
 `;
 
-function AddImpedimentoModal({ isOpen, onClose, onSaveBtn, anchor }) {
-    const [text, setText] = React.useState('');
-    const handleClose = () => {
-        setText('');
-        onClose();
-    };
-    const handleSave = () => {
-        onSaveBtn(text);
-        handleClose();
-    };
-    return (jsxRuntime.jsx(material.Popover, { open: isOpen, onClose: handleClose, anchorEl: anchor, anchorOrigin: {
-            horizontal: 'right',
-            vertical: 'bottom'
-        }, transformOrigin: {
-            horizontal: 'right',
-            vertical: 'top'
-        }, children: jsxRuntime.jsxs(ContainerModal, { children: [jsxRuntime.jsx(TextField, { value: text, onChange: (e) => setText(e.target.value), placeholder: 'Sugira o impedimento aqui' }), jsxRuntime.jsx(Button$4, { label: 'Salvar', variant: 'expandedPrimary', disabled: text === '', handleClick: handleSave })] }) }));
-}
-
-const ContainerDropdown = styled__default["default"]('div') `
-    display: flex;
-    flex-direction: column;
-    padding: 4px 8px;
-    border-radius: 8px;
-    box-shadow: 0px 5px 15px 0px #00000040;
-    background-color: #FFFFFF;
-    width: 300px;
-`;
-const DropdownRow = styled__default["default"]('div') `
-    padding: 10px 4px;
-    border-top: 1px solid #E0E0E0;
-    cursor: default;
-
-    p {
-        font-family: 'PT Sans';
-        font-size: 16px;
-        line-height: 1.1;
-        font-weight: 400;
-        color: ${({ theme }) => theme.colors.neutralsGrey1};
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden
-    }
-
-    :first-child {
-        border: none;
-    }
-
-    :hover {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey8};
-    }
-    
-`;
-
-function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimento }) {
-    const render = () => {
-        return (impedimentoList.map((item, index) => {
-            return (jsxRuntime.jsx(DropdownRow, { onClick: () => onClickImpedimento(item), children: jsxRuntime.jsxs("p", { children: [item.title, ": ", item.description] }) }, index));
-        }));
-    };
-    return (jsxRuntime.jsx(material.Popover, { open: isOpen, onClose: onClose, anchorEl: anchor, anchorOrigin: {
-            horizontal: 'right',
-            vertical: 'bottom'
-        }, transformOrigin: {
-            horizontal: 'right',
-            vertical: 'top'
-        }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
-}
-
-function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, addButtonText }) {
-    const [selectedTab, setSelectedTab] = React.useState(null);
-    const [allTabs, setAllTabs] = React.useState([]);
-    const [onShowTabs, setOnShowTabs] = React.useState([]);
-    const [onHideTabs, setOnHideTabs] = React.useState([]);
-    const [addImpedimentoAnchor, setAddImpedimentoAnchor] = React.useState(null);
-    const [impedimentoSelectAnchor, setImpedimentoSelectAnchor] = React.useState(null);
-    const [isEdit, setIsEdit] = React.useState(false);
-    const [editDescription, setEditDescription] = React.useState('');
-    const [displayDescription, setDisplayDescription] = React.useState('');
-    const openAddImpedimento = Boolean(addImpedimentoAnchor);
-    const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
-    React.useEffect(() => {
-        setAllTabs(tabsList);
-    }, [tabsList]);
-    React.useEffect(() => {
-        if (idSelectedTab) {
-            if (allTabs?.length > 0) {
-                let tab = allTabs?.find(value => value.id == idSelectedTab);
-                handleClickTab(tab);
-            }
-        }
-    }, [idSelectedTab]);
-    React.useEffect(() => {
-        if (allTabs.length > 0) {
-            const tabToSelect = allTabs.find(tab => tab.id === currentTab);
-            setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
-            setOnShowTabs(allTabs.slice(0, maxTabs));
-            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
-            onSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
-        }
-    }, [allTabs, currentTab, maxTabs, onSelectedTab]);
-    const handleClickTab = (tab) => {
-        setIsEdit(false);
-        setEditDescription('');
-        setDisplayDescription(tab.description);
-        setSelectedTab(tab);
-        onSelectedTab(tab);
-    };
-    const handleClickAddImpedimento = (event) => {
-        setAddImpedimentoAnchor(event.currentTarget);
-    };
-    const handleSaveNewImpedimento = (impedimento) => {
-        onSaveNewImpedimento(impedimento);
-    };
-    const handleClickSelectImpedimento = (impedimento) => {
-        //novo Array sem o impedimento selecionado
-        let newArray = allTabs.filter(value => value.id !== impedimento.id);
-        //coloca o impedimento selecionado na primeira posição
-        newArray.unshift(impedimento);
-        //atualiza o array de impedimentos
-        setAllTabs(newArray);
-        handleClickTab(impedimento);
-    };
-    const renderTabs = (tabInfo, index) => {
-        return (jsxRuntime.jsx(Tab, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
-    };
-    const handleUpdate = () => {
-        if (editDescription == '')
-            return;
-        setDisplayDescription(editDescription);
-        let editTab = { ...selectedTab, description: editDescription };
-        selectedTab?.handleEdit(editTab);
-        setIsEdit(false);
-    };
-    const handleCancelUpdate = () => {
-        setEditDescription(displayDescription);
-        setIsEdit(false);
-    };
-    const startEditing = () => {
-        setEditDescription(displayDescription);
-    };
-    React.useEffect(() => {
-        if (isEdit) {
-            startEditing();
-        }
-    }, [isEdit]);
-    React.useEffect(() => {
-        if (selectedTab) {
-            setDisplayDescription(selectedTab.description || '');
-            setEditDescription(selectedTab.description || '');
-        }
-    }, [selectedTab]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs.length > 0 ?
-            jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), onHideTabs.length > 0 ?
-                                        jsxRuntime.jsx(Tooltip$2, { content: 'Ver todos os impedimentos', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })
-                                        :
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ?
-                                    jsxRuntime.jsx(Tooltip$2, { content: 'Sugerir impedimento', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] }) })
-                                    :
-                                        jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }), selectedTab?.id ?
-                        jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: 'bottom', delay: 200, style: {
-                                        fontFamily: 'PT Sans',
-                                        fontWeight: 400,
-                                        fontSize: '14px',
-                                        color: 'rgba(117, 117, 117, 1)',
-                                        width: 'fit-content',
-                                        height: '31px',
-                                        top: '8px',
-                                        left: '4px',
-                                        whiteSpace: 'nowrap',
-                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                    }, children: selectedTab.isGoalOwner ?
-                                        jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
-                                        :
-                                            jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: selectedTab?.handleClickAvatar }) }), isEdit ?
-                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, multiline: true, variant: 'standard', InputProps: {
-                                                disableUnderline: true,
-                                                style: {
-                                                    fontFamily: 'PT Sans',
-                                                    fontSize: '14px',
-                                                    lineHeight: 1.3
-                                                }
-                                            }, inputRef: (input) => input && input.focus(), onKeyDown: (event) => {
-                                                if (event.key === 'Enter') {
-                                                    handleUpdate();
-                                                }
-                                                if (event.key === 'Escape') {
-                                                    handleCancelUpdate();
-                                                }
-                                            }, onBlur: handleUpdate, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) }) })
-                                    :
-                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
-                                                    jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
-                                                                ...(selectedTab?.handlePriorize ? [{
-                                                                        description: 'Priorizar',
-                                                                        onClick: () => selectedTab?.handlePriorize(selectedTab),
-                                                                        disabled: !!selectedTab?.disabledPriorize,
-                                                                        color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
-                                                                        startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
-                                                                    }] : []),
-                                                                ...(selectedTab?.handleEdit ? [{
-                                                                        description: 'Editar',
-                                                                        onClick: () => setIsEdit(true),
-                                                                        startIcon: jsxRuntime.jsx(EditHipoteses, {})
-                                                                    }] : []),
-                                                                ...(selectedTab?.handleDelete ? [{
-                                                                        description: 'Excluir',
-                                                                        onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                                        startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
-                                                                        color: '#C00F00'
-                                                                    }] : []),
-                                                            ], closeAfterClick: true, isContainerOptions: true }) })
-                                                    :
-                                                        jsxRuntime.jsx(jsxRuntime.Fragment, {})] })] })
-                        :
-                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), jsxRuntime.jsx(AddImpedimentoModal, { isOpen: openAddImpedimento, anchor: addImpedimentoAnchor, onClose: () => setAddImpedimentoAnchor(null), onSaveBtn: handleSaveNewImpedimento }), jsxRuntime.jsx(Dropdown$1, { isOpen: openImpedimentoSelect, anchor: impedimentoSelectAnchor, onClose: () => setImpedimentoSelectAnchor(null), impedimentoList: onHideTabs, maxTabs: maxTabs, onClickImpedimento: handleClickSelectImpedimento })] })
-            :
-                jsxRuntime.jsx(jsxRuntime.Fragment, {}) }));
-}
-
 const backgroundColors$2 = {
     hypothesis: {
         prioritize: '#FAB637',
@@ -7832,6 +7612,238 @@ const LimitCharsExceededMessage = styled__default["default"].span `
     font-size: 12px;
     margin-left: 5px;
 `;
+
+function AddImpedimentoModal({ isOpen, onClose, onSaveBtn, anchor }) {
+    const [text, setText] = React.useState('');
+    const limitCaraterersImpediments = 365;
+    const handleClose = () => {
+        setText('');
+        onClose();
+    };
+    const handleSave = () => {
+        onSaveBtn(text);
+        handleClose();
+    };
+    return (jsxRuntime.jsx(material.Popover, { open: isOpen, onClose: handleClose, anchorEl: anchor, anchorOrigin: {
+            horizontal: 'right',
+            vertical: 'bottom'
+        }, transformOrigin: {
+            horizontal: 'right',
+            vertical: 'top'
+        }, children: jsxRuntime.jsxs(ContainerModal, { children: [jsxRuntime.jsxs("div", { style: { width: '100%' }, children: [jsxRuntime.jsx(TextField, { value: text, onChange: (e) => setText(e.target.value), placeholder: "Sugira o impedimento aqui", maxLength: limitCaraterersImpediments }), text?.length >= limitCaraterersImpediments && (jsxRuntime.jsxs("div", { style: {
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                marginTop: '4px',
+                                justifyContent: 'flex-start'
+                            }, children: [jsxRuntime.jsx(TagAlert, { color: "#A50000" }), jsxRuntime.jsx(LimitCharsExceededMessage, { children: 'Você atingiu a quantidade máxima de caracteres' })] }))] }), jsxRuntime.jsx(Button$4, { label: "Salvar", variant: "expandedPrimary", disabled: text === '', handleClick: handleSave })] }) }));
+}
+
+const ContainerDropdown = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px 0px #00000040;
+    background-color: #FFFFFF;
+    width: 300px;
+`;
+const DropdownRow = styled__default["default"]('div') `
+    padding: 10px 4px;
+    border-top: 1px solid #E0E0E0;
+    cursor: default;
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight: 400;
+        color: ${({ theme }) => theme.colors.neutralsGrey1};
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden
+    }
+
+    :first-child {
+        border: none;
+    }
+
+    :hover {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey8};
+    }
+    
+`;
+
+function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimento }) {
+    const render = () => {
+        return (impedimentoList.map((item, index) => {
+            return (jsxRuntime.jsx(DropdownRow, { onClick: () => onClickImpedimento(item), children: jsxRuntime.jsxs("p", { children: [item.title, ": ", item.description] }) }, index));
+        }));
+    };
+    return (jsxRuntime.jsx(material.Popover, { open: isOpen, onClose: onClose, anchorEl: anchor, anchorOrigin: {
+            horizontal: 'right',
+            vertical: 'bottom'
+        }, transformOrigin: {
+            horizontal: 'right',
+            vertical: 'top'
+        }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
+}
+
+function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, addButtonText }) {
+    const [selectedTab, setSelectedTab] = React.useState(null);
+    const [allTabs, setAllTabs] = React.useState([]);
+    const [onShowTabs, setOnShowTabs] = React.useState([]);
+    const [onHideTabs, setOnHideTabs] = React.useState([]);
+    const [addImpedimentoAnchor, setAddImpedimentoAnchor] = React.useState(null);
+    const [impedimentoSelectAnchor, setImpedimentoSelectAnchor] = React.useState(null);
+    const [isEdit, setIsEdit] = React.useState(false);
+    const [editDescription, setEditDescription] = React.useState('');
+    const [displayDescription, setDisplayDescription] = React.useState('');
+    const limitCaraterersImpediments = 365;
+    const openAddImpedimento = Boolean(addImpedimentoAnchor);
+    const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
+    React.useEffect(() => {
+        setAllTabs(tabsList);
+    }, [tabsList]);
+    React.useEffect(() => {
+        if (idSelectedTab) {
+            if (allTabs?.length > 0) {
+                let tab = allTabs?.find((value) => value.id == idSelectedTab);
+                handleClickTab(tab);
+            }
+        }
+    }, [idSelectedTab]);
+    React.useEffect(() => {
+        if (allTabs.length > 0) {
+            const tabToSelect = allTabs.find((tab) => tab.id === currentTab);
+            setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
+            setOnShowTabs(allTabs.slice(0, maxTabs));
+            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
+            onSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
+        }
+    }, [allTabs, currentTab, maxTabs, onSelectedTab]);
+    const handleClickTab = (tab) => {
+        setIsEdit(false);
+        setEditDescription('');
+        setDisplayDescription(tab.description);
+        setSelectedTab(tab);
+        onSelectedTab(tab);
+    };
+    const handleClickAddImpedimento = (event) => {
+        setAddImpedimentoAnchor(event.currentTarget);
+    };
+    const handleSaveNewImpedimento = (impedimento) => {
+        onSaveNewImpedimento(impedimento);
+    };
+    const handleClickSelectImpedimento = (impedimento) => {
+        //novo Array sem o impedimento selecionado
+        let newArray = allTabs.filter((value) => value.id !== impedimento.id);
+        //coloca o impedimento selecionado na primeira posição
+        newArray.unshift(impedimento);
+        //atualiza o array de impedimentos
+        setAllTabs(newArray);
+        handleClickTab(impedimento);
+    };
+    const renderTabs = (tabInfo, index) => {
+        return (jsxRuntime.jsx(Tab, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
+    };
+    const handleUpdate = () => {
+        if (editDescription == '')
+            return;
+        setDisplayDescription(editDescription);
+        let editTab = { ...selectedTab, description: editDescription };
+        selectedTab?.handleEdit(editTab);
+        setIsEdit(false);
+    };
+    const handleCancelUpdate = () => {
+        setEditDescription(displayDescription);
+        setIsEdit(false);
+    };
+    const startEditing = () => {
+        setEditDescription(displayDescription);
+    };
+    const handleChange = (event) => {
+        if (limitCaraterersImpediments > editDescription?.length ||
+            event.target.value?.length < editDescription?.length) {
+            let newValue = event.target.value;
+            if (newValue.length > limitCaraterersImpediments) {
+                newValue = newValue.substring(0, limitCaraterersImpediments);
+            }
+            setEditDescription(newValue);
+        }
+    };
+    React.useEffect(() => {
+        if (isEdit) {
+            startEditing();
+        }
+    }, [isEdit]);
+    React.useEffect(() => {
+        if (selectedTab) {
+            setDisplayDescription(selectedTab.description || '');
+            setEditDescription(selectedTab.description || '');
+        }
+    }, [selectedTab]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs.length > 0 ? (jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), onHideTabs.length > 0 ? (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os impedimentos", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsx(Tooltip$2, { content: "Sugerir impedimento", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
+                                fontFamily: 'PT Sans',
+                                fontWeight: 400,
+                                fontSize: '14px',
+                                color: 'rgba(117, 117, 117, 1)',
+                                width: 'fit-content',
+                                height: '31px',
+                                top: '8px',
+                                left: '4px',
+                                whiteSpace: 'nowrap',
+                                boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                            }, children: selectedTab.isGoalOwner ? (jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: "24px", isActiveClick: true }) })) : (jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: "24px", isActiveClick: true, onClick: selectedTab?.handleClickAvatar })) }), isEdit ? (jsxRuntime.jsxs("div", { style: { width: '100%' }, children: [jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: handleChange, fullWidth: true, multiline: true, variant: "standard", InputProps: {
+                                        disableUnderline: true,
+                                        style: {
+                                            fontFamily: 'PT Sans',
+                                            fontSize: '14px',
+                                            lineHeight: 1.3
+                                        }
+                                    }, inputRef: (input) => input && input.focus(), onKeyDown: (event) => {
+                                        if (event.key === 'Enter') {
+                                            handleUpdate();
+                                        }
+                                        if (event.key === 'Escape') {
+                                            handleCancelUpdate();
+                                        }
+                                    }, onBlur: handleUpdate, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) }), editDescription?.length >= limitCaraterersImpediments && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, { color: "#A50000" }), jsxRuntime.jsx(LimitCharsExceededMessage, { children: 'Você atingiu a quantidade máxima de caracteres' })] }))] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ? (jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
+                                            ...(selectedTab?.handlePriorize
+                                                ? [
+                                                    {
+                                                        description: 'Priorizar',
+                                                        onClick: () => selectedTab?.handlePriorize(selectedTab),
+                                                        disabled: !!selectedTab?.disabledPriorize,
+                                                        color: !!selectedTab?.disabledPriorize
+                                                            ? '#b7b7b7'
+                                                            : '#222222',
+                                                        startIcon: (jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize
+                                                                ? '#b7b7b7'
+                                                                : '#222222' }))
+                                                    }
+                                                ]
+                                                : []),
+                                            ...(selectedTab?.handleEdit
+                                                ? [
+                                                    {
+                                                        description: 'Editar',
+                                                        onClick: () => setIsEdit(true),
+                                                        startIcon: jsxRuntime.jsx(EditHipoteses, {})
+                                                    }
+                                                ]
+                                                : []),
+                                            ...(selectedTab?.handleDelete
+                                                ? [
+                                                    {
+                                                        description: 'Excluir',
+                                                        onClick: () => selectedTab?.handleDelete(selectedTab),
+                                                        startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
+                                                        color: '#C00F00'
+                                                    }
+                                                ]
+                                                : [])
+                                        ], closeAfterClick: true, isContainerOptions: true }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }))] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})), jsxRuntime.jsx(AddImpedimentoModal, { isOpen: openAddImpedimento, anchor: addImpedimentoAnchor, onClose: () => setAddImpedimentoAnchor(null), onSaveBtn: handleSaveNewImpedimento }), jsxRuntime.jsx(Dropdown$1, { isOpen: openImpedimentoSelect, anchor: impedimentoSelectAnchor, onClose: () => setImpedimentoSelectAnchor(null), impedimentoList: onHideTabs, maxTabs: maxTabs, onClickImpedimento: handleClickSelectImpedimento })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) }));
+}
 
 const backgroundColors$1 = {
     hypothesis: {
