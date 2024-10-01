@@ -18,6 +18,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
         noResult,
         resultEvolved,
         stabilizeExceeding,
+        stabilizeDecreased,
         stabilize,
         isGoalDecreased,
         isGoalIncrease
@@ -47,7 +48,8 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                 <Styles.StartIndicator position={positions?.start}>
                     <LocalizationIcon />
                 </Styles.StartIndicator>
-                <Styles.IndicatorTextInit
+                
+                {!stabilizeDecreased && <Styles.IndicatorTextInit
                     noResult={noResult}
                     position={positions?.start}
                     isGoalReached={isGoalReached}
@@ -60,7 +62,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                         <Styles.Number>{start}</Styles.Number>
                         <Styles.TypeProgressText>{getDisplayText()}</Styles.TypeProgressText>
                     </>
-                </Styles.IndicatorTextInit>
+                </Styles.IndicatorTextInit>}
 
                 {!isGoalReached && (
                     <>
@@ -86,7 +88,7 @@ export const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true 
                     <GoalIcon />
                 </Styles.EndIndicator>
 
-                <Styles.IndicatorText position={positions?.goal} stabilize={stabilize}>
+                <Styles.IndicatorText position={positions?.goal} stabilize={stabilize || stabilizeDecreased}>
                     <Styles.Number>{!stabilizeExceeding && goal}</Styles.Number>
                     <Styles.TypeProgressText>
                         {stabilizeExceeding || stabilize ? positions?.textGoal : positions?.TextoGoalDefault}
