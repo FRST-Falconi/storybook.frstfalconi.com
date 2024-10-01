@@ -1,9 +1,20 @@
 import { useMemo } from 'react'
 import { MESSAGES } from './progressTexts';
-import { Message } from '@material-ui/icons';
 
-function toRange(start: number, middle: number, end: number): number {
-    return ((middle - start) / (end - start)) * 100
+function toRange(start, end, current) {
+    if (start === end) {
+        return 25
+    }
+
+    let porcentagem = ((current - start) / (end - start)) * 100;
+
+    if (porcentagem > 75) {
+        return 75;
+    } else if (porcentagem < 28) {
+        return 28;
+    } else {
+        return porcentagem;
+    }
 }
 
 export enum CurrentVariant {
@@ -25,6 +36,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
     const resultEvolved = (start < goal && currentValue > start && currentValue)
     const stabilizeExceeding = (start === goal && currentValue > start && currentValue > goal)
     const stabilize = (start === goal && currentValue === goal && start === currentValue)
+    const stabilizeDecreased = (current < start && goal == start)
     const isGoalDecreased = start > goal && currentValue == goal
     const isGoalIncrease = start < goal && currentValue > start && currentValue == goal
 
@@ -84,31 +96,43 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
             }
 
 
-            //stabilizeExceeding
-            if (start === goal && currentValue > start && currentValue > goal)
-                return {
-                    start: 0,
-                    current: 100,
-                    goal: 14,
-                    barRef: 'current',
-                    currentVariant: CurrentVariant?.Star,
-                    message: MESSAGES?.progressExceeded,
-                    currenText: MESSAGES?.currentTextResult,
-                    stabilizeExceedingText: MESSAGES?.stabilizeExceedingText
-                }
+        //stabilizeExceeding
+        if (start === goal && currentValue > start)
+            return {
+                start: 0,
+                current: 100,
+                goal: 14,
+                barRef: 'current',
+                currentVariant: CurrentVariant?.Star,
+                message: MESSAGES?.progressExceeded,
+                currenText: MESSAGES?.currentTextResult,
+                stabilizeExceedingText: MESSAGES?.stabilizeExceedingText
+            }
 
-            //stabilize
-            if (start === goal && currentValue === goal && start === currentValue)
-                return {
-                    start: 0,
-                    current: 100,
-                    goal: 100,
-                    barRef: 'current',
-                    currentVariant: CurrentVariant?.Star,
-                    message: MESSAGES?.reachedGoal,
-                    currentTextInit: MESSAGES?.currentTextInit,
-                    textGoal: MESSAGES.textGoal
-                }
+        //stabilize
+        if (start === goal && currentValue === goal && start === currentValue)
+            return {
+                start: 0,
+                current: 100,
+                goal: 100,
+                barRef: 'current',
+                currentVariant: CurrentVariant?.Star,
+                message: MESSAGES?.reachedGoal,
+                currentTextInit: MESSAGES?.currentTextInit,
+                textGoal: MESSAGES.textGoal
+            }
+
+        if (start === goal && currentValue < start)
+            return {
+                start: 100,
+                current: 0,
+                goal: 100,
+                barRef: 'start',
+                currentVariant: CurrentVariant?.Warning,
+                message: MESSAGES?.progressNoGoal,
+                currenText: MESSAGES?.currentTextResult,
+                TextoGoalDefault: MESSAGES?.stabilizeExceedingText
+            }
 
 
 
@@ -117,7 +141,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
             return {
                 start: 0,
                 current: 100,
-                goal: toRange(start, goal, currentValue),
+                goal: toRange(start, currentValue, goal),
                 barRef: 'current',
                 currentVariant: CurrentVariant?.Star,
                 message: MESSAGES?.progressExceeded,
@@ -144,7 +168,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         if (start > goal && currentValue > goal && currentValue < start)
             return {
                 start: 0,
-                current: toRange(start, currentValue, goal),
+                current: toRange(start, goal, currentValue),
                 goal: 100,
                 barRef: 'current',
                 currentVariant: CurrentVariant?.Normal,
@@ -183,7 +207,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         // noGoalIncrease
         if (start < goal && currentValue < start)
             return {
-                start: toRange(currentValue, start, goal),
+                start: toRange(currentValue, goal, start),
                 current: 0,
                 goal: 100,
                 barRef: 'start',
@@ -198,7 +222,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         // noGoalDecreased
         if (start > goal && currentValue > start)
             return {
-                start: toRange(currentValue, start, goal),
+                start: toRange(currentValue, goal, start),
                 current: 0,
                 goal: 100,
                 barRef: 'start',
@@ -208,7 +232,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
                 currentTextInit: MESSAGES?.currentTextInit,
                 TextoGoalDefault: MESSAGES?.TextoGoalDefault
             }
-    }, [])
+    }, [start, goal, currentValue])
 
     const isGoalExceeded = useMemo(() => positions?.currentVariant == CurrentVariant?.Star, [positions])
 
@@ -224,6 +248,7 @@ export const useProgressGoalBar = ({ start, current, goal }) => {
         noResult,
         resultEvolved,
         stabilizeExceeding,
+        stabilizeDecreased,
         stabilize,
         isGoalDecreased,
         isGoalIncrease

@@ -8199,8 +8199,20 @@ const MESSAGES = {
     TextoGoalDefault: jsxRuntime.jsx("div", { children: "META" })
 };
 
-function toRange(start, middle, end) {
-    return ((middle - start) / (end - start)) * 100;
+function toRange(start, end, current) {
+    if (start === end) {
+        return 25;
+    }
+    let porcentagem = ((current - start) / (end - start)) * 100;
+    if (porcentagem > 75) {
+        return 75;
+    }
+    else if (porcentagem < 28) {
+        return 28;
+    }
+    else {
+        return porcentagem;
+    }
 }
 var CurrentVariant;
 (function (CurrentVariant) {
@@ -8218,6 +8230,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
     const resultEvolved = (start < goal && currentValue > start && currentValue);
     const stabilizeExceeding = (start === goal && currentValue > start && currentValue > goal);
     const stabilize = (start === goal && currentValue === goal && start === currentValue);
+    const stabilizeDecreased = (current < start && goal == start);
     const isGoalDecreased = start > goal && currentValue == goal;
     const isGoalIncrease = start < goal && currentValue > start && currentValue == goal;
     // Cálculo do progresso
@@ -8270,7 +8283,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
                 TextoGoalDefault: MESSAGES?.TextoGoalDefault
             };
         //stabilizeExceeding
-        if (start === goal && currentValue > start && currentValue > goal)
+        if (start === goal && currentValue > start)
             return {
                 start: 0,
                 current: 100,
@@ -8293,12 +8306,23 @@ const useProgressGoalBar = ({ start, current, goal }) => {
                 currentTextInit: MESSAGES?.currentTextInit,
                 textGoal: MESSAGES.textGoal
             };
+        if (start === goal && currentValue < start)
+            return {
+                start: 100,
+                current: 0,
+                goal: 100,
+                barRef: 'start',
+                currentVariant: CurrentVariant?.Warning,
+                message: MESSAGES?.progressNoGoal,
+                currenText: MESSAGES?.currentTextResult,
+                TextoGoalDefault: MESSAGES?.stabilizeExceedingText
+            };
         // exceededTargetDecreased
         if (start > goal && currentValue < goal)
             return {
                 start: 0,
                 current: 100,
-                goal: toRange(start, goal, currentValue),
+                goal: toRange(start, currentValue, goal),
                 barRef: 'current',
                 currentVariant: CurrentVariant?.Star,
                 message: MESSAGES?.progressExceeded,
@@ -8323,7 +8347,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
         if (start > goal && currentValue > goal && currentValue < start)
             return {
                 start: 0,
-                current: toRange(start, currentValue, goal),
+                current: toRange(start, goal, currentValue),
                 goal: 100,
                 barRef: 'current',
                 currentVariant: CurrentVariant?.Normal,
@@ -8359,7 +8383,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
         // noGoalIncrease
         if (start < goal && currentValue < start)
             return {
-                start: toRange(currentValue, start, goal),
+                start: toRange(currentValue, goal, start),
                 current: 0,
                 goal: 100,
                 barRef: 'start',
@@ -8372,7 +8396,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
         // noGoalDecreased
         if (start > goal && currentValue > start)
             return {
-                start: toRange(currentValue, start, goal),
+                start: toRange(currentValue, goal, start),
                 current: 0,
                 goal: 100,
                 barRef: 'start',
@@ -8382,7 +8406,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
                 currentTextInit: MESSAGES?.currentTextInit,
                 TextoGoalDefault: MESSAGES?.TextoGoalDefault
             };
-    }, []);
+    }, [start, goal, currentValue]);
     const isGoalExceeded = React.useMemo(() => positions?.currentVariant == CurrentVariant?.Star, [positions]);
     return {
         progressPercentage,
@@ -8396,6 +8420,7 @@ const useProgressGoalBar = ({ start, current, goal }) => {
         noResult,
         resultEvolved,
         stabilizeExceeding,
+        stabilizeDecreased,
         stabilize,
         isGoalDecreased,
         isGoalIncrease
@@ -8582,7 +8607,7 @@ const TypeProgressText = styled__default["default"].p `
 `;
 
 const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true }) => {
-    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved, stabilizeExceeding, stabilize, isGoalDecreased, isGoalIncrease } = useProgressGoalBar({
+    const { isGoalExceeded, isGoalReached, positions, noGoal, noResult, resultEvolved, stabilizeExceeding, stabilizeDecreased, stabilize, isGoalDecreased, isGoalIncrease } = useProgressGoalBar({
         start,
         current,
         goal
@@ -8598,7 +8623,7 @@ const ProgressGoalBar = ({ start, current, goal, isVisibleMessage = true }) => {
             return positions?.currentTextInit;
         }
     };
-    return (jsxRuntime.jsxs(WrapperProgressGoalBar, { children: [isVisibleMessage && jsxRuntime.jsx(TextUP, { children: positions?.message }), jsxRuntime.jsxs(ProgressGoalBarContainer, { children: [jsxRuntime.jsx(StartIndicator, { position: positions?.start, children: jsxRuntime.jsx(LocalizationIcon, {}) }), jsxRuntime.jsx(IndicatorTextInit, { noResult: noResult, position: positions?.start, isGoalReached: isGoalReached, isGoalExceeded: isGoalExceeded, resultEvolved: resultEvolved, start: positions?.start, stabilize: stabilize, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Number$1, { children: start }), jsxRuntime.jsx(TypeProgressText, { children: getDisplayText() })] }) }), !isGoalReached && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CurrentIndicator, { status: positions?.currentVariant, position: positions?.current, children: isGoalExceeded ? jsxRuntime.jsx(StarIcon$1, { color: "white", width: 14, height: 13 }) : jsxRuntime.jsx(ExclamationIcon, {}) }), jsxRuntime.jsx(IndicatorTextCurrent, { position: positions?.current, noGoal: noGoal, noResult: noResult, children: !noResult && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Number$1, { children: current }), jsxRuntime.jsx(TypeProgressText, { children: positions?.currenText })] })) })] })), jsxRuntime.jsx(EndIndicator, { position: positions?.goal, isGoalExceeded: isGoalExceeded, isGoalReached: isGoalReached, children: jsxRuntime.jsx(GoalIcon, {}) }), jsxRuntime.jsxs(IndicatorText, { position: positions?.goal, stabilize: stabilize, children: [jsxRuntime.jsx(Number$1, { children: !stabilizeExceeding && goal }), jsxRuntime.jsx(TypeProgressText, { children: stabilizeExceeding || stabilize ? positions?.textGoal : positions?.TextoGoalDefault })] }), jsxRuntime.jsx(ProgressBarColor, { isGoalExceeded: isGoalExceeded, width: positions?.[positions?.barRef], hasRegressed: noGoal, isGoalDecreased: isGoalDecreased, isGoalIncrese: isGoalIncrease, stabileze: stabilize })] })] }));
+    return (jsxRuntime.jsxs(WrapperProgressGoalBar, { children: [isVisibleMessage && jsxRuntime.jsx(TextUP, { children: positions?.message }), jsxRuntime.jsxs(ProgressGoalBarContainer, { children: [jsxRuntime.jsx(StartIndicator, { position: positions?.start, children: jsxRuntime.jsx(LocalizationIcon, {}) }), !stabilizeDecreased && jsxRuntime.jsx(IndicatorTextInit, { noResult: noResult, position: positions?.start, isGoalReached: isGoalReached, isGoalExceeded: isGoalExceeded, resultEvolved: resultEvolved, start: positions?.start, stabilize: stabilize, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Number$1, { children: start }), jsxRuntime.jsx(TypeProgressText, { children: getDisplayText() })] }) }), !isGoalReached && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CurrentIndicator, { status: positions?.currentVariant, position: positions?.current, children: isGoalExceeded ? jsxRuntime.jsx(StarIcon$1, { color: "white", width: 14, height: 13 }) : jsxRuntime.jsx(ExclamationIcon, {}) }), jsxRuntime.jsx(IndicatorTextCurrent, { position: positions?.current, noGoal: noGoal, noResult: noResult, children: !noResult && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Number$1, { children: current }), jsxRuntime.jsx(TypeProgressText, { children: positions?.currenText })] })) })] })), jsxRuntime.jsx(EndIndicator, { position: positions?.goal, isGoalExceeded: isGoalExceeded, isGoalReached: isGoalReached, children: jsxRuntime.jsx(GoalIcon, {}) }), jsxRuntime.jsxs(IndicatorText, { position: positions?.goal, stabilize: stabilize || stabilizeDecreased, children: [jsxRuntime.jsx(Number$1, { children: !stabilizeExceeding && goal }), jsxRuntime.jsx(TypeProgressText, { children: stabilizeExceeding || stabilize ? positions?.textGoal : positions?.TextoGoalDefault })] }), jsxRuntime.jsx(ProgressBarColor, { isGoalExceeded: isGoalExceeded, width: positions?.[positions?.barRef], hasRegressed: noGoal, isGoalDecreased: isGoalDecreased, isGoalIncrese: isGoalIncrease, stabileze: stabilize })] })] }));
 };
 
 const ModalContainer = styled__default["default"].div `

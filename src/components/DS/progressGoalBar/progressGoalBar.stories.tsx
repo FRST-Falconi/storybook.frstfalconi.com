@@ -98,3 +98,10 @@ noGoalDecreased.args = {
     current: 30,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
     goal: 5
 }
+
+export const stabilizeDecreased = Template.bind({})
+stabilizeDecreased.args = {
+    start: 1000,
+    current: 999,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
+    goal: 1000
+}
