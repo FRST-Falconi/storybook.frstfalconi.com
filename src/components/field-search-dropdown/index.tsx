@@ -104,6 +104,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                 setValueSearch(e.target.value)
                             }}
                             value={ValueSearch} 
+                            autoComplete='new-password'
                         />
                     </InputSearchWrapper>
                     { Loading &&
