@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import * as Styles from './resultFilterTabsStyles'
+import MenuMore from '@components/menu-more'
+import { EditHipoteses, TrashHipoteses } from '@shared/icons'
 
 interface ResultFilterTabsProps {
     results: Array<{ value: number; targetDate: string }>
-    onTabChange?: (index: number) => void; // Prop para manipulação externa
+    onTabChange?: (index: number) => void // Prop para manipulação externa
+    showEditOption?: boolean
 }
 
-export const ResultFilterTabs = ({ results, onTabChange }: ResultFilterTabsProps) => {
+export const ResultFilterTabs = ({ results, onTabChange, showEditOption=true }: ResultFilterTabsProps) => {
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
     const [newValue, setNewValue] = useState(results[activeTab].value)
@@ -14,8 +17,8 @@ export const ResultFilterTabs = ({ results, onTabChange }: ResultFilterTabsProps
 
     const handleTabClick = (index: number) => {
         setActiveTab(index)
-        setNewValue(results[index].value) // Atualiza o valor ao mudar de tab
-        setNewDate(results[index].targetDate)
+        setNewValue(results[index]?.value) // Atualiza o valor ao mudar de tab
+        setNewDate(results[index]?.targetDate)
         if (onTabChange) {
             onTabChange(index) // Chama o callback passando o índice da tab
         }
@@ -34,13 +37,42 @@ export const ResultFilterTabs = ({ results, onTabChange }: ResultFilterTabsProps
             {/* Área de conteúdo que muda com as tabs */}
             <Styles.Content>
                 <Styles.Info>
-                    Valor a ser atingido: {newValue} &nbsp; | &nbsp; Data para atingir o resultado: {newDate}
+                    <p>
+                        Valor a ser atingido: <span>{newValue}</span>
+                    </p>
+                    <p>
+                        Data para atingir o resultado: <span>{newDate}</span>
+                    </p>
                 </Styles.Info>
 
                 {/* Menu com opções de edição e exclusão */}
                 <Styles.Menu>
-                    <span>•••</span> {/* Ícone de menu */}
-                    {/* Você pode adicionar o menu dropdown aqui */}
+                    {showEditOption && (
+                        <Styles.Menu>
+                            <MenuMore
+                                options={[
+                                    {
+                                        description: 'Editar',
+                                        onClick: () => {
+                                            /* Função de editar */
+                                        },
+                                        color: '#222222',
+                                        startIcon: <EditHipoteses />
+                                    },
+                                    {
+                                        description: 'Excluir',
+                                        onClick: () => {
+                                            /* Função de excluir */
+                                        },
+                                        color: '#C00F00',
+                                        startIcon: <TrashHipoteses />
+                                    }
+                                ]}
+                                isContainerOptions={true}
+                                closeAfterClick
+                            />
+                        </Styles.Menu>
+                    )}
                 </Styles.Menu>
             </Styles.Content>
         </Styles.Container>

@@ -9,13 +9,26 @@ export default {
 const Template = (args) => <ResultFilterTabs {...args} />
 
 
-export const normal = Template.bind({})
-normal.args = {
+export const withEditing = Template.bind({})
+withEditing.args = {
     results: [
-        { value: 30, targetDate: '2024-10-12' },
-        { value: 50, targetDate: '2024-11-20' },
+        { value: 30, targetDate: '12/10/24' },
+        { value: 50, targetDate: '20/11/24' },
     ],
     onTabChange: () => {
         alert('Tab clicada:');
     },
+}
+
+
+export const noEditing = Template.bind({})
+noEditing.args = {
+    results: [
+        { value: 30, targetDate: '12/10/24' },
+        { value: 50, targetDate: '20/11/24' },
+    ],
+    onTabChange: () => {
+        alert('Tab clicada:');
+    },
+    showEditOption: false
 }

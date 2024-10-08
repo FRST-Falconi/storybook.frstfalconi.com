@@ -15,10 +15,13 @@ export const Tabs = styled.div`
 `
 
 export const Tab = styled.div<TabProps>`
-    padding: 8px 16px;
-    background-color: ${(props) => (props.isActive ? '#ACC8E4' : '')};
+    font-family: 'PT Sans';
     color: #222222;
+    font-weight: ${(props) => (props.isActive ? 700 : 400)};
+    background-color: ${(props) => (props.isActive ? '#ACC8E4' : '')};
     cursor: pointer;
+    padding: 12px 16px;
+
 
     &:first-child {
         border-top-left-radius: 8px;
@@ -30,24 +33,30 @@ export const Tab = styled.div<TabProps>`
         border-top-right-radius: 8px;
     }
 
-    &:hover {
-        background-color: #7ca4db;
-    }
 `
 
 export const Content = styled.div`
-    background-color: #CBDEF1; /* Fundo semelhante ao da imagem */
-    padding: 16px;
+    background-color: #CBDEF1;
+    padding: 19px 16px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     display: flex;
-    justify-content: space-between; /* Para distribuir o espaço entre os textos e o menu */
+    justify-content: space-between; 
     align-items: center;
 `
 
 export const Info = styled.div`
+    display: flex;
+    font-family: 'PT Sans';
     font-size: 14px;
-    color: #333;
+    color: #222222;
+    gap: 32px;
+    p{
+        font-weight: 700;
+        span{
+            font-weight: 400;
+        }
+    }
 `
 
 export const Menu = styled.div`
