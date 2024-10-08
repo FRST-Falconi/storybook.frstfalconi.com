@@ -12,24 +12,29 @@ interface ResultFilterTabsProps {
 export const ResultFilterTabs = ({ results, onTabChange, showEditOption=true }: ResultFilterTabsProps) => {
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
-    const [newValue, setNewValue] = useState(results[activeTab].value)
-    const [newDate, setNewDate] = useState(results[activeTab].targetDate)
+    const [newValue, setNewValue] = useState(results[results.length - 1]?.value) 
+    const [newDate, setNewDate] = useState(results[results.length - 1]?.targetDate)
+
 
     const handleTabClick = (index: number) => {
         setActiveTab(index)
-        setNewValue(results[index]?.value) // Atualiza o valor ao mudar de tab
-        setNewDate(results[index]?.targetDate)
+        // Atualiza o valor e a data com base no índice da aba invertida
+        const reversedIndex = results.length - 1 - index;
+        setNewValue(results[reversedIndex]?.value) 
+        setNewDate(results[reversedIndex]?.targetDate)
         if (onTabChange) {
             onTabChange(index) // Chama o callback passando o índice da tab
         }
     }
+      // Inverte a ordem dos resultados para mostrar a última aba como a primeira
+    const reversedResults = results.slice().reverse()
 
     return (
         <Styles.Container>
             <Styles.Tabs>
                 {results?.map((_, index) => (
                     <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
-                        Resultado {index + 1}
+                        Resultado {reversedResults?.length - index}
                     </Styles.Tab>
                 ))}
             </Styles.Tabs>

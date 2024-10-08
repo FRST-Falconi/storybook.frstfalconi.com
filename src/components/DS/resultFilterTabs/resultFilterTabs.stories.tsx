@@ -14,6 +14,7 @@ withEditing.args = {
     results: [
         { value: 30, targetDate: '12/10/24' },
         { value: 50, targetDate: '20/11/24' },
+        { value: 100, targetDate: '19/12/24' },
     ],
     onTabChange: () => {
         alert('Tab clicada:');
@@ -26,9 +27,13 @@ noEditing.args = {
     results: [
         { value: 30, targetDate: '12/10/24' },
         { value: 50, targetDate: '20/11/24' },
+        { value: 100, targetDate: '19/12/24' },
     ],
     onTabChange: () => {
         alert('Tab clicada:');
     },
     showEditOption: false
 }
+
+//acho que a edicao tem que vir dentro do array, pq quando o resultado virar historico não terá opcao de editar
+//verificar se terá opcao de excluir
