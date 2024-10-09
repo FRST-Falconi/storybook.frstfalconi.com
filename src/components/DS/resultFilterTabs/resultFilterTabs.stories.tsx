@@ -1,5 +1,5 @@
 import React from 'react'
-import {ResultFilterTabs} from './index'
+import { ResultFilterTabs } from './index'
 
 export default {
     title: 'DS/ResultFilterTabs',
@@ -8,32 +8,23 @@ export default {
 
 const Template = (args) => <ResultFilterTabs {...args} />
 
-
-export const withEditing = Template.bind({})
-withEditing.args = {
+export const normal = Template.bind({})
+normal.args = {
     results: [
-        { value: 30, targetDate: '12/10/24' },
-        { value: 50, targetDate: '20/11/24' },
-        { value: 100, targetDate: '19/12/24' },
+        {id:'1', value: 30, targetDate: '12/10/24', editable: true },
+        {id: '2', value: 50, targetDate: '20/11/24', editable: false },
+        {id: '3', value: 100, targetDate: '19/12/24', editable: false }
     ],
     onTabChange: () => {
-        alert('Tab clicada:');
+        alert('Tab clicada:')
     },
+    onEdit: ({ value, targetDate }) => {
+        alert(`Novo valor: ${value}, Nova data: ${targetDate}`)
+    },
+    onDelete: (id) => {
+        alert(`Deletado resultado de id: ${id}`)
+    }
 }
 
-
-export const noEditing = Template.bind({})
-noEditing.args = {
-    results: [
-        { value: 30, targetDate: '12/10/24' },
-        { value: 50, targetDate: '20/11/24' },
-        { value: 100, targetDate: '19/12/24' },
-    ],
-    onTabChange: () => {
-        alert('Tab clicada:');
-    },
-    showEditOption: false
-}
-
-//acho que a edicao tem que vir dentro do array, pq quando o resultado virar historico não terá opcao de editar
+// cada tab tem que passar um parametro de qual é o resultado para trazer os dados
 //verificar se terá opcao de excluir

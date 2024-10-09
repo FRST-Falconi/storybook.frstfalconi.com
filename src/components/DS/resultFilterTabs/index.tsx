@@ -1,33 +1,79 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import * as Styles from './resultFilterTabsStyles'
 import MenuMore from '@components/menu-more'
 import { EditHipoteses, TrashHipoteses } from '@shared/icons'
 
-interface ResultFilterTabsProps {
-    results: Array<{ value: number; targetDate: string }>
-    onTabChange?: (index: number) => void // Prop para manipulação externa
-    showEditOption?: boolean
+interface IResult {
+    id: string
+    value: number
+    targetDate: string
+    editable?: boolean
 }
 
-export const ResultFilterTabs = ({ results, onTabChange, showEditOption=true }: ResultFilterTabsProps) => {
+interface ResultFilterTabsProps {
+    results: Array<IResult>
+    onTabChange?: (index: number) => void // Prop para manipulação externa
+    onDelete?: (id: string) => void
+    onEdit?: (payload: IResult) => void
+}
+
+export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: ResultFilterTabsProps) => {
+    
+    
+    // Inverte a ordem dos resultados para mostrar a última aba como a primeira
+    const reversedResults = useMemo(() => {
+        return results.slice().reverse()
+    }, [results])
+    
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
-    const [newValue, setNewValue] = useState(results[results.length - 1]?.value) 
-    const [newDate, setNewDate] = useState(results[results.length - 1]?.targetDate)
+    const [newValue, setNewValue] = useState(reversedResults[0]?.value)
+    const [newDate, setNewDate] = useState(reversedResults[0]?.targetDate)
+    const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
 
     const handleTabClick = (index: number) => {
+        handleEdit()
         setActiveTab(index)
         // Atualiza o valor e a data com base no índice da aba invertida
-        const reversedIndex = results.length - 1 - index;
-        setNewValue(results[reversedIndex]?.value) 
+        const reversedIndex = results.length - 1 - index
+        setNewValue(results[reversedIndex]?.value)
         setNewDate(results[reversedIndex]?.targetDate)
+        setIsEditing(false) // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
             onTabChange(index) // Chama o callback passando o índice da tab
         }
     }
-      // Inverte a ordem dos resultados para mostrar a última aba como a primeira
-    const reversedResults = results.slice().reverse()
+
+    const handleDelete = () => {
+        onDelete(reversedResults[activeTab].id)
+    }
+
+    const handleEdit = () => {
+        if (!isEditing) return
+        const payload: IResult = {
+            id: results[activeTab].id,
+            value: newValue,
+            targetDate: newDate
+        }
+        if (onEdit) onEdit(payload)
+    }
+
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (editContainerRef.current && !editContainerRef.current.contains(event.target as Node)) {
+                handleEdit() // Salva os dados ao clicar fora do campo de edição
+                setIsEditing(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [isEditing, newValue, newDate])
+
+    
 
     return (
         <Styles.Container>
@@ -40,26 +86,40 @@ export const ResultFilterTabs = ({ results, onTabChange, showEditOption=true }: 
             </Styles.Tabs>
 
             {/* Área de conteúdo que muda com as tabs */}
-            <Styles.Content>
+            <Styles.Content ref={editContainerRef}>
                 <Styles.Info>
                     <p>
-                        Valor a ser atingido: <span>{newValue}</span>
+                        Valor a ser atingido:{' '}
+                        {isEditing ? (
+                            <input
+                                type="number"
+                                value={newValue}
+                                onChange={(e) => setNewValue(Number(e.target.value))}
+                            />
+                        ) : (
+                            <span>{newValue}</span>
+                        )}
                     </p>
                     <p>
-                        Data para atingir o resultado: <span>{newDate}</span>
+                        Data para atingir o resultado:{' '}
+                        {isEditing ? (
+                            <input type="date" value={newDate} onChange={(e) => setNewDate(e.target.value)} />
+                        ) : (
+                            <span>{newDate}</span>
+                        )}
                     </p>
                 </Styles.Info>
 
                 {/* Menu com opções de edição e exclusão */}
                 <Styles.Menu>
-                    {showEditOption && (
+                    {results[activeTab].editable && (
                         <Styles.Menu>
                             <MenuMore
                                 options={[
                                     {
                                         description: 'Editar',
                                         onClick: () => {
-                                            /* Função de editar */
+                                            setIsEditing(true)
                                         },
                                         color: '#222222',
                                         startIcon: <EditHipoteses />
@@ -67,7 +127,7 @@ export const ResultFilterTabs = ({ results, onTabChange, showEditOption=true }: 
                                     {
                                         description: 'Excluir',
                                         onClick: () => {
-                                            /* Função de excluir */
+                                            handleDelete()
                                         },
                                         color: '#C00F00',
                                         startIcon: <TrashHipoteses />

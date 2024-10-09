@@ -21,18 +21,12 @@ export const Tab = styled.div<TabProps>`
     background-color: ${(props) => (props.isActive ? '#ACC8E4' : '')};
     cursor: pointer;
     padding: 12px 16px;
+    border-top-left-radius: ${(props) => (props.isActive ? '8px' : '8px')};
+    border-top-right-radius: ${(props) => (props.isActive ? '8px' : '8px')};
 
-
-    &:first-child {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+    &:hover {
+        background-color: ${(props) => (props.isActive ? '' : '#f0f0f0')}; /* Cinza clarinho no hover se não for ativo */
     }
-
-    &:last-child {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-    }
-
 `
 
 export const Content = styled.div`
