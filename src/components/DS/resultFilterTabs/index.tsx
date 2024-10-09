@@ -18,22 +18,21 @@ interface ResultFilterTabsProps {
 }
 
 export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: ResultFilterTabsProps) => {
-    
-    
     // Inverte a ordem dos resultados para mostrar a última aba como a primeira
     const reversedResults = useMemo(() => {
         return results.slice().reverse()
     }, [results])
-    
+
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
     const [newValue, setNewValue] = useState(reversedResults[0]?.value)
     const [newDate, setNewDate] = useState(reversedResults[0]?.targetDate)
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
-
     const handleTabClick = (index: number) => {
-        handleEdit()
+        if (isEditing) {
+            handleEdit() // Salva se estiver no modo de edição
+        }
         setActiveTab(index)
         // Atualiza o valor e a data com base no índice da aba invertida
         const reversedIndex = results.length - 1 - index
@@ -59,12 +58,20 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
         if (onEdit) onEdit(payload)
     }
 
+     // Função para iniciar a edição com clique duplo
+    const handleDoubleClick = () => {
+        if (results[activeTab].editable) {
+            setIsEditing(true)
+        }
+    }
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (editContainerRef.current && !editContainerRef.current.contains(event.target as Node)) {
-                handleEdit() // Salva os dados ao clicar fora do campo de edição
-                setIsEditing(false)
+                if (isEditing) {
+                    handleEdit() // Salva os dados ao clicar fora do campo de edição
+                    setIsEditing(false)
+                }
             }
         }
         document.addEventListener('mousedown', handleClickOutside)
@@ -73,20 +80,22 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
         }
     }, [isEditing, newValue, newDate])
 
-    
-
     return (
         <Styles.Container>
             <Styles.Tabs>
                 {results?.map((_, index) => (
-                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
+                    <Styles.Tab
+                        key={index}
+                        isActive={activeTab === index}
+                        onClick={() => handleTabClick(index)}
+                    >
                         Resultado {reversedResults?.length - index}
                     </Styles.Tab>
                 ))}
             </Styles.Tabs>
 
             {/* Área de conteúdo que muda com as tabs */}
-            <Styles.Content ref={editContainerRef}>
+            <Styles.Content ref={editContainerRef} onDoubleClick={handleDoubleClick}>
                 <Styles.Info>
                     <p>
                         Valor a ser atingido:{' '}
