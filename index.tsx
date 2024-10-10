@@ -67,6 +67,8 @@ export { default as MessageBox } from './src/components/cardLT/MessageBox'
 export { Toast } from './src/components/DS/toast'
 export { ToastV2, showToastV2 } from './src/components/DS/toast-v2'
 export { HypothesisComponent } from './src/components/hypothesisComponent'
+export { default as CardJourney } from './src/components/DS/CardJourney'
+
 
 // Buttons
 export { default as Button } from './src/components/buttons'
