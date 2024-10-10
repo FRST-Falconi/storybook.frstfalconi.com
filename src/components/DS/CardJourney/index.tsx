@@ -8,7 +8,7 @@ import { Box, Grid } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
 
-export interface ICardPeople {
+export interface ICardJourney {
     userInfo: {
         id?: string
         name?: string
@@ -27,7 +27,7 @@ export interface ICardPeople {
 }
 
 
-export default function CardPeople({ userInfo, style, onClickButton, onClickProfile, onClickRemove}:ICardPeople) {
+export default function CardJourney({ userInfo, style, onClickButton, onClickProfile, onClickRemove}:ICardJourney) {
 
 
     return (
