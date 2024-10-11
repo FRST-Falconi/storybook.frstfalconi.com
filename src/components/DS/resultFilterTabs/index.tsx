@@ -5,7 +5,7 @@ import { CalendarIcon, EditHipoteses, TrashHipoteses } from '@shared/icons'
 import InputMask from 'react-input-mask'
 
 interface IResult {
-    value: number
+    value: number | string
     targetDate: string
     name: string
     editable?: boolean
@@ -24,7 +24,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
 
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
-    const [newValue, setNewValue] = useState(results[0]?.value)
+    const [newValue, setNewValue] = useState<string | number>(results[0]?.value)
     const [newDate, setNewDate] = useState(results[0]?.targetDate)
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
@@ -94,20 +94,19 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                     <p>
                         Valor a ser atingido:{' '}
                         {isEditing ? (
-                            <InputMask
-                                mask="999999999[,.]99"
-                                maskChar=""
+
+                            <Styles.inputIndicator
+                                type="text"
                                 value={newValue}
                                 onChange={(e) => {
-                                    // Atualiza o valor no estado e remove caracteres não numéricos
-                                    const maskedValue = e.target.value
-                                    // Opcional: Converte para número ao remover a máscara
-                                    const numericValue = maskedValue.replace(/[^\d.,]/g, '') // Aceita números, ponto e vírgula
-                                    setNewValue(numericValue)
+                                    const maskedValue = e?.target?.value;
+                            
+                                    // Aceita números, ponto e vírgula
+                                    const numericValue = maskedValue.replace(/[^\d.,]/g, '');
+                                    setNewValue(numericValue);
                                 }}
-                            >
-                                {(inputProps) => <input {...inputProps} type="text" />}
-                            </InputMask>
+                            />
+
                         ) : (
                             <span>{newValue}</span>
                         )}
@@ -117,7 +116,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                         {isEditing ? (
                             <Styles.InputWrapper>
                                 <CalendarIcon fill="#222222" />
-                                <InputMask mask="99/99/99" value={newDate} onChange={(e) => setNewDate(e.target.value)}>
+                                <InputMask mask="99/99/99" value={newDate} onChange={(e) => setNewDate(e?.target?.value)}>
                                     {(inputProps) => <input {...inputProps} type="text" />}
                                 </InputMask>
                             </Styles.InputWrapper>
@@ -129,7 +128,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
 
                 {/* Menu com opções de edição e exclusão */}
                 <Styles.Menu>
-                    {results[activeTab].editable && (
+                    {results[activeTab]?.editable && (
                         <Styles.Menu>
                             <MenuMore
                                 options={[

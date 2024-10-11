@@ -15,11 +15,11 @@ normal.args = {
         {version: 2, value: 50, targetDate: '20/11/24', editable: false, name:'Resultado'},
         {version: 3, value: 100, targetDate: '19/12/24', editable: false, name:'Resultado' }
     ],
-    onTabChange: () => {
-        alert('Tab clicada:')
+    onTabChange: (index) => {
+        alert(`Tab de index ${index} clicada`)
     },
     onEdit: ({ value, targetDate }) => {
-        alert(`Novo valor: ${value}, Nova data: ${targetDate}`)
+        alert(`Novo valor: ${value} , Nova data: ${targetDate}`)
     },
     onDelete: (id) => {
         alert(`Deletado resultado de id: ${id}`)

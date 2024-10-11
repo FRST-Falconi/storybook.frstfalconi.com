@@ -55,12 +55,14 @@ export const Info = styled.div`
         }
     }
 `
-
-export const Menu = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+export const inputIndicator = styled.input`
+    width:82px;
+    height: 40px;
+    padding: 8px 8px 8px 12px;
+    border-radius: 8px;
+    border: 1.5px solid #BDBDBD;
+    font-size: 14px;
+    font-family: 'PT Sans';
 `
 
 export const InputWrapper = styled.div`
@@ -89,4 +91,11 @@ export const InputWrapper = styled.div`
         width: 24px;
         height: 24px;
     }
+`
+
+export const Menu = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 `
