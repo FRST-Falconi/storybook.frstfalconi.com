@@ -47,6 +47,9 @@ export const Info = styled.div`
     gap: 32px;
     p{
         font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         span{
             font-weight: 400;
         }
@@ -58,4 +61,32 @@ export const Menu = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
+`
+
+export const InputWrapper = styled.div`
+    position: relative;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+
+    input {
+        width: 148px;
+        height: 18px;
+        border: 1.5px solid #BDBDBD;
+        border-radius: 8px;
+        padding-left: 40px; /* Espaço suficiente para o ícone */
+        padding-top: 18px;
+        padding-bottom: 18px;
+        font-size: 14px;
+        font-family: 'PT Sans';
+    }
+
+    svg {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+    }
 `

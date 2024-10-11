@@ -1,32 +1,31 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as Styles from './resultFilterTabsStyles'
 import MenuMore from '@components/menu-more'
-import { EditHipoteses, TrashHipoteses } from '@shared/icons'
+import { CalendarIcon, EditHipoteses, TrashHipoteses } from '@shared/icons'
+import InputMask from 'react-input-mask'
 
 interface IResult {
-    id: string
     value: number
     targetDate: string
+    name: string
     editable?: boolean
+    version: number
 }
 
 interface ResultFilterTabsProps {
     results: Array<IResult>
     onTabChange?: (index: number) => void // Prop para manipulação externa
-    onDelete?: (id: string) => void
+    onDelete?: () => void
     onEdit?: (payload: IResult) => void
+    tabLimit?: number
 }
 
 export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: ResultFilterTabsProps) => {
-    // Inverte a ordem dos resultados para mostrar a última aba como a primeira
-    const reversedResults = useMemo(() => {
-        return results.slice().reverse()
-    }, [results])
 
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
-    const [newValue, setNewValue] = useState(reversedResults[0]?.value)
-    const [newDate, setNewDate] = useState(reversedResults[0]?.targetDate)
+    const [newValue, setNewValue] = useState(results[0]?.value)
+    const [newDate, setNewDate] = useState(results[0]?.targetDate)
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
     const handleTabClick = (index: number) => {
@@ -34,10 +33,8 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
             handleEdit() // Salva se estiver no modo de edição
         }
         setActiveTab(index)
-        // Atualiza o valor e a data com base no índice da aba invertida
-        const reversedIndex = results.length - 1 - index
-        setNewValue(results[reversedIndex]?.value)
-        setNewDate(results[reversedIndex]?.targetDate)
+        setNewValue(results[index]?.value)
+        setNewDate(results[index]?.targetDate)
         setIsEditing(false) // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
             onTabChange(index) // Chama o callback passando o índice da tab
@@ -45,20 +42,21 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
     }
 
     const handleDelete = () => {
-        onDelete(reversedResults[activeTab].id)
+        onDelete()
     }
 
     const handleEdit = () => {
         if (!isEditing) return
         const payload: IResult = {
-            id: results[activeTab].id,
+            name: results[activeTab].name,
+            version: results[activeTab].version,
             value: newValue,
             targetDate: newDate
         }
         if (onEdit) onEdit(payload)
     }
 
-     // Função para iniciar a edição com clique duplo
+    // Função para iniciar a edição com clique duplo
     const handleDoubleClick = () => {
         if (results[activeTab].editable) {
             setIsEditing(true)
@@ -83,13 +81,9 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
     return (
         <Styles.Container>
             <Styles.Tabs>
-                {results?.map((_, index) => (
-                    <Styles.Tab
-                        key={index}
-                        isActive={activeTab === index}
-                        onClick={() => handleTabClick(index)}
-                    >
-                        Resultado {reversedResults?.length - index}
+                {results?.map((result, index) => (
+                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
+                        {result.name} {result.version}
                     </Styles.Tab>
                 ))}
             </Styles.Tabs>
@@ -100,11 +94,20 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                     <p>
                         Valor a ser atingido:{' '}
                         {isEditing ? (
-                            <input
-                                type="number"
+                            <InputMask
+                                mask="999999999[,.]99"
+                                maskChar=""
                                 value={newValue}
-                                onChange={(e) => setNewValue(Number(e.target.value))}
-                            />
+                                onChange={(e) => {
+                                    // Atualiza o valor no estado e remove caracteres não numéricos
+                                    const maskedValue = e.target.value
+                                    // Opcional: Converte para número ao remover a máscara
+                                    const numericValue = maskedValue.replace(/[^\d.,]/g, '') // Aceita números, ponto e vírgula
+                                    setNewValue(numericValue)
+                                }}
+                            >
+                                {(inputProps) => <input {...inputProps} type="text" />}
+                            </InputMask>
                         ) : (
                             <span>{newValue}</span>
                         )}
@@ -112,7 +115,12 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                     <p>
                         Data para atingir o resultado:{' '}
                         {isEditing ? (
-                            <input type="date" value={newDate} onChange={(e) => setNewDate(e.target.value)} />
+                            <Styles.InputWrapper>
+                                <CalendarIcon fill="#222222" />
+                                <InputMask mask="99/99/99" value={newDate} onChange={(e) => setNewDate(e.target.value)}>
+                                    {(inputProps) => <input {...inputProps} type="text" />}
+                                </InputMask>
+                            </Styles.InputWrapper>
                         ) : (
                             <span>{newDate}</span>
                         )}

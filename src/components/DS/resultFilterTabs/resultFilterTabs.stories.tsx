@@ -11,9 +11,9 @@ const Template = (args) => <ResultFilterTabs {...args} />
 export const normal = Template.bind({})
 normal.args = {
     results: [
-        {id:'1', value: 30, targetDate: '12/10/24', editable: true },
-        {id: '2', value: 50, targetDate: '20/11/24', editable: false },
-        {id: '3', value: 100, targetDate: '19/12/24', editable: false }
+        {version: 1, value: 30, targetDate: '12/10/24', editable: true, name:'Resultado'},
+        {version: 2, value: 50, targetDate: '20/11/24', editable: false, name:'Resultado'},
+        {version: 3, value: 100, targetDate: '19/12/24', editable: false, name:'Resultado' }
     ],
     onTabChange: () => {
         alert('Tab clicada:')
@@ -25,6 +25,3 @@ normal.args = {
         alert(`Deletado resultado de id: ${id}`)
     }
 }
-
-// cada tab tem que passar um parametro de qual é o resultado para trazer os dados
-//verificar se terá opcao de excluir
