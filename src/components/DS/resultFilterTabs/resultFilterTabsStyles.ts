@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components';
 
 interface TabProps {
     isActive: boolean
@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Tabs = styled.div`
     display: flex;
+    justify-content: space-between;
 `
 
 export const Tab = styled.div<TabProps>`
@@ -31,12 +32,13 @@ export const Tab = styled.div<TabProps>`
 
 export const Content = styled.div`
     background-color: #CBDEF1;
-    padding: 19px 16px;
+    padding: 10px 16px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
+    height: 60px;
 `
 
 export const Info = styled.div`
@@ -99,3 +101,41 @@ export const Menu = styled.div`
     align-items: center;
     cursor: pointer;
 `
+
+export const WrapperTabsResultSelect = styled('div')<{activeSelect: boolean}>`
+    display: flex;
+    align-items: center; 
+    gap: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight: ${({activeSelect}) => (activeSelect ? '700' : '400')};
+        color: #444444;
+    }
+
+    :hover {
+        background-color: #ebeded;
+    }
+`;
+
+export const WrapperSelectIcon = styled('div')<{isOpenSelect: boolean}>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ isOpenSelect }) => (isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')};
+
+    svg {
+        width: 16px;
+        height: 16px;
+
+        path {
+            stroke: #444444;
+        }
+    }
+`;

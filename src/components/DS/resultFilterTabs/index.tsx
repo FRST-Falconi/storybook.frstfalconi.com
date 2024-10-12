@@ -1,40 +1,37 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import * as Styles from './resultFilterTabsStyles'
 import MenuMore from '@components/menu-more'
-import { CalendarIcon, EditHipoteses, TrashHipoteses } from '@shared/icons'
+import { ArrrowExpandDropdown, CalendarIcon, EditHipoteses, TrashHipoteses } from '@shared/icons'
 import InputMask from 'react-input-mask'
+import { ResultFilterTabsProps, IResult } from './resultFilterTabs'
+import DropdownResult from './dropDownResult'
+import Tooltip from '../tooltip'
 
-interface IResult {
-    value: number | string
-    targetDate: string
-    name: string
-    editable?: boolean
-    version: number
-}
-
-interface ResultFilterTabsProps {
-    results: Array<IResult>
-    onTabChange?: (index: number) => void // Prop para manipulação externa
-    onDelete?: () => void
-    onEdit?: (payload: IResult) => void
-    tabLimit?: number
-}
-
-export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: ResultFilterTabsProps) => {
-
+export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }: ResultFilterTabsProps) => {
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
-    const [newValue, setNewValue] = useState<string | number>(results[0]?.value)
-    const [newDate, setNewDate] = useState(results[0]?.targetDate)
+    const [newValue, setNewValue] = useState<string | number>(results[0]?.value_indicator)
+    const [newDate, setNewDate] = useState(results[0]?.expectation_date)
+    const [filteredResults, setFilteredResults] = useState([])
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+    
+    // Função para fechar o dropdown
+    const closeDropdown = () => {
+        setIsDropdownOpen(false);
+    };
 
     const handleTabClick = (index: number) => {
         if (isEditing) {
             handleEdit() // Salva se estiver no modo de edição
         }
         setActiveTab(index)
-        setNewValue(results[index]?.value)
-        setNewDate(results[index]?.targetDate)
+        setNewValue(results[index]?.value_indicator)
+        setNewDate(results[index]?.expectation_date)
         setIsEditing(false) // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
             onTabChange(index) // Chama o callback passando o índice da tab
@@ -45,23 +42,79 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
         onDelete()
     }
 
+    const canShowDropdown = useMemo(() => {
+        if (tabLimit) return results.length > tabLimit
+        return false
+    }, [tabLimit, results])
+
+    const hiddenTabs = useMemo(() => {
+        if (canShowDropdown) {
+            return results.slice(tabLimit) // aqui vai um filtro dos q sobraram
+        }
+        return []
+    }, [tabLimit, results, canShowDropdown, activeTab])
+
+    const changeFilteredResults = (activeTabIndex: number) => {
+        if (canShowDropdown) {
+            let updatedResults = results.slice(0, tabLimit);
+    
+            // Verifica se o item clicado não está nos resultados filtrados
+            const selectedResult = results[activeTabIndex];
+            const isSelectedResultInFiltered = updatedResults.some((i) => i.version === selectedResult.version);
+    
+            if (!isSelectedResultInFiltered) {
+                // Insere o item clicado no início e remove o último
+                updatedResults.unshift(selectedResult);
+                updatedResults.pop();
+                setActiveTab(0);  // Isso faz com que a primeira aba (o item clicado) seja visualmente selecionada
+            }
+    
+            console.log('values', updatedResults);
+            setFilteredResults(updatedResults);
+    
+            // Atualiza a aba ativa para a primeira posição
+        } else {
+            // Se o dropdown não for exibido, retorna a lista completa
+            setFilteredResults(results);
+    
+            // Atualiza a aba ativa para a aba original clicada
+            setActiveTab(activeTabIndex);
+        }
+    };
+    
+    const tabs = useMemo(() => {
+        return (
+            <>
+                {filteredResults?.map((result, index) => (
+                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
+                        {result.name} {result.version}
+                    </Styles.Tab>
+                ))}
+            </>
+        )
+    }, [filteredResults, activeTab])
+
     const handleEdit = () => {
         if (!isEditing) return
         const payload: IResult = {
             name: results[activeTab].name,
             version: results[activeTab].version,
-            value: newValue,
-            targetDate: newDate
+            value_indicator: newValue,
+            expectation_date: newDate
         }
         if (onEdit) onEdit(payload)
     }
 
     // Função para iniciar a edição com clique duplo
     const handleDoubleClick = () => {
-        if (results[activeTab].editable) {
+        if (filteredResults[activeTab].editable) {
             setIsEditing(true)
         }
     }
+
+    useEffect(() => {
+        changeFilteredResults(0)
+    }, [])
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -81,11 +134,27 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
     return (
         <Styles.Container>
             <Styles.Tabs>
-                {results?.map((result, index) => (
-                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
-                        {result.name} {result.version}
-                    </Styles.Tab>
-                ))}
+                <div style={{ display: 'flex' }}>{tabs}</div>
+                {canShowDropdown && (
+                    <Tooltip
+                        content="Ver todos os Resultados"
+                        direction="bottom"
+                        delay={200}
+                        style={{ textAlign: 'center' }}
+                    >
+                        <Styles.WrapperTabsResultSelect
+                            activeSelect={isDropdownOpen}
+                            onClick={() => {
+                                toggleDropdown()
+                            }}
+                        >
+                            <p>Mais {hiddenTabs.length}</p>
+                            <Styles.WrapperSelectIcon isOpenSelect={isDropdownOpen}>
+                                <ArrrowExpandDropdown />
+                            </Styles.WrapperSelectIcon>
+                        </Styles.WrapperTabsResultSelect>
+                    </Tooltip>
+                )}
             </Styles.Tabs>
 
             {/* Área de conteúdo que muda com as tabs */}
@@ -94,21 +163,19 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                     <p>
                         Valor a ser atingido:{' '}
                         {isEditing ? (
-
                             <Styles.inputIndicator
                                 type="text"
                                 value={newValue}
                                 onChange={(e) => {
-                                    const maskedValue = e?.target?.value;
-                            
+                                    const maskedValue = e?.target?.value
+
                                     // Aceita números, ponto e vírgula
-                                    const numericValue = maskedValue.replace(/[^\d.,]/g, '');
-                                    setNewValue(numericValue);
+                                    const numericValue = maskedValue.replace(/[^\d.,]/g, '')
+                                    setNewValue(numericValue)
                                 }}
                             />
-
                         ) : (
-                            <span>{newValue}</span>
+                            <span>{filteredResults[activeTab]?.value_indicator}</span>
                         )}
                     </p>
                     <p>
@@ -116,19 +183,23 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                         {isEditing ? (
                             <Styles.InputWrapper>
                                 <CalendarIcon fill="#222222" />
-                                <InputMask mask="99/99/99" value={newDate} onChange={(e) => setNewDate(e?.target?.value)}>
+                                <InputMask
+                                    mask="99/99/99"
+                                    value={newDate}
+                                    onChange={(e) => setNewDate(e?.target?.value)}
+                                >
                                     {(inputProps) => <input {...inputProps} type="text" />}
                                 </InputMask>
                             </Styles.InputWrapper>
                         ) : (
-                            <span>{newDate}</span>
+                            <span>{filteredResults[activeTab]?.expectation_date}</span>
                         )}
                     </p>
                 </Styles.Info>
 
                 {/* Menu com opções de edição e exclusão */}
                 <Styles.Menu>
-                    {results[activeTab]?.editable && (
+                    {filteredResults[activeTab]?.editable && (
                         <Styles.Menu>
                             <MenuMore
                                 options={[
@@ -156,6 +227,14 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit }: Res
                     )}
                 </Styles.Menu>
             </Styles.Content>
+
+            <DropdownResult
+                isOpen={isDropdownOpen}
+                onClose={closeDropdown}
+                ResultList={hiddenTabs}
+                maxTabs={tabLimit}
+                onClickResultList={(i) => changeFilteredResults(results.indexOf(i))} 
+            />
         </Styles.Container>
     )
 }
