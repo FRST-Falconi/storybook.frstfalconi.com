@@ -13,6 +13,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
     const [newValue, setNewValue] = useState<string | number>(results[0]?.value_indicator)
     const [newDate, setNewDate] = useState(results[0]?.expectation_date)
     const [filteredResults, setFilteredResults] = useState([])
+    const [hiddenTabs, setHiddenTabs] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
@@ -34,7 +35,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         setNewDate(results[index]?.expectation_date)
         setIsEditing(false) // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
-            onTabChange(index) // Chama o callback passando o índice da tab
+            onTabChange(index)
         }
     }
 
@@ -47,16 +48,10 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         return false
     }, [tabLimit, results])
 
-    const hiddenTabs = useMemo(() => {
-        if (canShowDropdown) {
-            return results.slice(tabLimit) // aqui vai um filtro dos q sobraram
-        }
-        return []
-    }, [tabLimit, results, canShowDropdown, activeTab])
 
     const changeFilteredResults = (activeTabIndex: number) => {
         if (canShowDropdown) {
-            let updatedResults = results.slice(0, tabLimit);
+            let updatedResults = filteredResults.length ? [...filteredResults] : [...results.slice(0, tabLimit)];
     
             // Verifica se o item clicado não está nos resultados filtrados
             const selectedResult = results[activeTabIndex];
@@ -64,12 +59,14 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
     
             if (!isSelectedResultInFiltered) {
                 // Insere o item clicado no início e remove o último
-                updatedResults.unshift(selectedResult);
-                updatedResults.pop();
+                updatedResults = [selectedResult, ...updatedResults.slice(0, tabLimit - 1)];
                 setActiveTab(0);  // Isso faz com que a primeira aba (o item clicado) seja visualmente selecionada
             }
-    
-            console.log('values', updatedResults);
+            if (onTabChange && activeTab !== activeTabIndex) {
+                onTabChange(activeTabIndex);
+            }
+
+            setHiddenTabs(results.filter(i => updatedResults.every(a => a.version !== i.version)))
             setFilteredResults(updatedResults);
     
             // Atualiza a aba ativa para a primeira posição
