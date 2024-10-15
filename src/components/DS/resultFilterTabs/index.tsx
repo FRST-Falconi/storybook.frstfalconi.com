@@ -17,6 +17,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
+    const [anchor, setAnchor] = useState(null)
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
@@ -141,7 +142,8 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
                     >
                         <Styles.WrapperTabsResultSelect
                             activeSelect={isDropdownOpen}
-                            onClick={() => {
+                            onClick={(event) => {
+                                setAnchor(event?.currentTarget)
                                 toggleDropdown()
                             }}
                         >
@@ -226,6 +228,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
             </Styles.Content>
 
             <DropdownResult
+                anchor={anchor}
                 isOpen={isDropdownOpen}
                 onClose={closeDropdown}
                 ResultList={hiddenTabs}
