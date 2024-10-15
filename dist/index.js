@@ -8942,6 +8942,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
     const [hiddenTabs, setHiddenTabs] = React.useState([]);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
     const editContainerRef = React.useRef(null); // Referência para detectar cliques fora
+    const [anchor, setAnchor] = React.useState(null);
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
@@ -9032,7 +9033,8 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isEditing, newValue, newDate]);
-    return (jsxRuntime.jsxs(Container$m, { children: [jsxRuntime.jsxs(Tabs, { children: [jsxRuntime.jsx("div", { style: { display: 'flex' }, children: tabs }), canShowDropdown && (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os Resultados", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperTabsResultSelect, { activeSelect: isDropdownOpen, onClick: () => {
+    return (jsxRuntime.jsxs(Container$m, { children: [jsxRuntime.jsxs(Tabs, { children: [jsxRuntime.jsx("div", { style: { display: 'flex' }, children: tabs }), canShowDropdown && (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os Resultados", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperTabsResultSelect, { activeSelect: isDropdownOpen, onClick: (event) => {
+                                setAnchor(event?.currentTarget);
                                 toggleDropdown();
                             }, children: [jsxRuntime.jsxs("p", { children: ["Mais ", hiddenTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: isDropdownOpen, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) }))] }), jsxRuntime.jsxs(Content$3, { ref: editContainerRef, onDoubleClick: handleDoubleClick, children: [jsxRuntime.jsxs(Info, { children: [jsxRuntime.jsxs("p", { children: ["Valor a ser atingido:", ' ', isEditing ? (jsxRuntime.jsx(inputIndicator, { type: "text", value: newValue, onChange: (e) => {
                                             const maskedValue = e?.target?.value;
@@ -9056,7 +9058,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
                                         color: '#C00F00',
                                         startIcon: jsxRuntime.jsx(TrashHipoteses, {})
                                     }
-                                ], isContainerOptions: true, closeAfterClick: true }) })) })] }), jsxRuntime.jsx(DropdownResult, { isOpen: isDropdownOpen, onClose: closeDropdown, ResultList: hiddenTabs, maxTabs: tabLimit, onClickResultList: (i) => changeFilteredResults(results.indexOf(i)) })] }));
+                                ], isContainerOptions: true, closeAfterClick: true }) })) })] }), jsxRuntime.jsx(DropdownResult, { anchor: anchor, isOpen: isDropdownOpen, onClose: closeDropdown, ResultList: hiddenTabs, maxTabs: tabLimit, onClickResultList: (i) => changeFilteredResults(results.indexOf(i)) })] }));
 };
 
 const ModalContainer = styled__default["default"].div `
