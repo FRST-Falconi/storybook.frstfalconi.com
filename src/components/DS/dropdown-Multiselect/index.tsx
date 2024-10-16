@@ -8,8 +8,8 @@ import SearchField from '@components/search-field'
 import Avatar from '@components/avatar'
 import { IconButton, Modal, Skeleton } from '@mui/material'
 import './styles/primereact.css'
-import './styles/primeflex.css'
-import './styles/theme.css'
+// import './styles/primeflex.css'
+// import './styles/theme.css'
 import Tooltip from '../tooltip'
 import Button from '@components/buttons'
 
@@ -45,7 +45,7 @@ type ISelectedValue = {
   subDescription?: string
 }[]
 
-export default function (props: IDropdownMultiselect) {
+export default function DropdownMultiselect(props: IDropdownMultiselect) {
   const { canShowAvatar = true, useTextFilter = false, searchTerm } = props
   const [selectedValues, setSelectedValues] = useState<ISelectedValue>([])
   const [textFilter, setTextFilter] = useState(searchTerm || '')
