@@ -68,30 +68,42 @@ export const inputIndicator = styled.input`
 `
 
 export const InputWrapper = styled.div`
-    position: relative;
-    width: auto;
-    display: inline-flex;
-    align-items: center;
-
-    input {
-        width: 148px;
-        height: 18px;
+    & > div:nth-child(1) {
         border: 1.5px solid #BDBDBD;
+        padding: 0px;
+        height: 42px;
+        width: 148px;
         border-radius: 8px;
-        padding-left: 40px; /* Espaço suficiente para o ícone */
-        padding-top: 18px;
-        padding-bottom: 18px;
-        font-size: 14px;
-        font-family: 'PT Sans';
-    }
+        padding-left: 6px;
 
-    svg {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 24px;
-        height: 24px;
+        & > div:nth-child(1) {
+            display: flex;
+
+            width: 100%;
+            gap: 8px;
+            flex-direction: row-reverse;
+
+            & > span:nth-child(2) {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: #222;
+                    border-radius: 7px;
+                }
+            }
+
+            & > span:nth-child(3) {    
+                position: relative;
+                margin-top: auto;
+                margin-right: -8px;
+                margin-bottom: -4px;
+                width: 0;
+
+                & > span:nth-child(1) {   
+                    padding-left: 7px;
+                }
+            }
+        }
     }
 `
 
