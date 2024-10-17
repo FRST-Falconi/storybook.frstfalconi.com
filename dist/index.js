@@ -28,7 +28,7 @@ var CloseIcon$1 = require('@mui/icons-material/Close');
 var usehooksTs = require('usehooks-ts');
 var ArrowDropUpOutlinedIcon = require('@mui/icons-material/ArrowDropUpOutlined');
 var ArrowDropDownOutlinedIcon = require('@mui/icons-material/ArrowDropDownOutlined');
-var InputMask = require('react-input-mask');
+var rsuite = require('rsuite');
 var reactColor = require('react-color');
 var dnd = require('@hello-pangea/dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
@@ -106,7 +106,6 @@ var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
 var CloseIcon__default = /*#__PURE__*/_interopDefaultLegacy(CloseIcon$1);
 var ArrowDropUpOutlinedIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowDropUpOutlinedIcon);
 var ArrowDropDownOutlinedIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowDropDownOutlinedIcon);
-var InputMask__default = /*#__PURE__*/_interopDefaultLegacy(InputMask);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
@@ -8937,7 +8936,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
     const [activeTab, setActiveTab] = React.useState(0); // Controla a tab ativa
     const [isEditing, setIsEditing] = React.useState(false);
     const [newValue, setNewValue] = React.useState(results[0]?.value_indicator);
-    const [newDate, setNewDate] = React.useState(results[0]?.expectation_date);
+    const [newDate, setNewDate] = React.useState(results[0]?.expectation_date || null);
     const [filteredResults, setFilteredResults] = React.useState([]);
     const [hiddenTabs, setHiddenTabs] = React.useState([]);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
@@ -8950,7 +8949,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
     const closeDropdown = () => {
         setIsDropdownOpen(false);
     };
-    const handleTabClick = (index) => {
+    const handleTabClick = (index, version) => {
         if (isEditing) {
             handleEdit(); // Salva se estiver no modo de edição
         }
@@ -8959,7 +8958,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
         setNewDate(results[index]?.expectation_date);
         setIsEditing(false); // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
-            onTabChange(index);
+            onTabChange(version);
         }
     };
     const handleDelete = () => {
@@ -8996,7 +8995,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
         }
     };
     const tabs = React.useMemo(() => {
-        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index), children: [result.name, " ", result.version] }, index))) }));
+        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index, result.version), children: [result.name, " ", result.version] }, index))) }));
     }, [filteredResults, activeTab]);
     const handleEdit = () => {
         if (!isEditing)
@@ -9041,7 +9040,12 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
                                             // Aceita números, ponto e vírgula
                                             const numericValue = maskedValue.replace(/[^\d.,]/g, '');
                                             setNewValue(numericValue);
-                                        } })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.value_indicator }))] }), jsxRuntime.jsxs("p", { children: ["Data para atingir o resultado:", ' ', isEditing ? (jsxRuntime.jsxs(InputWrapper$2, { children: [jsxRuntime.jsx(CalendarIcon, { fill: "#222222" }), jsxRuntime.jsx(InputMask__default["default"], { mask: "99/99/99", value: newDate, onChange: (e) => setNewDate(e?.target?.value), children: (inputProps) => jsxRuntime.jsx("input", { ...inputProps, type: "text" }) })] })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.expectation_date }))] })] }), jsxRuntime.jsx(Menu, { children: filteredResults[activeTab]?.editable && (jsxRuntime.jsx(Menu, { children: jsxRuntime.jsx(MenuMore, { options: [
+                                        } })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.value_indicator }))] }), jsxRuntime.jsxs("p", { children: ["Data para atingir o resultado:", ' ', isEditing ? (jsxRuntime.jsx(InputWrapper$2, { children: jsxRuntime.jsx(rsuite.DatePicker, { value: newDate, format: "dd/MM/yyyy", onChange: (e) => setNewDate(e), 
+                                            //onChange={handleDateChange}
+                                            style: {
+                                                height: "48px !important",
+                                                width: "100% !important",
+                                            }, placeholder: "DD/MM/AAAA", oneTap: true, disabled: false, caretAs: CalendarIcon }) })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.expectation_date }))] })] }), jsxRuntime.jsx(Menu, { children: filteredResults[activeTab]?.editable && (jsxRuntime.jsx(Menu, { children: jsxRuntime.jsx(MenuMore, { options: [
                                     {
                                         description: 'Editar',
                                         onClick: () => {

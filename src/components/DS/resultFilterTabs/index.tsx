@@ -5,13 +5,21 @@ import { ArrrowExpandDropdown, CalendarIcon, EditHipoteses, TrashHipoteses } fro
 import InputMask from 'react-input-mask'
 import { ResultFilterTabsProps, IResult } from './resultFilterTabs'
 import DropdownResult from './dropDownResult'
+import type { DatePickerProps } from 'antd';
+import { ConfigProvider, DatePicker, Space } from 'antd';
 import Tooltip from '../tooltip'
+import dayjs from 'dayjs';
+import locale from 'antd/locale/pt_BR';
+import 'dayjs/locale/pt-br';
+
+
+
 
 export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }: ResultFilterTabsProps) => {
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
     const [isEditing, setIsEditing] = useState(false)
     const [newValue, setNewValue] = useState<string | number>(results[0]?.value_indicator)
-    const [newDate, setNewDate] = useState(results[0]?.expectation_date)
+    const [newDate, setNewDate] = useState<any>(results[0]?.expectation_date || null)
     const [filteredResults, setFilteredResults] = useState([])
     const [hiddenTabs, setHiddenTabs] = useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -21,13 +29,14 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
-    
+    dayjs.locale('pt-br');
+
     // Função para fechar o dropdown
     const closeDropdown = () => {
         setIsDropdownOpen(false);
     };
 
-    const handleTabClick = (index: number) => {
+    const handleTabClick = (index: number, version?: any) => {
         if (isEditing) {
             handleEdit() // Salva se estiver no modo de edição
         }
@@ -36,7 +45,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         setNewDate(results[index]?.expectation_date)
         setIsEditing(false) // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
-            onTabChange(index)
+            onTabChange(version)
         }
     }
 
@@ -79,12 +88,21 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
             setActiveTab(activeTabIndex);
         }
     };
-    
+
+    const onChangeDate = (date, dateString) => {
+        if (date) {
+          const formattedDate = dayjs(date).format('DD/MM/YY');  
+          setNewDate(formattedDate);
+        } else {
+          setNewDate(null);
+        }
+    };
+
     const tabs = useMemo(() => {
         return (
             <>
                 {filteredResults?.map((result, index) => (
-                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
+                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index, result.version)}>
                         {result.name} {result.version}
                     </Styles.Tab>
                 ))}
@@ -116,13 +134,19 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
+            if (document.querySelector('.ant-picker-dropdown')?.contains(event.target as Node)) {
+                return;
+              }
+
             if (editContainerRef.current && !editContainerRef.current.contains(event.target as Node)) {
                 if (isEditing) {
                     handleEdit() // Salva os dados ao clicar fora do campo de edição
                     setIsEditing(false)
                 }
             }
+
         }
+        
         document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
@@ -177,18 +201,19 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
                             <span>{filteredResults[activeTab]?.value_indicator}</span>
                         )}
                     </p>
-                    <p>
+                    <p >
                         Data para atingir o resultado:{' '}
                         {isEditing ? (
                             <Styles.InputWrapper>
-                                <CalendarIcon fill="#222222" />
-                                <InputMask
-                                    mask="99/99/99"
-                                    value={newDate}
-                                    onChange={(e) => setNewDate(e?.target?.value)}
-                                >
-                                    {(inputProps) => <input {...inputProps} type="text" />}
-                                </InputMask>
+                                <ConfigProvider locale={locale}>
+                                    <DatePicker 
+                                        format={'DD/MM/YY'}
+                                        onChange={onChangeDate}
+                                        placeholder='DD/MM/AA'
+                                        value={ newDate ? dayjs(newDate, 'DD/MM/YY') : null }
+                                        onClick={(e) => e?.stopPropagation()}
+                                    />
+                                </ConfigProvider>
                             </Styles.InputWrapper>
                         ) : (
                             <span>{filteredResults[activeTab]?.expectation_date}</span>
