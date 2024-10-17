@@ -28,7 +28,9 @@ var CloseIcon$1 = require('@mui/icons-material/Close');
 var usehooksTs = require('usehooks-ts');
 var ArrowDropUpOutlinedIcon = require('@mui/icons-material/ArrowDropUpOutlined');
 var ArrowDropDownOutlinedIcon = require('@mui/icons-material/ArrowDropDownOutlined');
-var rsuite = require('rsuite');
+var antd = require('antd');
+var dayjs = require('dayjs');
+var locale = require('antd/locale/pt_BR');
 var reactColor = require('react-color');
 var dnd = require('@hello-pangea/dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
@@ -36,7 +38,7 @@ var Popover = require('@material-ui/core/Popover');
 var Rating$2 = require('@mui/material/Rating');
 var Typography$4 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
-var locale = require('date-fns/locale');
+var locale$1 = require('date-fns/locale');
 var dateFns = require('date-fns');
 var Avatar$1 = require('@mui/material/Avatar');
 var Markdown = require('markdown-to-jsx');
@@ -106,6 +108,8 @@ var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
 var CloseIcon__default = /*#__PURE__*/_interopDefaultLegacy(CloseIcon$1);
 var ArrowDropUpOutlinedIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowDropUpOutlinedIcon);
 var ArrowDropDownOutlinedIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowDropDownOutlinedIcon);
+var dayjs__default = /*#__PURE__*/_interopDefaultLegacy(dayjs);
+var locale__default = /*#__PURE__*/_interopDefaultLegacy(locale);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
@@ -383,9 +387,6 @@ function SpotifyIcon({ fill, width, height }) {
 }
 function PodCastIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '25', height: height ? height : '23', viewBox: "0 0 25 23", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M18.6251 19.1429V22.8571H7.20053V19.1429C7.20053 17.5657 9.75964 16.2857 12.9128 16.2857C16.066 16.2857 18.6251 17.5657 18.6251 19.1429ZM12.9128 4.57143C14.8823 4.57143 16.7712 5.35408 18.1638 6.74721C19.5564 8.14033 20.3388 10.0298 20.3388 12C20.3388 13.4286 19.939 14.7657 19.2421 15.8971L17.4827 14.3314C17.8483 13.6343 18.0539 12.8343 18.0539 12C18.0539 9.14286 15.769 6.85714 12.9128 6.85714C10.0567 6.85714 7.77176 9.14286 7.77176 12C7.77176 12.8343 7.9774 13.6343 8.34299 14.3314L6.5836 15.8971C5.8867 14.7657 5.48684 13.4286 5.48684 12C5.48684 10.0298 6.26922 8.14033 7.66186 6.74721C9.0545 5.35408 10.9433 4.57143 12.9128 4.57143ZM12.9128 0C16.0943 0 19.1455 1.26428 21.3952 3.51472C23.6448 5.76515 24.9087 8.8174 24.9087 12C24.9087 14.6057 24.0747 17.0171 22.6694 18.9829L20.9557 17.44C22.0068 15.8857 22.6237 14.0114 22.6237 12C22.6237 9.42361 21.6006 6.95274 19.7795 5.13096C17.9583 3.30918 15.4883 2.28571 12.9128 2.28571C10.3373 2.28571 7.86733 3.30918 6.04618 5.13096C4.22503 6.95274 3.20192 9.42361 3.20192 12C3.20192 14.0114 3.81885 15.8857 4.86991 17.44L3.15622 18.9829C1.69784 16.9469 0.914658 14.5047 0.916997 12C0.916997 8.8174 2.18084 5.76515 4.4305 3.51472C6.68015 1.26428 9.73134 0 12.9128 0ZM12.9128 9.14286C13.6703 9.14286 14.3968 9.44388 14.9324 9.97969C15.4681 10.5155 15.769 11.2422 15.769 12C15.769 12.7578 15.4681 13.4845 14.9324 14.0203C14.3968 14.5561 13.6703 14.8571 12.9128 14.8571C12.1553 14.8571 11.4289 14.5561 10.8932 14.0203C10.3576 13.4845 10.0567 12.7578 10.0567 12C10.0567 11.2422 10.3576 10.5155 10.8932 9.97969C11.4289 9.44388 12.1553 9.14286 12.9128 9.14286Z", fill: fill ? fill : 'white' }) }));
-}
-function CalendarIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.2222 5H5.77778C4.79594 5 4 5.79594 4 6.77778V19.2222C4 20.2041 4.79594 21 5.77778 21H18.2222C19.2041 21 20 20.2041 20 19.2222V6.77778C20 5.79594 19.2041 5 18.2222 5Z", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 3V7", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 3V7", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4 10H20", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function StarOutlined({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.0948 2.92837C11.4547 2.16162 12.5453 2.16162 12.9052 2.92838L15.1725 7.75831C15.3141 8.05989 15.5965 8.27116 15.9258 8.32177L21.0777 9.1136C21.882 9.23721 22.2098 10.2184 21.6413 10.8006L17.8527 14.6808C17.6309 14.908 17.5302 15.227 17.5813 15.5404L18.4664 20.9672C18.6008 21.7911 17.7261 22.4073 16.9956 22.0033L12.4839 19.5084C12.1828 19.3419 11.8172 19.3419 11.5161 19.5084L7.00445 22.0033C6.27389 22.4073 5.39918 21.7911 5.53357 20.9672L6.41872 15.5404C6.46983 15.227 6.36909 14.908 6.14727 14.6808L2.3587 10.8006C1.79024 10.2184 2.11804 9.23721 2.92229 9.1136L8.07418 8.32177C8.40347 8.27116 8.68592 8.05989 8.82749 7.75831L11.0948 2.92837Z", stroke: fill ? fill : '#0645AD', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
@@ -8813,30 +8814,42 @@ const inputIndicator = styled__default["default"].input `
     font-family: 'PT Sans';
 `;
 const InputWrapper$2 = styled__default["default"].div `
-    position: relative;
-    width: auto;
-    display: inline-flex;
-    align-items: center;
-
-    input {
-        width: 148px;
-        height: 18px;
+    & > div:nth-child(1) {
         border: 1.5px solid #BDBDBD;
+        padding: 0px;
+        height: 42px;
+        width: 148px;
         border-radius: 8px;
-        padding-left: 40px; /* Espaço suficiente para o ícone */
-        padding-top: 18px;
-        padding-bottom: 18px;
-        font-size: 14px;
-        font-family: 'PT Sans';
-    }
+        padding-left: 6px;
 
-    svg {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 24px;
-        height: 24px;
+        & > div:nth-child(1) {
+            display: flex;
+
+            width: 100%;
+            gap: 8px;
+            flex-direction: row-reverse;
+
+            & > span:nth-child(2) {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: #222;
+                    border-radius: 7px;
+                }
+            }
+
+            & > span:nth-child(3) {    
+                position: relative;
+                margin-top: auto;
+                margin-right: -8px;
+                margin-bottom: -4px;
+                width: 0;
+
+                & > span:nth-child(1) {   
+                    padding-left: 7px;
+                }
+            }
+        }
     }
 `;
 const Menu = styled__default["default"].div `
@@ -8932,6 +8945,8 @@ function DropdownResult({ isOpen, anchor, onClose, ResultList, onClickResultList
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
+!function(e,o){"object"==typeof exports&&"undefined"!=typeof module?module.exports=o(require("dayjs")):"function"==typeof define&&define.amd?define(["dayjs"],o):(e="undefined"!=typeof globalThis?globalThis:e||self).dayjs_locale_pt_br=o(e.dayjs);}(undefined,(function(e){function o(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var a=o(e),s={name:"pt-br",weekdays:"domingo_segunda-feira_terça-feira_quarta-feira_quinta-feira_sexta-feira_sábado".split("_"),weekdaysShort:"dom_seg_ter_qua_qui_sex_sáb".split("_"),weekdaysMin:"Do_2ª_3ª_4ª_5ª_6ª_Sá".split("_"),months:"janeiro_fevereiro_março_abril_maio_junho_julho_agosto_setembro_outubro_novembro_dezembro".split("_"),monthsShort:"jan_fev_mar_abr_mai_jun_jul_ago_set_out_nov_dez".split("_"),ordinal:function(e){return e+"º"},formats:{LT:"HH:mm",LTS:"HH:mm:ss",L:"DD/MM/YYYY",LL:"D [de] MMMM [de] YYYY",LLL:"D [de] MMMM [de] YYYY [às] HH:mm",LLLL:"dddd, D [de] MMMM [de] YYYY [às] HH:mm"},relativeTime:{future:"em %s",past:"há %s",s:"poucos segundos",m:"um minuto",mm:"%d minutos",h:"uma hora",hh:"%d horas",d:"um dia",dd:"%d dias",M:"um mês",MM:"%d meses",y:"um ano",yy:"%d anos"}};return a.default.locale(s,null,!0),s}));
+
 const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) => {
     const [activeTab, setActiveTab] = React.useState(0); // Controla a tab ativa
     const [isEditing, setIsEditing] = React.useState(false);
@@ -8945,6 +8960,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
+    dayjs__default["default"].locale('pt-br');
     // Função para fechar o dropdown
     const closeDropdown = () => {
         setIsDropdownOpen(false);
@@ -8994,6 +9010,15 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
             setActiveTab(activeTabIndex);
         }
     };
+    const onChangeDate = (date, dateString) => {
+        if (date) {
+            const formattedDate = dayjs__default["default"](date).format('DD/MM/YY');
+            setNewDate(formattedDate);
+        }
+        else {
+            setNewDate(null);
+        }
+    };
     const tabs = React.useMemo(() => {
         return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index, result.version), children: [result.name, " ", result.version] }, index))) }));
     }, [filteredResults, activeTab]);
@@ -9020,6 +9045,9 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
     }, []);
     React.useEffect(() => {
         const handleClickOutside = (event) => {
+            if (document.querySelector('.ant-picker-dropdown')?.contains(event.target)) {
+                return;
+            }
             if (editContainerRef.current && !editContainerRef.current.contains(event.target)) {
                 if (isEditing) {
                     handleEdit(); // Salva os dados ao clicar fora do campo de edição
@@ -9040,12 +9068,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
                                             // Aceita números, ponto e vírgula
                                             const numericValue = maskedValue.replace(/[^\d.,]/g, '');
                                             setNewValue(numericValue);
-                                        } })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.value_indicator }))] }), jsxRuntime.jsxs("p", { children: ["Data para atingir o resultado:", ' ', isEditing ? (jsxRuntime.jsx(InputWrapper$2, { children: jsxRuntime.jsx(rsuite.DatePicker, { value: newDate, format: "dd/MM/yyyy", onChange: (e) => setNewDate(e), 
-                                            //onChange={handleDateChange}
-                                            style: {
-                                                height: "48px !important",
-                                                width: "100% !important",
-                                            }, placeholder: "DD/MM/AAAA", oneTap: true, disabled: false, caretAs: CalendarIcon }) })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.expectation_date }))] })] }), jsxRuntime.jsx(Menu, { children: filteredResults[activeTab]?.editable && (jsxRuntime.jsx(Menu, { children: jsxRuntime.jsx(MenuMore, { options: [
+                                        } })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.value_indicator }))] }), jsxRuntime.jsxs("p", { children: ["Data para atingir o resultado:", ' ', isEditing ? (jsxRuntime.jsx(InputWrapper$2, { children: jsxRuntime.jsx(antd.ConfigProvider, { locale: locale__default["default"], children: jsxRuntime.jsx(antd.DatePicker, { format: 'DD/MM/YY', onChange: onChangeDate, placeholder: 'DD/MM/AA', value: newDate ? dayjs__default["default"](newDate, 'DD/MM/YY') : null, onClick: (e) => e?.stopPropagation() }) }) })) : (jsxRuntime.jsx("span", { children: filteredResults[activeTab]?.expectation_date }))] })] }), jsxRuntime.jsx(Menu, { children: filteredResults[activeTab]?.editable && (jsxRuntime.jsx(Menu, { children: jsxRuntime.jsx(MenuMore, { options: [
                                     {
                                         description: 'Editar',
                                         onClick: () => {
@@ -13162,8 +13185,8 @@ function CalendarLxp(props) {
             key: 'selection'
         }
     ]);
-    locale.pt.options.weekStartsOn = 0;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$2.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$2.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$2.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$2.btnSubmit, children: jsxRuntime.jsx(Button$5, { label: 'Aplicar', variant: 'primary', handleClick: () => {
+    locale$1.pt.options.weekStartsOn = 0;
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$2.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$2.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$2.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale$1.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$2.btnSubmit, children: jsxRuntime.jsx(Button$5, { label: 'Aplicar', variant: 'primary', handleClick: () => {
                             props.onSave([newRange[0].startDate, newRange[0].endDate]);
                         } }) })] }) }));
 }
