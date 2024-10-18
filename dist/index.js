@@ -7922,7 +7922,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                 left: '4px',
                                 whiteSpace: 'nowrap',
                                 boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                            }, children: selectedTab.isGoalOwner ? (jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: "24px", isActiveClick: true }) })) : (jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: "24px", isActiveClick: true, onClick: selectedTab?.handleClickAvatar })) }), isEdit ? (jsxRuntime.jsxs("div", { style: { width: '100%' }, children: [jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: handleChange, fullWidth: true, multiline: true, variant: "standard", InputProps: {
+                            }, children: selectedTab.isGoalOwner ? (jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: "24px", isActiveClick: true, border: '2px solid #AD46FF', onClick: selectedTab?.handleClickAvatar })) : (jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: "24px", isActiveClick: true, onClick: selectedTab?.handleClickAvatar })) }), isEdit ? (jsxRuntime.jsxs("div", { style: { width: '100%' }, children: [jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: handleChange, fullWidth: true, multiline: true, variant: "standard", InputProps: {
                                         disableUnderline: true,
                                         style: {
                                             fontFamily: 'PT Sans',
