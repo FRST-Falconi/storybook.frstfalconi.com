@@ -216,13 +216,13 @@ export default function ImpedimentosTab({
                                 }}
                             >
                                 {selectedTab.isGoalOwner ? (
-                                    <Box
-                                        border={'2px solid #AD46FF'}
-                                        borderRadius={'50%'}
+                                    <Avatar 
+                                        src={selectedTab.avatar} 
+                                        size="24px" 
+                                        isActiveClick={true}
+                                        border='2px solid #AD46FF' 
                                         onClick={selectedTab?.handleClickAvatar}
-                                    >
-                                        <Avatar src={selectedTab.avatar} size="24px" isActiveClick={true} />
-                                    </Box>
+                                    />
                                 ) : (
                                     <Avatar
                                         src={selectedTab.avatar}
