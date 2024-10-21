@@ -8950,7 +8950,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
     const closeDropdown = () => {
         setIsDropdownOpen(false);
     };
-    const handleTabClick = (index) => {
+    const handleTabClick = (index, version) => {
         if (isEditing) {
             handleEdit(); // Salva se estiver no modo de edição
         }
@@ -8959,7 +8959,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
         setNewDate(results[index]?.expectation_date);
         setIsEditing(false); // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
-            onTabChange(index);
+            onTabChange(version);
         }
     };
     const handleDelete = () => {
@@ -8996,7 +8996,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
         }
     };
     const tabs = React.useMemo(() => {
-        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index), children: [result.name, " ", result.version] }, index))) }));
+        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index, result?.version), children: [result.name, " ", result?.hiddeVersionInName ? '' : result?.version] }, index))) }));
     }, [filteredResults, activeTab]);
     const handleEdit = () => {
         if (!isEditing)

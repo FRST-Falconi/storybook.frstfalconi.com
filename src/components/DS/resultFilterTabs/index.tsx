@@ -27,7 +27,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         setIsDropdownOpen(false);
     };
 
-    const handleTabClick = (index: number) => {
+    const handleTabClick = (index: number, version: number) => {
         if (isEditing) {
             handleEdit() // Salva se estiver no modo de edição
         }
@@ -36,7 +36,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         setNewDate(results[index]?.expectation_date)
         setIsEditing(false) // Sai do modo de edição ao mudar a aba
         if (onTabChange) {
-            onTabChange(index)
+            onTabChange(version)
         }
     }
 
@@ -84,8 +84,8 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         return (
             <>
                 {filteredResults?.map((result, index) => (
-                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index)}>
-                        {result.name} {result.version}
+                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index, result?.version)}>
+                        {result.name} {result?.hiddeVersionInName ? '' : result?.version}
                     </Styles.Tab>
                 ))}
             </>
