@@ -11,6 +11,7 @@ const Template = (args) => <ResultFilterTabs {...args} />
 export const normal = Template.bind({})
 normal.args = {
     results: [
+        {version: 3, value_indicator: 30, expectation_date: '12/10/24', editable: true, name:'Interação', hiddeVersionInName: true},
         {version: 1, value_indicator: 30, expectation_date: '12/10/24', editable: true, name:'Resultado'},
         {version: 2, value_indicator: 50, expectation_date: '20/11/24', editable: false, name:'Resultado'},
         {version: 5, value_indicator: 100, expectation_date: '19/12/24', editable: false, name:'Resultado' }

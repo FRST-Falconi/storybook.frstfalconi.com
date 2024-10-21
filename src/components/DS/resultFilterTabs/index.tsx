@@ -85,7 +85,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
             <>
                 {filteredResults?.map((result, index) => (
                     <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index, result?.version)}>
-                        {result.name} {result.version}
+                        {result.name} {result?.hiddeVersionInName ? '' : result?.version}
                     </Styles.Tab>
                 ))}
             </>

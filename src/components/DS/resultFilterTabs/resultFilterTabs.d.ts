@@ -4,6 +4,7 @@ export interface IResult {
     name: string
     editable?: boolean
     version: number
+    hiddeVersionInName?: boolean
 }
 
 export interface ResultFilterTabsProps {
