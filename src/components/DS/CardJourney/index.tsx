@@ -14,7 +14,7 @@ export interface ICardJourney {
         name?: string
         avatar?: string
         description?: string
-        colaboracao?: string
+        colaboracao?: any
         ButtonText?: string
     }
     
