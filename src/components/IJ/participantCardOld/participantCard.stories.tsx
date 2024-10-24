@@ -18,7 +18,7 @@ normal.args = {
     id: 'id-user-00128-idasd',
     name: 'Karen Gisele da Silva dos Santos Silvero',
     avatar: null,
-    email: 'marlonsilveirapereira@empresa.com.br',
+    email: 'nome@empresa.com.br',
     area: 'Tecnologia da Informação e Computação',
     position: 'Estudante/Universitário(a)'
   },
