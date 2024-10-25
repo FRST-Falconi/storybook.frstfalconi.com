@@ -53,7 +53,7 @@ export const UserInfo = styled.div`
             color: #222222;
             word-break: normal;
             
-            max-width: 100%;
+            width: 200px;
             text-overflow: ellipsis;
             overflow: hidden;
             display: -webkit-box;
@@ -75,9 +75,8 @@ export const UserInfo = styled.div`
             margin-top: 5px;
             word-break: normal;
             
-            max-width: 100%;
-            
-            max-width: 100%;
+            width: 200px;
+
             text-overflow: ellipsis;
             overflow: hidden;
             display: -webkit-box;

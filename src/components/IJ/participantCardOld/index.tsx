@@ -68,7 +68,7 @@ export default function ParticipantCardOld({
 
             {userEmail && userEmail?.length > 20 ? (
               <Tooltip position="top" textTooltip={userEmail}>
-                <Styles.EmailUser>{limitString(userEmail, 20)}</Styles.EmailUser>
+                <Styles.EmailUser>{userEmail}</Styles.EmailUser>
               </Tooltip>
             ) : (
               <Styles.EmailUser>{userEmail}</Styles.EmailUser>
