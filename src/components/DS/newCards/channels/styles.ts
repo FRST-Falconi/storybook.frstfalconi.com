@@ -9,9 +9,13 @@ export const ContainerCard = styled('div')`
     cursor: pointer;
     box-sizing: border-box;
 
-    :hover,
+    :hover {
+        border: 2px solid #757575;
+    }
+
     :focus {
         border: 2px solid #757575;
+        background-color: #F7F7F7;
     }
 `
 
