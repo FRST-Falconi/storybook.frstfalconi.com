@@ -4,7 +4,7 @@ import ChannelsCard from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'DS/NewCard/ChannelsCard',
+  title: 'DS/NewCards/ChannelsCard',
   component: ChannelsCard,
 }
 

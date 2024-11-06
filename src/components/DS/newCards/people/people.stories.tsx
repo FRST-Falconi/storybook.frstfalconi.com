@@ -4,7 +4,7 @@ import PeopleCard from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'DS/NewCard/PeopleCard',
+  title: 'DS/NewCards/PeopleCard',
   component: PeopleCard,
 }
 
