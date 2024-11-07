@@ -56,6 +56,9 @@ export const Info = styled.div`
             font-weight: 400;
         }
     }
+    span{
+        margin-top:0;
+    }
 `
 export const inputIndicator = styled.input`
     width:82px;
@@ -106,7 +109,7 @@ export const WrapperTabsResultSelect = styled('div')<{activeSelect: boolean}>`
     display: flex;
     align-items: center; 
     gap: 8px;
-    /* padding: 8px; */
+    padding: 8px;
     border-radius: 8px;
     cursor: pointer;
 
