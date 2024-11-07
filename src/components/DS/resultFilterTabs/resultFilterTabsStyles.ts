@@ -52,6 +52,7 @@ export const Info = styled.div`
         display: flex;
         align-items: center;
         gap: 8px;
+        margin-top:0;
         span{
             font-weight: 400;
         }
