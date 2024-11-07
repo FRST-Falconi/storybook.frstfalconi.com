@@ -8799,12 +8799,10 @@ const Info = styled__default["default"].div `
         display: flex;
         align-items: center;
         gap: 8px;
+        margin-top:0;
         span{
             font-weight: 400;
         }
-    }
-    span{
-        margin-top:0;
     }
 `;
 const inputIndicator = styled__default["default"].input `
