@@ -52,12 +52,10 @@ export const Info = styled.div`
         display: flex;
         align-items: center;
         gap: 8px;
+        margin-top:0;
         span{
             font-weight: 400;
         }
-    }
-    span{
-        margin-top:0;
     }
 `
 export const inputIndicator = styled.input`
