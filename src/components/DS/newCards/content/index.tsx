@@ -18,10 +18,16 @@ function DownloadIcon () {
     )
 }
 
+interface Company {
+    icon?: string
+    name?: string
+    uuid?: string
+}
 interface cardContentProps {
     contentType: string
     contentImage: string
     contentDescription: string
+    company?: Company
     handleDownload: () => void
 }
 
@@ -29,6 +35,7 @@ export default function CardContent ({
     contentType,
     contentImage,
     contentDescription,
+    company,
     handleDownload
 }: cardContentProps) {
     return (
@@ -45,14 +52,16 @@ export default function CardContent ({
                         <p className='description'> {contentDescription} </p>
                     </DescriptionWrapper>
                     <CardFooter>
-                        <p className='company'>
-                            <img src='https://cdn-images.frstfalconi.cloud/60ef5d74b488c39e9d095851b99c68fe.png'/>
-                            Frst Falconi
-                        </p>
                         <p className='download' onClick={handleDownload}>
                             Baixar
                             <DownloadIcon />
                         </p>
+                        {company &&
+                            <p className='company'>
+                                <img src={company.icon}/>
+                                {company.name}
+                            </p>
+                        }
                     </CardFooter>
                 </CardInfo>
             </CardContainer>

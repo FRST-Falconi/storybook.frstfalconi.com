@@ -16,5 +16,10 @@ normal.args = {
   contentType: 'Documento',
   contentImage: 'https://picsum.photos/200',
   contentDescription: 'Criando desafios na plataforma FRST',
+  company: {
+    icon: 'https://cdn-images.frstfalconi.cloud/60ef5d74b488c39e9d095851b99c68fe.png',
+    name: 'Frst Falconi',
+    uuid: '123'
+  },
   handleDownload: () => alert('Download!')
 }

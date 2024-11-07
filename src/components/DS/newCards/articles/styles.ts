@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const CardContainer = styled('div')`
-    display: flex;
-    gap: 16px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
+export const ArticleContainer = styled('div')`
     width: 450px;
-    height: 120px;
-    padding-right: 16px;
-    box-sizing: content-box;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
 
     :hover {
         border: 2px solid #757575;
@@ -20,32 +20,26 @@ export const CardContainer = styled('div')`
     }
 `
 
-export const WrapperImage = styled('div')`
-    img {
-        width: 140px;
-        height: 120px;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-    }
-`
-
-export const CardInfo = styled('div')`
+export const ArticleContent = styled('div')`
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 12px 0;
-    width: 100%;
-`
 
-export const DescriptionWrapper = styled('div')`
-    height: 61px;
-    .title {
+    .cardType {
         font-family: 'PT Sans';
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 600;
         line-height: 1.5;
         color: #F18624;
         margin-bottom: 4px;
+    }
+
+    .title {
+        font-family: 'PT Sans';
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #444444;
+        margin-bottom: 10px;
     }
 
     .description {
@@ -53,24 +47,24 @@ export const DescriptionWrapper = styled('div')`
         font-size: 14px;
         font-weight: 400;
         line-height: 1.5;
-        color: #444444;
 
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: 2; 
+        -webkit-line-clamp: 4; 
         -webkit-box-orient: vertical;
         text-overflow: ellipsis;
     }
 
 `
 
-export const CardFooter = styled('div')`
+export const ArticleFooter = styled('div')`
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
 
     .company {
         display: flex;
+        align-items: center;
         gap: 8px;
         font-family: 'PT Sans';
         font-size: 12px;
@@ -79,13 +73,13 @@ export const CardFooter = styled('div')`
         color: #444444;
 
         img {
-            width: 16px;
-            height: 16px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
         }
     }
 
-    .download {
+    .cta {
         display: flex;
         gap: 4px;
         font-family: 'PT Sans';
@@ -95,5 +89,4 @@ export const CardFooter = styled('div')`
         color: #444444;
         cursor: pointer;
     }
-
 `
