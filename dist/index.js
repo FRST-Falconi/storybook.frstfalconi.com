@@ -8803,6 +8803,9 @@ const Info = styled__default["default"].div `
             font-weight: 400;
         }
     }
+    span{
+        margin-top:0;
+    }
 `;
 const inputIndicator = styled__default["default"].input `
     width:82px;
