@@ -106,7 +106,7 @@ export const WrapperTabsResultSelect = styled('div')<{activeSelect: boolean}>`
     display: flex;
     align-items: center; 
     gap: 8px;
-    padding: 8px;
+    /* padding: 8px; */
     border-radius: 8px;
     cursor: pointer;
 
