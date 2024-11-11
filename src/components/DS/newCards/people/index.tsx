@@ -78,46 +78,46 @@ export default function PeopleCard ({
                 </HeaderInfo>
                 <ButtonsList>
                     {showBtnProfile &&
-                        <Tooltip
-                            direction='bottom'
-                            content='Acessar perfil'
-                            delay={50}
-                            width='fit-content'
-                            height='fit-content'
-                            style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
-                        >
-                            <CardButton onClick={handleClickProfile}>
+                        <CardButton onClick={handleClickProfile}>
+                            <Tooltip
+                                direction='bottom'
+                                content='Acessar perfil'
+                                delay={50}
+                                width='fit-content'
+                                height='fit-content'
+                                style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
+                            >
                                 <ProfileIcon />
-                            </CardButton>
-                        </Tooltip>
+                            </Tooltip>
+                        </CardButton>
                     }
                     {showBtnInvite &&
-                        <Tooltip
-                            direction='bottom'
-                            content='Convidar'
-                            delay={50}
-                            width='fit-content'
-                            height='fit-content'
-                            style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
-                        >
-                            <CardButton onClick={handleClickInvite}>
+                        <CardButton onClick={handleClickInvite}>
+                            <Tooltip
+                                direction='bottom'
+                                content='Convidar'
+                                delay={50}
+                                width='fit-content'
+                                height='fit-content'
+                                style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
+                            >
                                 <InviteIcon />
-                            </CardButton>
-                        </Tooltip>
+                            </Tooltip>
+                        </CardButton>
                     }
                     {showBtnMessage &&
-                        <Tooltip
-                            direction='bottom'
-                            content='Enviar mensagem'
-                            delay={50}
-                            width='fit-content'
-                            height='fit-content'
-                            style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
-                        >
-                            <CardButton onClick={handleClickMessage}>
+                        <CardButton onClick={handleClickMessage}>
+                            <Tooltip
+                                direction='bottom'
+                                content='Enviar mensagem'
+                                delay={50}
+                                width='fit-content'
+                                height='fit-content'
+                                style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
+                            >
                                 <MessageIcon />
-                            </CardButton>
-                        </Tooltip>
+                            </Tooltip>
+                        </CardButton>
                     }
                 </ButtonsList>
             </ContainerCard>
