@@ -13,6 +13,11 @@ export const CardContainer = styled.div`
     padding-right: 20px;
     border-radius: 12px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    :hover,
+    :focus {
+        border: 2px solid #757575
+    }
 `
 
 export const CardContent = styled.div`
