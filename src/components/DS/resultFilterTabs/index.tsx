@@ -233,7 +233,11 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
                 onClose={closeDropdown}
                 ResultList={hiddenTabs}
                 maxTabs={tabLimit}
-                onClickResultList={(i) => changeFilteredResults(results.indexOf(i))} 
+                onClickResultList={(item) => {
+                    const selectedVersion = item.version; 
+                    const selectedIndex = results.findIndex((result) => result.version === selectedVersion);
+                    changeFilteredResults(selectedIndex); 
+                }}
             />
         </Styles.Container>
     )
