@@ -9059,7 +9059,11 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
                                         color: '#C00F00',
                                         startIcon: jsxRuntime.jsx(TrashHipoteses, {})
                                     }
-                                ], isContainerOptions: true, closeAfterClick: true }) })) })] }), jsxRuntime.jsx(DropdownResult, { anchor: anchor, isOpen: isDropdownOpen, onClose: closeDropdown, ResultList: hiddenTabs, maxTabs: tabLimit, onClickResultList: (i) => changeFilteredResults(results.indexOf(i)) })] }));
+                                ], isContainerOptions: true, closeAfterClick: true }) })) })] }), jsxRuntime.jsx(DropdownResult, { anchor: anchor, isOpen: isDropdownOpen, onClose: closeDropdown, ResultList: hiddenTabs, maxTabs: tabLimit, onClickResultList: (item) => {
+                    const selectedVersion = item.version;
+                    const selectedIndex = results.findIndex((result) => result.version === selectedVersion);
+                    changeFilteredResults(selectedIndex);
+                } })] }));
 };
 
 const ModalContainer = styled__default["default"].div `
