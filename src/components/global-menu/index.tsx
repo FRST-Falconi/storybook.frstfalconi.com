@@ -244,7 +244,11 @@ export default function GlobalMenu({
                                 </Styles.WrapperLogo>
                             )}
                             <Styles.WrapperMenu
-                                style={{ height: '100%', justifyContent: 'space-between', alignItems: 'center' }}
+                                style={{
+                                    height: '100%',
+                                    justifyContent: InputField ? 'center' : 'space-between',
+                                    alignItems: 'center'
+                                }}
                             >
                                 {!isMobileVersion &&
                                     showSearchField &&
@@ -604,7 +608,13 @@ export default function GlobalMenu({
                                     <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />
                                 </Styles.WrapperLogo>
                             )}
-                            <Styles.WrapperMenu style={{ height: '100%', alignItems: 'center' }}>
+                            <Styles.WrapperMenu
+                                style={{
+                                    height: '100%',
+                                    alignItems: 'center',
+                                    justifyContent: InputField ? 'center' : undefined
+                                }}
+                            >
                                 {!isMobileVersion &&
                                     !isTabletVersion &&
                                     showSearchField &&
