@@ -8997,7 +8997,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
         }
     };
     const tabs = React.useMemo(() => {
-        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index, result?.version), children: [result.name, " ", result?.hiddeVersionInName ? '' : result?.version] }, index))) }));
+        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index, result?.version), children: [result.name, " ", result.name === 'Resultado' ? result?.version : result?.version - 1] }, index))) }));
     }, [filteredResults, activeTab]);
     const handleEdit = () => {
         if (!isEditing)
