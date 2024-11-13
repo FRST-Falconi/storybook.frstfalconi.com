@@ -31,7 +31,8 @@ export default function ImpedimentosTab({
     onSelectedTab,
     idSelectedTab,
     currentTab,
-    addButtonText
+    addButtonText,
+    emptyComponent
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null)
     const [allTabs, setAllTabs] = useState<Array<TabInfo>>([])
@@ -61,7 +62,7 @@ export default function ImpedimentosTab({
     }, [idSelectedTab])
 
     useEffect(() => {
-        if (allTabs.length > 0) {
+        if (allTabs?.length > 0) {
             const tabToSelect = allTabs.find((tab) => tab.id === currentTab)
             setSelectedTab(tabToSelect ? tabToSelect : allTabs[0])
             setOnShowTabs(allTabs.slice(0, maxTabs))
@@ -149,7 +150,7 @@ export default function ImpedimentosTab({
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            {allTabs.length > 0 ? (
+            {allTabs?.length > 0 ? (
                 <ContainerImpedimentos>
                     <TabWrapper>
                         <Box display={'flex'} alignItems={'center'}>
@@ -353,7 +354,7 @@ export default function ImpedimentosTab({
                     />
                 </ContainerImpedimentos>
             ) : (
-                <></>
+               emptyComponent !== undefined ? <>{emptyComponent}</>  : <></>
             )}
         </ThemeProvider>
     )

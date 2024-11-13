@@ -13,6 +13,7 @@ const Template = (args) => <ImpedimentosTab {...args} />
 
 export const withOptions = Template.bind({})
 withOptions.args = {
+   
     maxTabs: 5,
     showAddButton: true,
     addButtonText: 'Sugerir impedimento',
@@ -229,4 +230,9 @@ withoutOptions.args = {
     ],
     onSaveNewImpedimento: (text) => console.log("Salvando impedimento: ", text),
     onSelectedTab: (impedimento) => console.log("Impedimento selecionado: ", impedimento),
+}
+
+export const withEmptyComponentS = Template.bind({})
+withEmptyComponentS.args = {
+    emptyComponent: <div style={{background: "#fff", padding: 15, borderRadius: "8px", color: "#96969"}}>Lista de impedimentos vazia</div>,
 }
