@@ -7,6 +7,7 @@ export interface ImpedimentosTabProps {
     onSelectedTab: (selectedTab: TabInfo) => void
     idSelectedTab?: string
     currentTab?: any
+    emptyComponent?: React.ReactNode
 }
 
 export interface TabInfo {
