@@ -132,7 +132,10 @@ withOptions.args = {
     ],
     onSaveNewImpedimento: (text) => console.log("Salvando impedimento: ", text),
     onSelectedTab: (impedimento) => console.log("Impedimento selecionado: ", impedimento),
-    handleClickAvatar: () => console.log("Go to profile!")
+    handleClickAvatar: () => console.log("Go to profile!"),
+    style: {
+        backgroundColor: 'none',
+    }
 }
 
 export const withoutOptions = Template.bind({})

@@ -8,6 +8,7 @@ export interface ImpedimentosTabProps {
     idSelectedTab?: string
     currentTab?: any
     emptyComponent?: React.ReactNode
+    style?: React.CSSProperties; 
 }
 
 export interface TabInfo {
