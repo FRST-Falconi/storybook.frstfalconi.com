@@ -1,5 +1,12 @@
 import styled, { css } from "styled-components";
 
+
+interface ImpedimentoSelectProps {
+    activeSelect?: boolean;
+    style?: React.CSSProperties; 
+    selected?: boolean
+}
+
 export const ContainerImpedimentos = styled('div')`
     width: 100%;
     display: flex;
@@ -12,12 +19,13 @@ export const TabWrapper = styled('div')`
     justify-content: space-between;
 `
 
-export const Tab = styled('div')<{selected: boolean}>`
+export const Tab = styled('div')<ImpedimentoSelectProps>`
     width: 137px;
     padding: 12px 16px;
-    background-color: ${({theme}) => theme.colors.shadeWhite};
+    background-color: ${({ theme, style, selected }) => 
+        style?.backgroundColor || (selected ? '#D2ACE4' : theme.colors.shadeWhite)};
     border-radius: 8px 8px 0px 0px;
-    cursor: default;
+    cursor: pointer;
 
     ${(props) => props.selected &&
         css`
@@ -119,14 +127,14 @@ export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
 
 `
 
-export const WrapperImpedimentoSelect = styled('div')<{activeSelect: boolean}>`
+export const WrapperImpedimentoSelect = styled('div')<ImpedimentoSelectProps>`
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px;
     border-radius: 6px;
-    background-color: ${({theme}) => theme.colors.shadeWhite};
-    cursor: default;
+    background-color: ${({theme, style}) => style?.backgroundColor || theme.colors.shadeWhite};
+    cursor: pointer;
 
     p {
         font-family: 'PT Sans';
