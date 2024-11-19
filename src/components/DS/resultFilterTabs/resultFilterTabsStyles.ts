@@ -140,3 +140,39 @@ export const WrapperSelectIcon = styled('div')<{isOpenSelect: boolean}>`
         }
     }
 `;
+
+export const WrapperFieldValueDate = styled.div`
+    
+    .rs-input-group-inside {
+        height: 40px;
+        width: 162px;
+        border-radius: 8px;
+        background-color: #FFFFFF;
+        border: 1.5px solid #BDBDBD;
+        padding: 8px;
+        
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        :hover,
+        :focus {
+            border: 1.5px solid #F26818;
+        }
+        
+        & > input {
+            border: none;
+            font-family: 'PT Sans';
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: #222222;
+        }
+    
+        & > span {
+            padding: 4px 4px 0px 0px;
+        }
+
+    }
+  
+`
