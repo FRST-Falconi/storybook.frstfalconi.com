@@ -7458,9 +7458,9 @@ const TabWrapper = styled__default["default"]('div') `
 const Tab$1 = styled__default["default"]('div') `
     width: 137px;
     padding: 12px 16px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    background-color: ${({ theme, style, selected }) => style?.backgroundColor || (selected ? '#D2ACE4' : theme.colors.shadeWhite)};
     border-radius: 8px 8px 0px 0px;
-    cursor: default;
+    cursor: pointer;
 
     ${(props) => props.selected &&
     styled.css `
@@ -7561,8 +7561,8 @@ const WrapperImpedimentoSelect = styled__default["default"]('div') `
     gap: 8px;
     padding: 8px;
     border-radius: 6px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    cursor: default;
+    background-color: ${({ theme, style }) => style?.backgroundColor || theme.colors.shadeWhite};
+    cursor: pointer;
 
     p {
         font-family: 'PT Sans';
@@ -7817,7 +7817,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown$1, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, addButtonText, emptyComponent }) {
+function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, addButtonText, emptyComponent, style }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7873,7 +7873,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
         handleClickTab(impedimento);
     };
     const renderTabs = (tabInfo, index) => {
-        return (jsxRuntime.jsx(Tab$1, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
+        return (jsxRuntime.jsx(Tab$1, { style: style, selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
     };
     const handleUpdate = () => {
         if (editDescription == '')
@@ -7911,7 +7911,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
             setEditDescription(selectedTab.description || '');
         }
     }, [selectedTab]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs?.length > 0 ? (jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), onHideTabs.length > 0 ? (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os impedimentos", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon$1, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsx(Tooltip$2, { content: "Sugerir impedimento", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs?.length > 0 ? (jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), onHideTabs.length > 0 ? (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os impedimentos", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), style: style, children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon$1, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsx(Tooltip$2, { content: "Sugerir impedimento", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
                                 fontFamily: 'PT Sans',
                                 fontWeight: 400,
                                 fontSize: '14px',
@@ -7961,7 +7961,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                     }
                                                 ]
                                                 : []),
-                                            ...(selectedTab?.handleDelete
+                                            ...(selectedTab?.handleDelete && !selectedTab?.disabledPriorize // if it's a prioritized impediment, it can't be deleted, but it can be updated
                                                 ? [
                                                     {
                                                         description: 'Excluir',
@@ -8175,7 +8175,7 @@ const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index
     const isOwnerGoal = authorGoalId === authorId;
     const limitCaraterers = variant === 'impediment' ? 365 : 200;
     const [isLimitExceeded, setIsLimitExceeded] = React.useState(false);
-    const options = [
+    let options = [
         hasUpdownButtons &&
             userLoggedId === authorGoalId && {
             startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: type === 'prioritize' ? '#9C9C9C' : '#222222' }),
@@ -8202,6 +8202,7 @@ const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index
             color: '#C00F00'
         }
     ].filter((item) => item);
+    options = type === 'prioritize' ? options.filter((item) => item.description !== 'Excluir') : options;
     React.useEffect(() => {
         setEditDescription(description);
     }, [description]);
@@ -8231,7 +8232,8 @@ const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index
     const validHasEditHipotesisOrImpediment = React.useMemo(() => {
         if (!hasEditHipotesisOrImpediment)
             return false;
-        if (authorGoalId === userLoggedId)
+        //author of the goal can edit but also owner of the hipotesis or impediment if it's priorized
+        if (authorGoalId === userLoggedId || (type === 'prioritize' && hasEditHipotesisOrImpediment))
             return true;
         if (type !== 'prioritize') {
             return authorId === userLoggedId;
