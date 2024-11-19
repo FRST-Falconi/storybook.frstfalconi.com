@@ -8202,6 +8202,7 @@ const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index
             color: '#C00F00'
         }
     ].filter((item) => item);
+    //if the type is prioritize, the option to delete is not available, just edit
     options = type === 'prioritize' ? options.filter((item) => item.description !== 'Excluir') : options;
     React.useEffect(() => {
         setEditDescription(description);
