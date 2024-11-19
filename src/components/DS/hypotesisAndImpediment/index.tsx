@@ -48,7 +48,7 @@ export const HypothesisAndImpediment = ({
     const isOwnerGoal = authorGoalId === authorId
     const limitCaraterers = variant === 'impediment' ? 365 : 200
     const [isLimitExceeded, setIsLimitExceeded] = useState(false)
-    const options = [
+    let options = [
         hasUpdownButtons &&
             userLoggedId === authorGoalId && {
                 startIcon: <StarPrioritize stroke={type === 'prioritize' ? '#9C9C9C' : '#222222'} />,
@@ -76,6 +76,8 @@ export const HypothesisAndImpediment = ({
         }
     ].filter((item) => item)
 
+    //if the type is prioritize, the option to delete is not available, just edit
+    options = type === 'prioritize' ? options.filter((item) => item.description !== 'Excluir') : options
     useEffect(() => {
         setEditDescription(description)
     }, [description])
@@ -108,7 +110,8 @@ export const HypothesisAndImpediment = ({
     const validHasEditHipotesisOrImpediment = useMemo(() => {
         if (!hasEditHipotesisOrImpediment) return false
 
-        if (authorGoalId === userLoggedId) return true
+        //author of the goal can edit but also owner of the hipotesis or impediment if it's priorized
+        if (authorGoalId === userLoggedId || (type === 'prioritize' && hasEditHipotesisOrImpediment)) return true
 
         if (type !== 'prioritize') {
             return authorId === userLoggedId

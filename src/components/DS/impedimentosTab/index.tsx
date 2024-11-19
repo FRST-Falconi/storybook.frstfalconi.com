@@ -315,7 +315,7 @@ export default function ImpedimentosTab({
                                                               }
                                                           ]
                                                         : []),
-                                                    ...(selectedTab?.handleDelete
+                                                    ...(selectedTab?.handleDelete && !selectedTab?.disabledPriorize // if it's a prioritized impediment, it can't be deleted, but it can be updated
                                                         ? [
                                                               {
                                                                   description: 'Excluir',
