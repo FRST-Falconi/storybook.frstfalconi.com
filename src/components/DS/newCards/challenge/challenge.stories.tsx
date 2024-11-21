@@ -40,5 +40,6 @@ normal.args = {
   goalExecutionGroup: null,
   iteratorNumber: 1,
   isCompanyAbleGroupExecution: false,
-  resultNumber: 1
+  resultNumber: 1,
+  showCheckbox: false
 }

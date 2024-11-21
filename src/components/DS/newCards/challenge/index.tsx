@@ -36,6 +36,7 @@ interface ChallengeCardProps {
     iteratorNumber?:number
     isCompanyAbleGroupExecution: boolean;
     resultNumber?:number
+    showCheckbox?: boolean
 }
 
 export default function ChallengeCard ({
@@ -66,7 +67,8 @@ export default function ChallengeCard ({
     handleGroupExecution,
     iteratorNumber,
     isCompanyAbleGroupExecution,
-    resultNumber
+    resultNumber,
+    showCheckbox
 }: ChallengeCardProps) {
     const isAuthor = userLoggedUUID === authorUUID;
     const isGroupExecution = !!goalExecutionGroup?.room_uuid
@@ -181,23 +183,26 @@ export default function ChallengeCard ({
             }
             
             <S.cardContentWrapper>
-                <S.checkboxWrapper selected={selected}>
-                    <Checkbox
-                        checked={selected}
-                        onChange={(e) => {
-                            e.stopPropagation()
-                            handleSelected(e)}
-                        }
-                        icon={<UncheckedBox />}
-                        size='small'
-                        sx={{
-                            color: '#9C9C9C',
-                            '&.Mui-checked': {
-                                color: '#FF4D0D',
-                            },
-                        }} 
-                    />
-                </S.checkboxWrapper>
+                {showCheckbox &&
+                    <S.checkboxWrapper selected={selected}>
+                        <Checkbox
+                            checked={selected}
+                            onChange={(e) => {
+                                e.stopPropagation()
+                                handleSelected(e)}
+                            }
+                            icon={<UncheckedBox />}
+                            size='small'
+                            sx={{
+                                padding: 0,
+                                color: '#9C9C9C',
+                                '&.Mui-checked': {
+                                    color: '#FF4D0D',
+                                },
+                            }} 
+                        />
+                    </S.checkboxWrapper>
+                }
                 <S.contentWrapper>
                     <S.headerContent>
                         <Tooltip
