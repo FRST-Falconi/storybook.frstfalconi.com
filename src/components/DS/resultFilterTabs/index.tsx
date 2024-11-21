@@ -7,7 +7,7 @@ import { ResultFilterTabsProps, IResult } from './resultFilterTabs'
 import DropdownResult from './dropDownResult'
 import Tooltip from '../tooltip'
 import { DatePicker } from "rsuite";
-import "rsuite/dist/rsuite.min.css";
+import "./rsuite.min.css";
 
 export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }: ResultFilterTabsProps) => {
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
