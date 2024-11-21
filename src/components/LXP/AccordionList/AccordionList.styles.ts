@@ -10,7 +10,7 @@ export const StylesAccordionList = styled.div<IProps>`
   align-items: flex-start;
   flex-direction: column;
   &.open {
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 8px 8px;
     border: ${({ theme, selectedItem }) => selectedItem && `1px solid ${theme.colors.primary1}`};
   }
 
@@ -29,7 +29,8 @@ export const StylesAccordionList = styled.div<IProps>`
     padding: 19px 24px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     &.open {
-      border-radius: 8px 8px 0px 0px;
+      border-radius: 8px 8px 8px 8px;
+      border-bottom: 1px solid #BDBDBD;
     }
     &.closed {
       border-radius: 8px;
