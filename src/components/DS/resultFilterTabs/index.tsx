@@ -6,6 +6,8 @@ import InputMask from 'react-input-mask'
 import { ResultFilterTabsProps, IResult } from './resultFilterTabs'
 import DropdownResult from './dropDownResult'
 import Tooltip from '../tooltip'
+import { DatePicker } from "rsuite";
+import "./rsuite.min.css";
 
 export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }: ResultFilterTabsProps) => {
     const [activeTab, setActiveTab] = useState(0) // Controla a tab ativa
@@ -18,6 +20,10 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
     const editContainerRef = useRef<HTMLDivElement>(null) // Referência para detectar cliques fora
 
     const [anchor, setAnchor] = useState(null)
+
+    const [dateValue, setDateValue] = useState(null);
+    const [datePickerOpen, setDatePickerOpen] = useState(false);
+
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
@@ -85,7 +91,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
             <>
                 {filteredResults?.map((result, index) => (
                     <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index, result?.version)}>
-                        {result.name} {result?.hiddeVersionInName ? '' : result?.version}
+                        {result.name} {result.name === 'Resultado' ? result?.version : result?.version - 1}
                     </Styles.Tab>
                 ))}
             </>
@@ -116,7 +122,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (editContainerRef.current && !editContainerRef.current.contains(event.target as Node)) {
+            if (editContainerRef.current && !editContainerRef.current.contains(event.target as Node) && !datePickerOpen) {
                 if (isEditing) {
                     handleEdit() // Salva os dados ao clicar fora do campo de edição
                     setIsEditing(false)
@@ -127,7 +133,22 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [isEditing, newValue, newDate])
+    }, [isEditing, newValue, newDate, datePickerOpen])
+
+    useEffect(() => {
+        if(!dateValue) {
+            let parts = newDate.split('/')
+            let dia = parts[0]
+            let mes = parts[1]
+            let ano = parts[2]
+            if(ano.length === 2) {
+                ano = '20'+ ano
+            }
+            const dateFixed = new Date(parseInt(ano), parseInt(mes) - 1, parseInt(dia))
+            
+            setDateValue(dateFixed)
+        }
+    }, [newDate]);
 
     return (
         <Styles.Container>
@@ -180,16 +201,23 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
                     <p>
                         Data para atingir o resultado:{' '}
                         {isEditing ? (
-                            <Styles.InputWrapper>
-                                <CalendarIcon fill="#222222" />
-                                <InputMask
-                                    mask="99/99/99"
-                                    value={newDate}
-                                    onChange={(e) => setNewDate(e?.target?.value)}
-                                >
-                                    {(inputProps) => <input {...inputProps} type="text" />}
-                                </InputMask>
-                            </Styles.InputWrapper>
+                            <Styles.WrapperFieldValueDate>
+                                <DatePicker
+                                    value={dateValue}
+                                    format="dd/MM/yyyy"
+                                    onOpen={() => setDatePickerOpen(true)}
+                                    onChange={(e) => {
+                                        setDateValue(e)
+                                        setNewDate(e.toLocaleDateString())
+                                        setDatePickerOpen(false)
+                                    }}
+                                    onClose={() => setDatePickerOpen(false)}
+                                    placeholder={"DD/MM/AAAA"}
+                                    oneTap
+                                    disabled={false}
+                                    caretAs={CalendarIcon}
+                                />
+                            </Styles.WrapperFieldValueDate>
                         ) : (
                             <span>{filteredResults[activeTab]?.expectation_date}</span>
                         )}
@@ -233,7 +261,11 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
                 onClose={closeDropdown}
                 ResultList={hiddenTabs}
                 maxTabs={tabLimit}
-                onClickResultList={(i) => changeFilteredResults(results.indexOf(i))} 
+                onClickResultList={(item) => {
+                    const selectedVersion = item.version; 
+                    const selectedIndex = results.findIndex((result) => result.version === selectedVersion);
+                    changeFilteredResults(selectedIndex); 
+                }}
             />
         </Styles.Container>
     )

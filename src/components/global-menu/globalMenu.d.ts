@@ -4,69 +4,69 @@ export type enumVariant = 'default' | 'LXP' | 'custom'
 export type enumLanguages = 'pt-BR' | 'es' | 'en-US' | 'pt-PT'
 
 export type itemClick = {
-  id: string
-  label: string
-  iconBegin?: any
-  onClick: (e) => void
-  active?: boolean
-  subMenu?: Array<itemClick>
+    id: string
+    label: string
+    iconBegin?: any
+    onClick: (e) => void
+    active?: boolean
+    subMenu?: Array<itemClick>
 }
 
 export type options = {
-  id: string
-  startIcon: any
-  label: string
-  endIcon: any
-  onClick: (e) => void
-  options: Array<options>
+    id: string
+    startIcon: any
+    label: string
+    endIcon: any
+    onClick: (e) => void
+    options: Array<options>
 }
 
 export type typeUser = {
-  avatar: string
-  name: string
-  textIsMe?: string
-  company: string
-  handleClickProfile: () => void
-  menuItems?: any
+    avatar: string
+    name: string
+    textIsMe?: string
+    company: string
+    handleClickProfile: () => void
+    menuItems?: any
 }
 
 export interface IGlobalMenu {
-  variant?: enumVariant
+    variant?: enumVariant
+    InputField?: React.ComponentType<any>
+    menu?: Array<itemClick>
+    customMenu?: Array<itemClick>
+    user?: typeUser
+    search?: IFieldSearch
 
-  menu?: Array<itemClick>
-  customMenu?: Array<itemClick>
-  user?: typeUser
-  search?: IFieldSearch
+    notification?: any
 
-  notification?: any
+    languages: Array<enumLanguages>
+    languageSelected: enumLanguages
+    onChangeLanguage?: (e) => void
 
-  languages: Array<enumLanguages>
-  languageSelected: enumLanguages
-  onChangeLanguage?: (e) => void
+    onClickLogo?: () => void
+    onClickExit?: () => void
 
-  onClickLogo?: () => void
-  onClickExit?: () => void
+    onClickSite?: () => void
+    onClickLinkedin?: () => void
+    onClickInstagram?: () => void
+    onClickYoutube?: () => void
+    onClickSpotify?: () => void
+    onClickPodCast?: () => void
+    onClickProfileMenuText?: () => void
+    onClickMenuHamburger?: () => void
+    showHelp?: boolean
+    onClickHelp?: () => void
 
-  onClickSite?: () => void
-  onClickLinkedin?: () => void
-  onClickInstagram?: () => void
-  onClickYoutube?: () => void
-  onClickSpotify?: () => void
-  onClickPodCast?: () => void
-  onClickProfileMenuText?: () => void
-  onClickMenuHamburger?: () => void
-  showHelp?: boolean 
-  onClickHelp?: () => void
+    profileMenuText?: string
+    textNotification?: string
 
-  profileMenuText?: string
-  textNotification?: string
+    style: React.CSSProperties
+    showSearchField: boolean
+    marginTopSubMenu?: boolean
+    hiddenProfileMenu?: boolean
 
-  style: React.CSSProperties
-  showSearchField: boolean
-  marginTopSubMenu?: boolean
-  hiddenProfileMenu?: boolean
+    customMenuOptions?: any
 
-  customMenuOptions?: any
-
-  showProfile: boolean
+    showProfile: boolean
 }

@@ -31,7 +31,9 @@ export default function ImpedimentosTab({
     onSelectedTab,
     idSelectedTab,
     currentTab,
-    addButtonText
+    addButtonText,
+    emptyComponent,
+    style
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null)
     const [allTabs, setAllTabs] = useState<Array<TabInfo>>([])
@@ -61,7 +63,7 @@ export default function ImpedimentosTab({
     }, [idSelectedTab])
 
     useEffect(() => {
-        if (allTabs.length > 0) {
+        if (allTabs?.length > 0) {
             const tabToSelect = allTabs.find((tab) => tab.id === currentTab)
             setSelectedTab(tabToSelect ? tabToSelect : allTabs[0])
             setOnShowTabs(allTabs.slice(0, maxTabs))
@@ -98,7 +100,7 @@ export default function ImpedimentosTab({
 
     const renderTabs = (tabInfo: TabInfo, index: number) => {
         return (
-            <Tab key={index} selected={tabInfo.id === selectedTab?.id} onClick={() => handleClickTab(tabInfo)}>
+            <Tab style={style} key={index} selected={tabInfo.id === selectedTab?.id} onClick={() => handleClickTab(tabInfo)}>
                 <p>{tabInfo.title}</p>
             </Tab>
         )
@@ -149,7 +151,7 @@ export default function ImpedimentosTab({
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            {allTabs.length > 0 ? (
+            {allTabs?.length > 0 ? (
                 <ContainerImpedimentos>
                     <TabWrapper>
                         <Box display={'flex'} alignItems={'center'}>
@@ -164,7 +166,7 @@ export default function ImpedimentosTab({
                                     <WrapperImpedimentoSelect
                                         activeSelect={openImpedimentoSelect}
                                         onClick={(e) => setImpedimentoSelectAnchor(e.currentTarget)}
-                                    >
+                                        style={style}                                    >
                                         <p>Mais {onHideTabs.length}</p>
                                         <WrapperSelectIcon isOpenSelect={openImpedimentoSelect}>
                                             <ArrrowExpandDropdown />
@@ -313,7 +315,7 @@ export default function ImpedimentosTab({
                                                               }
                                                           ]
                                                         : []),
-                                                    ...(selectedTab?.handleDelete
+                                                    ...(selectedTab?.handleDelete && !selectedTab?.disabledPriorize // if it's a prioritized impediment, it can't be deleted, but it can be updated
                                                         ? [
                                                               {
                                                                   description: 'Excluir',
@@ -353,7 +355,7 @@ export default function ImpedimentosTab({
                     />
                 </ContainerImpedimentos>
             ) : (
-                <></>
+               emptyComponent !== undefined ? <>{emptyComponent}</>  : <></>
             )}
         </ThemeProvider>
     )
