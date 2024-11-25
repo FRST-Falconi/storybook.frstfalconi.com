@@ -88,9 +88,9 @@ export const HypothesisAndImpediment = ({
 
     const title = useMemo(() => {
         if (type === 'prioritize' && variant === 'hypothesis') return 'HIPÓTESE PRIORIZADA'
-        if (type === 'prioritize' && variant === 'impediment') return 'IMPEDIMENTO PRIORIZADO'
+        if (type === 'prioritize' && variant === 'impediment') return 'CAUSA PRIORIZADA'
         if (variant == 'hypothesis') return `HIPÓTESE ${index}`
-        return `IMPEDIMENTO ${index}`
+        return `CAUSA ${index}`
     }, [type, variant, index])
 
     const avatarBorder = isOwnerGoal ? `2px solid ${Styles.borderAvatar[variant][type]}` : 'none'

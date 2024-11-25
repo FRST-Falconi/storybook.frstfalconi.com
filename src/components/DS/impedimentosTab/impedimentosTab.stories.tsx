@@ -16,7 +16,7 @@ withOptions.args = {
    
     maxTabs: 5,
     showAddButton: true,
-    addButtonText: 'Sugerir impedimento',
+    addButtonText: 'Sugerir causa',
     idSelectedTab: '2',
     tabsList: [
         {
@@ -24,7 +24,7 @@ withOptions.args = {
             avatar: `https://xsgames.co/randomusers/avatar.php?g=male`,
             user_name: 'Fulano teste de nome muito grande kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus, nunc viverra accumsan ornare, sapien felis sodales felis, at blandit sem quam nec purus. Aliquam eget auctor nisi, at aliquet eros. Morbi quam eros, laoreet eu elit eu, euismod maximus ex. Duis ut libero at mauris luctus euismod. Sed eu sem dolor. Vivamus in turpis lobortis lacus fermentum maximus. Cras at neque at sapien sollicitudin volutpat. Phasellus sagittis, felis vel consectetur pulvinar, libero enim dictum tortor, elementum gravida mauris tortor in libero. Aliquam egestas auctor ex, at vehicula justo cursus nec. Integer id quam neque. Praesent quis venenatis ex. Curabitur sed ante eu enim cursus pretium. Maecenas dapibus aliquet leo, vitae dictum est maximus sit amet. Fusce sollicitudin velit eu eros mollis pellentesque. Quisque vel augue dictum, convallis elit feugiat, pretium mi. Donec ac euismod quam, vel ornare dui.',
-            title: 'Impedimento 1',
+            title: 'Causa 1',
             isGoalOwner: true,
             disabledPriorize: true,
             showOptions: true,
@@ -38,7 +38,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             user_name: 'Fulano',
             description: 'Segundo impedimento',
-            title: 'Impedimento 2',
+            title: 'Causa 2',
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
@@ -50,7 +50,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Terceiro impedimento',
-            title: 'Impedimento 3',
+            title: 'Causa 3',
             isGoalOwner: false,
             showOptions: false,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
@@ -63,7 +63,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             user_name: 'Fulano',
             description: 'Quarto impedimento',
-            title: 'Impedimento 4',
+            title: 'Causa 4',
             isGoalOwner: true,
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
@@ -76,7 +76,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             user_name: 'Fulano',
             description: 'Quinto impedimento',
-            title: 'Impedimento 5',
+            title: 'Causa 5',
             isGoalOwner: true,
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
@@ -89,7 +89,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             user_name: 'Fulano',
             description: 'Sexto impedimento',
-            title: 'Impedimento 6',
+            title: 'Causa 6',
             handleClickAvatar: () => console.log("Go to profile!")
         },
         {
@@ -97,7 +97,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Sétimo impedimento',
-            title: 'Impedimento 7',
+            title: 'Causa 7',
             handleClickAvatar: () => console.log("Go to profile!")
         },
         {
@@ -105,7 +105,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             user_name: 'Fulano',
             description: 'Oitavo impedimento',
-            title: 'Impedimento 8',
+            title: 'Causa 8',
             isGoalOwner: true,
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
@@ -118,7 +118,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Nono impedimento',
-            title: 'Impedimento 9',
+            title: 'Causa 9',
             handleClickAvatar: () => console.log("Go to profile!")
         },
         {
@@ -126,7 +126,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             user_name: 'Fulano',
             description: 'Décimo impedimento',
-            title: 'Impedimento 10',
+            title: 'Causa 10',
             handleClickAvatar: () => console.log("Go to profile!")
         },
     ],
