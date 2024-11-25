@@ -186,31 +186,13 @@ export default function ImpedimentosTab({
                         </Box>
                         <Box display={'flex'} alignItems={'center'}>
                             {showAddButton ? (
-                                <Tooltip
-                                    content="Sugerir causa"
-                                    direction="bottom"
-                                    delay={200}
-                                    style={{
-                                        fontFamily: 'PT Sans',
-                                        fontWeight: 400,
-                                        fontSize: '14px',
-                                        color: 'rgba(117, 117, 117, 1)',
-                                        width: 'fit-content',
-                                        height: '31px',
-                                        top: '8px',
-                                        left: '4px',
-                                        whiteSpace: 'nowrap',
-                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                    }}
+                                <WrapperAddButton
+                                    activeButton={openAddImpedimento}
+                                    onClick={handleClickAddImpedimento}
                                 >
-                                    <WrapperAddButton
-                                        activeButton={openAddImpedimento}
-                                        onClick={handleClickAddImpedimento}
-                                    >
-                                        <AddIcon />
-                                        <p>{addButtonText}</p>
-                                    </WrapperAddButton>
-                                </Tooltip>
+                                    <AddIcon />
+                                    <p>{addButtonText}</p>
+                                </WrapperAddButton>
                             ) : (
                                 <></>
                             )}
