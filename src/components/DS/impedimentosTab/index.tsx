@@ -158,10 +158,17 @@ export default function ImpedimentosTab({
                             {onShowTabs.map((item, index) => renderTabs(item, index))}
                             {onHideTabs.length > 0 ? (
                                 <Tooltip
-                                    content="Ver todos os impedimentos"
+                                    content="Ver todas as causas"
                                     direction="bottom"
                                     delay={200}
-                                    style={{ textAlign: 'center' }}
+                                    style={{ 
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        textAlign: 'center',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }}
                                 >
                                     <WrapperImpedimentoSelect
                                         activeSelect={openImpedimentoSelect}
@@ -180,10 +187,21 @@ export default function ImpedimentosTab({
                         <Box display={'flex'} alignItems={'center'}>
                             {showAddButton ? (
                                 <Tooltip
-                                    content="Sugerir impedimento"
+                                    content="Sugerir causa"
                                     direction="bottom"
                                     delay={200}
-                                    style={{ textAlign: 'center' }}
+                                    style={{
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }}
                                 >
                                     <WrapperAddButton
                                         activeButton={openAddImpedimento}

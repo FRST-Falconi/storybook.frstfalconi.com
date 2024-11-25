@@ -49,7 +49,7 @@ export default function AddImpedimentoModal({ isOpen, onClose, onSaveBtn, anchor
                     <TextField
                         value={text}
                         onChange={(e) => setText(e.target.value)}
-                        placeholder="Sugira o impedimento aqui"
+                        placeholder="Sugira a causa aqui"
                         maxLength={limitCaraterersImpediments}
                     />
 
