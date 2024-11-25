@@ -7918,18 +7918,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                         color: 'rgba(117, 117, 117, 1)',
                                         textAlign: 'center',
                                         boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                    }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), style: style, children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon$1, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsx(Tooltip$2, { content: "Sugerir causa", direction: "bottom", delay: 200, style: {
-                                    fontFamily: 'PT Sans',
-                                    fontWeight: 400,
-                                    fontSize: '14px',
-                                    color: 'rgba(117, 117, 117, 1)',
-                                    width: 'fit-content',
-                                    height: '31px',
-                                    top: '8px',
-                                    left: '4px',
-                                    whiteSpace: 'nowrap',
-                                    boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
+                                    }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), style: style, children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon$1, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
                                 fontFamily: 'PT Sans',
                                 fontWeight: 400,
                                 fontSize: '14px',
