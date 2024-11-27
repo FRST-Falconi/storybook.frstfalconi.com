@@ -55,7 +55,8 @@ export default function GlobalMenu({
     showHelp,
     onClickHelp,
     showProfile = true,
-    InputField
+    InputField,
+    hideNotification
 }: IGlobalMenu) {
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
@@ -700,7 +701,7 @@ export default function GlobalMenu({
                                             }}
                                         />
                                     ))}
-                                {!isMobileVersion && !isTabletVersion && notification && (
+                                {!isMobileVersion && !isTabletVersion && notification && !hideNotification && (
                                     <>
                                         {customMenu?.map((item, index) => (
                                             <ItemGlobalMenu
@@ -720,46 +721,49 @@ export default function GlobalMenu({
                                                 }}
                                             />
                                         ))}
-                                        <Styles.WrapperIconNotification onClick={onClickNotification}>
-                                            <span
-                                                style={{
-                                                    display: 'flex',
-                                                    justifyContent: 'flex-start',
-                                                    alignItems: 'center',
-                                                    flexDirection: 'row-reverse',
-                                                    width: '140px'
-                                                }}
-                                                onClick={handleOpenNotification}
-                                            >
-                                                <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
-                                                {hasNewNotification ? (
-                                                    <div style={{ position: 'absolute', top: '0' }}>
-                                                        <HasNotificationIcon />
-                                                    </div>
-                                                ) : null}{' '}
-                                                <Styles.WrapperIconNotificationText>
-                                                    {textNotification}
-                                                </Styles.WrapperIconNotificationText>
-                                            </span>
-                                            <NotificationPopOver
-                                                handleClickMarkRead={notification.handleClickMarkRead}
-                                                isOpen={openNotification}
-                                                anchor={anchorNotification}
-                                                textEmptyState={notification.textEmptyState}
-                                                notificationList={updatedNotificationList}
-                                                textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                textNotification={notification.textNotification}
-                                                isMobile={false}
-                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                textBack={notification.textBack}
-                                                handleClickBack={() => handleCloseNotification()}
-                                                textDeleteAll={notification.textDeleteAll}
-                                                handleClickDeleteAll={notification.handleClickDeleteAll}
-                                            />
-                                        </Styles.WrapperIconNotification>
+                                        
+                                                    <Styles.WrapperIconNotification onClick={onClickNotification}>
+                                                    <span
+                                                        style={{
+                                                            display: 'flex',
+                                                            justifyContent: 'flex-start',
+                                                            alignItems: 'center',
+                                                            flexDirection: 'row-reverse',
+                                                            width: '140px'
+                                                        }}
+                                                        onClick={handleOpenNotification}
+                                                    >
+                                                        <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
+                                                        {hasNewNotification ? (
+                                                            <div style={{ position: 'absolute', top: '0' }}>
+                                                                <HasNotificationIcon />
+                                                            </div>
+                                                        ) : null}{' '}
+                                                        <Styles.WrapperIconNotificationText>
+                                                            {textNotification}
+                                                        </Styles.WrapperIconNotificationText>
+                                                    </span>
+                                                    <NotificationPopOver
+                                                        handleClickMarkRead={notification.handleClickMarkRead}
+                                                        isOpen={openNotification}
+                                                        anchor={anchorNotification}
+                                                        textEmptyState={notification.textEmptyState}
+                                                        notificationList={updatedNotificationList}
+                                                        textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                        textNotification={notification.textNotification}
+                                                        isMobile={false}
+                                                        setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                        textBack={notification.textBack}
+                                                        handleClickBack={() => handleCloseNotification()}
+                                                        textDeleteAll={notification.textDeleteAll}
+                                                        handleClickDeleteAll={notification.handleClickDeleteAll}
+                                                    />
+                                                </Styles.WrapperIconNotification>
+                                       
+                                        
                                     </>
                                 )}
-                                {isMobileVersion && notification && (
+                                {isMobileVersion && notification  && !hideNotification &&  (
                                     <Styles.WrapperIconNotificationMobile
                                         onClick={onClickNotification}
                                         style={{
@@ -804,7 +808,7 @@ export default function GlobalMenu({
                                         ) : null}
                                     </Styles.WrapperIconNotificationMobile>
                                 )}
-                                {isTabletVersion && notification && (
+                                {isTabletVersion && notification  && !hideNotification && (
                                     <Styles.WrapperIconNotificationMobile
                                         onClick={onClickNotification}
                                         style={{
