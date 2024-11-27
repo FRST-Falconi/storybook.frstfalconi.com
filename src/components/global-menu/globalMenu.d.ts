@@ -39,11 +39,11 @@ export interface IGlobalMenu {
     search?: IFieldSearch
     hideNotification?:boolean
     notification?: any
-
+    showNavegation?: boolean
     languages: Array<enumLanguages>
     languageSelected: enumLanguages
     onChangeLanguage?: (e) => void
-
+    onClickNavigation?: () => void
     onClickLogo?: () => void
     onClickExit?: () => void
 
