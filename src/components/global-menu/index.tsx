@@ -62,7 +62,7 @@ export default function GlobalMenu({
     showProfile = true,
     InputField,
     hideNotification,
-    showNavegation
+    showNavigation
 }: IGlobalMenu) {
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
@@ -735,7 +735,7 @@ export default function GlobalMenu({
                                             >
                                                 <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
                                                 {hasNewNotification ? (
-                                                    <div style={{ position: 'absolute', top: '0' }}>
+                                                    <div style={{ position: 'relative', bottom: '5px', right: "10px"}}>
                                                         <HasNotificationIcon />
                                                     </div>
                                                 ) : null}{' '}
@@ -865,7 +865,7 @@ export default function GlobalMenu({
                                         marginRight: isMobileVersion ? '0px' : '5px'
                                     }}
                                 />
-                                {showNavegation && (
+                                {showNavigation && (
                                     <S.Navigation onClick={onClickHelp}>
                                         {<HandWave />}
                                         <S.TextNotification>Ajuda</S.TextNotification>
