@@ -37,7 +37,7 @@ export interface IGlobalMenu {
     customMenu?: Array<itemClick>
     user?: typeUser
     search?: IFieldSearch
-
+    hideNotification?:boolean
     notification?: any
 
     languages: Array<enumLanguages>
