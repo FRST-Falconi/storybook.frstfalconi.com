@@ -866,7 +866,7 @@ export default function GlobalMenu({
                                     }}
                                 />
                                 {showNavigation && (
-                                    <S.Navigation onClick={onClickHelp}>
+                                    <S.Navigation onClick={onClickNavigation}>
                                         {<HandWave />}
                                         <S.TextNotification>Ajuda</S.TextNotification>
                                     </S.Navigation>
