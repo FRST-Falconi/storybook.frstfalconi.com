@@ -37,13 +37,13 @@ export interface IGlobalMenu {
     customMenu?: Array<itemClick>
     user?: typeUser
     search?: IFieldSearch
-
+    hideNotification?:boolean
     notification?: any
-
+    showNavigation?: boolean
     languages: Array<enumLanguages>
     languageSelected: enumLanguages
     onChangeLanguage?: (e) => void
-
+    onClickNavigation?: () => void
     onClickLogo?: () => void
     onClickExit?: () => void
 

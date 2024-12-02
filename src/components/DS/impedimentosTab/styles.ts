@@ -41,7 +41,8 @@ export const Tab = styled('div')<ImpedimentoSelectProps>`
         font-weight: ${ props => props.selected ? 700 : 400 };
         white-space: nowrap;
         text-overflow: ellipsis;
-        overflow: hidden
+        overflow: hidden;
+        text-align: center;
     }
 
     :hover {
