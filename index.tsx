@@ -230,3 +230,11 @@ export { default as Table } from './src/components/form-elements/table'
 export { default as TableActions } from './src/components/form-elements/table-actions'
 
 export { default as ResourceInfoDrop } from './src/components/DS/resourceInfoDrop'
+
+export { default as NewChallengeCard } from './src/components/DS/newCards/challenge'
+export { default as ArticleCard } from './src/components/DS/newCards/articles'
+export { default as ChannelsCard } from './src/components/DS/newCards/channels'
+export { default as CardContent } from './src/components/DS/newCards/content'
+export { default as MentoringCard} from './src/components/DS/newCards/mentoring'
+export { default as PeopleCard } from './src/components/DS/newCards/people'
+export { default as TrailCard } from './src/components/DS/newCards/trail'

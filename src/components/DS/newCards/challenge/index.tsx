@@ -39,7 +39,7 @@ interface ChallengeCardProps {
     showCheckbox?: boolean
 }
 
-export default function ChallengeCard ({
+export default function NewChallengeCard ({
     selected,
     avatar,
     name,
