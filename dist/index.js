@@ -605,8 +605,32 @@ function TrashHipoteses({ width, height, stroke }) {
 function AddAction({ width, height, stroke }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.1543 4.82617V20.8262", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4.1543 12.8262H20.1543", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+const PinIcon = ({ fill }) => {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "14", viewBox: "0 0 14 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.6663 8.64357C11.6663 8.80964 11.5279 8.9428 11.3552 8.9428H7.6219V12.2342C7.6219 12.5649 7.34345 12.8327 6.99967 12.8327C6.6559 12.8327 6.37745 12.5649 6.37745 12.2342V8.9428H2.64412C2.56167 8.9428 2.48235 8.91138 2.4248 8.85602C2.36724 8.80067 2.33301 8.72436 2.33301 8.64507C2.33301 7.40779 2.83391 6.24381 3.74391 5.37009L4.19967 4.93173V3.37577C3.79056 2.903 3.57745 2.07715 3.57745 1.46524C3.57745 1.29917 3.7159 1.16602 3.88856 1.16602H10.1108C10.2835 1.16602 10.4219 1.29917 10.4219 1.46524C10.4219 2.07715 10.2088 2.9015 9.79967 3.37577V4.93322L10.2554 5.37158C11.1654 6.24681 11.6663 7.40928 11.6663 8.64657V8.64357Z", fill: fill ? fill : "#334155" }) }));
+};
+const CopyIcon = ({ fill }) => {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "14", viewBox: "0 0 14 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.41699 11.3743H9.74198C9.39782 12.2318 8.56366 12.8327 7.58366 12.8327H3.50033C2.21116 12.8327 1.16699 11.7885 1.16699 10.4993V5.83268C1.16699 4.64268 2.05949 3.66268 3.20866 3.51685V8.16602C3.20866 9.93352 4.64949 11.3743 6.41699 11.3743ZM11.3753 3.64518H12.612C12.577 3.59268 12.5362 3.54602 12.4895 3.49935L10.5003 1.51018C10.4537 1.46351 10.407 1.42268 10.3545 1.39352V2.62435C10.3545 3.18435 10.8153 3.64518 11.3753 3.64518ZM11.3753 4.52018C10.3312 4.52018 9.47949 3.66852 9.47949 2.62435V1.16602H6.41699C5.12783 1.16602 4.08366 2.21018 4.08366 3.49935V8.16602C4.08366 9.45518 5.12783 10.4993 6.41699 10.4993H10.5003C11.7895 10.4993 12.8337 9.45518 12.8337 8.16602V4.52018H11.3753Z", fill: fill ? fill : "#334155" }) }));
+};
+const StarRatingIcon = () => {
+    return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.2707 7.53976L12.0841 9.64559L12.6001 12.6152C12.6843 13.1008 12.4895 13.5828 12.0911 13.8766C11.6858 14.1739 11.154 14.2162 10.7066 13.9839L8.00055 12.5783L5.29455 13.9839C5.10151 14.0842 4.89269 14.1335 4.68737 14.1335C4.41361 14.1335 4.1416 14.0473 3.90996 13.8766C3.5116 13.5846 3.31681 13.1008 3.40105 12.6152L3.91698 9.64559L1.73042 7.53976C1.37243 7.19495 1.24432 6.68828 1.39524 6.2168C1.54791 5.74004 1.95504 5.4005 2.45342 5.32837L5.47706 4.89383L6.8283 2.18809C7.05117 1.743 7.49866 1.4668 7.9988 1.4668C8.49894 1.4668 8.94818 1.743 9.16929 2.18809L10.5205 4.89383L13.5459 5.32837C14.0443 5.4005 14.4514 5.74004 14.6041 6.2168C14.755 6.68828 14.6269 7.19495 14.2689 7.53976H14.2707Z", fill: "#ED9D01" }) }));
+};
+function LookChallengeIcon() {
+    return (jsxRuntime.jsx("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M13.9518 11.1037C13.9518 11.2439 13.8961 11.3784 13.797 11.4775C13.6978 11.5766 13.5634 11.6323 13.4232 11.6323H11.1323V13.9232C11.1323 14.0634 11.0766 14.1978 10.9775 14.297C10.8784 14.3961 10.7439 14.4518 10.6037 14.4518C10.4635 14.4518 10.329 14.3961 10.2299 14.297C10.1307 14.1978 10.075 14.0634 10.075 13.9232V11.6323H7.78423C7.64403 11.6323 7.50956 11.5766 7.41042 11.4775C7.31128 11.3784 7.25558 11.2439 7.25558 11.1037C7.25558 10.9635 7.31128 10.829 7.41042 10.7299C7.50956 10.6307 7.64403 10.575 7.78423 10.575H10.075V8.28423C10.075 8.14403 10.1307 8.00956 10.2299 7.91042C10.329 7.81128 10.4635 7.75558 10.6037 7.75558C10.7439 7.75558 10.8784 7.81128 10.9775 7.91042C11.0766 8.00956 11.1323 8.14403 11.1323 8.28423V10.575H13.4232C13.5634 10.575 13.6978 10.6307 13.797 10.7299C13.8961 10.829 13.9518 10.9635 13.9518 11.1037ZM20.8454 21.3454C20.7463 21.4444 20.6119 21.5 20.4718 21.5C20.3317 21.5 20.1974 21.4444 20.0982 21.3454L15.5712 16.8184C14.0866 18.1093 12.1588 18.7734 10.1941 18.6707C8.22946 18.568 6.38142 17.7064 5.03957 16.2677C3.69772 14.8289 2.96689 12.9254 3.00115 10.9583C3.03541 8.99128 3.83208 7.11435 5.22321 5.72321C6.61435 4.33208 8.49128 3.53541 10.4583 3.50115C12.4254 3.46689 14.3289 4.19772 15.7677 5.53957C17.2064 6.88142 18.068 8.72946 18.1707 10.6941C18.2734 12.6588 17.6093 14.5866 16.3184 16.0712L20.8454 20.5982C20.9444 20.6974 21 20.8317 21 20.9718C21 21.1119 20.9444 21.2463 20.8454 21.3454ZM10.6037 17.6237C11.8932 17.6237 13.1538 17.2413 14.226 16.5249C15.2982 15.8085 16.1339 14.7902 16.6274 13.5988C17.1209 12.4074 17.25 11.0965 16.9984 9.83171C16.7468 8.56695 16.1259 7.40519 15.214 6.49336C14.3022 5.58152 13.1404 4.96055 11.8757 4.70897C10.6109 4.45739 9.29997 4.58651 8.1086 5.08C6.91722 5.57348 5.89894 6.40916 5.18251 7.48137C4.46608 8.55358 4.08369 9.81416 4.08369 11.1037C4.08579 12.8323 4.77339 14.4894 5.99567 15.7117C7.21796 16.934 8.87513 17.6216 10.6037 17.6237Z", fill: "black" }) }));
+}
+function PresentationIcon() {
+    return (jsxRuntime.jsx("svg", { width: "21", height: "15", viewBox: "0 0 21 15", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7 9.654H8V7.654C8 7.242 8.14667 6.88867 8.44 6.594C8.73467 6.30067 9.088 6.154 9.5 6.154H11.5V7.461L13.307 5.654L11.499 3.846V5.154H9.499C8.807 5.154 8.21733 5.39734 7.73 5.884C7.24267 6.37067 6.99933 6.96067 7 7.654V9.654ZM2.846 13C2.38533 13 2.001 12.8457 1.693 12.537C1.385 12.2283 1.23067 11.844 1.23 11.384V1.615C1.23 1.155 1.38433 0.770669 1.693 0.462002C2.00167 0.153335 2.38567 -0.000664511 2.845 2.15517e-06H17.615C18.075 2.15517e-06 18.459 0.154002 18.767 0.462002C19.075 0.770002 19.2293 1.15434 19.23 1.615V11.385C19.23 11.845 19.0757 12.229 18.767 12.537C18.4583 12.845 18.074 12.9993 17.614 13H2.846ZM2.846 12H17.615C17.7683 12 17.9093 11.9357 18.038 11.807C18.1667 11.6783 18.2307 11.5373 18.23 11.384V1.615C18.23 1.46167 18.166 1.32067 18.038 1.192C17.9093 1.06334 17.768 0.999002 17.614 0.999002H2.846C2.692 0.999002 2.55067 1.06334 2.422 1.192C2.294 1.32 2.23 1.461 2.23 1.615V11.385C2.23 11.5383 2.294 11.679 2.422 11.807C2.55 11.935 2.691 11.9993 2.845 12M0 15V14H20.46V15H0Z", fill: "black" }) }));
+}
+function UncheckedBox() {
+    return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.5", y: "0.5", width: "15", height: "15", rx: "1.5", fill: "#EBEDED", stroke: "#9C9C9C" }) }));
+}
+function UserIcon({ fill }) {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "14", viewBox: "0 0 14 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M3.88727 4.23619C3.88727 2.54299 5.28283 1.16602 6.9989 1.16602C8.71496 1.16602 10.1105 2.54299 10.1105 4.23619C10.1105 5.92939 8.71496 7.30637 6.9989 7.30637C5.28283 7.30637 3.88727 5.92939 3.88727 4.23619ZM9.56132 7.96492C9.21437 7.87742 8.83476 7.92654 8.52205 8.09847C7.57767 8.61733 6.42168 8.61733 5.4773 8.09847C5.16459 7.92654 4.78498 7.87895 4.43803 7.96492C3.19805 8.27347 2.33301 9.38334 2.33301 10.6636V11.2838C2.33301 11.6752 2.4388 12.059 2.6395 12.3921C2.80286 12.6638 3.10936 12.8327 3.43919 12.8327H10.5602C10.89 12.8327 11.1965 12.6638 11.3599 12.3921C11.5606 12.059 11.6663 11.6752 11.6663 11.2838V10.6636C11.6663 9.38334 10.8013 8.27347 9.56132 7.96492Z", fill: fill ? fill : "#334155" }) }));
+}
+const RoomGroupIcon = ({ width = '24', height = '24', stroke = '#222222' }) => {
+    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.04 17.6988H19.0652C19.586 17.6901 20.0057 17.5665 20.3425 17.3494C20.6797 17.1321 20.9702 16.7977 21.1952 16.31L21.195 16.3099L21.201 16.2977C21.2409 16.2161 21.2742 16.1168 21.3091 15.9861C21.3182 15.9521 21.3321 15.8966 21.3477 15.8341C21.3644 15.7672 21.3831 15.6925 21.4 15.6276V5.17465C21.3898 5.13296 21.3804 5.09392 21.3715 5.05679C21.3405 4.92731 21.315 4.82112 21.279 4.70676C20.9415 3.68891 20.1265 3.1 19.01 3.1H4.99C4.75609 3.1 4.54126 3.11751 4.3486 3.16677L4.34544 3.16756C3.29598 3.42977 2.6 4.32789 2.6 5.48127V12.1278L2.62 12.1373V12.5167V15.327C2.62 16.1539 2.94107 16.7844 3.58219 17.2698L3.5822 17.2698L3.58615 17.2728C3.98126 17.5772 4.44891 17.6988 5.02 17.6988H12.93C13.2281 17.6988 13.4886 17.7937 13.7123 17.9707L13.7146 17.9725C14.9115 18.929 16.1087 19.8762 17.3072 20.8245C17.3413 20.8501 17.3705 20.8695 17.3946 20.883C17.3998 20.8858 17.4042 20.8882 17.4079 20.89C17.4141 20.8705 17.42 20.8402 17.42 20.7959H17.4199L17.4201 20.788C17.43 20.033 17.43 19.2869 17.43 18.5267C17.43 18.4744 17.4335 18.4215 17.4357 18.3893C17.4359 18.3862 17.4361 18.3832 17.4363 18.3805C17.4388 18.3425 17.44 18.3198 17.44 18.2988V17.6988H18.04Z", stroke: stroke, strokeWidth: "1.2" }), jsxRuntime.jsx("circle", { cx: "8", cy: "10.5", r: "1", fill: stroke }), jsxRuntime.jsx("circle", { cx: "12", cy: "10.5", r: "1", fill: stroke }), jsxRuntime.jsx("circle", { cx: "16", cy: "10.5", r: "1", fill: stroke })] }));
+};
 function HandWave() {
-    return (jsxRuntime.jsxs("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_645_3671)", children: [jsxRuntime.jsx("path", { d: "M14.0303 7.97569L14.5293 7.47671C15.2438 6.76221 16.4023 6.76223 17.1169 7.47677L19.4072 9.76708C22.1284 12.4883 22.1284 16.9002 19.4072 19.6214V19.6214C16.6881 22.3404 12.2805 22.3429 9.55841 19.6269L4.12333 14.204C3.40743 13.4897 3.40675 12.3301 4.12181 11.6149L4.73693 10.9998M14.0303 7.97569L10.6778 4.62324C9.96324 3.90868 8.80471 3.90868 8.09015 4.62324L7.44324 5.27015M14.0303 7.97569L16.6858 10.6313C16.8127 10.7582 16.8354 10.9557 16.7405 11.1081V11.1081C16.0743 12.1778 16.04 13.5246 16.6509 14.627L17.2698 15.7436M7.44324 5.27015L6.81286 4.63976C6.22673 4.05363 5.27642 4.05363 4.69028 4.63977L4.51673 4.81332C4.03489 5.29515 4.02744 6.07403 4.49997 6.565V6.565M7.44324 5.27015L12.8827 10.7096M4.49997 6.565L3.69331 7.37166C2.97798 8.08699 2.97886 9.24704 3.69528 9.96128L4.73693 10.9998M4.49997 6.565L10.7803 12.8121M4.73693 10.9998L9.62908 15.8658", stroke: "white", "stroke-width": "1.3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M18.0001 3.20698C18.0001 3.20698 19.4143 3.20698 20.8285 4.6212C22.2427 6.03541 22.2427 7.44963 22.2427 7.44963", stroke: "white", "stroke-width": "1.3", "stroke-linecap": "round" }), jsxRuntime.jsx("path", { d: "M2.7072 18.4998C2.7072 18.4998 2.7072 19.914 4.12141 21.3282C5.53563 22.7424 6.94984 22.7424 6.94984 22.7424", stroke: "white", "stroke-width": "1.3", "stroke-linecap": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_645_3671", children: jsxRuntime.jsx("rect", { width: "24", height: "24", fill: "white", transform: "translate(0 0.5)" }) }) })] }));
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_645_3671)", children: [jsxRuntime.jsx("path", { d: "M14.0303 7.97569L14.5293 7.47671C15.2438 6.76221 16.4023 6.76223 17.1169 7.47677L19.4072 9.76708C22.1284 12.4883 22.1284 16.9002 19.4072 19.6214V19.6214C16.6881 22.3404 12.2805 22.3429 9.55841 19.6269L4.12333 14.204C3.40743 13.4897 3.40675 12.3301 4.12181 11.6149L4.73693 10.9998M14.0303 7.97569L10.6778 4.62324C9.96324 3.90868 8.80471 3.90868 8.09015 4.62324L7.44324 5.27015M14.0303 7.97569L16.6858 10.6313C16.8127 10.7582 16.8354 10.9557 16.7405 11.1081V11.1081C16.0743 12.1778 16.04 13.5246 16.6509 14.627L17.2698 15.7436M7.44324 5.27015L6.81286 4.63976C6.22673 4.05363 5.27642 4.05363 4.69028 4.63977L4.51673 4.81332C4.03489 5.29515 4.02744 6.07403 4.49997 6.565V6.565M7.44324 5.27015L12.8827 10.7096M4.49997 6.565L3.69331 7.37166C2.97798 8.08699 2.97886 9.24704 3.69528 9.96128L4.73693 10.9998M4.49997 6.565L10.7803 12.8121M4.73693 10.9998L9.62908 15.8658", stroke: "white", strokeWidth: "1.3", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.0001 3.20698C18.0001 3.20698 19.4143 3.20698 20.8285 4.6212C22.2427 6.03541 22.2427 7.44963 22.2427 7.44963", stroke: "white", strokeWidth: "1.3", strokeLinecap: "round" }), jsxRuntime.jsx("path", { d: "M2.7072 18.4998C2.7072 18.4998 2.7072 19.914 4.12141 21.3282C5.53563 22.7424 6.94984 22.7424 6.94984 22.7424", stroke: "white", strokeWidth: "1.3", strokeLinecap: "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_645_3671", children: jsxRuntime.jsx("rect", { width: "24", height: "24", fill: "white", transform: "translate(0 0.5)" }) }) })] }));
 }
 function HelpIcon() {
     return (jsxRuntime.jsxs("svg", { width: "26", height: "25", viewBox: "0 0 26 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_34_679)", children: [jsxRuntime.jsx("path", { d: "M22.7976 18.8385C22.0103 18.6927 21.4879 18.2794 21.2952 17.5098C21.2523 17.3395 21.253 17.1563 21.2523 16.9786C21.2489 15.5001 21.2503 14.0222 21.2503 12.5437C21.2503 11.4561 21.6548 10.9215 22.6974 10.6286C22.7206 10.6218 22.7424 10.6082 22.7628 10.5987C22.5565 5.73339 18.4008 1.24471 12.8313 1.23518C7.22236 1.22496 3.06194 5.72726 2.8372 10.6055C2.90598 10.6246 2.97749 10.6464 3.05036 10.6641C3.79745 10.8473 4.33819 11.4697 4.34568 12.2332C4.36203 13.8894 4.36884 15.5464 4.34432 17.2027C4.32866 18.2862 3.35751 19.0006 2.23244 18.8078C0.967083 18.5913 0.0429235 17.5445 0.0177253 16.2574C-0.00270567 15.2297 -0.00951599 14.2007 0.0197684 13.1737C0.0483717 12.1807 0.525775 11.4289 1.38932 10.9365C1.5337 10.8541 1.58955 10.7737 1.59908 10.6075C1.87762 5.69934 5.31752 1.54096 10.0861 0.339619C16.308 -1.22744 22.6069 2.78793 23.8164 9.09973C23.9117 9.59825 23.956 10.1083 24.0064 10.6143C24.0214 10.7649 24.0609 10.85 24.1991 10.9283C25.1035 11.4377 25.5728 12.2223 25.5905 13.2568C25.6068 14.2252 25.6034 15.1936 25.5918 16.162C25.5789 17.2074 25.1144 18.0022 24.2012 18.5164C24.0561 18.5981 24.0261 18.6893 24.0241 18.8378C24.0152 19.4398 24.0547 20.0507 23.9669 20.6425C23.7033 22.4241 22.1853 23.7215 20.3785 23.7596C19.8099 23.7719 19.2399 23.7664 18.6712 23.7603C18.537 23.7589 18.4662 23.7937 18.4015 23.9244C18.0515 24.6259 17.478 24.9896 16.6894 24.9957C16.0778 25.0005 15.4663 25.0018 14.8547 24.995C13.8127 24.9828 13.0227 24.2166 12.9887 23.1951C12.9553 22.1987 13.7078 21.3644 14.7355 21.3113C15.4302 21.2759 16.1289 21.2834 16.8242 21.3086C17.5584 21.3352 18.0807 21.7152 18.4117 22.3696C18.4464 22.4391 18.5316 22.5317 18.5929 22.5317C19.2971 22.5304 20.0067 22.5624 20.7048 22.4881C21.8523 22.3669 22.7615 21.3304 22.7976 20.1774C22.8112 19.7368 22.7996 19.2961 22.7996 18.8385H22.7976ZM24.3694 14.738C24.3694 14.2368 24.3789 13.7355 24.3673 13.235C24.3496 12.4599 23.7347 11.8375 22.9998 11.8354C22.6763 11.8348 22.4788 12.0057 22.4775 12.3271C22.472 13.9235 22.472 15.5205 22.4775 17.1168C22.4788 17.439 22.6763 17.6133 22.9957 17.6119C23.734 17.6092 24.3483 16.9909 24.3667 16.2158C24.3782 15.7234 24.3694 15.2311 24.3694 14.738ZM3.13072 14.7339C3.13072 13.9439 3.13481 13.1539 3.12868 12.3646C3.12595 11.9982 2.93254 11.8252 2.56547 11.8368C1.8606 11.8586 1.2538 12.4606 1.24086 13.1975C1.22315 14.2163 1.22315 15.2358 1.24086 16.2547C1.25312 16.9609 1.8211 17.55 2.49396 17.6058C2.93663 17.6426 3.128 17.4717 3.13004 17.0269C3.13277 16.2628 3.1314 15.498 3.13072 14.7339ZM15.7693 23.7732C16.0839 23.7732 16.3979 23.7787 16.7125 23.7719C17.0912 23.7637 17.3493 23.511 17.3527 23.1562C17.3561 22.8001 17.1062 22.5351 16.7268 22.529C16.0983 22.5181 15.4697 22.5181 14.8411 22.529C14.4604 22.5358 14.207 22.8028 14.2118 23.1549C14.2172 23.5097 14.476 23.7637 14.8526 23.7719C15.1584 23.7787 15.4635 23.7732 15.7693 23.7732Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M8.88545 16.423C8.30725 16.4019 7.80465 16.2643 7.36402 15.9476C6.60331 15.4021 6.24713 14.6489 6.24713 13.7193C6.24713 12.029 6.24032 10.3379 6.24917 8.64763C6.25735 7.04652 7.36607 5.95142 8.97058 5.95006C11.5279 5.94734 14.0844 5.94665 16.6417 5.95006C18.2442 5.9521 19.3481 7.04925 19.3556 8.65444C19.3638 10.3366 19.3631 12.0187 19.3556 13.7009C19.3488 15.3156 18.2387 16.4155 16.624 16.4189C15.6134 16.4209 14.602 16.4236 13.5914 16.4155C13.4082 16.4141 13.2767 16.4625 13.1453 16.5953C12.4466 17.3022 11.7458 18.0077 11.03 18.6963C10.3912 19.3112 9.3574 19.111 9.01076 18.3067C8.92631 18.1106 8.90043 17.8797 8.8909 17.6631C8.87251 17.2579 8.88545 16.8513 8.88545 16.4216V16.423ZM10.1093 17.7864C10.1297 17.798 10.1508 17.8089 10.1712 17.8204C10.2373 17.7592 10.3054 17.6999 10.3694 17.6366C11.0865 16.9242 11.8084 16.2173 12.516 15.4961C12.7292 15.2795 12.9587 15.1883 13.2611 15.1917C14.3732 15.2032 15.486 15.1971 16.5981 15.1957C17.5747 15.1951 18.1318 14.6414 18.1332 13.6655C18.1352 12.0092 18.1352 10.3536 18.1332 8.69734C18.1318 7.7187 17.5802 7.17319 16.5961 7.17319C14.0742 7.17319 11.5517 7.17319 9.02983 7.17319C8.011 7.17319 7.47094 7.71053 7.47026 8.72526C7.4689 10.3645 7.47026 12.0031 7.47026 13.6423C7.47026 13.7526 7.47367 13.8637 7.48593 13.9726C7.55403 14.5849 7.99466 15.065 8.60282 15.161C8.8439 15.1992 9.09316 15.1923 9.33833 15.1951C9.90427 15.2012 10.1065 15.398 10.1079 15.9599C10.1093 16.5687 10.1079 17.1782 10.1079 17.7871L10.1093 17.7864Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M12.8027 12.1847C12.311 12.1847 11.8935 11.7652 11.8976 11.2741C11.9017 10.7811 12.3239 10.3677 12.815 10.3759C13.2999 10.384 13.703 10.7899 13.7078 11.2728C13.7126 11.7624 13.2951 12.1833 12.8034 12.184L12.8027 12.1847Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M10.7283 11.2804C10.7283 11.7803 10.3183 12.1903 9.82317 12.1848C9.32806 12.1794 8.92217 11.7633 8.92898 11.2668C8.93511 10.7812 9.33828 10.3801 9.82385 10.376C10.3196 10.3713 10.7283 10.7799 10.7283 11.2804Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M14.8765 11.2757C14.8785 10.7752 15.2899 10.3679 15.785 10.3761C16.2814 10.3836 16.6846 10.8011 16.6758 11.2969C16.6669 11.7811 16.2603 12.1822 15.7761 12.1842C15.281 12.1863 14.8738 11.7756 14.8765 11.2757Z", fill: "white" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_34_679", children: jsxRuntime.jsx("rect", { width: "25.6014", height: "25", fill: "white" }) }) })] }));
@@ -7242,7 +7266,7 @@ function CardPeople({ labels, userInfo, isChecked, onChecked, hiddenCheckbox, st
                                     }, children: jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, children: userInfo?.position }) })) : (jsxRuntime.jsx("span", { children: userInfo?.position }))] })] })] }) }));
 }
 
-const CardContainer$1 = styled__default["default"].div `
+const CardContainer$3 = styled__default["default"].div `
   box-sizing: border-box;
   max-width: 100%;
   height: auto;
@@ -7365,7 +7389,7 @@ function OnboardingProgressMenu(props) {
         }
     };
     usehooksTs.useEventListener('scroll', handleScroll, scrollRef);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { id: "container-checklist", style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { id: "container-level", children: [jsxRuntime.jsx("img", { id: "image-level", src: level.avatar, width: 85, height: 85 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { id: "name-level-Up", children: level.name }), jsxRuntime.jsxs(Challenge, { id: "count-Challenge", children: [countChallenge, " ", textChallenge] })] })] }), !isScrollInTop && (jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$3, { id: "container-checklist", style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { id: "container-level", children: [jsxRuntime.jsx("img", { id: "image-level", src: level.avatar, width: 85, height: 85 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { id: "name-level-Up", children: level.name }), jsxRuntime.jsxs(Challenge, { id: "count-Challenge", children: [countChallenge, " ", textChallenge] })] })] }), !isScrollInTop && (jsxRuntime.jsx("div", { style: {
                         background: 'linear-gradient(#ffffff, #ffffff19)',
                         height: '50px',
                         position: 'absolute',
@@ -7415,7 +7439,7 @@ const Headers = styled__default["default"].div `
         flex-direction: column;
 
 `;
-const UserInfo$2 = styled__default["default"].p `
+const UserInfo$3 = styled__default["default"].p `
     font-weight: 600;
     font-size: 14px;
     text-align: center;
@@ -7452,7 +7476,7 @@ const InfoDescription = styled__default["default"].div `
 `;
 
 function CarUser({ style, userInfo, handleLinkProfile, hasButton, labelButton, handleInvite, handleRemove }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(UserContainer, { id: "userContainer", style: { ...style }, variant: Boolean(hasButton), children: [jsxRuntime.jsxs(Headers, { children: [jsxRuntime.jsx(Avatar, { src: userInfo.avatar, size: hasButton ? '56px' : '74px', onClick: handleLinkProfile, isActiveClick: true }), jsxRuntime.jsx(UserInfo$2, { variant: Boolean(hasButton), children: userInfo.name }), hasButton &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(UserContainer, { id: "userContainer", style: { ...style }, variant: Boolean(hasButton), children: [jsxRuntime.jsxs(Headers, { children: [jsxRuntime.jsx(Avatar, { src: userInfo.avatar, size: hasButton ? '56px' : '74px', onClick: handleLinkProfile, isActiveClick: true }), jsxRuntime.jsx(UserInfo$3, { variant: Boolean(hasButton), children: userInfo.name }), hasButton &&
                             jsxRuntime.jsx("div", { style: { position: 'absolute', top: '8px', right: '8px', cursor: 'pointer' }, onClick: handleRemove, children: jsxRuntime.jsx(CloseIcon__default["default"], { htmlColor: '#BDBDBD', fontSize: 'small' }) })] }), jsxRuntime.jsxs(InfoDescription, { variant: Boolean(hasButton), children: [jsxRuntime.jsx("p", { children: userInfo.profession }), jsxRuntime.jsx("p", { style: { marginTop: '3px' }, children: userInfo.education })] }), hasButton ? (jsxRuntime.jsx(Button$5, { label: labelButton, variant: 'primary', handleClick: handleInvite, style: { width: '160px', height: '36px', marginTop: '24px' } })) : (jsxRuntime.jsx(InfoBottom, { children: jsxRuntime.jsxs("p", { children: [userInfo.activeSice, " ", jsxRuntime.jsx("b", { children: userInfo.date })] }) }))] }) }));
 }
 
@@ -12295,7 +12319,7 @@ const Select$1 = styled__default["default"].div `
     opacity: 0.5;
   }
 `;
-const ContainerCard$1 = styled__default["default"].div `
+const ContainerCard$3 = styled__default["default"].div `
   width: 270px;
   height: 76px;
   background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -12491,7 +12515,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
     };
     function Exibir() {
         return (jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270 }, ref: provided.innerRef, children: contentListData?.map((item, index) => {
-                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided, direction: 'column' }), jsxRuntime.jsxs("div", { onClick: () => {
+                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$3, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided, direction: 'column' }), jsxRuntime.jsxs("div", { onClick: () => {
                                             handleClick(item);
                                         }, style: {
                                             display: 'flex',
@@ -15140,7 +15164,7 @@ styled__default["default"].div `
   filter: ${(props) => `grayscale(${props.active ? '0' : '1'})`};
   margin-top: -5px;
 `;
-const ContainerCard = styled__default["default"].div `
+const ContainerCard$2 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -15769,7 +15793,7 @@ function AccordionTrack(props) {
         setCourseIndividualData(props.courseIndividualData);
     }, [props.courseIndividualData]);
     return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsx("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(LoadingContent, { style: { width: 200, height: 20 } }) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", courseData.length, ' ', props.textRegistros ? props.textRegistros : 'registros'] })) })] }), jsxRuntime.jsx(dnd.Droppable, { droppableId: MEUS_CONTEUDOS_CONTENT, direction: "horizontal", children: (provided) => {
-                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer$1, { colorBackground: "#ebebeb", stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 48, marginsArrowButton: 5, horizontalMarginInternScroll: '-10px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: RefreshResize, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: new Array(4).fill('').map((item, k) => {
+                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer$1, { colorBackground: "#ebebeb", stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 48, marginsArrowButton: 5, horizontalMarginInternScroll: '-10px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: RefreshResize, children: jsxRuntime.jsx(ContainerCard$2, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: new Array(4).fill('').map((item, k) => {
                                                     return jsxRuntime.jsx(Thumbnails, { variant: "default", isDisabled: false, isLoading: true }, k);
                                                 }) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { onClick: () => {
                                                             props.onNewTrail && props.onNewTrail();
@@ -15797,7 +15821,7 @@ function AccordionTrack(props) {
                         } }, MEUS_CONTEUDOS_CONTENT)] }), IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...', ativo: true, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => {
                         props.handlePopOverTrailEdit(id);
                     }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
-                            return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, colorBackground: "#ebebeb", isVisibleControlsButtons: true, sizeArrowButton: 40, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: new Array(4).fill('').map((item, k) => {
+                            return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, colorBackground: "#ebebeb", isVisibleControlsButtons: true, sizeArrowButton: 40, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard$2, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: new Array(4).fill('').map((item, k) => {
                                                     return jsxRuntime.jsx(Thumbnails, { variant: "default", isDisabled: false, isLoading: true }, k);
                                                 }) }) }) }), provided.placeholder] }));
                         } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Módulos', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
@@ -15814,7 +15838,7 @@ function AccordionTrack(props) {
                     }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => {
                         props.handlePopOverTrailEdit(id);
                     }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
-                            return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 40, colorBackground: "#ebebeb", marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [courseIndividualData &&
+                            return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 40, colorBackground: "#ebebeb", marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard$2, { ref: provided.innerRef, ...provided.droppableProps, children: [courseIndividualData &&
                                                     courseIndividualData.map((individual, individualIndex) => {
                                                         return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { handlePublicarCourse: () => {
                                                                     props.handlePublicarCourse(individual.id);
@@ -15864,7 +15888,7 @@ function AccordionTrack(props) {
                                         setModalDeleteTrilha(true);
                                     }, children: ShowTrail.length === 0 ||
                                         (ShowTrail[trailIndex] && (jsxRuntime.jsx(dnd.Droppable, { droppableId: (trailIndex + 2).toString(), direction: "horizontal", children: (provided) => {
-                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: { height: 350 }, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 40, colorBackground: "#ebebeb", marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course &&
+                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: { height: 350 }, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 40, colorBackground: "#ebebeb", marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard$2, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course &&
                                                                     trail.trail_course.map((el, courseTrailIndex) => {
                                                                         return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { handlePublicarContentCheck: () => props.handlePublicarContentCheck(el.course.id), handlePublicarCourse: () => {
                                                                                     props.handlePublicarCourse(el.course.id);
@@ -16864,7 +16888,7 @@ const TitleCard = styled__default["default"].div `
   font-weight: bold !important;
   white-space: normal !important;
 `;
-const CardContainer = styled__default["default"](_.Card) `
+const CardContainer$2 = styled__default["default"](_.Card) `
   max-width: 345px !important;
   height: 445px !important;
   width: 282px !important;
@@ -16933,7 +16957,7 @@ function CardTrail(props) {
         }
         return +true;
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props?.notStarted && props.variant == 'primary' &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$2, { children: [!props?.notStarted && props.variant == 'primary' &&
                     jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notstarted: +props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notstarted: +props?.notStarted, hasmentor: getAlign(), children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.start &&
                                             jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
@@ -16986,7 +17010,7 @@ const TagText = styled__default["default"].span `
     white-space: nowrap;
     color: #FFFFFF;
 `;
-const WrapperBanner = styled__default["default"].div `
+const WrapperBanner$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17030,7 +17054,7 @@ const StepName = styled__default["default"].div `
             margin-bottom: 16px;`}
         padding: 0px 12px 0px 12px;
     `;
-const ContentCard = styled__default["default"].div `
+const ContentCard$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -17297,7 +17321,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
         }, 700);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$4, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
-                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle$1, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle$1, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner$1, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard$1, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, textEdit: label.edit, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), handleEdit: () => onClickEdit(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
@@ -17914,13 +17938,13 @@ const bannerContainer = styled__default["default"].div `
     padding: 24px;
     position: relative;
 `;
-const headerContent = styled__default["default"].div `
+const headerContent$1 = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 `;
-const userInfo = styled__default["default"].div `
+const userInfo$1 = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -18289,8 +18313,8 @@ function BannerProblemFeed(props) {
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
                 jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
-                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsx(headerContent, { children: props.onClickUserInfo ?
-                            jsxRuntime.jsxs(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: [jsxRuntime.jsx(Avatar, { isActiveClick: true, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
+                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsx(headerContent$1, { children: props.onClickUserInfo ?
+                            jsxRuntime.jsxs(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: [jsxRuntime.jsx(Avatar, { isActiveClick: true, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo$1, { onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                                     (props.language === 'pt-BR' ? 'Case de sucesso'
                                                         : props.language === 'en-US' ? 'Success case'
                                                             : props.language === 'es' ? 'Caso de exito'
@@ -18298,7 +18322,7 @@ function BannerProblemFeed(props) {
                                                                     : null)
                                                     : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx(WorkInfo, { children: props.userCompany })] })] })
                             :
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo$1, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                                         (props.language === 'pt-BR' ? 'Case de sucesso'
                                                             : props.language === 'en-US' ? 'Success case'
                                                                 : props.language === 'es' ? 'Caso de exito'
@@ -19457,7 +19481,7 @@ styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
-const UserInfo$1 = styled__default["default"].div `
+const UserInfo$2 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     cursor: pointer !important;
@@ -19743,7 +19767,7 @@ function ParticipantCardOld({ variant, userInfo, labels, successfullInvite, styl
         setStatusSend('success');
         handleSendInvitation(userInfo?.id);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { variant: variant, style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$1, { onClick: () => onClickUserInfo ? onClickUserInfo() : {}, children: [jsxRuntime.jsx(Tooltip$2, { direction: "top", content: textVisitProfile ? textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '-10px', textAlign: 'center' }, children: jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar, isActiveClick: true }) }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 20 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { variant: variant, children: area }) })) : (jsxRuntime.jsx(Area$1, { variant: variant, children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), variant == 'secondary' ? (jsxRuntime.jsx(FooterButtonVariantIcons, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo, variant: variant, IconSend: jsxRuntime.jsx(LetterEnvelopLineIcon, {}), hidenRemoveBtn: hidenRemoveBtn })) : (variant == 'tertiary' ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { variant: variant, style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$2, { onClick: () => onClickUserInfo ? onClickUserInfo() : {}, children: [jsxRuntime.jsx(Tooltip$2, { direction: "top", content: textVisitProfile ? textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '-10px', textAlign: 'center' }, children: jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar, isActiveClick: true }) }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 20 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { variant: variant, children: area }) })) : (jsxRuntime.jsx(Area$1, { variant: variant, children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), variant == 'secondary' ? (jsxRuntime.jsx(FooterButtonVariantIcons, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo, variant: variant, IconSend: jsxRuntime.jsx(LetterEnvelopLineIcon, {}), hidenRemoveBtn: hidenRemoveBtn })) : (variant == 'tertiary' ?
                     jsxRuntime.jsx(FooterButtonVariantIcons, { statusSend: statusSend, clickSendInvitation: () => handleSendInvitation(userInfo?.id), handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo, variant: variant, IconSend: jsxRuntime.jsx(PeopleLineIcon, {}), hidenRemoveBtn: hidenRemoveBtn })
                     :
                         jsxRuntime.jsx(FooterButtonDefault, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo }))] }) }));
@@ -19846,7 +19870,7 @@ styled__default["default"].div `
   display: flex;
   flex-direction: column;
 `;
-const UserInfo = styled__default["default"].div `
+const UserInfo$1 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   padding: 0px 25px;
@@ -20065,7 +20089,7 @@ function ParticipantCard({ userInfo, labels, competencesList, modulesList, disab
             [type]: value
         });
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { status: labels?.tag, style: { ...style }, children: [jsxRuntime.jsxs(ClickArea, { status: labels?.tag, isPressed: isPressed, onClick: () => setIsPressed(true), children: [jsxRuntime.jsx(TagArea$1, { children: jsxRuntime.jsx(TagStatus$1, { isPressed: isPressed, status: labels?.tag, children: labels?.tag }) }), jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [jsxRuntime.jsx(NameUser, { children: userInfo?.name }), jsxRuntime.jsx(EmailUser, { children: userInfo?.email })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [jsxRuntime.jsx(Area, { children: `${labels?.area}: ${userInfo?.area}` }), jsxRuntime.jsx(Position, { children: `${labels?.position}: ${userInfo?.position}` })] })] }), !disabled && (jsxRuntime.jsxs(AccordionList$1, { children: [competencesList && (jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'competences'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel1bh-content", id: "panel1bh-header", children: jsxRuntime.jsxs(AccortionTitle$1, { children: [jsxRuntime.jsx(IconGaps, {}), labels?.competences] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList$1, { children: competencesList?.map((item, index) => (jsxRuntime.jsx(DataListItem$1, { children: item.name }, index))) }) })] })), modulesList && (jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'modules'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel2bh-content", id: "panel2bh-header", children: jsxRuntime.jsxs(AccortionTitle$1, { children: [jsxRuntime.jsx(IconModules, {}), labels?.modules] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList$1, { children: modulesList?.map((item, index) => (jsxRuntime.jsx(DataListItem$1, { children: item.name }, index))) }) })] }))] }))] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { status: labels?.tag, style: { ...style }, children: [jsxRuntime.jsxs(ClickArea, { status: labels?.tag, isPressed: isPressed, onClick: () => setIsPressed(true), children: [jsxRuntime.jsx(TagArea$1, { children: jsxRuntime.jsx(TagStatus$1, { isPressed: isPressed, status: labels?.tag, children: labels?.tag }) }), jsxRuntime.jsxs(UserInfo$1, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [jsxRuntime.jsx(NameUser, { children: userInfo?.name }), jsxRuntime.jsx(EmailUser, { children: userInfo?.email })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [jsxRuntime.jsx(Area, { children: `${labels?.area}: ${userInfo?.area}` }), jsxRuntime.jsx(Position, { children: `${labels?.position}: ${userInfo?.position}` })] })] }), !disabled && (jsxRuntime.jsxs(AccordionList$1, { children: [competencesList && (jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'competences'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel1bh-content", id: "panel1bh-header", children: jsxRuntime.jsxs(AccortionTitle$1, { children: [jsxRuntime.jsx(IconGaps, {}), labels?.competences] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList$1, { children: competencesList?.map((item, index) => (jsxRuntime.jsx(DataListItem$1, { children: item.name }, index))) }) })] })), modulesList && (jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'modules'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel2bh-content", id: "panel2bh-header", children: jsxRuntime.jsxs(AccortionTitle$1, { children: [jsxRuntime.jsx(IconModules, {}), labels?.modules] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList$1, { children: modulesList?.map((item, index) => (jsxRuntime.jsx(DataListItem$1, { children: item.name }, index))) }) })] }))] }))] }) }));
 }
 
 const WrapperCard = styled__default["default"].div `
@@ -24299,11 +24323,794 @@ const ResourceInfoDrop = ({ label, isOpen, onOpen, onClose, options, enablePulse
                 }) })] }));
 };
 
+const cardWrapper = styled__default["default"]('div') `
+    width: 404px;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px 0px #00000026;
+    scroll-margin-top: 150px;
+
+    :hover,
+    :focus {
+        border: 2px solid #757575;
+    }
+
+`;
+const cardContentWrapper = styled__default["default"]('div') `
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    border-radius: 12px;
+    padding: 0px 12px 30px 12px;
+`;
+const tagTypeChallenge = styled__default["default"]('div') `
+    width: 100%;
+    height: 34px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    padding: 0px 12px 0px 12px;
+    background-color: ${({ isIterator }) => isIterator ? "#6A7B8A" : "#CBDCF1"};
+    border-bottom: 4px solid ${({ isIterator }) => isIterator ? "#92A5BB" : "#B1C8E4"};
+`;
+const labelTypeChallenge = styled__default["default"]('div') `
+    font-family: Work Sans;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 2px;
+
+    color: ${({ isIterator }) => isIterator ? "#F8FAFC" : "#334155"};
+`;
+const checkboxWrapper = styled__default["default"]('div') `
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: ${({ selected }) => selected ? "7px" : "10px"};
+    width: 22px;
+    margin-right: 4px;
+`;
+const contentWrapper = styled__default["default"]('div') `
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+`;
+const headerContent = styled__default["default"]('div') `
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+`;
+const userInfo = styled__default["default"]('div') `
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+`;
+const namePositionInfo = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+
+    h6 {
+        font-family: 'PT Sans';
+        font-size: 0.875rem;
+        line-height: 1.1;
+        font-weight: 700;
+        color: #222222;
+        width: 230px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 0.75rem;
+        line-height: 1.1;
+        font-weight: 400;
+        color: #757575;
+        width: 230px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+`;
+const contentDescription = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: calc(100% - 24px);
+    margin-top: 8px;
+
+    h6 {
+        font-family: 'Work Sans';
+        font-size: 0.875rem;
+        line-height: 1.17;
+        font-weight: 600;
+        color: #F26818;
+    }
+
+    p {
+        font-family: 'Work Sans';
+        font-size: 1rem;
+        line-height: 1.17;
+        font-weight: 600;
+        color: #444444;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+`;
+styled__default["default"]('div') `
+    display: flex;
+    gap: 16px;
+`;
+styled__default["default"]('div') `
+    display: flex;
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 0.875rem;
+        line-height: 1.3;
+        font-weight: 400;
+        color: #222222;
+    }
+`;
+const contentUpdatedChallenge = styled__default["default"]('div') `
+    width: calc(100% - 24px);
+    padding: 4px 12px;
+    border-radius: 50px;
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 0.875rem;
+        line-height: 1.3;
+        font-weight: 400;
+        color: #222222;
+    }
+`;
+const wrapperStepTag = styled__default["default"].div `
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-end;
+`;
+const wrapperRating = styled__default["default"].div `
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+`;
+const rating = styled__default["default"].div `
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    
+    font-family: PT Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.12px;
+    text-align: center;
+
+`;
+const wrapperResults = styled__default["default"].div `
+    height: 100%;
+    transform: scale(0.94);
+    transform-origin: top left;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 30px;
+`;
+
+function abbreviateMiddleSurnames(fullName) {
+    try {
+        const nameParts = fullName.split(' ');
+        if (nameParts.length < 2) {
+            return fullName;
+        }
+        const firstName = nameParts[0];
+        const lastName = nameParts[nameParts.length - 1];
+        let middleSurnames = nameParts.slice(1, -1);
+        if (middleSurnames.length > 0) {
+            middleSurnames = middleSurnames.map(surname => surname[0]);
+            return `${firstName} ${middleSurnames.join('. ')}. ${lastName}`;
+        }
+        else {
+            return fullName;
+        }
+    }
+    catch (e) {
+        return fullName;
+    }
+}
+
+function NewChallengeCard({ selected, avatar, name, role, description, lastStep, cardID, goalUUID, authorUUID, userLoggedUUID, group_uuid, type_challenge = "original", isIterator, isVisibleHeaderTypeChallenge = false, indicatorStart, indicatorCurrent, indicatorGoal, impact, relevance, handleSelected, handleClickChallenge, handleClickPresentation, onClickAvatar, goalExecutionGroup, handleGroupExecution, iteratorNumber, isCompanyAbleGroupExecution, resultNumber, showCheckbox }) {
+    const isAuthor = userLoggedUUID === authorUUID;
+    const isGroupExecution = !!goalExecutionGroup?.room_uuid;
+    const showExecutionGroupButton = isCompanyAbleGroupExecution && ((isAuthor && !isGroupExecution) || isGroupExecution);
+    const isMemberGroup = goalExecutionGroup?.users_room_uuid?.some(userRoom => userRoom?.uuid === userLoggedUUID);
+    const options = [
+        {
+            description: 'Ver desafio',
+            startIcon: jsxRuntime.jsx(LookChallengeIcon, {}),
+            onClick: handleClickChallenge
+        },
+        {
+            description: 'Apresentar desafio',
+            startIcon: jsxRuntime.jsx(PresentationIcon, {}),
+            onClick: handleClickPresentation
+        },
+        showExecutionGroupButton && {
+            description: 'Grupo de execução',
+            startIcon: jsxRuntime.jsx(RoomGroupIcon, {}),
+            onClick: () => handleGroupExecution({ isGroup: !!goalExecutionGroup?.room_uuid, isMemberGroup: isMemberGroup, goalTitle: description, goalUuid: goalUUID, isAuthor: isAuthor, executionDetails: goalExecutionGroup })
+        }
+    ]?.filter(Boolean);
+    const getStepName = (step) => {
+        const GroupUuids = [
+            "b1005836-b0a6-4a50-8147-537ebdc64a75",
+            "f280489d-2997-4d47-a2ab-47f85c54c72a",
+            "ef205633-b90d-4331-ad67-064355bb85d9",
+            "cb67cb4b-5209-4f3b-88cb-d612829735a9",
+            'd99a6401-330b-48b8-8a01-85205fcfeff7',
+            'dd9a9f20-8481-4f32-9562-6f0ddf80cd91',
+            '67ae3079-521a-4747-852d-8b3601c46e24'
+        ];
+        let steps;
+        if (GroupUuids.includes(group_uuid)) {
+            steps = {
+                '0-problema': {
+                    name: 'Fase 1 - Definição (meta)',
+                    color: '#F2CEE4'
+                },
+                '1-hipotese': {
+                    name: 'Fase 2 - Plano de ação',
+                    color: '#FCDFA6'
+                },
+                '2-testes': {
+                    name: 'Fase 3 - Execução',
+                    color: '#DACEF2'
+                },
+                '3-aprendizados-e-resultados': {
+                    name: 'Fase 4 - Resultado',
+                    color: '#EBEBEB'
+                },
+                '4-proximos-passos': {
+                    name: 'Desafio finalizado',
+                    color: '#BDE3B9'
+                }
+            };
+        }
+        else {
+            steps = {
+                '0-problema': {
+                    name: 'Fase 1: Definição',
+                    color: '#EBEBEB'
+                },
+                '1-hipotese': {
+                    name: 'Fase 2: Hipóteses',
+                    color: '#FCDFA6'
+                },
+                '2-testes': {
+                    name: 'Fase 3: Testes',
+                    color: '#DACEF2'
+                },
+                '3-aprendizados-e-resultados': {
+                    name: 'Fase 4: Resultados',
+                    color: '#F2CEE4'
+                },
+                '4-proximos-passos': {
+                    name: 'Desafio finalizado',
+                    color: '#BDE3B9'
+                }
+            };
+        }
+        return steps[step];
+    };
+    return (jsxRuntime.jsxs(cardWrapper, { id: cardID, children: [isVisibleHeaderTypeChallenge ? jsxRuntime.jsxs(tagTypeChallenge, { isIterator: isIterator, children: [jsxRuntime.jsx("div", { style: { marginTop: "6px" }, children: type_challenge == "duplicated" ?
+                            jsxRuntime.jsx(CopyIcon, { fill: isIterator ? "#F8FAFC" : "#334155" })
+                            :
+                                type_challenge == "assigned" ?
+                                    jsxRuntime.jsx(UserIcon, { fill: isIterator ? "#F8FAFC" : "#334155" })
+                                    :
+                                        jsxRuntime.jsx(PinIcon, { fill: isIterator ? "#F8FAFC" : "#334155" }) }), jsxRuntime.jsxs(labelTypeChallenge, { isIterator: isIterator, children: [type_challenge == "duplicated" ? "Desafio duplicado"
+                                :
+                                    type_challenge == "assigned" ? "Desafio atribuído"
+                                        :
+                                            "Desafio original", isIterator && ` / Iteração ${iteratorNumber}`] })] })
+                :
+                    jsxRuntime.jsx("div", { style: { height: "28px" } }), jsxRuntime.jsxs(cardContentWrapper, { children: [showCheckbox &&
+                        jsxRuntime.jsx(checkboxWrapper, { selected: selected, children: jsxRuntime.jsx(material.Checkbox, { checked: selected, onChange: (e) => {
+                                    e.stopPropagation();
+                                    handleSelected(e);
+                                }, icon: jsxRuntime.jsx(UncheckedBox, {}), size: 'small', sx: {
+                                    padding: 0,
+                                    color: '#9C9C9C',
+                                    '&.Mui-checked': {
+                                        color: '#FF4D0D',
+                                    },
+                                } }) }), jsxRuntime.jsxs(contentWrapper, { children: [jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsxs(userInfo, { onClick: onClickAvatar, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: avatar, isActiveClick: true, onClick: onClickAvatar }), jsxRuntime.jsxs(namePositionInfo, { children: [jsxRuntime.jsx(material.Typography, { component: 'h6', children: abbreviateMiddleSurnames(name) }), jsxRuntime.jsx(material.Typography, { component: 'p', children: role })] })] }) }), jsxRuntime.jsx(MenuMore, { options: options, closeAfterClick: true })] }), jsxRuntime.jsxs(contentDescription, { onClick: () => handleClickChallenge?.(), children: [jsxRuntime.jsx(material.Typography, { component: 'h6', children: (lastStep == "3-aprendizados-e-resultados" || lastStep == "4-proximos-passos") && indicatorCurrent ? `RESULTADO ${resultNumber === 1 ? '' : resultNumber}` : "DESAFIO" }), jsxRuntime.jsx(material.Typography, { component: 'p', children: description })] }), (lastStep == "3-aprendizados-e-resultados" || lastStep == "4-proximos-passos") && indicatorCurrent ?
+                                jsxRuntime.jsx(wrapperResults, { onClick: () => handleClickChallenge?.(), children: jsxRuntime.jsx(ProgressGoalBar, { start: indicatorStart || 0, current: indicatorCurrent || 0, goal: indicatorGoal || 0, isVisibleMessage: false }) })
+                                :
+                                    jsxRuntime.jsxs(wrapperStepTag, { onClick: () => handleClickChallenge?.(), children: [jsxRuntime.jsxs(wrapperRating, { children: [jsxRuntime.jsxs(rating, { children: [jsxRuntime.jsx(StarRatingIcon, {}), " ", impact ? Math.floor(impact) : "0", " - Impacto"] }), jsxRuntime.jsxs(rating, { children: [jsxRuntime.jsx(StarRatingIcon, {}), " ", relevance ? Math.floor(relevance) : "0", " - Relev\u00E2ncia "] })] }), jsxRuntime.jsx(contentUpdatedChallenge, { style: { background: getStepName(lastStep).color }, children: jsxRuntime.jsx(material.Typography, { component: 'p', children: getStepName(lastStep).name }) })] })] })] })] }));
+}
+
+const ArticleContainer = styled__default["default"]('div') `
+    width: 450px;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+
+    :hover {
+        border: 2px solid #757575;
+    }
+
+    :focus {
+        border: 2px solid #757575;
+        background-color: #F7F7F7;
+    }
+`;
+const ArticleContent = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+
+    .cardType {
+        font-family: 'PT Sans';
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #F18624;
+        margin-bottom: 4px;
+    }
+
+    .title {
+        font-family: 'PT Sans';
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #444444;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-family: 'PT Sans';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4; 
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+    }
+
+`;
+const ArticleFooter = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .company {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'PT Sans';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #444444;
+
+        img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+    }
+
+    .cta {
+        display: flex;
+        gap: 4px;
+        font-family: 'PT Sans';
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #444444;
+        cursor: pointer;
+    }
+`;
+
+function ExitIcon() {
+    return (jsxRuntime.jsxs("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.61144 16.6668H5.64847C5.25556 16.6668 4.87874 16.5107 4.60091 16.2329C4.32308 15.9551 4.16699 15.5783 4.16699 15.1853V4.81498C4.16699 4.42206 4.32308 4.04524 4.60091 3.76741C4.87874 3.48958 5.25556 3.3335 5.64847 3.3335H8.61144", stroke: "#444444", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.9629 13.7038L16.6666 10.0001L12.9629 6.29639", stroke: "#444444", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.6673 10L8.33398 10", stroke: "#444444", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function ArticleCard({ title, description, company, handleClick }) {
+    return (jsxRuntime.jsxs(ArticleContainer, { children: [jsxRuntime.jsxs(ArticleContent, { children: [jsxRuntime.jsx("p", { className: 'cardType', children: " Artigo " }), jsxRuntime.jsxs("p", { className: 'title', children: [" ", title, " "] }), jsxRuntime.jsxs("p", { className: 'description', children: [" ", description, " "] })] }), jsxRuntime.jsxs(ArticleFooter, { children: [jsxRuntime.jsxs("p", { className: "cta", onClick: handleClick, children: ["Acessar", jsxRuntime.jsx(ExitIcon, {})] }), company &&
+                        jsxRuntime.jsxs("p", { className: 'company', children: [jsxRuntime.jsx("img", { src: company.icon }), company.name] })] })] }));
+}
+
+const ContainerCard$1 = styled__default["default"]('div') `
+    width: 140px;
+    height: 146px;
+    border-radius: 12px;
+    padding: 16px;
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    cursor: pointer;
+    box-sizing: border-box;
+
+    :hover {
+        border: 2px solid #757575;
+    }
+
+    :focus {
+        border: 2px solid #757575;
+        background-color: #F7F7F7;
+    }
+`;
+const ContentCard = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 1rem;
+        line-height: 1.1;
+        font-weight: 700;
+        text-align: center;
+        color: #222222;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+`;
+
+function ChannelsCard({ channelImg, channelTitle, handleClickCard }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerCard$1, { onClick: handleClickCard, children: jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsx("img", { src: channelImg, alt: 'Channel Image' }), jsxRuntime.jsx("p", { children: channelTitle })] }) }) }));
+}
+
+const CardContainer$1 = styled__default["default"]('div') `
+    display: flex;
+    gap: 16px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    width: 450px;
+    height: 120px;
+    padding-right: 16px;
+    box-sizing: content-box;
+
+    :hover {
+        border: 2px solid #757575;
+    }
+
+    :focus {
+        border: 2px solid #757575;
+        background-color: #F7F7F7;
+    }
+`;
+const WrapperImage = styled__default["default"]('div') `
+    img {
+        width: 140px;
+        height: 120px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+`;
+const CardInfo$1 = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px 0;
+    width: 100%;
+`;
+const DescriptionWrapper = styled__default["default"]('div') `
+    height: 61px;
+    .title {
+        font-family: 'PT Sans';
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #F18624;
+        margin-bottom: 4px;
+    }
+
+    .description {
+        font-family: 'PT Sans';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #444444;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+    }
+
+`;
+const CardFooter = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .company {
+        display: flex;
+        gap: 8px;
+        font-family: 'PT Sans';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #444444;
+
+        img {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+    }
+
+    .download {
+        display: flex;
+        gap: 4px;
+        font-family: 'PT Sans';
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #444444;
+        cursor: pointer;
+    }
+
+`;
+
+function DownloadIcon() {
+    return (jsxRuntime.jsxs("svg", { width: "20", height: "21", viewBox: "0 0 20 21", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.9031 12.1523V14.7604C15.9031 15.1062 15.7657 15.4379 15.5212 15.6825C15.2766 15.927 14.945 16.0644 14.5991 16.0644H5.47101C5.12516 16.0644 4.79348 15.927 4.54893 15.6825C4.30438 15.4379 4.16699 15.1062 4.16699 14.7604V12.1523", stroke: "#444444", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M6.17285 9.66699L9.92285 13.0003L13.6729 9.66699", stroke: "#444444", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M9.92285 13.0002V3.8335", stroke: "#444444", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function CardContent$1({ contentType, contentImage, contentDescription, company, handleDownload }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { children: [jsxRuntime.jsx(WrapperImage, { children: jsxRuntime.jsx("img", { src: contentImage }) }), jsxRuntime.jsxs(CardInfo$1, { children: [jsxRuntime.jsxs(DescriptionWrapper, { children: [jsxRuntime.jsxs("p", { className: 'title', children: [" ", contentType.toUpperCase(), " "] }), jsxRuntime.jsxs("p", { className: 'description', children: [" ", contentDescription, " "] })] }), jsxRuntime.jsxs(CardFooter, { children: [jsxRuntime.jsxs("p", { className: 'download', onClick: handleDownload, children: ["Baixar", jsxRuntime.jsx(DownloadIcon, {})] }), company &&
+                                    jsxRuntime.jsxs("p", { className: 'company', children: [jsxRuntime.jsx("img", { src: company.icon }), company.name] })] })] })] }) }));
+}
+
+const CardContainer = styled__default["default"].div `
+    width: 312px;
+    min-height: 152px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 17px;
+    padding-right: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    :hover,
+    :focus {
+        border: 2px solid #757575
+    }
+`;
+const CardContent = styled__default["default"].div `
+    border-bottom: 1px solid #D1D5DB;
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    padding-bottom: 18px;
+`;
+const PhasesContent = styled__default["default"].div `
+    font-size: 12px;
+    font-family: 'PT Sans';
+    color:#475569;
+    margin-bottom: 5px;
+`;
+
+function MentoringCard({ avatar, first_name, last_name, position, title, subtitle1, happenedIn, date, link_recording, handleAvatarClick, handleRecordLink }) {
+    return (jsxRuntime.jsxs(CardContainer, { children: [jsxRuntime.jsxs(CardContent, { children: [jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(Avatar, { size: "67px", src: avatar, isActiveClick: true, onClick: handleAvatarClick, id: "avatar-cardSessionConfirmed" }) }), jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsxs(material.Typography, { fontFamily: "PT Sans", fontWeight: 700, color: "#475569", children: [first_name, " ", last_name] }), jsxRuntime.jsx("p", { style: {
+                                    fontSize: "12px",
+                                    fontFamily: "PT Sans",
+                                    fontWeight: 700,
+                                    color: "#475569",
+                                    marginBottom: "10.35px",
+                                    marginTop: "5px",
+                                }, children: position }), jsxRuntime.jsx("p", { style: {
+                                    fontSize: "12px",
+                                    fontFamily: "PT Sans",
+                                    fontWeight: 700,
+                                    color: "#475569",
+                                }, children: title }), jsxRuntime.jsx(PhasesContent, { children: subtitle1?.map((item, index) => (jsxRuntime.jsx("div", { children: item }, index))) })] })] }), jsxRuntime.jsxs("div", { style: {
+                    display: "flex",
+                    gap: "21px",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginTop: "6px",
+                }, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("p", { style: { fontFamily: "Work Sans", fontSize: "12px" }, children: happenedIn }), jsxRuntime.jsx("p", { style: {
+                                    fontFamily: "Work Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }, id: "date-cardSessionConfirmed-sessionHistory", children: date })] }), jsxRuntime.jsx(Button$5, { handleClick: () => handleRecordLink(link_recording), variant: "primary", style: {
+                            fontSize: "12px",
+                            width: "134px",
+                            height: "27px",
+                            borderRadius: "13.94px",
+                        }, label: 'Assistir Sessão', id: "watchRecordingBtn-cardSessionConfirmed" })] })] }));
+}
+
+const ContainerCard = styled__default["default"]('div') `
+    width: 280px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+
+    :hover {
+        border: 2px solid #757575;
+    }
+
+    :focus {
+        border: 2px solid #757575;
+        background-color: #F7F7F7;
+    }
+
+`;
+const HeaderInfo = styled__default["default"]('div') `
+    display: flex;
+    gap: 12px;
+    height: 56px;
+`;
+const UserInfo = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-family: 'PT Sans';
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.1;
+        color: #222222;
+        margin-bottom: 4px;
+    }
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.3;
+        color: #757575;
+    }
+`;
+const ButtonsList = styled__default["default"]('div') `
+    display: flex;
+    gap: 16px;
+`;
+const CardButton = styled__default["default"]('div') `
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    background-color: ${({ theme }) => theme.colors.primary1};
+    border: 1px solid ${({ theme }) => theme.colors.primary1};
+
+    :hover {
+        background: #F18624;
+    }
+
+`;
+
+function ProfileIcon() {
+    return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8 0C3.584 0 0 3.584 0 8C0 12.416 3.584 16 8 16C12.416 16 16 12.416 16 8C16 3.584 12.416 0 8 0ZM8 2.4C9.328 2.4 10.4 3.472 10.4 4.8C10.4 6.128 9.328 7.2 8 7.2C6.672 7.2 5.6 6.128 5.6 4.8C5.6 3.472 6.672 2.4 8 2.4ZM8 13.76C6 13.76 4.232 12.736 3.2 11.184C3.224 9.592 6.4 8.72 8 8.72C9.592 8.72 12.776 9.592 12.8 11.184C11.768 12.736 10 13.76 8 13.76Z", fill: "white" }) }));
+}
+function InviteIcon() {
+    return (jsxRuntime.jsxs("svg", { width: "18", height: "18", viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M16.6663 13.9812V14.3412C16.6663 14.8635 16.4909 15.3647 16.1681 15.7671C16.0488 15.9224 15.8523 16 15.6488 16H13.7681C14.0558 15.4988 14.2102 14.9271 14.2102 14.3412V13.9812C14.2102 12.9647 13.8383 12.0259 13.2067 11.3129C13.2558 11.2988 13.2979 11.2706 13.34 11.2494C13.6628 11.0659 14.0628 11.0094 14.4418 11.1012C15.7471 11.4329 16.6663 12.6118 16.6663 13.9812ZM11.7541 4C11.5295 4 11.312 4.02118 11.1014 4.07059C11.9365 4.84 12.4558 5.94824 12.4558 7.17647C12.4558 8.40471 11.9365 9.51294 11.1014 10.2823C11.312 10.3318 11.5295 10.3529 11.7541 10.3529C13.4944 10.3529 14.912 8.92706 14.912 7.17647C14.912 5.42588 13.4944 4 11.7541 4ZM8.24529 4C6.50494 4 5.08739 5.42588 5.08739 7.17647C5.08739 8.92706 6.50494 10.3529 8.24529 10.3529C9.98564 10.3529 11.4032 8.92706 11.4032 7.17647C11.4032 5.42588 9.98564 4 8.24529 4ZM10.933 11.1012C10.8067 11.0729 10.6874 11.0588 10.5611 11.0588C10.3014 11.0588 10.0488 11.1224 9.83126 11.2494C9.34003 11.5177 8.79266 11.6518 8.24529 11.6518C7.69792 11.6518 7.15758 11.5176 6.67337 11.2565C6.44179 11.1294 6.18213 11.0588 5.92248 11.0588C5.8102 11.0588 5.70492 11.0729 5.59966 11.0941C4.26633 11.4047 3.33301 12.5976 3.33301 13.9812V14.3412C3.33301 14.8635 3.50846 15.3647 3.83127 15.7671C3.95057 15.9224 4.14705 16 4.35056 16H12.14C12.3435 16 12.54 15.9224 12.6593 15.7671C12.9821 15.3647 13.1576 14.8635 13.1576 14.3412V13.9812C13.1576 12.6118 12.2383 11.4329 10.933 11.1012Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M3.03809 1.03857V5.03857", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.03809 3.03857H5.03809", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function MessageIcon() {
+    return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.33366 8.3382C1.33366 6.77478 1.33366 5.21768 1.33366 3.65426C1.33366 2.71114 1.91366 1.94525 2.80033 1.72371C2.97366 1.67941 3.15366 1.66675 3.32699 1.66675C6.44032 1.66675 9.56033 1.66675 12.6737 1.66675C13.587 1.66675 14.287 2.16679 14.567 3.01496C14.607 3.14156 14.6337 3.26815 14.667 3.40107V10.4713C14.6137 10.6612 14.5803 10.8637 14.4937 11.041C14.1403 11.8068 13.5337 12.1866 12.7137 12.1993C12.487 12.1993 12.2603 12.1993 12.027 12.1993C12.027 12.2563 12.0203 12.3069 12.0203 12.3512C12.0203 12.8576 12.0203 13.3576 12.0137 13.864C12.0137 14.1868 11.7937 14.3893 11.5203 14.3197C11.4403 14.3007 11.3603 14.2501 11.2937 14.1995C10.4937 13.5665 9.69366 12.9335 8.89366 12.2942C8.81366 12.2309 8.72699 12.1993 8.62033 12.1993C6.86033 12.1993 5.10699 12.1993 3.34699 12.1993C2.90699 12.1993 2.50032 12.1043 2.14699 11.8322C1.62033 11.4334 1.34699 10.8954 1.34699 10.2181C1.34699 9.59147 1.34699 8.97117 1.34699 8.34453L1.33366 8.3382ZM11.4537 8.02805C11.947 8.02805 12.3403 7.61662 12.3403 7.11658C12.3403 6.61653 11.9403 6.20511 11.4537 6.20511C10.967 6.20511 10.567 6.61653 10.567 7.11658C10.567 7.61662 10.967 8.02805 11.4537 8.02805ZM8.09366 8.02805C8.58699 8.02805 8.98033 7.61662 8.98033 7.11658C8.98033 6.61653 8.58033 6.20511 8.09366 6.20511C7.60699 6.20511 7.20699 6.61653 7.20699 7.11658C7.20699 7.61662 7.60699 8.02805 8.09366 8.02805ZM4.53366 8.02805C5.02699 8.02805 5.42033 7.61662 5.42033 7.11658C5.42033 6.61653 5.02033 6.20511 4.53366 6.20511C4.04699 6.20511 3.64699 6.61653 3.64699 7.11658C3.64699 7.61662 4.04699 8.02805 4.53366 8.02805Z", fill: "white" }) }));
+}
+function PeopleCard({ avatar, name, area, position, showBtnProfile, showBtnInvite, showBtnMessage, handleClickProfile, handleClickInvite, handleClickMessage }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerCard, { children: [jsxRuntime.jsxs(HeaderInfo, { children: [jsxRuntime.jsx(Avatar, { src: avatar, size: '56px' }), jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx("p", { className: 'title', children: name }), jsxRuntime.jsx("p", { children: area }), jsxRuntime.jsx("p", { children: position })] })] }), jsxRuntime.jsxs(ButtonsList, { children: [showBtnProfile &&
+                            jsxRuntime.jsx(CardButton, { onClick: handleClickProfile, children: jsxRuntime.jsx(Tooltip$2, { direction: 'bottom', content: 'Acessar perfil', delay: 50, width: 'fit-content', height: 'fit-content', style: { textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(ProfileIcon, {}) }) }), showBtnInvite &&
+                            jsxRuntime.jsx(CardButton, { onClick: handleClickInvite, children: jsxRuntime.jsx(Tooltip$2, { direction: 'bottom', content: 'Convidar', delay: 50, width: 'fit-content', height: 'fit-content', style: { textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(InviteIcon, {}) }) }), showBtnMessage &&
+                            jsxRuntime.jsx(CardButton, { onClick: handleClickMessage, children: jsxRuntime.jsx(Tooltip$2, { direction: 'bottom', content: 'Enviar mensagem', delay: 50, width: 'fit-content', height: 'fit-content', style: { textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(MessageIcon, {}) }) })] })] }) }));
+}
+
+const TrailCardContainer = styled__default["default"]('div') `
+    width: 246px;
+    height: 242px;
+    padding: 8px 8px 16px 8px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    gap: 8px;
+    cursor: pointer;
+
+    :hover {
+        border: 2px solid #757575;
+    }
+
+    :focus {
+        border: 2px solid #757575;
+        background-color: #F7F7F7;
+    }
+`;
+const WrapperBanner = styled__default["default"]('div') `
+    img {
+        width: 230px;
+        height: 140px;
+        border-radius: 8px;
+    }
+`;
+const CardInfo = styled__default["default"]('div') `
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .trailName {
+        font-family: 'PT Sans';
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #222222;
+    }
+
+    .company {
+        display: flex;
+        gap: 8px;
+        font-family: 'PT Sans';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #444444;
+
+        img {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+    }
+`;
+
+function TrailCard({ banner, trailName, company, handleClick }) {
+    return (jsxRuntime.jsxs(TrailCardContainer, { onClick: handleClick, children: [jsxRuntime.jsx(WrapperBanner, { children: jsxRuntime.jsx("img", { src: banner, alt: "banner" }) }), jsxRuntime.jsxs(CardInfo, { children: [jsxRuntime.jsxs("p", { className: "trailName", children: [" ", trailName, " "] }), company &&
+                        jsxRuntime.jsxs("p", { className: "company", children: [jsxRuntime.jsx("img", { src: company.icon }), company.name] })] })] }));
+}
+
 exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AdmButton = AdmButton;
 exports.AlertCicle = AlertCicle;
+exports.ArticleCard = ArticleCard;
 exports.AudioPlayer = AudioPlayer;
 exports.Avatar = Avatar;
 exports.AvatarAssociatedChannel = AvatarAssociatedChannel;
@@ -24321,6 +25128,7 @@ exports.CalendarCard = CalendarCard;
 exports.CalendarFilledIcon = CalendarFilledIcon;
 exports.CalendarLineIcon = CalendarLineIcon;
 exports.CalendarLxp = CalendarLxp;
+exports.CardContent = CardContent$1;
 exports.CardDefinicaoFase = CardDefinicaoFase;
 exports.CardFaseDesafios = CardFaseDesafios;
 exports.CardJourney = CardJourney;
@@ -24335,6 +25143,7 @@ exports.Challenge = Challenge$1;
 exports.ChallengeCard = ChallengeCard;
 exports.ChangeAccount = ChangeAccount;
 exports.Channel = Channel$3;
+exports.ChannelsCard = ChannelsCard;
 exports.CheckIconSimple = CheckIconSimple;
 exports.CheckInCicle = CheckInCicle$1;
 exports.Checkmark = Checkmark;
@@ -24403,6 +25212,7 @@ exports.LogoFRST = LogoFRST;
 exports.ManageLearningCicles = ManageLearningCicles;
 exports.MedalFilledIcon = MedalFilledIcon;
 exports.MedalLineIcon = MedalLineIcon;
+exports.MentoringCard = MentoringCard;
 exports.MenuMore = MenuMore;
 exports.MessageBox = MessageBox;
 exports.MiniButton = MiniButton;
@@ -24414,6 +25224,7 @@ exports.ModalNewFeatures = modalNewFeatures;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.ModalVideo = ModalVideo;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
+exports.NewChallengeCard = NewChallengeCard;
 exports.NotificationCard = NotificationCard;
 exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
@@ -24426,6 +25237,7 @@ exports.ParticipantThumbnails = ParticipantThumbnails;
 exports.ParticipantThumbnailsList = ParticipantThumbnailsList;
 exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
+exports.PeopleCard = PeopleCard;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
 exports.PlayResourceInfoIcon = PlayResourceInfoIcon;
@@ -24480,6 +25292,7 @@ exports.Toast = Toast;
 exports.ToastV2 = ToastV2;
 exports.Tooltip = Tooltip$2;
 exports.TotalizerCard = TotalizerCard$1;
+exports.TrailCard = TrailCard;
 exports.TrailList = TrailList;
 exports.TrashIcon = TrashIcon;
 exports.TrashIconNew = TrashIconNew;
