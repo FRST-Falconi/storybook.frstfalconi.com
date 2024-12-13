@@ -18,7 +18,6 @@ normal.args = {
     registryPerPage: 10,
     qtdNumberShowPagination: 5,
     showFirstLastButton: false,
-
     onLoadPage: (page) => console.log(`Página ${page}`),
 
     children: 
