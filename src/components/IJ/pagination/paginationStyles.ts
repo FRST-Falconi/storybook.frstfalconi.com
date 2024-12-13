@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
 
-interface buttonProps{
+interface ButtonProps{
     selected: boolean
     disabled: boolean
+    backgroundColor?: string;
 }
 
 export const containerPagination = styled.div`
@@ -28,34 +29,42 @@ export const pageButtonList = styled.div`
     gap: 8px;
 `
 
-export const buttonPage = styled.div<buttonProps>`
+export const ButtonPage = styled.div<ButtonProps>`
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 40px;
     height: 40px;
-
     padding: 12px;
     border-radius: 6px;
     cursor: pointer;
 
     user-select: none;
-    font-family: 'PT Sans';
+    font-family: 'PT Sans', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: ${(props) => props.selected ? props.theme.colors.shadeWhite : props.theme.colors.neutralsGrey1};
-    background-color: ${(props) => props.selected ? props.theme.colors.primary1 : props.theme.colors.neutralsGrey6};
-    
-    ${(props) => !props.disabled && css`
-        &:hover{
-            color: ${({theme}) => theme.colors.shadeWhite};
-            background-color: ${({theme}) => theme.colors.primary3};
-        }
-    `};
 
-    ${(props) => props.disabled && css`
-        color: ${({ theme }) => theme.colors.linkDisabled};
-        cursor: not-allowed
-    `};
+    color: ${({ selected, theme }) => 
+        selected ? theme.colors.shadeWhite : theme.colors.neutralsGrey1};
+
+    background-color: ${({ selected, theme, backgroundColor }) => 
+        selected 
+            ? (backgroundColor || theme.colors.primary1) 
+            : (backgroundColor || theme.colors.neutralsGrey6)};
+
+    ${({ disabled, theme }) =>
+        !disabled &&
+        css`
+            &:hover {
+                color: ${theme.colors.shadeWhite};
+                background-color: ${theme.colors.primary3};
+            }
+        `}
     
-`
+    ${({ disabled, theme }) =>
+        disabled &&
+        css`
+            color: ${theme.colors.linkDisabled};
+            cursor: not-allowed;
+        `}
+`;
