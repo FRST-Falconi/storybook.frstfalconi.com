@@ -19011,36 +19011,40 @@ const pageButtonList = styled__default["default"].div `
     flex-direction: row;
     gap: 8px;
 `;
-const buttonPage = styled__default["default"].div `
+const ButtonPage = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 40px;
     height: 40px;
-
     padding: 12px;
     border-radius: 6px;
     cursor: pointer;
 
     user-select: none;
-    font-family: 'PT Sans';
+    font-family: 'PT Sans', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: ${(props) => props.selected ? props.theme.colors.shadeWhite : props.theme.colors.neutralsGrey1};
-    background-color: ${(props) => props.selected ? props.theme.colors.primary1 : props.theme.colors.neutralsGrey6};
-    
-    ${(props) => !props.disabled && styled.css `
-        &:hover{
-            color: ${({ theme }) => theme.colors.shadeWhite};
-            background-color: ${({ theme }) => theme.colors.primary3};
-        }
-    `};
 
-    ${(props) => props.disabled && styled.css `
-        color: ${({ theme }) => theme.colors.linkDisabled};
-        cursor: not-allowed
-    `};
+    color: ${({ selected, theme }) => selected ? theme.colors.shadeWhite : theme.colors.neutralsGrey1};
+
+    background-color: ${({ selected, theme, backgroundColor }) => selected
+    ? (backgroundColor || theme.colors.primary1)
+    : (backgroundColor || theme.colors.neutralsGrey6)};
+
+    ${({ disabled, theme }) => !disabled &&
+    styled.css `
+            &:hover {
+                color: ${theme.colors.shadeWhite};
+                background-color: ${theme.colors.primary3};
+            }
+        `}
     
+    ${({ disabled, theme }) => disabled &&
+    styled.css `
+            color: ${theme.colors.linkDisabled};
+            cursor: not-allowed;
+        `}
 `;
 
 function Pagination(props) {
@@ -19114,12 +19118,7 @@ function Pagination(props) {
         }
         setPaginationElements(elements);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerPagination, { style: { ...props.style }, id: 'container-pagination', children: [jsxRuntime.jsx(contentPagination, { id: 'content-pagination', children: props.children }), !IsLoading && Refresh > 0 &&
-                    jsxRuntime.jsxs(pageButtonList, { id: 'page-button-list', children: [props.showFirstLastButton ?
-                                jsxRuntime.jsx(buttonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(0), selected: false, children: props.textFirstButton ? props.textFirstButton : 'Primeiro' })
-                                : null, jsxRuntime.jsx(buttonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(activePage - 1), selected: false, children: jsxRuntime.jsx(BackArrow, { width: '16', height: '16', fill: 'currentColor' }) }), paginationElements.map((item, index) => jsxRuntime.jsx(buttonPage, { disabled: item === '...', onClick: () => item != '...' && handleSwitchPage(item - 1), selected: activePage === item - 1, children: item }, index)), jsxRuntime.jsx(buttonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(activePage + 1), selected: false, children: jsxRuntime.jsx(FowardArrow, { width: '18', height: '18', fill: 'currentColor' }) }), props.showFirstLastButton ?
-                                jsxRuntime.jsx(buttonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(totalPages - 1), selected: false, children: props.textLastButton ? props.textLastButton : 'Último' })
-                                : null] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerPagination, { style: { ...props.style }, id: "container-pagination", children: [jsxRuntime.jsx(contentPagination, { id: "content-pagination", children: props.children }), !IsLoading && Refresh > 0 && (jsxRuntime.jsxs(pageButtonList, { id: "page-button-list", children: [props.showFirstLastButton ? (jsxRuntime.jsx(ButtonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(0), selected: false, backgroundColor: props.buttonBackgroundColor, children: props.textFirstButton ? props.textFirstButton : 'Primeiro' })) : null, jsxRuntime.jsx(ButtonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(activePage - 1), selected: false, backgroundColor: props.buttonBackgroundColor, children: jsxRuntime.jsx(BackArrow, { width: "16", height: "16", fill: "currentColor" }) }), paginationElements.map((item, index) => (jsxRuntime.jsx(ButtonPage, { disabled: item === '...', onClick: () => item != '...' && handleSwitchPage(item - 1), selected: activePage === item - 1, backgroundColor: props.buttonBackgroundColor, children: item }, index))), jsxRuntime.jsx(ButtonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(activePage + 1), selected: false, backgroundColor: props.buttonBackgroundColor, children: jsxRuntime.jsx(FowardArrow, { width: "18", height: "18", fill: "currentColor" }) }), props.showFirstLastButton ? (jsxRuntime.jsx(ButtonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(totalPages - 1), selected: false, backgroundColor: props.buttonBackgroundColor, children: props.textLastButton ? props.textLastButton : 'Último' })) : null] }))] }) }));
 }
 
 const containerThumbContent = styled__default["default"].div `
