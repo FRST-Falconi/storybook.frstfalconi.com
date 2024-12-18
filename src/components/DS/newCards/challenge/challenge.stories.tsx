@@ -23,7 +23,6 @@ normal.args = {
   goalUUID: '1234',
   authorUUID: 'abc',
   userLoggedUUID: 'abc',
-  group_uuid: 'b1005836-b0a6-4a50-8147-537ebdc64a75',
   type_challenge: 'original',
   isIterator: false,
   indicatorStart: 16,

@@ -24538,11 +24538,7 @@ function abbreviateMiddleSurnames(fullName) {
     }
 }
 
-function NewChallengeCard({ selected, avatar, name, role, description, lastStep, cardID, goalUUID, authorUUID, userLoggedUUID, group_uuid, type_challenge = "original", isIterator, isVisibleHeaderTypeChallenge = false, indicatorStart, indicatorCurrent, indicatorGoal, impact, relevance, handleSelected, handleClickChallenge, handleClickPresentation, onClickAvatar, goalExecutionGroup, handleGroupExecution, iteratorNumber, isCompanyAbleGroupExecution, resultNumber, showCheckbox }) {
-    const isAuthor = userLoggedUUID === authorUUID;
-    const isGroupExecution = !!goalExecutionGroup?.room_uuid;
-    const showExecutionGroupButton = isCompanyAbleGroupExecution && ((isAuthor && !isGroupExecution) || isGroupExecution);
-    const isMemberGroup = goalExecutionGroup?.users_room_uuid?.some(userRoom => userRoom?.uuid === userLoggedUUID);
+function NewChallengeCard({ selected, avatar, name, role, description, lastStep, cardID, type_challenge = "original", isIterator, isVisibleHeaderTypeChallenge = false, indicatorStart, indicatorCurrent, indicatorGoal, impact, relevance, handleSelected, handleClickChallenge, handleClickPresentation, onClickAvatar, handleGroupExecution, iteratorNumber, resultNumber, showCheckbox, showExecutionGroup, }) {
     const options = [
         {
             description: 'Ver desafio',
@@ -24554,71 +24550,35 @@ function NewChallengeCard({ selected, avatar, name, role, description, lastStep,
             startIcon: jsxRuntime.jsx(PresentationIcon, {}),
             onClick: handleClickPresentation
         },
-        showExecutionGroupButton && {
+        showExecutionGroup && {
             description: 'Grupo de execução',
             startIcon: jsxRuntime.jsx(RoomGroupIcon, {}),
-            onClick: () => handleGroupExecution({ isGroup: !!goalExecutionGroup?.room_uuid, isMemberGroup: isMemberGroup, goalTitle: description, goalUuid: goalUUID, isAuthor: isAuthor, executionDetails: goalExecutionGroup })
+            onClick: handleGroupExecution
         }
     ]?.filter(Boolean);
     const getStepName = (step) => {
-        const GroupUuids = [
-            "b1005836-b0a6-4a50-8147-537ebdc64a75",
-            "f280489d-2997-4d47-a2ab-47f85c54c72a",
-            "ef205633-b90d-4331-ad67-064355bb85d9",
-            "cb67cb4b-5209-4f3b-88cb-d612829735a9",
-            'd99a6401-330b-48b8-8a01-85205fcfeff7',
-            'dd9a9f20-8481-4f32-9562-6f0ddf80cd91',
-            '67ae3079-521a-4747-852d-8b3601c46e24'
-        ];
-        let steps;
-        if (GroupUuids.includes(group_uuid)) {
-            steps = {
-                '0-problema': {
-                    name: 'Fase 1 - Definição (meta)',
-                    color: '#F2CEE4'
-                },
-                '1-hipotese': {
-                    name: 'Fase 2 - Plano de ação',
-                    color: '#FCDFA6'
-                },
-                '2-testes': {
-                    name: 'Fase 3 - Execução',
-                    color: '#DACEF2'
-                },
-                '3-aprendizados-e-resultados': {
-                    name: 'Fase 4 - Resultado',
-                    color: '#EBEBEB'
-                },
-                '4-proximos-passos': {
-                    name: 'Desafio finalizado',
-                    color: '#BDE3B9'
-                }
-            };
-        }
-        else {
-            steps = {
-                '0-problema': {
-                    name: 'Fase 1: Definição',
-                    color: '#EBEBEB'
-                },
-                '1-hipotese': {
-                    name: 'Fase 2: Hipóteses',
-                    color: '#FCDFA6'
-                },
-                '2-testes': {
-                    name: 'Fase 3: Testes',
-                    color: '#DACEF2'
-                },
-                '3-aprendizados-e-resultados': {
-                    name: 'Fase 4: Resultados',
-                    color: '#F2CEE4'
-                },
-                '4-proximos-passos': {
-                    name: 'Desafio finalizado',
-                    color: '#BDE3B9'
-                }
-            };
-        }
+        let steps = {
+            '0-problema': {
+                name: 'Fase 1 - Definição da meta',
+                color: '#F2CEE4'
+            },
+            '1-hipotese': {
+                name: 'Fase 2 - Plano de ação',
+                color: '#FCDFA6'
+            },
+            '2-testes': {
+                name: 'Fase 3 - Execução',
+                color: '#DACEF2'
+            },
+            '3-aprendizados-e-resultados': {
+                name: 'Fase 4 - Resultado',
+                color: '#EBEBEB'
+            },
+            '4-proximos-passos': {
+                name: 'Desafio finalizado',
+                color: '#BDE3B9'
+            }
+        };
         return steps[step];
     };
     return (jsxRuntime.jsxs(cardWrapper, { id: cardID, children: [isVisibleHeaderTypeChallenge ? jsxRuntime.jsxs(tagTypeChallenge, { isIterator: isIterator, children: [jsxRuntime.jsx("div", { style: { marginTop: "6px" }, children: type_challenge == "duplicated" ?
