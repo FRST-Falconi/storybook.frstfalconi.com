@@ -15,9 +15,6 @@ interface ChallengeCardProps {
     description?: string
     lastStep?: string
     cardID: string
-    goalUUID?: string
-    authorUUID?: string
-    userLoggedUUID?: string
     type_challenge?: string
     isIterator?: boolean
     indicatorStart?:number
@@ -31,9 +28,7 @@ interface ChallengeCardProps {
     onClickAvatar?: () => void
     isVisibleHeaderTypeChallenge?: boolean
     handleGroupExecution: (params: any) => void;
-    goalExecutionGroup: any;
     iteratorNumber?:number
-    isCompanyAbleGroupExecution: boolean;
     resultNumber?:number
     showCheckbox?: boolean
     showExecutionGroup: boolean
