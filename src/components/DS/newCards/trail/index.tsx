@@ -33,7 +33,9 @@ export default function TrailCard ({
                 <p className="trailName"> {trailName} </p>
                 {company &&
                     <p className="company">
-                        <img src={company.icon} />
+                        {company.icon && company.icon !== '' &&
+                            <img src={company.icon} />
+                        }
                         {company.name}
                     </p>
                 }
