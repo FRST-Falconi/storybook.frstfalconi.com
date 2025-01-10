@@ -25061,7 +25061,8 @@ const CardInfo = styled__default["default"]('div') `
 
 function TrailCard({ banner, trailName, company, handleClick }) {
     return (jsxRuntime.jsxs(TrailCardContainer, { onClick: handleClick, children: [jsxRuntime.jsx(WrapperBanner, { children: jsxRuntime.jsx("img", { src: banner, alt: "banner" }) }), jsxRuntime.jsxs(CardInfo, { children: [jsxRuntime.jsxs("p", { className: "trailName", children: [" ", trailName, " "] }), company &&
-                        jsxRuntime.jsxs("p", { className: "company", children: [jsxRuntime.jsx("img", { src: company.icon }), company.name] })] })] }));
+                        jsxRuntime.jsxs("p", { className: "company", children: [company.icon && company.icon !== '' &&
+                                    jsxRuntime.jsx("img", { src: company.icon }), company.name] })] })] }));
 }
 
 exports.AccordionList = AccordionList$2;
