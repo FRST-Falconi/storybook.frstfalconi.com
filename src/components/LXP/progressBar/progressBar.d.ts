@@ -5,4 +5,7 @@ export interface IProgressBar {
     value?: number,
     label?: string,
     style?: React.CSSProperties
+    bgColor?: string
+    trackColor?: string
+    colorText?: string
 }

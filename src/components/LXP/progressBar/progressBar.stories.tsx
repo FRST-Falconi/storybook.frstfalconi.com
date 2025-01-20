@@ -14,5 +14,13 @@ const Template = (args) => <ProgressBar {...args} />
 export const Normal = Template.bind({})
 Normal.args = {
   value: 75,
-  label: 'XP Investimentos'
+  label: 'XP Investimentos',
+}
+
+export const newProgressBar = Template.bind({})
+newProgressBar.args = {
+  value: 75,
+  bgColor: '#F26818',
+  trackColor: '#E0E0E0',
+  colorText: '#444444'
 }

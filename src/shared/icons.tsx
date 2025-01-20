@@ -44,6 +44,21 @@ export function ArrowIcon({ fill, width, height }: IconsProps) {
   )
 }
 
+export function Check_circle({ fill, width, height }: IconsProps) {
+  return (
+    <svg 
+      width={width ? width : '16'}
+      height={height ? height : '16'}
+      viewBox="0 0 16 16" 
+      fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path 
+        d="M7.99967 1.33333C4.32634 1.33333 1.33301 4.32666 1.33301 8C1.33301 11.6733 4.32634 14.6667 7.99967 14.6667C11.673 14.6667 14.6663 11.6733 14.6663 8C14.6663 4.32666 11.673 1.33333 7.99967 1.33333ZM11.1397 7.13999L7.80634 10.4733C7.673 10.6 7.50634 10.6667 7.33301 10.6667C7.15967 10.6667 6.993 10.6 6.85967 10.4733L4.85967 8.47333C4.59967 8.21333 4.59967 7.78666 4.85967 7.52666C5.11967 7.26666 5.54634 7.26666 5.80634 7.52666L7.33301 9.05999L10.193 6.19333C10.453 5.93333 10.8797 5.93333 11.1397 6.19333C11.3997 6.45333 11.3997 6.87999 11.1397 7.13999Z" 
+        fill={fill ?? '#1BA853'}
+      />
+    </svg>
+  )
+}
+
 export function EditIcon({ fill, width, height }: IconsProps) {
   return (
     <svg
