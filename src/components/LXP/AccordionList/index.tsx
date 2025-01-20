@@ -10,6 +10,8 @@ type TAccordionListprops = {
   isOpen?: boolean
   setIsOpen: any
   selectedItem: boolean
+  style?: React.CSSProperties
+  isOldAccordionList?: boolean
 }
 
 export default function AccordionList({
@@ -17,7 +19,9 @@ export default function AccordionList({
   children,
   isOpen = false,
   setIsOpen,
-  selectedItem
+  isOldAccordionList = true,
+  selectedItem,
+  style = {} // Definindo um valor padrão para o estilo
 }: TAccordionListprops) {
   const [open, setOpen] = useState(isOpen)
   const [selected, setSelected] = useState(selectedItem)
@@ -35,7 +39,7 @@ export default function AccordionList({
   }, [selectedItem])
 
   return (
-    <S.StylesAccordionList theme={FRSTTheme} selectedItem={selected} className={selected ? 'open' : 'closed'}>
+    <S.StylesAccordionList theme={FRSTTheme} selectedItem={selected} style={{ ...style }} isOldAccordionList={isOldAccordionList} className={selected ? 'open' : 'closed'}>
       <div onClick={handleSetOpen} className={selected ? 'header open' : 'header closed'}>
         <p className="title">{title}</p>
         <span className={open ? 'open' : 'closed'}>
