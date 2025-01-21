@@ -30,6 +30,7 @@ export const HeaderInfo = styled('div')`
 export const UserInfo = styled('div')`
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     .title {
         font-family: 'PT Sans';
@@ -37,7 +38,6 @@ export const UserInfo = styled('div')`
         font-weight: 600;
         line-height: 1.1;
         color: #222222;
-        margin-bottom: 4px;
     }
 
     p {
@@ -46,6 +46,7 @@ export const UserInfo = styled('div')`
         font-weight: 400;
         line-height: 1.3;
         color: #757575;
+        margin: 0;
     }
 `
 
