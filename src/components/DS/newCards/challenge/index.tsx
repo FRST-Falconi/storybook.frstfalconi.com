@@ -208,9 +208,9 @@ export default function NewChallengeCard ({
                                 <S.rating><StarRatingIcon/> {impact ? Math.floor(impact) : "0"} - Impacto</S.rating>
                                 <S.rating><StarRatingIcon/> {relevance ? Math.floor(relevance) : "0"} - Relevância </S.rating>
                             </S.wrapperRating>
-                            <S.contentUpdatedChallenge style={{background: getStepName(lastStep).color}}>
+                            <S.contentUpdatedChallenge style={{background: getStepName(lastStep)?.color}}>
                                 <Typography component={'p'}>
-                                    {getStepName(lastStep).name}
+                                    {getStepName(lastStep)?.name}
                                 </Typography>
                             </S.contentUpdatedChallenge>
                         </S.wrapperStepTag>

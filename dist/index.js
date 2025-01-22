@@ -24654,7 +24654,7 @@ function NewChallengeCard({ selected, avatar, name, role, description, lastStep,
                                 } }) }), jsxRuntime.jsxs(contentWrapper, { children: [jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsxs(userInfo, { onClick: onClickAvatar, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: avatar, isActiveClick: true, onClick: onClickAvatar }), jsxRuntime.jsxs(namePositionInfo, { children: [jsxRuntime.jsx(material.Typography, { component: 'h6', children: abbreviateMiddleSurnames(name) }), jsxRuntime.jsx(material.Typography, { component: 'p', children: role })] })] }) }), jsxRuntime.jsx(MenuMore, { options: options, closeAfterClick: true })] }), jsxRuntime.jsxs(contentDescription, { onClick: () => handleClickChallenge?.(), children: [jsxRuntime.jsx(material.Typography, { component: 'h6', children: (lastStep == "3-aprendizados-e-resultados" || lastStep == "4-proximos-passos") && indicatorCurrent ? `RESULTADO ${resultNumber === 1 ? '' : resultNumber}` : "DESAFIO" }), jsxRuntime.jsx(material.Typography, { component: 'p', children: description })] }), (lastStep == "3-aprendizados-e-resultados" || lastStep == "4-proximos-passos") && indicatorCurrent ?
                                 jsxRuntime.jsx(wrapperResults, { onClick: () => handleClickChallenge?.(), children: jsxRuntime.jsx(ProgressGoalBar, { start: indicatorStart || 0, current: indicatorCurrent || 0, goal: indicatorGoal || 0, isVisibleMessage: false }) })
                                 :
-                                    jsxRuntime.jsxs(wrapperStepTag, { onClick: () => handleClickChallenge?.(), children: [jsxRuntime.jsxs(wrapperRating, { children: [jsxRuntime.jsxs(rating, { children: [jsxRuntime.jsx(StarRatingIcon, {}), " ", impact ? Math.floor(impact) : "0", " - Impacto"] }), jsxRuntime.jsxs(rating, { children: [jsxRuntime.jsx(StarRatingIcon, {}), " ", relevance ? Math.floor(relevance) : "0", " - Relev\u00E2ncia "] })] }), jsxRuntime.jsx(contentUpdatedChallenge, { style: { background: getStepName(lastStep).color }, children: jsxRuntime.jsx(material.Typography, { component: 'p', children: getStepName(lastStep).name }) })] })] })] })] }));
+                                    jsxRuntime.jsxs(wrapperStepTag, { onClick: () => handleClickChallenge?.(), children: [jsxRuntime.jsxs(wrapperRating, { children: [jsxRuntime.jsxs(rating, { children: [jsxRuntime.jsx(StarRatingIcon, {}), " ", impact ? Math.floor(impact) : "0", " - Impacto"] }), jsxRuntime.jsxs(rating, { children: [jsxRuntime.jsx(StarRatingIcon, {}), " ", relevance ? Math.floor(relevance) : "0", " - Relev\u00E2ncia "] })] }), jsxRuntime.jsx(contentUpdatedChallenge, { style: { background: getStepName(lastStep)?.color }, children: jsxRuntime.jsx(material.Typography, { component: 'p', children: getStepName(lastStep)?.name }) })] })] })] })] }));
 }
 
 const ArticleContainer = styled__default["default"]('div') `
@@ -24995,6 +24995,7 @@ const HeaderInfo = styled__default["default"]('div') `
 const UserInfo = styled__default["default"]('div') `
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     .title {
         font-family: 'PT Sans';
@@ -25002,7 +25003,6 @@ const UserInfo = styled__default["default"]('div') `
         font-weight: 600;
         line-height: 1.1;
         color: #222222;
-        margin-bottom: 4px;
     }
 
     p {
@@ -25011,6 +25011,7 @@ const UserInfo = styled__default["default"]('div') `
         font-weight: 400;
         line-height: 1.3;
         color: #757575;
+        margin: 0;
     }
 `;
 const ButtonsList = styled__default["default"]('div') `
