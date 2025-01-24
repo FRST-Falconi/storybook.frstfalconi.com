@@ -4104,146 +4104,147 @@ const placeholderStyle = (color) => styled.css `
     }
 `;
 const TextFieldContainer = styled__default["default"].div `
-  width: ${(props) => props.theme.width || '100%'};
-  height: 48px;
-  background: ${({ theme }) => theme.colors.neutralsGrey6};
-  border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-  box-sizing: border-box;
-  border-radius: 8px;
-  outline: none;
-  transition: all 0.2s linear;
-  
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+    width: ${(props) => props.theme.width || '100%'};
+    height: 48px;
+    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.neutralsGrey6)};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    box-sizing: border-box;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s linear;
 
-  ${({ isClicked }) => isClicked &&
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    ${({ isClicked }) => isClicked &&
     `
         box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
         border: 1px solid #663366 !important;`}
 
-  
-${(props) => props.isHelpTextBox && props.isClicked &&
+    ${(props) => props.isHelpTextBox &&
+    props.isClicked &&
     styled.css `
-    box-shadow: none !important;
-        border: 1px solid #F18624 !important;
-    `}
+            box-shadow: none !important;
+            border: 1px solid #f18624 !important;
+        `}
 
-    ${(props) => props.theme.focused && props.isHelpTextBox &&
+    ${(props) => props.theme.focused &&
+    props.isHelpTextBox &&
     styled.css `
-      box-shadow: 0px 0px 0px 1px #F18624 !important;
-      border: 1px solid #F18624 !important;
-    `}
+            box-shadow: 0px 0px 0px 1px #f18624 !important;
+            border: 1px solid #f18624 !important;
+        `}
 
 
   ${(props) => props.theme.multiline &&
     styled.css `
-      width: ${(props) => props.theme.width || '100%'};
-      height: ${(props) => props.theme.height || '100%'};
-      min-height: ${(props) => props.theme.height || '100%'};
-      display: block;
-      padding: 0;
-      overflow: hidden;
-    `}
+            width: ${(props) => props.theme.width || '100%'};
+            height: ${(props) => props.theme.height || '100%'};
+            min-height: ${(props) => props.theme.height || '100%'};
+            display: block;
+            padding: 0;
+            overflow: hidden;
+        `}
 
 
     ${(props) => props.theme.hovered &&
     styled.css `
-      border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
-    `}
+            border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
+        `}
 
     ${(props) => props.theme.focused &&
     styled.css `
-      box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
-      border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-    `}
+            box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
+            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
+        `}
 
     ${(props) => props.theme.disabled &&
     styled.css `
-      background: ${({ theme }) => theme.colors.neutralsGrey7};
-      border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    `}
+            background: ${({ theme }) => theme.colors.neutralsGrey7};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+        `}
 
     ${(props) => props.theme.error &&
     styled.css `
-      background: #ffe0e0;
-      box-shadow: none;
-      border: 1px solid ${({ theme }) => theme.colors.messageError1};
-      color: ${({ theme }) => theme.colors.neutralsGrey3};
-    `}
+            background: #ffe0e0;
+            box-shadow: none;
+            border: 1px solid ${({ theme }) => theme.colors.messageError1};
+            color: ${({ theme }) => theme.colors.neutralsGrey3};
+        `}
 
     span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     type: type || 'text',
     as: as || 'input'
 })) `
-  width: 100%;
-  height: 100%;
-  padding: 15px 16px;
-  border: none;
-  background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 15px 16px;
+    border: none;
+    background-color: transparent;
 
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  color: ${({ theme }) => theme.colors.neutralsGrey1};
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-  ${placeholderStyle('neutralsGrey3')}
+    ${placeholderStyle('neutralsGrey3')}
 
-  ${({ as }) => as === 'textarea' &&
+    ${({ as }) => as === 'textarea' &&
     styled.css `
-      height: ${(props) => props.theme.height || '100%'};
-      resize: none;
-      overflow: auto;
-      min-height: 100%;
-    `}
+            height: ${(props) => props.theme.height || '100%'};
+            resize: none;
+            overflow: auto;
+            min-height: 100%;
+        `}
     
     ${(props) => props.theme.disabled &&
     styled.css `
-      color: ${({ theme }) => theme.colors.neutralsGrey4};
-      ${placeholderStyle('neutralsGrey4')}
-    `}
+            color: ${({ theme }) => theme.colors.neutralsGrey4};
+            ${placeholderStyle('neutralsGrey4')}
+        `}
     ${(props) => props.theme.error &&
     styled.css `
-      color: ${({ theme }) => theme.colors.messageError1};
-      ${placeholderStyle('linkError')}
-    `}
+            color: ${({ theme }) => theme.colors.messageError1};
+            ${placeholderStyle('linkError')}
+        `}
 `;
 const Label$2 = styled__default["default"].label `
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  color: ${({ theme }) => theme.colors.neutralsGrey1};
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-  ${(props) => props.theme.hovered &&
+    ${(props) => props.theme.hovered &&
     styled.css `
-      color: ${({ theme }) => theme.colors.linkOnfocus};
-    `}
+            color: ${({ theme }) => theme.colors.linkOnfocus};
+        `}
 
-  ${(props) => props.theme.focused &&
+    ${(props) => props.theme.focused &&
     styled.css `
-      color: ${({ theme }) => theme.colors.linkOnfocus};
-    `}
+            color: ${({ theme }) => theme.colors.linkOnfocus};
+        `}
 
     ${(props) => props.theme.disabled &&
     styled.css `
-      color: ${({ theme }) => theme.colors.neutralsGrey3};
-    `}
+            color: ${({ theme }) => theme.colors.neutralsGrey3};
+        `}
 
     ${(props) => props.theme.error &&
     styled.css `
-      color: ${({ theme }) => theme.colors.messageError1};
-    `}
+            color: ${({ theme }) => theme.colors.messageError1};
+        `}
 
     ${({ isClicked }) => isClicked &&
     `
@@ -4251,37 +4252,37 @@ const Label$2 = styled__default["default"].label `
     `}
 `;
 const HelperText$3 = styled__default["default"].span `
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: ${({ theme }) => theme.colors.neutralsGrey3};
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: ${({ theme }) => theme.colors.neutralsGrey3};
 
-  ${(props) => props.theme.error &&
+    ${(props) => props.theme.error &&
     styled.css `
-      color: ${({ theme }) => theme.colors.messageError1};
-    `}
+            color: ${({ theme }) => theme.colors.messageError1};
+        `}
 `;
 const InputIconButton = styled__default["default"].button `
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
-  margin-right: -10px;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 50%;
-  outline: none;
-  transition: all 0.1s linear;
-  cursor: pointer;
-  margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-right: -10px;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 50%;
+    outline: none;
+    transition: all 0.1s linear;
+    cursor: pointer;
+    margin-right: 16px;
 `;
 const StartIcon = styled__default["default"].span `
-  margin-left: 16px;
+    margin-left: 16px;
 `;
 
 function TextField(props) {
@@ -4303,7 +4304,16 @@ function TextField(props) {
             setClick(false);
         }, 1000);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsx(HelperTextBox, { helperTextBox: props.helperTextBox })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: {
+            ...FRSTTheme,
+            focused: focus,
+            disabled: props.disabled,
+            hovered: hover,
+            error: props.error,
+            multiline: props.multiline,
+            width: props.width,
+            height: props.height
+        }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, inputBackground: props.inputBackground, children: [props.startIcon && !props.multiline && jsxRuntime.jsx(StartIcon, { children: props.startIcon }), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && !!props.endIcon && (jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsx(HelperTextBox, { helperTextBox: props.helperTextBox })] }) }));
 }
 
 function Textarea(props) {
