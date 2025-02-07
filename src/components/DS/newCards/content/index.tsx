@@ -28,7 +28,9 @@ interface cardContentProps {
     contentImage: string
     contentDescription: string
     company?: Company
-    handleDownload: () => void
+    enableDownload?: boolean
+    handleDownload?: () => void
+    handleClickCard?: () => void
 }
 
 export default function CardContent ({
@@ -36,11 +38,13 @@ export default function CardContent ({
     contentImage,
     contentDescription,
     company,
-    handleDownload
+    enableDownload,
+    handleDownload,
+    handleClickCard
 }: cardContentProps) {
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <CardContainer>
+            <CardContainer onClick={handleClickCard ? handleClickCard : () => {}}>
                 <WrapperImage>
                     <img
                         src={contentImage}
@@ -52,14 +56,18 @@ export default function CardContent ({
                         <p className='description'> {contentDescription} </p>
                     </DescriptionWrapper>
                     <CardFooter>
-                        <p className='download' onClick={handleDownload}>
-                            Baixar
-                            <DownloadIcon />
-                        </p>
                         {company &&
                             <p className='company'>
-                                <img src={company.icon}/>
+                                {company.icon && company.icon !== '' &&
+                                    <img src={company.icon}/>
+                                }
                                 {company.name}
+                            </p>
+                        }
+                        {enableDownload &&
+                            <p className='download' onClick={handleDownload}>
+                                Baixar
+                                <DownloadIcon />
                             </p>
                         }
                     </CardFooter>

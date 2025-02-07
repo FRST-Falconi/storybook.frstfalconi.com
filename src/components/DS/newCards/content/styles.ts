@@ -8,7 +8,6 @@ export const CardContainer = styled('div')`
     width: 450px;
     height: 120px;
     padding-right: 16px;
-    box-sizing: content-box;
 
     :hover {
         border: 2px solid #757575;
@@ -66,8 +65,9 @@ export const DescriptionWrapper = styled('div')`
 
 export const CardFooter = styled('div')`
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     .company {
         display: flex;
@@ -77,6 +77,7 @@ export const CardFooter = styled('div')`
         font-weight: 400;
         line-height: 1.5;
         color: #444444;
+        margin: 0;
 
         img {
             width: 16px;
@@ -94,6 +95,7 @@ export const CardFooter = styled('div')`
         line-height: 1.5;
         color: #444444;
         cursor: pointer;
+        margin: 0;
     }
 
 `

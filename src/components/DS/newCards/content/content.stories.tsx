@@ -21,5 +21,6 @@ normal.args = {
     name: 'Frst Falconi',
     uuid: '123'
   },
+  enableDownload: true,
   handleDownload: () => alert('Download!')
 }
