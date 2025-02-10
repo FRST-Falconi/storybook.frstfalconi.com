@@ -24819,6 +24819,7 @@ const CardContainer$1 = styled__default["default"]('div') `
     width: 450px;
     height: 120px;
     padding-right: 16px;
+    box-sizing: content-box;
 
     :hover {
         border: 2px solid #757575;
@@ -24835,6 +24836,7 @@ const WrapperImage = styled__default["default"]('div') `
         height: 120px;
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
+        object-fit: cover;
     }
 `;
 const CardInfo$1 = styled__default["default"]('div') `
