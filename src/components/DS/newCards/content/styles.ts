@@ -8,6 +8,7 @@ export const CardContainer = styled('div')`
     width: 450px;
     height: 120px;
     padding-right: 16px;
+    box-sizing: content-box;
 
     :hover {
         border: 2px solid #757575;
@@ -25,6 +26,7 @@ export const WrapperImage = styled('div')`
         height: 120px;
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
+        object-fit: cover;
     }
 `
 
