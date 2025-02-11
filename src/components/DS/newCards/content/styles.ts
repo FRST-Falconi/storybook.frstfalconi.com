@@ -9,6 +9,8 @@ export const CardContainer = styled('div')`
     height: 120px;
     padding-right: 16px;
     box-sizing: content-box;
+    border: 2px solid transparent;
+    cursor: pointer;
 
     :hover {
         border: 2px solid #757575;

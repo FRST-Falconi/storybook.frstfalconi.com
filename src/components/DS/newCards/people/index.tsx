@@ -8,7 +8,7 @@ import {
 } from './styles'
 import { FRSTTheme } from '../../../../theme'
 import Avatar from '@components/avatar'
-import Tooltip from '@components/DS/tooltip'
+import { Tooltip } from '@mui/material'
 
 function ProfileIcon () {
     return (
@@ -78,46 +78,136 @@ export default function PeopleCard ({
                 </HeaderInfo>
                 <ButtonsList>
                     {showBtnProfile &&
-                        <CardButton onClick={handleClickProfile}>
-                            <Tooltip
-                                direction='bottom'
-                                content='Acessar perfil'
-                                delay={50}
-                                width='fit-content'
-                                height='fit-content'
-                                style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
-                            >
+                        <Tooltip
+                            title='Acessar perfil'
+                            placement='bottom'
+                            arrow
+                            slotProps={{
+                                popper: {
+                                    modifiers: [
+                                        {
+                                            name: 'offset',
+                                            options: {
+                                                offset: [0, -8]
+                                            }
+                                        }
+                                    ],
+                                },
+                                tooltip: {
+                                    sx: {
+                                        backgroundColor: '#FFFFFF',
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        lineHeight: 1.3,
+                                        textAlign: 'center',
+                                        color: '#757575',
+                                        border: '1px solid #BDBDBD',
+                                        boxShadow: '0px 25px 18px -20px #22222233'
+                                    }
+                                },
+                                arrow: {
+                                    sx:{
+                                        ":before": {
+                                            border: '1px solid #BDBDBD'
+                                        },
+                                        color: '#FFFFFF'
+                                    }
+                                }
+                            }}
+                        >
+                            <CardButton onClick={handleClickProfile}>
                                 <ProfileIcon />
-                            </Tooltip>
-                        </CardButton>
+                            </CardButton>
+                        </Tooltip>
                     }
                     {showBtnInvite &&
-                        <CardButton onClick={handleClickInvite}>
-                            <Tooltip
-                                direction='bottom'
-                                content='Convidar'
-                                delay={50}
-                                width='fit-content'
-                                height='fit-content'
-                                style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
-                            >
+                        <Tooltip
+                            title='Convidar'
+                            placement='bottom'
+                            arrow
+                            slotProps={{
+                                popper: {
+                                    modifiers: [
+                                        {
+                                            name: 'offset',
+                                            options: {
+                                                offset: [0, -8]
+                                            }
+                                        }
+                                    ],
+                                },
+                                tooltip: {
+                                    sx: {
+                                        backgroundColor: '#FFFFFF',
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        lineHeight: 1.3,
+                                        textAlign: 'center',
+                                        color: '#757575',
+                                        border: '1px solid #BDBDBD',
+                                        boxShadow: '0px 25px 18px -20px #22222233'
+                                    }
+                                },
+                                arrow: {
+                                    sx:{
+                                        ":before": {
+                                            border: '1px solid #BDBDBD'
+                                        },
+                                        color: '#FFFFFF'
+                                    }
+                                }
+                            }}
+                        >
+                            <CardButton onClick={handleClickInvite}>
                                 <InviteIcon />
-                            </Tooltip>
-                        </CardButton>
+                            </CardButton>
+                        </Tooltip>
                     }
                     {showBtnMessage &&
-                        <CardButton onClick={handleClickMessage}>
-                            <Tooltip
-                                direction='bottom'
-                                content='Enviar mensagem'
-                                delay={50}
-                                width='fit-content'
-                                height='fit-content'
-                                style={{ textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }}
-                            >
+                        <Tooltip
+                            title='Enviar mensagem'
+                            placement='bottom'
+                            arrow
+                            slotProps={{
+                                popper: {
+                                    modifiers: [
+                                        {
+                                            name: 'offset',
+                                            options: {
+                                                offset: [0, -8]
+                                            }
+                                        }
+                                    ],
+                                },
+                                tooltip: {
+                                    sx: {
+                                        backgroundColor: '#FFFFFF',
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        lineHeight: 1.3,
+                                        textAlign: 'center',
+                                        color: '#757575',
+                                        border: '1px solid #BDBDBD',
+                                        boxShadow: '0px 25px 18px -20px #22222233'
+                                    }
+                                },
+                                arrow: {
+                                    sx:{
+                                        ":before": {
+                                            border: '1px solid #BDBDBD'
+                                        },
+                                        color: '#FFFFFF'
+                                    }
+                                }
+                            }}
+                        >
+                            <CardButton onClick={handleClickMessage}>
                                 <MessageIcon />
-                            </Tooltip>
-                        </CardButton>
+                            </CardButton>
+                        </Tooltip>
                     }
                 </ButtonsList>
             </ContainerCard>

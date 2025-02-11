@@ -9,6 +9,7 @@ export const ContainerCard = styled('div')`
     padding: 16px;
     border-radius: 12px;
     background-color: ${({theme}) => theme.colors.shadeWhite};
+    border: 2px solid transparent;
 
     :hover {
         border: 2px solid #757575;
