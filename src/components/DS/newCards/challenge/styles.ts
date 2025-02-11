@@ -11,6 +11,7 @@ export const cardWrapper = styled('div')`
     background: #FFFFFF;
     box-shadow: 0px 0px 10px 0px #00000026;
     scroll-margin-top: 150px;
+    border: 2px solid transparent;
 
     :hover,
     :focus {

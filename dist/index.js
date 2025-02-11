@@ -24391,6 +24391,7 @@ const cardWrapper = styled__default["default"]('div') `
     background: #FFFFFF;
     box-shadow: 0px 0px 10px 0px #00000026;
     scroll-margin-top: 150px;
+    border: 2px solid transparent;
 
     :hover,
     :focus {
@@ -24771,7 +24772,7 @@ const ContainerCard$1 = styled__default["default"]('div') `
     padding: 16px;
     background: ${({ theme }) => theme.colors.shadeWhite};
     cursor: pointer;
-    box-sizing: border-box;
+    border: 2px solid transparent;
 
     :hover {
         border: 2px solid #757575;
@@ -24820,6 +24821,8 @@ const CardContainer$1 = styled__default["default"]('div') `
     height: 120px;
     padding-right: 16px;
     box-sizing: content-box;
+    border: 2px solid transparent;
+    cursor: pointer;
 
     :hover {
         border: 2px solid #757575;
@@ -24931,6 +24934,7 @@ const CardContainer = styled__default["default"].div `
     padding-top: 17px;
     padding-right: 20px;
     border-radius: 12px;
+    border: 2px solid transparent;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
     :hover,
@@ -24992,6 +24996,7 @@ const ContainerCard = styled__default["default"]('div') `
     padding: 16px;
     border-radius: 12px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 2px solid transparent;
 
     :hover {
         border: 2px solid #757575;
@@ -25064,9 +25069,105 @@ function MessageIcon() {
 }
 function PeopleCard({ avatar, name, area, position, showBtnProfile, showBtnInvite, showBtnMessage, handleClickProfile, handleClickInvite, handleClickMessage }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerCard, { children: [jsxRuntime.jsxs(HeaderInfo, { children: [jsxRuntime.jsx(Avatar, { src: avatar, size: '56px' }), jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx("p", { className: 'title', children: name }), jsxRuntime.jsx("p", { children: area }), jsxRuntime.jsx("p", { children: position })] })] }), jsxRuntime.jsxs(ButtonsList, { children: [showBtnProfile &&
-                            jsxRuntime.jsx(CardButton, { onClick: handleClickProfile, children: jsxRuntime.jsx(Tooltip$2, { direction: 'bottom', content: 'Acessar perfil', delay: 50, width: 'fit-content', height: 'fit-content', style: { textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(ProfileIcon, {}) }) }), showBtnInvite &&
-                            jsxRuntime.jsx(CardButton, { onClick: handleClickInvite, children: jsxRuntime.jsx(Tooltip$2, { direction: 'bottom', content: 'Convidar', delay: 50, width: 'fit-content', height: 'fit-content', style: { textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(InviteIcon, {}) }) }), showBtnMessage &&
-                            jsxRuntime.jsx(CardButton, { onClick: handleClickMessage, children: jsxRuntime.jsx(Tooltip$2, { direction: 'bottom', content: 'Enviar mensagem', delay: 50, width: 'fit-content', height: 'fit-content', style: { textAlign: 'center', top: '36px', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(MessageIcon, {}) }) })] })] }) }));
+                            jsxRuntime.jsx(material.Tooltip, { title: 'Acessar perfil', placement: 'bottom', arrow: true, slotProps: {
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -8]
+                                                }
+                                            }
+                                        ],
+                                    },
+                                    tooltip: {
+                                        sx: {
+                                            backgroundColor: '#FFFFFF',
+                                            fontFamily: 'PT Sans',
+                                            fontWeight: 400,
+                                            fontSize: '14px',
+                                            lineHeight: 1.3,
+                                            textAlign: 'center',
+                                            color: '#757575',
+                                            border: '1px solid #BDBDBD',
+                                            boxShadow: '0px 25px 18px -20px #22222233'
+                                        }
+                                    },
+                                    arrow: {
+                                        sx: {
+                                            ":before": {
+                                                border: '1px solid #BDBDBD'
+                                            },
+                                            color: '#FFFFFF'
+                                        }
+                                    }
+                                }, children: jsxRuntime.jsx(CardButton, { onClick: handleClickProfile, children: jsxRuntime.jsx(ProfileIcon, {}) }) }), showBtnInvite &&
+                            jsxRuntime.jsx(material.Tooltip, { title: 'Convidar', placement: 'bottom', arrow: true, slotProps: {
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -8]
+                                                }
+                                            }
+                                        ],
+                                    },
+                                    tooltip: {
+                                        sx: {
+                                            backgroundColor: '#FFFFFF',
+                                            fontFamily: 'PT Sans',
+                                            fontWeight: 400,
+                                            fontSize: '14px',
+                                            lineHeight: 1.3,
+                                            textAlign: 'center',
+                                            color: '#757575',
+                                            border: '1px solid #BDBDBD',
+                                            boxShadow: '0px 25px 18px -20px #22222233'
+                                        }
+                                    },
+                                    arrow: {
+                                        sx: {
+                                            ":before": {
+                                                border: '1px solid #BDBDBD'
+                                            },
+                                            color: '#FFFFFF'
+                                        }
+                                    }
+                                }, children: jsxRuntime.jsx(CardButton, { onClick: handleClickInvite, children: jsxRuntime.jsx(InviteIcon, {}) }) }), showBtnMessage &&
+                            jsxRuntime.jsx(material.Tooltip, { title: 'Enviar mensagem', placement: 'bottom', arrow: true, slotProps: {
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -8]
+                                                }
+                                            }
+                                        ],
+                                    },
+                                    tooltip: {
+                                        sx: {
+                                            backgroundColor: '#FFFFFF',
+                                            fontFamily: 'PT Sans',
+                                            fontWeight: 400,
+                                            fontSize: '14px',
+                                            lineHeight: 1.3,
+                                            textAlign: 'center',
+                                            color: '#757575',
+                                            border: '1px solid #BDBDBD',
+                                            boxShadow: '0px 25px 18px -20px #22222233'
+                                        }
+                                    },
+                                    arrow: {
+                                        sx: {
+                                            ":before": {
+                                                border: '1px solid #BDBDBD'
+                                            },
+                                            color: '#FFFFFF'
+                                        }
+                                    }
+                                }, children: jsxRuntime.jsx(CardButton, { onClick: handleClickMessage, children: jsxRuntime.jsx(MessageIcon, {}) }) })] })] }) }));
 }
 
 const TrailCardContainer = styled__default["default"]('div') `
@@ -25077,6 +25178,7 @@ const TrailCardContainer = styled__default["default"]('div') `
     background: #FFFFFF;
     gap: 8px;
     cursor: pointer;
+    border: 2px solid transparent;
 
     :hover {
         border: 2px solid #757575;
@@ -25089,9 +25191,10 @@ const TrailCardContainer = styled__default["default"]('div') `
 `;
 const WrapperBanner = styled__default["default"]('div') `
     img {
-        width: 230px;
+        width: 100%;
         height: 140px;
         border-radius: 8px;
+        object-fit: cover;
     }
 `;
 const CardInfo = styled__default["default"]('div') `

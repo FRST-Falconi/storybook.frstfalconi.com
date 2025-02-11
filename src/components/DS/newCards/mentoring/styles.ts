@@ -12,6 +12,7 @@ export const CardContainer = styled.div`
     padding-top: 17px;
     padding-right: 20px;
     border-radius: 12px;
+    border: 2px solid transparent;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
     :hover,

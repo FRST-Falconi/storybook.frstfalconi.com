@@ -7,7 +7,7 @@ export const ContainerCard = styled('div')`
     padding: 16px;
     background: ${({theme}) => theme.colors.shadeWhite};
     cursor: pointer;
-    box-sizing: border-box;
+    border: 2px solid transparent;
 
     :hover {
         border: 2px solid #757575;

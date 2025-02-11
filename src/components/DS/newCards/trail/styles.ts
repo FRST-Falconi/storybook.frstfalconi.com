@@ -8,6 +8,7 @@ export const TrailCardContainer = styled('div')`
     background: #FFFFFF;
     gap: 8px;
     cursor: pointer;
+    border: 2px solid transparent;
 
     :hover {
         border: 2px solid #757575;
@@ -21,9 +22,10 @@ export const TrailCardContainer = styled('div')`
 
 export const WrapperBanner = styled('div')`
     img {
-        width: 230px;
+        width: 100%;
         height: 140px;
         border-radius: 8px;
+        object-fit: cover;
     }
 `
 
