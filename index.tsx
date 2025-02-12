@@ -3,54 +3,54 @@
 
 // Icons
 export {
-  AlertCicle,
-  DoubleCheck,
-  MoreDotsHorizontal,
-  CheckInCicle,
-  TrashIcon,
-  TrashIconNew,
-  HomeLineIcon,
-  HomeFilledIcon,
-  CalendarLineIcon,
-  CalendarFilledIcon,
-  PencilLineIcon,
-  PencilFilledIcon,
-  LampLineIcon,
-  LampFilledIcon,
-  MedalLineIcon,
-  MedalFilledIcon,
-  PlayLineIcon,
-  PlayFilledIcon,
-  IconNotification,
-  InstagramIcon,
-  LinkedinIcon,
-  PodCastIcon,
-  SiteIcon,
-  SpotifyIcon,
-  YoutubeIcon,
-  Content,
-  AddIcon,
-  Channel,
-  ExitArrow,
-  StepCicleOne,
-  StepCheckInCicle,
-  StepCicleTwo,
-  StepCicleThree,
-  StepCicleFour,
-  Books,
-  Diamond,
-  Challenge,
-  EmptyAvatar,
-  ChangeAccount,
-  EyeOff,
-  OpenedEye,
-  StarFavorite,
-  CheckIconSimple,
-  IconContent,
-  EditIcon,
-  Tick,
-  PlayResourceInfoIcon,
-  DocumentResourceInfoIcon
+    AlertCicle,
+    DoubleCheck,
+    MoreDotsHorizontal,
+    CheckInCicle,
+    TrashIcon,
+    TrashIconNew,
+    HomeLineIcon,
+    HomeFilledIcon,
+    CalendarLineIcon,
+    CalendarFilledIcon,
+    PencilLineIcon,
+    PencilFilledIcon,
+    LampLineIcon,
+    LampFilledIcon,
+    MedalLineIcon,
+    MedalFilledIcon,
+    PlayLineIcon,
+    PlayFilledIcon,
+    IconNotification,
+    InstagramIcon,
+    LinkedinIcon,
+    PodCastIcon,
+    SiteIcon,
+    SpotifyIcon,
+    YoutubeIcon,
+    Content,
+    AddIcon,
+    Channel,
+    ExitArrow,
+    StepCicleOne,
+    StepCheckInCicle,
+    StepCicleTwo,
+    StepCicleThree,
+    StepCicleFour,
+    Books,
+    Diamond,
+    Challenge,
+    EmptyAvatar,
+    ChangeAccount,
+    EyeOff,
+    OpenedEye,
+    StarFavorite,
+    CheckIconSimple,
+    IconContent,
+    EditIcon,
+    Tick,
+    PlayResourceInfoIcon,
+    DocumentResourceInfoIcon
 } from './src/shared/icons'
 
 // Base
@@ -68,7 +68,6 @@ export { Toast } from './src/components/DS/toast'
 export { ToastV2, showToastV2 } from './src/components/DS/toast-v2'
 export { HypothesisComponent } from './src/components/hypothesisComponent'
 export { default as CardJourney } from './src/components/DS/CardJourney'
-
 
 // Buttons
 export { default as Button } from './src/components/buttons'
@@ -97,9 +96,9 @@ export { default as OnboardingProgressMenu } from './src/components/DS/onboardin
 export { default as CardUser } from './src/components/DS/cardUser'
 export { default as ImpedimentosTab } from './src/components/DS/impedimentosTab'
 export { HypothesisAndImpediment } from './src/components/DS/hypotesisAndImpediment'
-export {ProgressGoalBar} from './src/components/DS/progressGoalBar'
-export {ResultFilterTabs} from './src/components/DS/resultFilterTabs'
-export {ConfirmationModal} from './src/components/DS/ConfirmationModal'
+export { ProgressGoalBar } from './src/components/DS/progressGoalBar'
+export { ResultFilterTabs } from './src/components/DS/resultFilterTabs'
+export { ConfirmationModal } from './src/components/DS/ConfirmationModal'
 
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
@@ -175,8 +174,8 @@ export { default as ChallengeCard } from './src/components/challenge-cards'
 export { default as SearchBox } from './src/components/FI/searchBox'
 export { default as BannerSRG } from './src/components/FI/bannerSRG'
 export { default as LateralMenu } from './src/components/lateral-menu'
-export { default as BannerProblemFeed } from './src/components/FI/bannerProblemFeed'
 export { default as FeedInteraction } from './src/components/FI/feedInteraction'
+export { default as BannerProblemFeed } from './src/components/FI/bannerProblemFeed'
 export { default as SessionFilters } from './src/components/FI/sessionFilters'
 export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner'
 export { default as PostFeed } from './src/components/FI/postFeed'
@@ -235,6 +234,6 @@ export { default as NewChallengeCard } from './src/components/DS/newCards/challe
 export { default as ArticleCard } from './src/components/DS/newCards/articles'
 export { default as ChannelsCard } from './src/components/DS/newCards/channels'
 export { default as CardContent } from './src/components/DS/newCards/content'
-export { default as MentoringCard} from './src/components/DS/newCards/mentoring'
+export { default as MentoringCard } from './src/components/DS/newCards/mentoring'
 export { default as PeopleCard } from './src/components/DS/newCards/people'
 export { default as TrailCard } from './src/components/DS/newCards/trail'
