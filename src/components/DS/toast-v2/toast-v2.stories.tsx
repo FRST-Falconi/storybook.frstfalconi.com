@@ -62,7 +62,8 @@ Warning.args = {
     type: 'warning',
     message: 'This is a warning toast!',
     showBySeconds: 5,
-    styles: {}
+    styles: {},
+    isHiddenCloseicon: true
 }
 
 export const Custom = Template.bind({})

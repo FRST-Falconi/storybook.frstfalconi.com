@@ -3245,7 +3245,7 @@ const StyledContainer = styled__default["default"](reactToastify.ToastContainer)
   }
 `;
 
-const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, startICon }) => {
+const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, startICon, isHiddenCloseicon }) => {
     let iconComponent = startICon;
     switch (type) {
         case 'error':
@@ -3263,7 +3263,7 @@ const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, sta
     const toastOptions = {
         position: 'top-right',
         autoClose: showBySeconds * 1000,
-        closeButton: (jsxRuntime.jsx("span", { style: {
+        closeButton: isHiddenCloseicon ? (jsxRuntime.jsx(jsxRuntime.Fragment, {})) : (jsxRuntime.jsx("span", { style: {
                 display: 'flex',
                 marginTop: 'auto',
                 marginBottom: 'auto',

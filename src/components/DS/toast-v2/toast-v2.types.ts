@@ -6,4 +6,5 @@ export interface ToastProps {
     showBySeconds?: number
     styles: any
     startICon?: any
+    isHiddenCloseicon?: boolean
 }

@@ -7,7 +7,14 @@ import { FRSTTheme } from '../../../theme'
 import { CloseIcon, ErrorInCicleIcon } from '@shared/icons'
 import { CircledCheck, WarningIcon } from '@public/customIcons'
 
-export const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, startICon }: ToastProps) => {
+export const showToastV2 = ({
+    type = 'success',
+    message,
+    showBySeconds = 5,
+    styles,
+    startICon,
+    isHiddenCloseicon
+}: ToastProps) => {
     let iconComponent = startICon
     switch (type) {
         case 'error':
@@ -25,7 +32,9 @@ export const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styl
     const toastOptions: ToastOptions = {
         position: 'top-right' as ToastPosition,
         autoClose: showBySeconds * 1000,
-        closeButton: (
+        closeButton: isHiddenCloseicon ? (
+            <></>
+        ) : (
             <span
                 style={{
                     display: 'flex',
