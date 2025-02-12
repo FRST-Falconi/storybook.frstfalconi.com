@@ -55,6 +55,7 @@ export default function NotificationCard(props: INotificationCard) {
             console.error('Error deleting notification', error)
         }
     }
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.notificationContainer
