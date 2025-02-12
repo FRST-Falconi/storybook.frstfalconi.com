@@ -5,12 +5,6 @@ import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './feedInteractionStyles'
-// latestComment={stateLatestComment}
-// textLatestComment={props.textLatestComment}
-// userCommentPlaceholder={props.userCommentPlaceholder}
-// onCommentChange={props.onCommentChange}
-// textSaveCommentBtn={props.textSaveCommentBtn}
-// handleSaveCommentBtn={props.handleSaveCommentBtn}
 
 interface IFeedInteraction {
   id: string
@@ -32,20 +26,16 @@ interface IFeedInteraction {
   userAvatar?: string
   textLoadMoreComments?: string
   isDisabledAvaluation?: boolean
-
   style?: React.CSSProperties
   handleLikeClick?: () => void
   handleShowLikes?: () => void
   tooltipLikesText?: string
-  handleImpactoChange?: any
-  handleRelevanciaChange?: any
-  handlePostReviewChange?: any
-
+  handleImpactoChange?: (value: number) => void
+  handleRelevanciaChange?: (value: number) => void
+  handlePostReviewChange?: (value: number) => void
   hideComments?: any
-
   textTotalView?: string
   handleClickTextTotalViews?: () => void
-
   isCommentV2?: boolean
   childrenCommentV2?: any
 }
@@ -53,17 +43,31 @@ interface IFeedInteraction {
 export default function FeedInteraction(props: IFeedInteraction) {
   const [openReview, setOpenReview] = useState(false)
   const [openComments, setOpenComments] = useState(false)
-
   const [isVisibleComments, setIsVisibleComments] = useState(!props?.hideComments)
+  const [stateTotalComments, setStateTotalComments] = useState(props.qtdComments)
+  const [ratingImpacto, setRatingImpacto] = useState(props.ratingImpacto || 0)
+  const [ratingRelevancia, setRatingRelevancia] = useState(props.ratingRelevancia || 0)
+  const [ratingPostReview, setRatingPostReview] = useState(props.ratingPostReview || 0)
 
   useEffect(() => {
     setIsVisibleComments(!props?.hideComments)
   }, [props?.hideComments])
 
-  const [stateTotalComments, setStateTotalComments] = useState(props.qtdComments)
   useEffect(() => {
     setStateTotalComments(props.qtdComments)
   }, [props.qtdComments])
+
+  useEffect(() => {
+    setRatingImpacto(props.ratingImpacto || 0)
+  }, [props.ratingImpacto])
+
+  useEffect(() => {
+    setRatingRelevancia(props.ratingRelevancia || 0)
+  }, [props.ratingRelevancia])
+
+  useEffect(() => {
+    setRatingPostReview(props.ratingPostReview || 0)
+  }, [props.ratingPostReview])
 
   const OnReviewClick = () => {
     setOpenReview(!openReview)
@@ -75,6 +79,18 @@ export default function FeedInteraction(props: IFeedInteraction) {
     setOpenReview(false)
   }
 
+  const handleImpactoChange = (value: number) => {
+    setRatingImpacto(value)
+  }
+
+  const handleRelevanciaChange = (value: number) => {
+    setRatingRelevancia(value)
+  }
+
+  const handlePostReviewChange = (value: number) => {
+    setRatingPostReview(value)
+  }
+
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.Container style={{ ...props.style }} id={props.id}>
@@ -82,7 +98,6 @@ export default function FeedInteraction(props: IFeedInteraction) {
           <Styles.infoContent>
             {props?.qtdLikes ? (
               <Styles.info style={{ left: 0 }}>
-                {' '}
                 <Icons.ThumbsUpCovered /> &nbsp;
                 <span
                   onClick={() => props?.handleShowLikes?.()}
@@ -100,7 +115,9 @@ export default function FeedInteraction(props: IFeedInteraction) {
                 </span>
               </Styles.info>
             ) : null}
-            {stateTotalComments ? <Styles.info style={{ right: 0 }}>{stateTotalComments}</Styles.info> : null}
+            {stateTotalComments ? (
+              <Styles.info style={{ right: 0 }}>{stateTotalComments}</Styles.info>
+            ) : null}
           </Styles.infoContent>
         ) : (
           <>
@@ -109,8 +126,7 @@ export default function FeedInteraction(props: IFeedInteraction) {
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '5px' }}>
                   {props.qtdLikes && (
                     <Styles.infoWithView onClick={() => props?.handleShowLikes?.()}>
-                      {' '}
-                      <Icons.ThumbsUpCovered /> &nbsp;{' '}
+                      <Icons.ThumbsUpCovered /> &nbsp;
                       <span
                         onClick={() => props?.handleShowLikes?.()}
                         style={{
@@ -133,7 +149,7 @@ export default function FeedInteraction(props: IFeedInteraction) {
                 {props.textTotalView && (
                   <Styles.infoWithView
                     style={{ color: '#0645AD', fontWeight: 700, cursor: 'pointer' }}
-                    onClick={() => props.handleClickTextTotalViews()}
+                    onClick={() => props.handleClickTextTotalViews?.()}
                   >
                     {props.textTotalView}
                   </Styles.infoWithView>
@@ -142,6 +158,7 @@ export default function FeedInteraction(props: IFeedInteraction) {
             )}
           </>
         )}
+
         <Styles.buttonsContent>
           {props.isLiked ? (
             <Styles.buttons>
@@ -170,17 +187,26 @@ export default function FeedInteraction(props: IFeedInteraction) {
               <Icons.TalkIcon fill={'currentColor'} /> {props.textComments}
             </Styles.buttons>
           )}
-          <Styles.buttons onClick={OnReviewClick} style={{ color: openReview && FRSTTheme['colors'].linkPressed }}>
+          <Styles.buttons
+            onClick={OnReviewClick}
+            style={{ color: openReview && FRSTTheme['colors'].linkPressed }}
+          >
             <Icons.StarOutlined fill={'currentColor'} /> {props.textAvaluation}
           </Styles.buttons>
         </Styles.buttonsContent>
+
         {openReview && (
           <Styles.reviewContainer>
             {props.textAvaluationTitle}
             <Styles.reviewContent>
               {props.isChallengeReview && (
                 <div
-                  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column'
+                  }}
                 >
                   <Rating
                     isVisibleNumberRating={false}
@@ -189,8 +215,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     sizeStars={20}
                     marginStars={'3.5px'}
                     disabled={props.isDisabledAvaluation}
-                    rating={props.ratingImpacto}
-                    handleRating={props?.handleImpactoChange}
+                    rating={ratingImpacto}
+                    handleRating={handleImpactoChange} 
                   />
                   <span>{props.textImpacto}</span>
                 </div>
@@ -212,15 +238,20 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     sizeStars={20}
                     marginStars={'3.5px'}
                     disabled={props.isDisabledAvaluation}
-                    rating={props.ratingRelevancia}
-                    handleRating={props?.handleRelevanciaChange}
+                    rating={ratingRelevancia} 
+                    handleRating={handleRelevanciaChange}
                   />
                   <span>{props.textRelevancia}</span>
                 </div>
               )}
               {props.isPostReview && (
                 <div
-                  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column'
+                  }}
                 >
                   <Rating
                     isVisibleNumberRating={false}
@@ -229,14 +260,15 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     sizeStars={20}
                     marginStars={'3.5px'}
                     disabled={props.isDisabledAvaluation}
-                    rating={props.ratingPostReview}
-                    handleRating={props?.handlePostReviewChange}
+                    rating={ratingPostReview} 
+                    handleRating={handlePostReviewChange}
                   />
                 </div>
               )}
             </Styles.reviewContent>
           </Styles.reviewContainer>
         )}
+
         {openComments && props?.isCommentV2 && <div>{props?.childrenCommentV2}</div>}
       </Styles.Container>
     </ThemeProvider>
