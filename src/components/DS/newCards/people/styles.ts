@@ -71,6 +71,7 @@ export const CardButton = styled('div')`
 
     :hover {
         background: #F18624;
+        border: 1px solid #F18624;
     }
 
 `

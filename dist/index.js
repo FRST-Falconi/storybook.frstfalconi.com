@@ -25106,6 +25106,7 @@ const CardButton = styled__default["default"]('div') `
 
     :hover {
         background: #F18624;
+        border: 1px solid #F18624;
     }
 
 `;
