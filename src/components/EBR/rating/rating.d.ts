@@ -44,4 +44,6 @@ export interface IRating {
    * @prop {boolean} disabled: Boolean para desabilitar edição
    */
   disabled: boolean;
+
+  removeEvaluation?: any;
 }
