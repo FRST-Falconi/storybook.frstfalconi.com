@@ -9662,7 +9662,7 @@ const Raiting = styled__default["default"].p `
     margin-left: 16.5px;
 `;
 
-function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
+function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled, removeEvaluation }) {
     const [hoverRaiting, setHoverRaiting] = React.useState(-1);
     const renderStars = () => {
         const groupStars = [];
@@ -9681,13 +9681,13 @@ function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, 
             return false;
         };
         for (let i = 0; i < qtdStars; i++) {
-            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { variant: variant, isEmpty: rating <= 0, id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }, i));
+            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { variant: variant, isEmpty: rating <= 0, id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled, removeEvaluation: removeEvaluation }, i));
         }
         return groupStars;
     };
     return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [renderStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: rating.toFixed(1) })] }));
 }
-function StarRatingComponent({ id, variant, isEmpty, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
+function StarRatingComponent({ id, variant, isEmpty, active, handleClick, sizeStars, marginStars, setOnHover, disabled, removeEvaluation }) {
     const [actionArea, setActionArea] = React.useState(false);
     const clickTimeout = React.useRef(null);
     const getColorStarPrimary = () => active ? '#FFC200' : '#757575';
@@ -9722,6 +9722,7 @@ function StarRatingComponent({ id, variant, isEmpty, active, handleClick, sizeSt
             clearTimeout(clickTimeout.current);
             clickTimeout.current = null;
         }
+        removeEvaluation();
         handleClick(0);
     };
     return (jsxRuntime.jsx("div", { onMouseOver: () => !disabled && setActionArea(true), onMouseOut: () => !disabled && setActionArea(false), onClick: onClickHandler, onDoubleClick: onDoubleClickHandler, style: {
@@ -18295,14 +18296,17 @@ function FeedInteraction(props) {
         setOpenComments(!openComments);
         setOpenReview(false);
     };
-    const handleImpactoChange = (value) => {
+    const handleImpactoChangeClick = (value) => {
         setRatingImpacto(value);
+        props?.handleImpactoChange();
     };
-    const handleRelevanciaChange = (value) => {
+    const handleRelevanciaChangeClick = (value) => {
         setRatingRelevancia(value);
+        props?.handleRelevanciaChange();
     };
-    const handlePostReviewChange = (value) => {
+    const handlePostReviewChangeClick = (value) => {
         setRatingPostReview(value);
+        props?.handlePostReviewChange();
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || stateTotalComments) ? (jsxRuntime.jsxs(infoContent, { children: [props?.qtdLikes ? (jsxRuntime.jsxs(info, { style: { left: 0 }, children: [jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", jsxRuntime.jsx("span", { onClick: () => props?.handleShowLikes?.(), style: {
                                         cursor: 'pointer',
@@ -18325,18 +18329,18 @@ function FeedInteraction(props) {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         flexDirection: 'column'
-                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingImpacto, handleRating: handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] })), props.isChallengeReview && (jsxRuntime.jsxs("div", { style: {
+                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingImpacto, handleRating: handleImpactoChangeClick, removeEvaluation: props?.removeEvaluation }), jsxRuntime.jsx("span", { children: props.textImpacto })] })), props.isChallengeReview && (jsxRuntime.jsxs("div", { style: {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         flexDirection: 'column',
                                         marginLeft: 24
-                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingRelevancia, handleRating: handleRelevanciaChange }), jsxRuntime.jsx("span", { children: props.textRelevancia })] })), props.isPostReview && (jsxRuntime.jsx("div", { style: {
+                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingRelevancia, handleRating: handleRelevanciaChangeClick, removeEvaluation: props?.removeEvaluation }), jsxRuntime.jsx("span", { children: props.textRelevancia })] })), props.isPostReview && (jsxRuntime.jsx("div", { style: {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         flexDirection: 'column'
-                                    }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingPostReview, handleRating: handlePostReviewChange }) }))] })] })), openComments && props?.isCommentV2 && jsxRuntime.jsx("div", { children: props?.childrenCommentV2 })] }) }));
+                                    }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingPostReview, handleRating: handlePostReviewChangeClick, removeEvaluation: props?.removeEvaluation }) }))] })] })), openComments && props?.isCommentV2 && jsxRuntime.jsx("div", { children: props?.childrenCommentV2 })] }) }));
 }
 
 function BannerProblemFeed(props) {

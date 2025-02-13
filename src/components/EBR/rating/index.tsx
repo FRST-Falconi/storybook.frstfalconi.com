@@ -12,7 +12,8 @@ export default function Rating({
   handleRating,
   sizeStars,
   orientation,
-  disabled
+  disabled,
+  removeEvaluation
 }: IRating) {
   const [hoverRaiting, setHoverRaiting] = useState(-1)
 
@@ -45,6 +46,7 @@ export default function Rating({
           sizeStars={sizeStars}
           marginStars={marginStars}
           disabled={disabled}
+          removeEvaluation={removeEvaluation}
         />
       )
     }
@@ -69,7 +71,8 @@ function StarRatingComponent({
   sizeStars,
   marginStars,
   setOnHover,
-  disabled
+  disabled,
+  removeEvaluation
 }) {
   const [actionArea, setActionArea] = useState(false)
   const clickTimeout = useRef(null)
@@ -104,6 +107,7 @@ function StarRatingComponent({
       clearTimeout(clickTimeout.current)
       clickTimeout.current = null
     }
+    removeEvaluation()
     handleClick(0)
   }
 

@@ -23,6 +23,7 @@ interface IFeedInteraction {
   textRelevancia?: string
   isPostReview?: boolean
   ratingPostReview?: number
+  removeEvaluation?: any
   userAvatar?: string
   textLoadMoreComments?: string
   isDisabledAvaluation?: boolean
@@ -30,9 +31,9 @@ interface IFeedInteraction {
   handleLikeClick?: () => void
   handleShowLikes?: () => void
   tooltipLikesText?: string
-  handleImpactoChange?: (value: number) => void
-  handleRelevanciaChange?: (value: number) => void
-  handlePostReviewChange?: (value: number) => void
+  handleImpactoChange?: any
+  handleRelevanciaChange?: any
+  handlePostReviewChange?: any
   hideComments?: any
   textTotalView?: string
   handleClickTextTotalViews?: () => void
@@ -79,16 +80,19 @@ export default function FeedInteraction(props: IFeedInteraction) {
     setOpenReview(false)
   }
 
-  const handleImpactoChange = (value: number) => {
+  const handleImpactoChangeClick = (value: number) => {
     setRatingImpacto(value)
+    props?.handleImpactoChange()
   }
 
-  const handleRelevanciaChange = (value: number) => {
+  const handleRelevanciaChangeClick = (value: number) => {
     setRatingRelevancia(value)
+    props?.handleRelevanciaChange()
   }
 
-  const handlePostReviewChange = (value: number) => {
+  const handlePostReviewChangeClick = (value: number) => {
     setRatingPostReview(value)
+    props?.handlePostReviewChange()
   }
 
   return (
@@ -216,7 +220,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     marginStars={'3.5px'}
                     disabled={props.isDisabledAvaluation}
                     rating={ratingImpacto}
-                    handleRating={handleImpactoChange} 
+                    handleRating={handleImpactoChangeClick} 
+                    removeEvaluation={props?.removeEvaluation}
                   />
                   <span>{props.textImpacto}</span>
                 </div>
@@ -239,7 +244,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     marginStars={'3.5px'}
                     disabled={props.isDisabledAvaluation}
                     rating={ratingRelevancia} 
-                    handleRating={handleRelevanciaChange}
+                    handleRating={handleRelevanciaChangeClick}
+                    removeEvaluation={props?.removeEvaluation}
                   />
                   <span>{props.textRelevancia}</span>
                 </div>
@@ -261,7 +267,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     marginStars={'3.5px'}
                     disabled={props.isDisabledAvaluation}
                     rating={ratingPostReview} 
-                    handleRating={handlePostReviewChange}
+                    handleRating={handlePostReviewChangeClick}
+                    removeEvaluation={props?.removeEvaluation}
                   />
                 </div>
               )}

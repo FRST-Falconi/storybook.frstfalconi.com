@@ -93,10 +93,11 @@ ChallengeWithInfoViews.args = {
   ratingRelevancia: 4,
   textRelevancia: 'Relevância',
   userAvatar: 'https://i.gyazo.com/59d6b73b26541b748ca6a5d167645746.png',
-  handleImpactoChange: (e) => alert(e),
-  handleRelevanciaChange: (e) => alert(e),
+  handleImpactoChange: (e) => console.log('e', e),
+  handleRelevanciaChange: (e) => console.log('e', e),
   handleLikeClick: () => alert('Click'),
-
+  removeEvaluation: () => console.log('removeEvaluation'),
+  
   textTotalView: '12 Visualizações',
   handleClickTextTotalViews: () => alert('Click Views'),
 
