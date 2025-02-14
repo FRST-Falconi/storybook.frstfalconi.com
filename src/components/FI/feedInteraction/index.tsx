@@ -82,17 +82,17 @@ export default function FeedInteraction(props: IFeedInteraction) {
 
   const handleImpactoChangeClick = (value: number) => {
     setRatingImpacto(value)
-    props?.handleImpactoChange()
+    props?.handleImpactoChange(value)
   }
 
   const handleRelevanciaChangeClick = (value: number) => {
     setRatingRelevancia(value)
-    props?.handleRelevanciaChange()
+    props?.handleRelevanciaChange(value)
   }
 
   const handlePostReviewChangeClick = (value: number) => {
     setRatingPostReview(value)
-    props?.handlePostReviewChange()
+    props?.handlePostReviewChange(value)
   }
 
   return (
