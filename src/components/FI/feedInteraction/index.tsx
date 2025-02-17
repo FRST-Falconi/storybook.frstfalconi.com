@@ -222,6 +222,7 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     rating={ratingImpacto}
                     handleRating={handleImpactoChangeClick} 
                     removeEvaluation={props?.removeEvaluation}
+                    evaluationType="impact"
                   />
                   <span>{props.textImpacto}</span>
                 </div>
@@ -246,6 +247,7 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     rating={ratingRelevancia} 
                     handleRating={handleRelevanciaChangeClick}
                     removeEvaluation={props?.removeEvaluation}
+                    evaluationType="relevance"
                   />
                   <span>{props.textRelevancia}</span>
                 </div>
