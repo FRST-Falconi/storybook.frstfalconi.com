@@ -13,7 +13,8 @@ export default function Rating({
   sizeStars,
   orientation,
   disabled,
-  removeEvaluation
+  removeEvaluation,
+  evaluationType
 }: IRating) {
   const [hoverRaiting, setHoverRaiting] = useState(-1)
 
@@ -46,7 +47,7 @@ export default function Rating({
           sizeStars={sizeStars}
           marginStars={marginStars}
           disabled={disabled}
-          removeEvaluation={removeEvaluation}
+          removeEvaluation={() => removeEvaluation(evaluationType)}
         />
       )
     }
