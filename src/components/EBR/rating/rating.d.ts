@@ -46,4 +46,6 @@ export interface IRating {
   disabled: boolean;
 
   removeEvaluation?: any;
+
+  evaluationType?: any;
 }
