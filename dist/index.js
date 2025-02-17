@@ -9672,7 +9672,7 @@ const Raiting = styled__default["default"].p `
     margin-left: 16.5px;
 `;
 
-function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled, removeEvaluation }) {
+function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled, removeEvaluation, evaluationType }) {
     const [hoverRaiting, setHoverRaiting] = React.useState(-1);
     const renderStars = () => {
         const groupStars = [];
@@ -9691,7 +9691,7 @@ function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, 
             return false;
         };
         for (let i = 0; i < qtdStars; i++) {
-            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { variant: variant, isEmpty: rating <= 0, id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled, removeEvaluation: removeEvaluation }, i));
+            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { variant: variant, isEmpty: rating <= 0, id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled, removeEvaluation: () => removeEvaluation(evaluationType) }, i));
         }
         return groupStars;
     };
