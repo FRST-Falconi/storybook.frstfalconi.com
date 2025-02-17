@@ -18186,13 +18186,13 @@ function FeedInteraction(props) {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         flexDirection: 'column'
-                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingImpacto, handleRating: handleImpactoChangeClick, removeEvaluation: props?.removeEvaluation }), jsxRuntime.jsx("span", { children: props.textImpacto })] })), props.isChallengeReview && (jsxRuntime.jsxs("div", { style: {
+                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingImpacto, handleRating: handleImpactoChangeClick, removeEvaluation: props?.removeEvaluation, evaluationType: "impact" }), jsxRuntime.jsx("span", { children: props.textImpacto })] })), props.isChallengeReview && (jsxRuntime.jsxs("div", { style: {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         flexDirection: 'column',
                                         marginLeft: 24
-                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingRelevancia, handleRating: handleRelevanciaChangeClick, removeEvaluation: props?.removeEvaluation }), jsxRuntime.jsx("span", { children: props.textRelevancia })] })), props.isPostReview && (jsxRuntime.jsx("div", { style: {
+                                    }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: "horizontal", qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: ratingRelevancia, handleRating: handleRelevanciaChangeClick, removeEvaluation: props?.removeEvaluation, evaluationType: "relevance" }), jsxRuntime.jsx("span", { children: props.textRelevancia })] })), props.isPostReview && (jsxRuntime.jsx("div", { style: {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
