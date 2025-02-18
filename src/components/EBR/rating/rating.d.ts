@@ -48,4 +48,8 @@ export interface IRating {
   removeEvaluation?: any;
 
   evaluationType?: any;
+
+  isUserLoggedChallenge?: boolean;
+
+  valueRatingOwner?: string;
 }

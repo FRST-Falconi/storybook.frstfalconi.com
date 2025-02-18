@@ -97,10 +97,11 @@ ChallengeWithInfoViews.args = {
   handleRelevanciaChange: (e) => console.log('e', e),
   handleLikeClick: () => alert('Click'),
   removeEvaluation: () => console.log('removeEvaluation'),
-  
+  valueRatingRelevancia: '4',
+  valueRatingImpacto: '3',
   textTotalView: '12 Visualizações',
   handleClickTextTotalViews: () => alert('Click Views'),
-
+  isUserLoggedChallenge: true,
   isCommentV2: true,
   childrenCommentV2: (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '50px' }}>MICROFONT COMMENTS</div>

@@ -24,7 +24,10 @@ interface IFeedInteraction {
   isPostReview?: boolean
   ratingPostReview?: number
   removeEvaluation?: any
+  valueRatingImpacto?: string
+  valueRatingRelevancia?: string
   userAvatar?: string
+  isUserLoggedChallenge?: boolean
   textLoadMoreComments?: string
   isDisabledAvaluation?: boolean
   style?: React.CSSProperties
@@ -212,6 +215,7 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     flexDirection: 'column'
                   }}
                 >
+
                   <Rating
                     isVisibleNumberRating={false}
                     orientation="horizontal"
@@ -223,6 +227,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     handleRating={handleImpactoChangeClick} 
                     removeEvaluation={props?.removeEvaluation}
                     evaluationType="impact"
+                    isUserLoggedChallenge={props?.isUserLoggedChallenge}
+                    valueRatingOwner={props?.valueRatingImpacto}
                   />
                   <span>{props.textImpacto}</span>
                 </div>
@@ -248,6 +254,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
                     handleRating={handleRelevanciaChangeClick}
                     removeEvaluation={props?.removeEvaluation}
                     evaluationType="relevance"
+                    isUserLoggedChallenge={props?.isUserLoggedChallenge}
+                    valueRatingOwner={props?.valueRatingRelevancia}
                   />
                   <span>{props.textRelevancia}</span>
                 </div>
