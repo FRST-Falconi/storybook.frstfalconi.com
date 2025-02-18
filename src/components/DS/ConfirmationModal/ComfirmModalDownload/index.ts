@@ -1,0 +1,1 @@
+export { ComfirmModalDownload } from './ComfirmModalDownload'
