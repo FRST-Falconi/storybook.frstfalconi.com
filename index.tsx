@@ -98,7 +98,7 @@ export { default as ImpedimentosTab } from './src/components/DS/impedimentosTab'
 export { HypothesisAndImpediment } from './src/components/DS/hypotesisAndImpediment'
 export { ProgressGoalBar } from './src/components/DS/progressGoalBar'
 export { ResultFilterTabs } from './src/components/DS/resultFilterTabs'
-export { ConfirmationModal } from './src/components/DS/ConfirmationModal'
+export { ComfirmModalDownload, ConfirmationModal } from './src/components/DS/ConfirmationModal'
 
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'

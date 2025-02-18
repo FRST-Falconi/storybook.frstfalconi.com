@@ -1,5 +1,5 @@
 import React from 'react'
-import { ConfirmationModal } from '../index'
+import { ConfirmationModal } from '../ConfirmationModal'
 
 interface ModalDownloadProps {
     handleCloseModal: () => void
