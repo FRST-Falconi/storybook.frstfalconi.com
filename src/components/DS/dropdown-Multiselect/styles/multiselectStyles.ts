@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const containerSelect = styled.div`
+export const containerSelect = styled.div<{ width?: string }>`
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: row-reverse;
     gap: 12px;
-    width: 600px;
+    width: ${({ width }) => (width ? width : '600px')};
     min-height: 48px;
     position: relative;
 
@@ -50,7 +50,7 @@ export const customSelect = styled.div`
         top: 0;
 
         :hover {
-            border: 1px solid #F18624;
+            border: 1px solid #f18624;
         }
 
         .p-placeholder {
@@ -71,13 +71,11 @@ export const customSelect = styled.div`
             align-items: center;
             flex-wrap: wrap;
         }
-        
     }
     .p-multiselect:not(.p-disabled).p-focus {
         box-shadow: none;
         border: 2px #f26818 solid;
     }
-
 `
 
 export const searchAndButton = styled.div`
@@ -86,22 +84,29 @@ export const searchAndButton = styled.div`
     flex-direction: column;
 `
 
-export const selectItem = styled.div`
+export const selectItem = styled.div<{ width?: string }>`
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: 'PT Sans';
     font-size: 16px;
     font-weight: 400;
-    color: ${props => props.theme.colors.neutralsGrey1};
+    width: ${({ width }) => (width ? width : '600px')};
+    color: ${(props) => props.theme.colors.neutralsGrey1};
+`
 
+export const TextContainer = styled.div`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 `
 
 export const selectTag = styled.div`
     display: inline-flex;
     align-items: center;
     min-height: 32px;
-    background: #00828C;
+    background: #00828c;
     border-radius: 4px;
     gap: 8px;
     padding: 4px 8px;
@@ -109,7 +114,7 @@ export const selectTag = styled.div`
     z-index: 999;
 
     :hover {
-        background: #1F6E74;
+        background: #1f6e74;
     }
 
     & > p {
@@ -118,11 +123,11 @@ export const selectTag = styled.div`
         font-weight: 700;
         line-height: 18.12px;
         text-align: left;
-        color: ${props => props.theme.colors.shadeWhite};
-            overflow: hidden;
+        color: ${(props) => props.theme.colors.shadeWhite};
+        overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 2; 
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
 `
@@ -134,8 +139,8 @@ export const overShowInfo = styled.div`
     z-index: 999;
     cursor: pointer;
 
-    & :hover{
-        color: ${props => props.theme.colors.neutralsGrey1};
+    & :hover {
+        color: ${(props) => props.theme.colors.neutralsGrey1};
     }
 
     & > p {
@@ -144,7 +149,7 @@ export const overShowInfo = styled.div`
         font-weight: 700;
         line-height: 18.12px;
         text-align: center;
-        color: ${props => props.theme.colors.neutralsGrey2};
+        color: ${(props) => props.theme.colors.neutralsGrey2};
     }
 `
 
@@ -154,8 +159,8 @@ export const modalContainer = styled.div`
 
     display: flex;
     flex-direction: column;
-    background: ${props => props.theme.colors.shadeWhite};
-    border: 2px solid ${props => props.theme.colors.borderPrimary};
+    background: ${(props) => props.theme.colors.shadeWhite};
+    border: 2px solid ${(props) => props.theme.colors.borderPrimary};
     border-radius: 16px;
     position: absolute;
     left: 50%;
@@ -171,7 +176,7 @@ export const modalHeader = styled.div`
         font-weight: 700;
         font-size: 18px;
         line-height: 21.11px;
-        color: ${props => props.theme.colors.neutralsGrey1};
+        color: ${(props) => props.theme.colors.neutralsGrey1};
     }
 `
 
@@ -191,7 +196,7 @@ export const modalContent = styled.div`
     ::-webkit-scrollbar-thumb {
         width: 4px;
         border-radius: 12px;
-        background: #BDBDBD;
+        background: #bdbdbd;
     }
 `
 
@@ -208,7 +213,7 @@ export const cardTitle = styled.div`
     font-size: 16px;
     line-height: 17.6px;
     font-weight: 700;
-    color: ${props => props.theme.colors.neutralsGrey1};;
+    color: ${(props) => props.theme.colors.neutralsGrey1};
 `
 
 export const cardDescription = styled.div`
@@ -216,7 +221,7 @@ export const cardDescription = styled.div`
     font-size: 16px;
     line-height: 17.6px;
     font-weight: 400;
-    color: ${props => props.theme.colors.neutralsGrey1};;
+    color: ${(props) => props.theme.colors.neutralsGrey1};
 `
 
 export const closeModal = styled.div`

@@ -86,6 +86,7 @@ export { default as TotalizerCard } from './src/components/totalizer-card'
 
 // Quasar design system
 export { default as Tooltip } from './src/components/DS/tooltip'
+export { TooltipV2 } from './src/components/DS/tooltip'
 export { default as Select } from './src/components/DS/select'
 export { default as Modal } from './src/components/DS/modal'
 export { default as GroupsTable } from './src/components/DS/groups-table'
