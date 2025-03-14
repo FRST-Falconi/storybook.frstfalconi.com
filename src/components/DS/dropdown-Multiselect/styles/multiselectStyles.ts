@@ -102,11 +102,11 @@ export const TextContainer = styled.div`
     max-width: 100%;
 `
 
-export const selectTag = styled.div`
+export const selectTag = styled.div<{ isVariant?: boolean }>`
     display: inline-flex;
     align-items: center;
     min-height: 32px;
-    background: #00828c;
+    background: ${({ isVariant }) => (isVariant ? '#6A3F86' : '#00828c')};
     border-radius: 4px;
     gap: 8px;
     padding: 4px 8px;
@@ -114,7 +114,7 @@ export const selectTag = styled.div`
     z-index: 999;
 
     :hover {
-        background: #1f6e74;
+        background: ${({ isVariant }) => (isVariant ? '#6A3F86' : '#1f6e74')};
     }
 
     & > p {
