@@ -46,6 +46,7 @@ type ISelectedValue = {
     name: string
     description: string
     subDescription?: string
+    isVariant?: boolean
 }[]
 
 export default function DropdownMultiselect(props: IDropdownMultiselect) {
@@ -146,18 +147,18 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                             return props.optionLayout ? (
                                 props.optionLayout(item)
                             ) : (
-                                <S.selectTag key={index} id="tag-container">
+                                <S.selectTag key={index} id="tag-container" isVariant={!!item?.isVariant}>
                                     {canShowAvatar && <Avatar src={item.avatar} size="24px" />}
-                                    <p> {item.name} </p>
+                                    <p> {item?.name} </p>
                                     <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
                                         <CloseIcon width="8" height="8" fill="#FFFFFF" />
                                     </IconButton>
                                 </S.selectTag>
                             )
-                        } else if (index === props.maxSelectedShow) {
+                        } else if (index === props?.maxSelectedShow) {
                             return (
                                 <S.overShowInfo key={index} onClick={() => setShowModal(true)} id="number-people">
-                                    <p>{`+ ${pessoasAMais} ${pessoasAMais > 1 ? props.people : props.person}`}</p>
+                                    <p>{`+ ${pessoasAMais} ${pessoasAMais > 1 ? props?.people : props?.person}`}</p>
                                 </S.overShowInfo>
                             )
                         }
