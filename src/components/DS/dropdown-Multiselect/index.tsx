@@ -147,7 +147,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                             return props.optionLayout ? (
                                 props.optionLayout(item)
                             ) : (
-                                <S.selectTag key={index} id="tag-container" isVariant={item?.isVariant || false}>
+                                <S.selectTag key={index} id="tag-container" isVariant={!!item?.isVariant}>
                                     {canShowAvatar && <Avatar src={item.avatar} size="24px" />}
                                     <p> {item?.name} </p>
                                     <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>

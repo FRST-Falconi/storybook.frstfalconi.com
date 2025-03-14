@@ -23744,7 +23744,7 @@ function DropdownMultiselect(props) {
         if (option) {
             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: option.map((item, index) => {
                     if (index < props.maxSelectedShow) {
-                        return props.optionLayout ? (props.optionLayout(item)) : (jsxRuntime.jsxs(selectTag, { id: "tag-container", isVariant: item?.isVariant || false, children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs("p", { children: [" ", item?.name, " "] }), jsxRuntime.jsx(material.IconButton, { id: "close-icon", onClick: () => removeSelectedValue(item.id), children: jsxRuntime.jsx(CloseIcon, { width: "8", height: "8", fill: "#FFFFFF" }) })] }, index));
+                        return props.optionLayout ? (props.optionLayout(item)) : (jsxRuntime.jsxs(selectTag, { id: "tag-container", isVariant: !!item?.isVariant, children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs("p", { children: [" ", item?.name, " "] }), jsxRuntime.jsx(material.IconButton, { id: "close-icon", onClick: () => removeSelectedValue(item.id), children: jsxRuntime.jsx(CloseIcon, { width: "8", height: "8", fill: "#FFFFFF" }) })] }, index));
                     }
                     else if (index === props?.maxSelectedShow) {
                         return (jsxRuntime.jsx(overShowInfo, { onClick: () => setShowModal(true), id: "number-people", children: jsxRuntime.jsx("p", { children: `+ ${pessoasAMais} ${pessoasAMais > 1 ? props?.people : props?.person}` }) }, index));
