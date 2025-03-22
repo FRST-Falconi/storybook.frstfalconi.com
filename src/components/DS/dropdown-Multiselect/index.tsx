@@ -109,31 +109,27 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         const fullText = variantModeDescritpion
             ? `${item?.name} ${item?.description ? `- ${item.description}` : ''} ${
                   item?.subDescription ? `- ${item.subDescription}` : ''
-              }`
+              } ${!!item?.isVariant ? ' (Externo)' : ""}`
             : `${item?.name} ${item?.description ? `(${item?.description})` : ''}`
+
         return (
-            <TooltipV2
-                style={{ maxWidth: '275px' }}
-                children={
-                    <S.selectItem id="select-items" width={width}>
-                        {canShowAvatar && <Avatar src={item.avatar} size="24px" />}
-                        <S.TextContainer>
-                            {item?.name}
-                            {variantModeDescritpion ? (
-                                item?.description &&
-                                ' ' + `- ${item.description}` + item?.subDescription &&
-                                ' ' + `- ${item.subDescription}`
-                            ) : (
-                                <span style={{ color: '#757575' }}>
-                                    {' '}
-                                    {item?.description && `(${item.description})`}{' '}
-                                </span>
-                            )}
-                        </S.TextContainer>
-                    </S.selectItem>
-                }
-                content={fullText}
-            />
+            <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
+                <S.selectItem id="select-items" width={width}>
+                    {canShowAvatar && <Avatar src={item.avatar} size="24px" />}
+                    <S.TextContainer>
+                        {item?.name}
+                        {variantModeDescritpion ? (
+                            <>
+                                {!!item?.description && ` - ${item.description}`}
+                                {!!item?.subDescription && ` - ${item.subDescription}`}
+                                {!!item?.isVariant && <span style={{ color: '#757575' }}>{` (Externo)`}</span>}
+                            </>
+                        ) : (
+                            item?.description && <span style={{ color: '#757575' }}> ({item.description}) </span>
+                        )}
+                    </S.TextContainer>
+                </S.selectItem>
+            </TooltipV2>
         )
     }
 

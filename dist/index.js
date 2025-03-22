@@ -23733,11 +23733,9 @@ function DropdownMultiselect(props) {
     };
     const itemTemplate = (item) => {
         const fullText = variantModeDescritpion
-            ? `${item?.name} ${item?.description ? `- ${item.description}` : ''} ${item?.subDescription ? `- ${item.subDescription}` : ''}`
+            ? `${item?.name} ${item?.description ? `- ${item.description}` : ''} ${item?.subDescription ? `- ${item.subDescription}` : ''} ${!!item?.isVariant ? ' (Externo)' : ""}`
             : `${item?.name} ${item?.description ? `(${item?.description})` : ''}`;
-        return (jsxRuntime.jsx(TooltipV2, { style: { maxWidth: '275px' }, children: jsxRuntime.jsxs(selectItem, { id: "select-items", width: width, children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs(TextContainer, { children: [item?.name, variantModeDescritpion ? (item?.description &&
-                                ' ' + `- ${item.description}` + item?.subDescription &&
-                                ' ' + `- ${item.subDescription}`) : (jsxRuntime.jsxs("span", { style: { color: '#757575' }, children: [' ', item?.description && `(${item.description})`, ' '] }))] })] }), content: fullText }));
+        return (jsxRuntime.jsx(TooltipV2, { style: { maxWidth: '275px' }, content: fullText, children: jsxRuntime.jsxs(selectItem, { id: "select-items", width: width, children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs(TextContainer, { children: [item?.name, variantModeDescritpion ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!!item?.description && ` - ${item.description}`, !!item?.subDescription && ` - ${item.subDescription}`, !!item?.isVariant && jsxRuntime.jsx("span", { style: { color: '#757575' }, children: ` (Externo)` })] })) : (item?.description && jsxRuntime.jsxs("span", { style: { color: '#757575' }, children: [" (", item.description, ") "] }))] })] }) }));
     };
     const selectTemplate = (option) => {
         const pessoasAMais = selectedValues?.length - props.maxSelectedShow;
