@@ -204,10 +204,11 @@ lazyLoad.args = {
     people: 'pessoas',
     person: 'pessoa',
     getSelectedItems: (item) => console.log('Selecionado: ', item),
-    listItems: Array.from({ length: 10000 }).map((_, i) => ({
+    listItems: Array.from({ length: 99 }).map((_, i) => ({
         id: i,
         name: `Name ${i}`,
         description: `Description ${i}`,
-        avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg'
+        avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg',
+        isVariant: true
     }))
 }

@@ -115,7 +115,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
                 <S.selectItem id="select-items" width={width}>
-                    {canShowAvatar && <Avatar src={item?.isVariant ? externalAvatarSvg : item.avatar} size="24px" />}
+                    {canShowAvatar && item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />}
                     <S.TextContainer>
                         {item?.name}
                         {variantModeDescritpion ? (
@@ -144,9 +144,12 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                 props.optionLayout(item)
                             ) : (
                                 <S.selectTag key={index} id="tag-container" isVariant={!!item?.isVariant}>
-                                    {canShowAvatar && (
-                                        <Avatar src={item?.isVariant ? externalAvatarSvg : item.avatar} size="24px" />
-                                    )}
+                                    {canShowAvatar &&
+                                        (item?.isVariant ? (
+                                            <ExternalAvatar />
+                                        ) : (
+                                            <Avatar src={item?.avatar} size="50px" />
+                                        ))}
                                     <p> {item?.name} </p>
                                     <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
                                         <CloseIcon width="8" height="8" fill="#FFFFFF" />
@@ -227,12 +230,12 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                             return (
                                 <S.modalCards style={{ background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }} key={index}>
                                     <div style={{ display: 'flex', gap: '12px' }}>
-                                        {canShowAvatar && (
-                                            <Avatar
-                                                src={item?.isVariant ? externalAvatarSvg : item?.avatar}
-                                                size="50px"
-                                            />
-                                        )}
+                                        {canShowAvatar &&
+                                            (item?.isVariant ? (
+                                                <ExternalAvatar />
+                                            ) : (
+                                                <Avatar src={item?.avatar} size="50px" />
+                                            ))}
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                                             <S.cardTitle> {item?.name} </S.cardTitle>
                                             <S.cardDescription> {item?.description} </S.cardDescription>
@@ -364,18 +367,20 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     )
 }
 
-const externalAvatarSvg = (
-    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_681_7706)">
-            <path
-                d="M12.5231 0.333496C6.08311 0.333496 0.856445 5.56016 0.856445 12.0002C0.856445 18.4402 6.08311 23.6668 12.5231 23.6668C18.9631 23.6668 24.1898 18.4402 24.1898 12.0002C24.1898 5.56016 18.9631 0.333496 12.5231 0.333496ZM12.5231 3.8335C14.4598 3.8335 16.0231 5.39683 16.0231 7.3335C16.0231 9.27016 14.4598 10.8335 12.5231 10.8335C10.5864 10.8335 9.02311 9.27016 9.02311 7.3335C9.02311 5.39683 10.5864 3.8335 12.5231 3.8335ZM12.5231 20.4002C9.60645 20.4002 7.02811 18.9068 5.52311 16.6435C5.55811 14.3218 10.1898 13.0502 12.5231 13.0502C14.8448 13.0502 19.4881 14.3218 19.5231 16.6435C18.0181 18.9068 15.4398 20.4002 12.5231 20.4002Z"
-                fill="#6A3F86"
-            />
-        </g>
-        <defs>
-            <clipPath id="clip0_681_7706">
-                <rect width="24" height="24" fill="white" transform="translate(0.130859)" />
-            </clipPath>
-        </defs>
-    </svg>
-)
+const ExternalAvatar = ({ size = '24' }) => {
+    return (
+        <svg width={size} height={size} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_681_7706)">
+                <path
+                    d="M12.5231 0.333496C6.08311 0.333496 0.856445 5.56016 0.856445 12.0002C0.856445 18.4402 6.08311 23.6668 12.5231 23.6668C18.9631 23.6668 24.1898 18.4402 24.1898 12.0002C24.1898 5.56016 18.9631 0.333496 12.5231 0.333496ZM12.5231 3.8335C14.4598 3.8335 16.0231 5.39683 16.0231 7.3335C16.0231 9.27016 14.4598 10.8335 12.5231 10.8335C10.5864 10.8335 9.02311 9.27016 9.02311 7.3335C9.02311 5.39683 10.5864 3.8335 12.5231 3.8335ZM12.5231 20.4002C9.60645 20.4002 7.02811 18.9068 5.52311 16.6435C5.55811 14.3218 10.1898 13.0502 12.5231 13.0502C14.8448 13.0502 19.4881 14.3218 19.5231 16.6435C18.0181 18.9068 15.4398 20.4002 12.5231 20.4002Z"
+                    fill="#6A3F86"
+                />
+            </g>
+            <defs>
+                <clipPath id="clip0_681_7706">
+                    <rect width={size} height={size} fill="white" transform="translate(0.130859)" />
+                </clipPath>
+            </defs>
+        </svg>
+    )
+}
