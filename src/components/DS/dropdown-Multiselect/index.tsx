@@ -146,9 +146,9 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                 <S.selectTag key={index} id="tag-container" isVariant={!!item?.isVariant}>
                                     {canShowAvatar &&
                                         (item?.isVariant ? (
-                                            <ExternalAvatar />
+                                            externaAvatarBackgroundWhite
                                         ) : (
-                                            <Avatar src={item?.avatar} size="50px" />
+                                            <Avatar src={item?.avatar} size="24px" />
                                         ))}
                                     <p> {item?.name} </p>
                                     <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
@@ -232,7 +232,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                     <div style={{ display: 'flex', gap: '12px' }}>
                                         {canShowAvatar &&
                                             (item?.isVariant ? (
-                                                <ExternalAvatar />
+                                                <ExternalAvatar size="50px" />
                                             ) : (
                                                 <Avatar src={item?.avatar} size="50px" />
                                             ))}
@@ -369,18 +369,27 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
 const ExternalAvatar = ({ size = '24' }) => {
     return (
-        <svg width={size} height={size} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_681_7706)">
+        <svg width={size} height={size} viewBox="0 0 25 24" fill="white">
+            <g>
                 <path
                     d="M12.5231 0.333496C6.08311 0.333496 0.856445 5.56016 0.856445 12.0002C0.856445 18.4402 6.08311 23.6668 12.5231 23.6668C18.9631 23.6668 24.1898 18.4402 24.1898 12.0002C24.1898 5.56016 18.9631 0.333496 12.5231 0.333496ZM12.5231 3.8335C14.4598 3.8335 16.0231 5.39683 16.0231 7.3335C16.0231 9.27016 14.4598 10.8335 12.5231 10.8335C10.5864 10.8335 9.02311 9.27016 9.02311 7.3335C9.02311 5.39683 10.5864 3.8335 12.5231 3.8335ZM12.5231 20.4002C9.60645 20.4002 7.02811 18.9068 5.52311 16.6435C5.55811 14.3218 10.1898 13.0502 12.5231 13.0502C14.8448 13.0502 19.4881 14.3218 19.5231 16.6435C18.0181 18.9068 15.4398 20.4002 12.5231 20.4002Z"
                     fill="#6A3F86"
                 />
             </g>
             <defs>
-                <clipPath id="clip0_681_7706">
-                    <rect width={size} height={size} fill="white" transform="translate(0.130859)" />
+                <clipPath>
+                    <rect width={size} height={size} fill="white" />
                 </clipPath>
             </defs>
         </svg>
     )
 }
+
+const externaAvatarBackgroundWhite = (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M11.9997 0.333496C5.55967 0.333496 0.333008 5.56016 0.333008 12.0002C0.333008 18.4402 5.55967 23.6668 11.9997 23.6668C18.4397 23.6668 23.6663 18.4402 23.6663 12.0002C23.6663 5.56016 18.4397 0.333496 11.9997 0.333496ZM11.9997 3.8335C13.9363 3.8335 15.4997 5.39683 15.4997 7.3335C15.4997 9.27016 13.9363 10.8335 11.9997 10.8335C10.063 10.8335 8.49967 9.27016 8.49967 7.3335C8.49967 5.39683 10.063 3.8335 11.9997 3.8335ZM11.9997 20.4002C9.08301 20.4002 6.50467 18.9068 4.99967 16.6435C5.03467 14.3218 9.66634 13.0502 11.9997 13.0502C14.3213 13.0502 18.9647 14.3218 18.9997 16.6435C17.4947 18.9068 14.9163 20.4002 11.9997 20.4002Z"
+            fill="white"
+        />
+    </svg>
+)
