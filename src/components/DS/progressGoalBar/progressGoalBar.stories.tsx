@@ -1,15 +1,15 @@
 import React from 'react'
-import {ProgressGoalBar} from './index'
+import { ProgressGoalBar } from './index'
 
 export default {
-    title: 'DS/ProgressGoalBar',
+    title: 'Components/ProgressGoalBar',
     component: ProgressGoalBar
 }
 
 const Template = (args) => <ProgressGoalBar {...args} />
 
 //atingiu a meta
-export const reachedGoalIncrease  = Template.bind({})
+export const reachedGoalIncrease = Template.bind({})
 reachedGoalIncrease.args = {
     start: 5,
     current: 12,
@@ -17,7 +17,7 @@ reachedGoalIncrease.args = {
     isVisibleMessage: true
 }
 
-export const stabilizeExceeding  = Template.bind({})
+export const stabilizeExceeding = Template.bind({})
 stabilizeExceeding.args = {
     start: 12,
     current: 34,
@@ -25,7 +25,7 @@ stabilizeExceeding.args = {
     isVisibleMessage: true
 }
 
-export const stabilize  = Template.bind({})
+export const stabilize = Template.bind({})
 stabilize.args = {
     start: 10, //inicio
     current: 10, //valor final
@@ -41,7 +41,7 @@ reachedGoalDecreased.args = {
 }
 
 //superou a meta
-export const exceededTargetIncrease   = Template.bind({})
+export const exceededTargetIncrease = Template.bind({})
 exceededTargetIncrease.args = {
     start: 10,
     current: 90,
@@ -66,7 +66,7 @@ GrowingWithoutReachingGoal.args = {
 export const DecreasingWithoutGoal = Template.bind({})
 DecreasingWithoutGoal.args = {
     start: 40,
-    current: 15, // 
+    current: 15, //
     goal: 5
 }
 
@@ -81,27 +81,27 @@ noResultsIncrease.args = {
 export const noResultsDecreased = Template.bind({})
 noResultsDecreased.args = {
     start: 40,
-    current: 40,    //diminuir de 40 para 5
+    current: 40, //diminuir de 40 para 5
     goal: 5
 }
 
 export const noGoalIncrease = Template.bind({})
 noGoalIncrease.args = {
     start: 60,
-    current: 50,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
+    current: 50, //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
     goal: 80
 }
 
 export const noGoalDecreased = Template.bind({})
 noGoalDecreased.args = {
     start: 20,
-    current: 30,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
+    current: 30, //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
     goal: 5
 }
 
 export const stabilizeDecreased = Template.bind({})
 stabilizeDecreased.args = {
     start: 1000,
-    current: 999,   //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
+    current: 999, //Este resultado não atingiu a meta definida e regrediu em relação ao valor inicial.
     goal: 1000
 }
