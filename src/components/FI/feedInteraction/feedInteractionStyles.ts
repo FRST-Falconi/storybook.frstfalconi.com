@@ -4,7 +4,7 @@ export const Container = styled.div`
     padding: 1px 24px 0px 24px;
     display: flex;
     flex-direction: column;
-    background-color: ${({theme}) => theme.colors.shadeWhite};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -43,7 +43,7 @@ export const info = styled.div`
     flex-direction: row;
     position: absolute;
     margin-bottom: 12px;
-    ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
 `
 
 export const infoWithView = styled.div`
@@ -52,7 +52,12 @@ export const infoWithView = styled.div`
     align-items: center;
     flex-direction: row;
     margin-bottom: 12px;
-    ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
+
+    font-family: PT Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: 0%;
 `
 
 export const buttonsContent = styled.div`
@@ -70,16 +75,15 @@ export const buttons = styled.button`
     flex-direction: row;
     border: none;
     background-color: inherit;
-    ${({theme}) => theme.fonts.textMessageComponentsBodyBold};
-    color: ${({theme}) => theme.colors.linkOnfocus};
-    
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
+    color: ${({ theme }) => theme.colors.neutralsGrey2};
+
     cursor: pointer;
     gap: 8px;
 
-    &:hover{
-        color: ${({theme}) => theme.colors.linkHover};
+    &:hover {
+        color: ${({ theme }) => theme.colors.linkHover};
     }
-
 `
 
 export const reviewContainer = styled.div`
@@ -88,7 +92,7 @@ export const reviewContainer = styled.div`
     align-items: center;
     flex-direction: column;
     margin-top: 28px;
-    ${({theme}) => theme.fonts.textMessageComponentsBodyBold};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
 `
 
 export const reviewContent = styled.div`
