@@ -115,7 +115,8 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
                 <S.selectItem id="select-items" width={width}>
-                    {canShowAvatar && item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />}
+                    {canShowAvatar &&
+                        (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
                     <S.TextContainer>
                         {item?.name}
                         {variantModeDescritpion ? (
