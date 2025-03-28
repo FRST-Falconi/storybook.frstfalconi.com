@@ -2,6 +2,7 @@ import styled from 'styled-components'
 interface IProps {
   selectedItem: boolean
   isOldAccordionList?: boolean
+  darkMode?: boolean
 }
 
 export const StylesAccordionList = styled.div<IProps>`
@@ -10,7 +11,7 @@ export const StylesAccordionList = styled.div<IProps>`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  border: ${({ isOldAccordionList }) => !isOldAccordionList && `1px solid #CFD9E6`};
+  border: ${({ isOldAccordionList, darkMode }) => !isOldAccordionList && darkMode ? '1px solid #222222' : `1px solid #CFD9E6`};
   border-radius: ${({ isOldAccordionList }) => !isOldAccordionList && `8px 8px 0px 0px`};  
   &.open {
     border-radius: 8px 8px 0px 0px;
@@ -20,6 +21,7 @@ export const StylesAccordionList = styled.div<IProps>`
   .title {
     font-family: 'Work Sans';
     font-weight: ${({ selectedItem, isOldAccordionList }) => (selectedItem && !isOldAccordionList ? '600' : 'normal')};
+    color: ${({darkMode}) => darkMode ? '#EBEBEB' : '#343434'};
     ::selection {
       color: inherit;
       background: transparent;
@@ -32,7 +34,7 @@ export const StylesAccordionList = styled.div<IProps>`
     align-items: flex-start; /* Modificado para alinhar verticalmente */
     justify-content: space-between;
     padding: 19px 24px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    background-color: ${({ theme, darkMode }) => darkMode ? '#323232' : theme.colors.shadeWhite};
     cursor: pointer;
     position: relative; /* Permite a seta ficar fixada à direita */
     
@@ -45,7 +47,7 @@ export const StylesAccordionList = styled.div<IProps>`
     }
 
     &:hover {
-      background: ${({ isOldAccordionList }) => !isOldAccordionList && `#EDF3F9`};
+      background: ${({ isOldAccordionList, darkMode }) => !isOldAccordionList && darkMode ? '#464646' : `#EDF3F9`};
     }
 
     /* Coloca o título e progress bar em uma coluna */
@@ -96,9 +98,9 @@ export const ContainerComplete = styled.div`
   gap: 8px;
 `
 
-export const CompleteText = styled.p`
+export const CompleteText = styled.p<{darkMode?: boolean}>`
   font-family: 'PT Sans';
   font-size: 12px;
   font-weight: 700;
-  color: #444444;
+  color: ${({darkMode}) => darkMode ? '#E0E0E0' : '#444444'};
 `
