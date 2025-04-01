@@ -16,6 +16,7 @@ type TAccordionListprops = {
   style?: React.CSSProperties
   isOldAccordionList?: boolean
   value?: number,
+  darkMode?: boolean
 }
 
 export default function AccordionList({
@@ -26,7 +27,8 @@ export default function AccordionList({
   isOldAccordionList = true,
   selectedItem,
   style = {} ,
-  value
+  value,
+  darkMode = false
 }: TAccordionListprops) {
   const [open, setOpen] = useState(isOpen)
   const [selected, setSelected] = useState(selectedItem)
@@ -44,7 +46,7 @@ export default function AccordionList({
   }, [selectedItem])
 
   return (
-    <S.StylesAccordionList theme={FRSTTheme} selectedItem={selected} style={{ ...style }} isOldAccordionList={isOldAccordionList} className={selected ? 'open' : 'closed'}>
+    <S.StylesAccordionList darkMode={darkMode} theme={FRSTTheme} selectedItem={selected} style={{ ...style }} isOldAccordionList={isOldAccordionList} className={selected ? 'open' : 'closed'}>
       <div onClick={handleSetOpen} className={selected ? 'header open' : 'header closed'}>
         <div className="title-container">
           <p className="title">{title}</p>
@@ -52,18 +54,18 @@ export default function AccordionList({
             !isOldAccordionList && value === 100 ? (
               <S.ContainerComplete>
               <Check_circle /> {/* Ícone antes de "Completo" */}
-              <S.CompleteText>Completo</S.CompleteText>
+              <S.CompleteText darkMode={darkMode}>Completo</S.CompleteText>
             </S.ContainerComplete>
             ) : (
               !isOldAccordionList && 
               <Box width={'135px'} marginTop={'22px'}>
-                <ProgressBar bgColor='#F26818' value={value} trackColor='#E0E0E0' colorText='#444444'/>
+                <ProgressBar bgColor='#F26818' value={value} trackColor='#E0E0E0' colorText={darkMode ? '#EBEBEB' : '#444444'}/>
               </Box>
             )
           }
         </div>
         <span className={open ? 'open' : 'closed'}>
-          <ArrowScrollLeft height="16" width="16" />
+          <ArrowScrollLeft height="16" width="16" fill={darkMode ? 'white' : 'black'} />
         </span>
       </div>
       {open && <div className="listContent">{children}</div>}

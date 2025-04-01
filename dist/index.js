@@ -16633,7 +16633,7 @@ const StylesAccordionList = styled__default["default"].div `
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  border: ${({ isOldAccordionList }) => !isOldAccordionList && `1px solid #CFD9E6`};
+  border: ${({ isOldAccordionList, darkMode }) => !isOldAccordionList && darkMode ? '1px solid #222222' : `1px solid #CFD9E6`};
   border-radius: ${({ isOldAccordionList }) => !isOldAccordionList && `8px 8px 0px 0px`};  
   &.open {
     border-radius: 8px 8px 0px 0px;
@@ -16643,6 +16643,7 @@ const StylesAccordionList = styled__default["default"].div `
   .title {
     font-family: 'Work Sans';
     font-weight: ${({ selectedItem, isOldAccordionList }) => (selectedItem && !isOldAccordionList ? '600' : 'normal')};
+    color: ${({ darkMode }) => darkMode ? '#EBEBEB' : '#343434'};
     ::selection {
       color: inherit;
       background: transparent;
@@ -16655,7 +16656,7 @@ const StylesAccordionList = styled__default["default"].div `
     align-items: flex-start; /* Modificado para alinhar verticalmente */
     justify-content: space-between;
     padding: 19px 24px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    background-color: ${({ theme, darkMode }) => darkMode ? '#323232' : theme.colors.shadeWhite};
     cursor: pointer;
     position: relative; /* Permite a seta ficar fixada à direita */
     
@@ -16668,7 +16669,7 @@ const StylesAccordionList = styled__default["default"].div `
     }
 
     &:hover {
-      background: ${({ isOldAccordionList }) => !isOldAccordionList && `#EDF3F9`};
+      background: ${({ isOldAccordionList, darkMode }) => !isOldAccordionList && darkMode ? '#464646' : `#EDF3F9`};
     }
 
     /* Coloca o título e progress bar em uma coluna */
@@ -16721,10 +16722,10 @@ const CompleteText = styled__default["default"].p `
   font-family: 'PT Sans';
   font-size: 12px;
   font-weight: 700;
-  color: #444444;
+  color: ${({ darkMode }) => darkMode ? '#E0E0E0' : '#444444'};
 `;
 
-function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen, isOldAccordionList = true, selectedItem, style = {}, value }) {
+function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen, isOldAccordionList = true, selectedItem, style = {}, value, darkMode = false }) {
     const [open, setOpen] = React.useState(isOpen);
     const [selected, setSelected] = React.useState(selectedItem);
     const handleSetOpen = () => {
@@ -16737,8 +16738,8 @@ function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpe
         }
         setSelected(selectedItem);
     }, [selectedItem]);
-    return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, selectedItem: selected, style: { ...style }, isOldAccordionList: isOldAccordionList, className: selected ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: selected ? 'header open' : 'header closed', children: [jsxRuntime.jsxs("div", { className: "title-container", children: [jsxRuntime.jsx("p", { className: "title", children: title }), !isOldAccordionList && value === 100 ? (jsxRuntime.jsxs(ContainerComplete, { children: [jsxRuntime.jsx(Check_circle, {}), " ", jsxRuntime.jsx(CompleteText, { children: "Completo" })] })) : (!isOldAccordionList &&
-                                jsxRuntime.jsx(material.Box, { width: '135px', marginTop: '22px', children: jsxRuntime.jsx(ProgressBar$1, { bgColor: '#F26818', value: value, trackColor: '#E0E0E0', colorText: '#444444' }) }))] }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
+    return (jsxRuntime.jsxs(StylesAccordionList, { darkMode: darkMode, theme: FRSTTheme, selectedItem: selected, style: { ...style }, isOldAccordionList: isOldAccordionList, className: selected ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: selected ? 'header open' : 'header closed', children: [jsxRuntime.jsxs("div", { className: "title-container", children: [jsxRuntime.jsx("p", { className: "title", children: title }), !isOldAccordionList && value === 100 ? (jsxRuntime.jsxs(ContainerComplete, { children: [jsxRuntime.jsx(Check_circle, {}), " ", jsxRuntime.jsx(CompleteText, { darkMode: darkMode, children: "Completo" })] })) : (!isOldAccordionList &&
+                                jsxRuntime.jsx(material.Box, { width: '135px', marginTop: '22px', children: jsxRuntime.jsx(ProgressBar$1, { bgColor: '#F26818', value: value, trackColor: '#E0E0E0', colorText: darkMode ? '#EBEBEB' : '#444444' }) }))] }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16", fill: darkMode ? 'white' : 'black' }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
 }
 
 const ModalNewFeaturesContainer = styled__default["default"].div `
