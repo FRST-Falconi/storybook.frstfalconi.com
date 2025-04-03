@@ -2218,7 +2218,6 @@ const TooltipV2 = ({ children, content, direction = 'bottom', style }) => {
                     display: 'inline-block'
                 }, children: children }), isVisible &&
                 ReactDOM__default["default"].createPortal(jsxRuntime.jsx("div", { style: {
-                        ...tooltipStyle,
                         zIndex: 9999,
                         background: '#fff',
                         border: '1px solid #ccc',
@@ -2228,7 +2227,8 @@ const TooltipV2 = ({ children, content, direction = 'bottom', style }) => {
                         fontSize: '14px',
                         lineHeight: '18px',
                         fontWeight: '400',
-                        color: '#757575'
+                        color: '#757575',
+                        ...tooltipStyle
                     }, children: content }), document.body)] }));
 };
 
