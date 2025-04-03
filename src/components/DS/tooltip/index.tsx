@@ -153,7 +153,6 @@ export const TooltipV2 = ({
                 ReactDOM.createPortal(
                     <div
                         style={{
-                            ...tooltipStyle,
                             zIndex: 9999,
                             background: '#fff',
                             border: '1px solid #ccc',
@@ -163,7 +162,8 @@ export const TooltipV2 = ({
                             fontSize: '14px',
                             lineHeight: '18px',
                             fontWeight: '400',
-                            color: '#757575'
+                            color: '#757575',
+                            ...tooltipStyle
                         }}
                     >
                         {content}
