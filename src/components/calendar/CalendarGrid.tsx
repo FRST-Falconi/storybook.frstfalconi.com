@@ -164,15 +164,23 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
   };
 
   const handleDateSelect = (day: number, isCurrentMonth: boolean) => {
-    const newDate = new Date(currentMonth);
+    let newDate = new Date(currentMonth);
+    
     if (!isCurrentMonth) {
       if (day > 15) {
+        // Se o dia for maior que 15, é do mês anterior
         newDate.setMonth(newDate.getMonth() - 1);
       } else {
+        // Se o dia for menor ou igual a 15, é do próximo mês
         newDate.setMonth(newDate.getMonth() + 1);
       }
     }
+
+    // Define o dia na nova data
     newDate.setDate(day);
+
+    // Atualiza o mês atual e a data selecionada
+    setCurrentMonth(new Date(newDate));
     setSelectedDate(newDate);
     onDateSelect?.(newDate);
   };
@@ -215,15 +223,21 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
           date.setDate(day);
           const hasEvents = hasEventsOnDate(date);
 
+          const isSelected = 
+            day === selectedDate.getDate() &&
+            date.getMonth() === selectedDate.getMonth() &&
+            date.getFullYear() === selectedDate.getFullYear();
+
           return (
             <Day
               key={`prev-${day}`}
               isCurrentMonth={false}
+              isSelected={isSelected}
               hasEvents={hasEvents}
               onClick={() => handleDateSelect(day, false)}
             >
               <DayNumber>{day}</DayNumber>
-              {hasEvents && <EventIndicator isSelected={false} />}
+              {hasEvents && <EventIndicator isSelected={isSelected} />}
             </Day>
           );
         })}
@@ -232,9 +246,11 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
           const date = new Date(currentMonth);
           date.setDate(day);
           const hasEvents = hasEventsOnDate(date);
-          const isSelected = day === selectedDate.getDate() &&
-            currentMonth.getMonth() === selectedDate.getMonth() &&
-            currentMonth.getFullYear() === selectedDate.getFullYear();
+
+          const isSelected = 
+            day === selectedDate.getDate() &&
+            date.getMonth() === selectedDate.getMonth() &&
+            date.getFullYear() === selectedDate.getFullYear();
 
           return (
             <Day
@@ -257,15 +273,21 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
           date.setDate(day);
           const hasEvents = hasEventsOnDate(date);
 
+          const isSelected = 
+            day === selectedDate.getDate() &&
+            date.getMonth() === selectedDate.getMonth() &&
+            date.getFullYear() === selectedDate.getFullYear();
+
           return (
             <Day
               key={`next-${day}`}
               isCurrentMonth={false}
+              isSelected={isSelected}
               hasEvents={hasEvents}
               onClick={() => handleDateSelect(day, false)}
             >
               <DayNumber>{day}</DayNumber>
-              {hasEvents && <EventIndicator isSelected={false} />}
+              {hasEvents && <EventIndicator isSelected={isSelected} />}
             </Day>
           );
         })}
