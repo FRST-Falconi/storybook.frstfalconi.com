@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
+interface CalendarEvent {
+  id: string;
+  date: Date;
+  time: string;
+  title: string;
+  canAccess?: boolean;
+}
+
 interface CalendarGridProps {
   onDateSelect?: (date: Date) => void;
   selectedDate?: Date;
+  events?: CalendarEvent[];
 }
 
 const Container = styled.div`
@@ -62,9 +71,12 @@ const Day = styled.div<{
   isSelected?: boolean; 
   isCurrentMonth?: boolean;
   isToday?: boolean;
+  hasEvents?: boolean;
 }>`
   aspect-ratio: 1;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -76,15 +88,32 @@ const Day = styled.div<{
     return '#333333';
   }};
   border-radius: 4px;
+  min-height: 36px;
   
   &:hover {
     background: ${props => !props.isSelected && '#444444'};
   }
 `;
 
+const DayNumber = styled.span`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const EventIndicator = styled.div<{ isSelected?: boolean }>`
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: ${props => props.isSelected ? '#FFFFFF' : '#FF6B2C'};
+  margin-bottom: 4px;
+`;
+
 export const CalendarGrid: React.FC<CalendarGridProps> = ({
   onDateSelect,
-  selectedDate: propSelectedDate
+  selectedDate: propSelectedDate,
+  events = []
 }) => {
   const { t } = useTranslation();
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -120,6 +149,17 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
       const newDate = new Date(prev);
       newDate.setMonth(prev.getMonth() + (direction === 'next' ? 1 : -1));
       return newDate;
+    });
+  };
+
+  const hasEventsOnDate = (date: Date) => {
+    return events.some(event => {
+      const eventDate = new Date(event.date);
+      return (
+        eventDate.getDate() === date.getDate() &&
+        eventDate.getMonth() === date.getMonth() &&
+        eventDate.getFullYear() === date.getFullYear()
+      );
     });
   };
 
@@ -169,41 +209,66 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
           <WeekDay key={day}>{day}</WeekDay>
         ))}
         
-        {prevDays.map(day => (
-          <Day
-            key={`prev-${day}`}
-            isCurrentMonth={false}
-            onClick={() => handleDateSelect(day, false)}
-          >
-            {day}
-          </Day>
-        ))}
+        {prevDays.map(day => {
+          const date = new Date(currentMonth);
+          date.setMonth(date.getMonth() - 1);
+          date.setDate(day);
+          const hasEvents = hasEventsOnDate(date);
+
+          return (
+            <Day
+              key={`prev-${day}`}
+              isCurrentMonth={false}
+              hasEvents={hasEvents}
+              onClick={() => handleDateSelect(day, false)}
+            >
+              <DayNumber>{day}</DayNumber>
+              {hasEvents && <EventIndicator isSelected={false} />}
+            </Day>
+          );
+        })}
         
-        {currentDays.map(day => (
-          <Day
-            key={`current-${day}`}
-            isCurrentMonth={true}
-            isSelected={
-              day === selectedDate.getDate() &&
-              currentMonth.getMonth() === selectedDate.getMonth() &&
-              currentMonth.getFullYear() === selectedDate.getFullYear()
-            }
-            isToday={isToday(day)}
-            onClick={() => handleDateSelect(day, true)}
-          >
-            {day}
-          </Day>
-        ))}
+        {currentDays.map(day => {
+          const date = new Date(currentMonth);
+          date.setDate(day);
+          const hasEvents = hasEventsOnDate(date);
+          const isSelected = day === selectedDate.getDate() &&
+            currentMonth.getMonth() === selectedDate.getMonth() &&
+            currentMonth.getFullYear() === selectedDate.getFullYear();
+
+          return (
+            <Day
+              key={`current-${day}`}
+              isCurrentMonth={true}
+              isSelected={isSelected}
+              isToday={isToday(day)}
+              hasEvents={hasEvents}
+              onClick={() => handleDateSelect(day, true)}
+            >
+              <DayNumber>{day}</DayNumber>
+              {hasEvents && <EventIndicator isSelected={isSelected} />}
+            </Day>
+          );
+        })}
         
-        {nextDays.map(day => (
-          <Day
-            key={`next-${day}`}
-            isCurrentMonth={false}
-            onClick={() => handleDateSelect(day, false)}
-          >
-            {day}
-          </Day>
-        ))}
+        {nextDays.map(day => {
+          const date = new Date(currentMonth);
+          date.setMonth(date.getMonth() + 1);
+          date.setDate(day);
+          const hasEvents = hasEventsOnDate(date);
+
+          return (
+            <Day
+              key={`next-${day}`}
+              isCurrentMonth={false}
+              hasEvents={hasEvents}
+              onClick={() => handleDateSelect(day, false)}
+            >
+              <DayNumber>{day}</DayNumber>
+              {hasEvents && <EventIndicator isSelected={false} />}
+            </Day>
+          );
+        })}
       </Grid>
     </Container>
   );
