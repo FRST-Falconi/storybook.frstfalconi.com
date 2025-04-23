@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Calendar from './index';
+import CalendarFrst from './index';
 
-const meta: Meta<typeof Calendar> = {
-  title: 'Components/Calendar',
-  component: Calendar,
+const meta: Meta<typeof CalendarFrst> = {
+  title: 'Components/CalendarFrst',
+  component: CalendarFrst,
   argTypes: {
     darkMode: {
       control: 'boolean',
@@ -16,7 +16,7 @@ const meta: Meta<typeof Calendar> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Calendar>;
+type Story = StoryObj<typeof CalendarFrst>;
 
 export const DarkMode: Story = {
   args: {

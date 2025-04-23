@@ -5,17 +5,33 @@ export const lightTheme = {
     bg: "#ffffff",
     text: "#1a1a1a",
     muted: "#cccccc",
-    primary: "#fa5f2d",
+    primary: "#F26818",
     secondaryBg: "#f4f4f4",
   };
   
  export const darkTheme = {
-    bg: "#2d2d2d",
+    bg: "#1a1a1a",
     text: "#ffffff",
     muted: "#555555",
-    primary: "#fa5f2d",
+    primary: "#F26818",
     secondaryBg: "#1a1a1a",
   };
+
+  export const IconButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  &:hover {
+    background-color: ${({ theme }) => theme.muted};
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+`;
   
  export const Container = styled.div`
     background-color: ${({ theme }) => theme.secondaryBg};
@@ -79,6 +95,7 @@ export const lightTheme = {
     display: flex;
     align-items: center;
     gap: 4px;
+    width: fit-content;
     cursor: pointer;
   `;
   

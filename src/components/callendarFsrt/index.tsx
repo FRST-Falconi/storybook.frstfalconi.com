@@ -4,26 +4,33 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as Styled from './CallendarFrst.styles';
 import { lightTheme, darkTheme } from './CallendarFrst.styles';
 import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay, addMonths, subMonths } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { CalendarFrstIcon } from "@shared/icons";
+import { disabled } from '../DS/select/select.stories';
 
-
-export default function Calendar({ darkMode = true }) {
+export default function CalendarFrst({ darkMode = true, onClickCalendarView }) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const theme = darkMode ? darkTheme : lightTheme;
 
+  const handleClickCalendarView = () => {
+    onClickCalendarView();
+  }
+
   const renderHeader = () => (
     <Styled.Header>
-      <span>{format(currentMonth, "MMMM yyyy")}</span>
+      <span>{format(currentMonth, "MMMM yyyy",{ locale: ptBR })}</span>
       <Styled.MonthNav>
-        <ChevronLeft size={18} onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} />
-        <ChevronRight size={18} onClick={() => setCurrentMonth(addMonths(currentMonth, 1))} />
+        <Styled.IconButton onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}><ChevronLeft size={18}  /></Styled.IconButton>
+        <Styled.IconButton onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}><ChevronRight size={18}  /></Styled.IconButton>
+        
       </Styled.MonthNav>
     </Styled.Header>
   );
 
   const renderDays = () => {
-    const startDate = startOfWeek(startOfMonth(currentMonth));
-    const endDate = endOfWeek(endOfMonth(currentMonth));
+    const startDate = startOfWeek(startOfMonth(currentMonth), { locale: ptBR, weekStartsOn: 1 });
+    const endDate = endOfWeek(endOfMonth(currentMonth), { locale: ptBR, weekStartsOn: 1 });
 
     const days = [];
     let day = startDate;
@@ -36,7 +43,7 @@ export default function Calendar({ darkMode = true }) {
             key={cloneDay.toString()}
             selected={selectedDate && isSameDay(cloneDay, selectedDate)}
             dimmed={!isSameMonth(cloneDay, currentMonth)}
-            onClick={() => setSelectedDate(cloneDay)}
+            onClick={() => !isSameMonth(cloneDay, currentMonth) ? null : setSelectedDate(cloneDay)}
           >
             {format(cloneDay, "d")}
           </Styled.Day>
@@ -59,8 +66,11 @@ export default function Calendar({ darkMode = true }) {
           ))}
         </Styled.WeekDays>
         {renderDays()}
-        <Styled.Footer>
-          <ChevronRight size={16} /> Ver calendário
+        <Styled.Footer onClick={()=> handleClickCalendarView()}>
+          <div style={{marginTop: '10px'}}>
+            <CalendarFrstIcon width="24" height="24"/>
+          </div>
+          <span> Ver calendário</span>
         </Styled.Footer>
       </Styled.Container>
     </ThemeProvider>
