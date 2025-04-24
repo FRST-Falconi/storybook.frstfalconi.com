@@ -6,16 +6,30 @@ import { lightTheme, darkTheme } from './CallendarFrst.styles';
 import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay, addMonths, subMonths } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { CalendarFrstIcon } from "@shared/icons";
-import { disabled } from '../DS/select/select.stories';
+import { CalendarModal } from './CalendarModal';
 
-export default function CalendarFrst({ darkMode = true, onClickCalendarView }) {
+interface Event {
+  date: string;
+  title: string;
+}
+
+export default function CalendarFrst({ darkMode = true }) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [events, setEvents] = useState<Event[]>([
+    { date: "2025-04-24", title: "Reunião com equipe" },
+    { date: "2025-04-26", title: "Consulta médica" },
+  ]);
   const theme = darkMode ? darkTheme : lightTheme;
 
   const handleClickCalendarView = () => {
-    onClickCalendarView();
-  }
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteEvent = (eventToDelete: Event) => {
+    setEvents(events.filter(event => event.date !== eventToDelete.date));
+  };
 
   const renderHeader = () => (
     <Styled.Header>
@@ -35,18 +49,30 @@ export default function CalendarFrst({ darkMode = true, onClickCalendarView }) {
     const days = [];
     let day = startDate;
 
+    
+
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         const cloneDay = day;
-        days.push(
+        const dateStr = format(cloneDay, "yyyy-MM-dd");
+        const event = events.find(e => e.date === dateStr);
+  
+        const DayComponent = (
           <Styled.Day
-            key={cloneDay.toString()}
             selected={selectedDate && isSameDay(cloneDay, selectedDate)}
             dimmed={!isSameMonth(cloneDay, currentMonth)}
+            isEvent={!!event}
             onClick={() => !isSameMonth(cloneDay, currentMonth) ? null : setSelectedDate(cloneDay)}
           >
             {format(cloneDay, "d")}
+           {event && <Styled.PointEvent  selected={selectedDate && isSameDay(cloneDay, selectedDate)}/>}
           </Styled.Day>
+        );
+        days.push(
+          <Styled.TooltipWrapper key={cloneDay.toString()}>
+          {DayComponent}
+          {event && <Styled.Tooltip>{event.title}</Styled.Tooltip>}
+        </Styled.TooltipWrapper>
         );
         day = addDays(day, 1);
       }
@@ -60,18 +86,27 @@ export default function CalendarFrst({ darkMode = true, onClickCalendarView }) {
       <Styled.Container>
         <Styled.Title>Meus eventos</Styled.Title>
         {renderHeader()}
-        <Styled.WeekDays>
+        <Styled.WeekDays style={{marginBottom: "12px"}}>
           {['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'].map(day => (
             <div key={day}>{day}</div>
           ))}
         </Styled.WeekDays>
         {renderDays()}
-        <Styled.Footer onClick={()=> handleClickCalendarView()}>
+        <Styled.Footer onClick={handleClickCalendarView}>
           <div style={{marginTop: '10px'}}>
             <CalendarFrstIcon width="24" height="24"/>
           </div>
           <span> Ver calendário</span>
         </Styled.Footer>
+
+        <CalendarModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          currentMonth={currentMonth}
+          events={events}
+          onDeleteEvent={handleDeleteEvent}
+          darkMode={darkMode}
+        />
       </Styled.Container>
     </ThemeProvider>
   );
