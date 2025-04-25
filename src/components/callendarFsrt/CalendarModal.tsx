@@ -3,18 +3,13 @@ import { ThemeProvider } from 'styled-components'
 import { X } from 'lucide-react'
 import * as Styled from './CallendarFrst.styles'
 import { darkTheme } from './CallendarFrst.styles'
-import { format, isSameMonth } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
-import CalendarFrst from './index'
+import { isSameMonth } from 'date-fns'
+import CalendarFrst, { Event } from './index'
 import { TrashIcon2 } from '@shared/icons'
 import { DeleteEventModal } from './DeleteEventModal'
+import { EventDetailsModal } from './EventDetailsModal'
 
-interface Event {
-    date: string
-    title: string
-    start: string
-    end: string
-}
+
 
 interface CalendarModalProps {
     isOpen: boolean
@@ -35,6 +30,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
     const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
     const [isHoverTrash, setIsHoverTrash] = useState(false)
     const [eventToDelete, setEventToDelete] = useState<Event | null>(null)
+    const [showEventDetails, setShowEventDetails] = useState(false)
     const monthEvents = events.filter((event) => isSameMonth(new Date(event.date + 'T12:00:00'), currentMonth))
     const trashRef = useRef<HTMLButtonElement>(null)
 
@@ -86,6 +82,19 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
         }
     }
 
+    const handleAccessClick = (e: React.MouseEvent) => {
+        e.stopPropagation()
+        setShowEventDetails(true)
+    }
+
+    const formatEventDate = (date: string) => {
+        return new Date(date + 'T12:00:00').toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    };
+
     if (!isOpen) return null
 
     return (
@@ -135,18 +144,24 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                                                             <Styled.EventDate>{event.start}</Styled.EventDate>
                                                             <Styled.EventTitle>{event.title}</Styled.EventTitle>
                                                         </div>
-
-                                                        <Styled.DeleteButton
-                                                            ref={trashRef}
-                                                            onMouseEnter={() => setIsHoverTrash(true)}
-                                                            onMouseLeave={() => setIsHoverTrash(false)}
-                                                            onClick={(e) => handleDeleteClick(event, e)}
-                                                        >
-                                                            <TrashIcon2 
-                                                                fill={isHoverTrash ? isSelected ? '#fff' : '#FF4D3E' : '#fff'}
-                                                                customColor_1={isHoverTrash ? isSelected ? '#F26818' : '#525252' : 'transparent'}
-                                                            />
-                                                        </Styled.DeleteButton>
+                                                        <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
+                                                            {isSelected && (
+                                                                <Styled.AccessButton onClick={handleAccessClick}>
+                                                                    Acessar
+                                                                </Styled.AccessButton>
+                                                            )}
+                                                            <Styled.DeleteButton
+                                                                ref={trashRef}
+                                                                onMouseEnter={() => setIsHoverTrash(true)}
+                                                                onMouseLeave={() => setIsHoverTrash(false)}
+                                                                onClick={(e) => handleDeleteClick(event, e)}
+                                                            >
+                                                                <TrashIcon2 
+                                                                    fill={isHoverTrash ? isSelected ? '#fff' : '#FF4D3E' : '#fff'}
+                                                                    customColor_1={isHoverTrash ? isSelected ? '#F26818' : '#525252' : 'transparent'}
+                                                                />
+                                                            </Styled.DeleteButton>
+                                                        </div>
                                                     </Styled.EventItem>
                                                 )
                                             })}
@@ -163,6 +178,14 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                 isOpen={!!eventToDelete}
                 onClose={() => setEventToDelete(null)}
                 onConfirm={handleConfirmDelete}
+            />
+
+            <EventDetailsModal
+                isOpen={showEventDetails}
+                onClose={() => setShowEventDetails(false)}
+                eventDate={selectedEvent ? formatEventDate(selectedEvent.date) : ''}
+                eventTime={selectedEvent ? `${selectedEvent.start} - ${selectedEvent.end}` : ''}
+                classDetails={selectedEvent?.class}
             />
         </ThemeProvider>
     )

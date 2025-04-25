@@ -215,14 +215,31 @@ export const ModalContent = styled.div`
 
 export const ModalHeader = styled.div`
   padding: 20px;
-  border-bottom: 1px solid ${props => props.theme.border};
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  div h2,span {
-    margin: 0;
+  div h2 {
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    vertical-align: middle;
     color: #fff;
+    margin: 0;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  div span {
+    font-family: Poppins;
+font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #EBEBEB;
   }
 `;
 
@@ -396,3 +413,29 @@ export const ContainerEvents = styled.div`
   text-align: center;
   padding: 20px;
 `;
+
+export const AccessButton = styled.span`
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  padding: 2px 10px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color:${({theme})=> theme.primary};
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #fff;
+    color: #D34D00;
+  }
+`;
+
