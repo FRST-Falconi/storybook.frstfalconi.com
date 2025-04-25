@@ -11,15 +11,18 @@ import { CalendarModal } from './CalendarModal';
 interface Event {
   date: string;
   title: string;
+  start: string;
+  end: string;
 }
 
-export default function CalendarFrst({ darkMode = true }) {
+export default function CalendarFrst({ darkMode = true, modalMode = false }) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [events, setEvents] = useState<Event[]>([
-    { date: "2025-04-24", title: "Reunião com equipe" },
-    { date: "2025-04-26", title: "Consulta médica" },
+    { date: "2025-04-24", title: "Reunião com equipe", start: "10:00", end: "12:00" },
+    { date: "2025-04-24", title: "Reunião com equipe 2", start: "23:00", end: "23:50" },
+    { date: "2025-04-26", title: "Consulta médica", start: "14:00", end: "16:00" },
   ]);
   const theme = darkMode ? darkTheme : lightTheme;
 
@@ -33,7 +36,7 @@ export default function CalendarFrst({ darkMode = true }) {
 
   const renderHeader = () => (
     <Styled.Header>
-      <span>{format(currentMonth, "MMMM yyyy",{ locale: ptBR })}</span>
+      <Styled.MonthTitle modalMode={modalMode}>{format(currentMonth, "MMMM yyyy",{ locale: ptBR })}</Styled.MonthTitle>
       <Styled.MonthNav>
         <Styled.IconButton onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}><ChevronLeft size={18}  /></Styled.IconButton>
         <Styled.IconButton onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}><ChevronRight size={18}  /></Styled.IconButton>
@@ -62,10 +65,11 @@ export default function CalendarFrst({ darkMode = true }) {
             selected={selectedDate && isSameDay(cloneDay, selectedDate)}
             dimmed={!isSameMonth(cloneDay, currentMonth)}
             isEvent={!!event}
+            modalMode={modalMode}
             onClick={() => !isSameMonth(cloneDay, currentMonth) ? null : setSelectedDate(cloneDay)}
           >
             {format(cloneDay, "d")}
-           {event && <Styled.PointEvent  selected={selectedDate && isSameDay(cloneDay, selectedDate)}/>}
+           {event && <Styled.PointEvent modalMode={modalMode} selected={selectedDate && isSameDay(cloneDay, selectedDate)}/>}
           </Styled.Day>
         );
         days.push(
@@ -78,13 +82,13 @@ export default function CalendarFrst({ darkMode = true }) {
       }
     }
 
-    return <Styled.CalendarGrid>{days}</Styled.CalendarGrid>;
+    return <Styled.CalendarGrid modalMode={modalMode}>{days}</Styled.CalendarGrid>;
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Styled.Container>
-        <Styled.Title>Meus eventos</Styled.Title>
+      <Styled.Container modalMode={modalMode}>
+        { !modalMode && <Styled.Title>Meus eventos</Styled.Title>}
         {renderHeader()}
         <Styled.WeekDays style={{marginBottom: "12px"}}>
           {['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'].map(day => (
@@ -92,12 +96,12 @@ export default function CalendarFrst({ darkMode = true }) {
           ))}
         </Styled.WeekDays>
         {renderDays()}
-        <Styled.Footer onClick={handleClickCalendarView}>
+       { !modalMode && <Styled.Footer onClick={handleClickCalendarView}>
           <div style={{marginTop: '10px'}}>
             <CalendarFrstIcon width="24" height="24"/>
           </div>
           <span> Ver calendário</span>
-        </Styled.Footer>
+        </Styled.Footer>}
 
         <CalendarModal
           isOpen={isModalOpen}
@@ -105,7 +109,6 @@ export default function CalendarFrst({ darkMode = true }) {
           currentMonth={currentMonth}
           events={events}
           onDeleteEvent={handleDeleteEvent}
-          darkMode={darkMode}
         />
       </Styled.Container>
     </ThemeProvider>
