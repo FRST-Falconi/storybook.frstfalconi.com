@@ -14,6 +14,7 @@ export interface MentionProps
     top: string;
     onSelect: (user: User) => void
     users: User[]
+    darkMode?: boolean
   }> { }
 
 export interface IInputComment {
@@ -33,5 +34,7 @@ export interface IInputComment {
   group_uuid?: string;
   limitMessageExceeded: string;
   initialText?: string;
+  darkMode?: boolean
+  showEmojiPicker?: boolean
 }
 

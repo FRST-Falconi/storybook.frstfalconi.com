@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { DesignTokens } from '../../theme/tokens'
 import { User } from './types'
+import { EmojiClickData } from 'emoji-picker-react'
 
 interface IInputHook {
   limit: number
@@ -34,6 +35,7 @@ export const useInputHook = ({
   const [isPlaceholder, setPlaceholder] = useState(false)
   const [styleLimitExceeded, setStyleLimitExceeded] = useState(false)
   const [mentionedIds, setMentionedIds] = useState<string[]>([])
+  const [showPicker, setShowPicker] = useState(false);
 
   const createNewRangeAndMoveCursorToTheEnd = (selection: Selection, spaceNode: Text) => {
     // Create a new range for setting the cursor position
@@ -277,6 +279,18 @@ export const useInputHook = ({
     return mentionedUsersIdList
   }
 
+  const handleEmojiSelected = (emojiData: EmojiClickData, event: MouseEvent) => {
+    if (divInputRef.current) {
+      divInputRef.current.appendChild(document.createTextNode(emojiData.emoji))
+
+      // Update input state
+      countChars();
+      createFormatAndTextContentToSaveComment();
+      resizeDiv();
+      setShowPicker(false);
+    }
+  }
+
   useEffect(() => {
     if (divInputRef.current && initialText) {
       divInputRef.current.innerHTML = initialText
@@ -438,6 +452,9 @@ export const useInputHook = ({
     textLength,
     isPlaceholder,
     styleLimitExceeded,
-    divPlaceholder
+    divPlaceholder,
+    handleEmojiSelected,
+    showPicker,
+    setShowPicker
   }
 }

@@ -11,6 +11,7 @@ interface Wrapper {
     focus?: boolean,
     isPlaceholder?: boolean
     isInputLimit?: boolean
+    darkMode?: boolean
 }
 
 interface IEmojiWindow {
@@ -19,7 +20,7 @@ interface IEmojiWindow {
 }
 interface TextArea {
     height?: string
-        
+    darkMode?: boolean
 }
 
 export const InputWrapper = styled.div<Wrapper>`
@@ -28,7 +29,7 @@ export const InputWrapper = styled.div<Wrapper>`
     width: 100%;
     min-height: 48px;
     position: 'relative';
-    background-color: ${({ theme, isInputLimit }) => !isInputLimit ? theme.colors.neutralsGrey9: theme.colors.inputError};
+    background-color: ${({ theme, isInputLimit, darkMode }) => !isInputLimit ? (darkMode ? '#272727' : theme.colors.neutralsGrey9) : (darkMode ? '#272727' : theme.colors.inputError)};
     
     border-radius: 24px;
 
@@ -36,10 +37,10 @@ export const InputWrapper = styled.div<Wrapper>`
 
   
 
-    border: ${({ theme, isPlaceholder, isInputLimit }) => isInputLimit ? `2px solid ${theme.colors.messageError3} !important` : !isPlaceholder ? `1px solid ${theme.colors.neutralsGrey5} !important`: `1px solid ${theme.colors.neutralsGrey5} !important`};
+    border: ${({ theme, isPlaceholder, isInputLimit, darkMode }) => isInputLimit ? `2px solid ${theme.colors.messageError3} !important` : !isPlaceholder ? (darkMode ? `2px solid ${theme.colors.neutralsGrey4}` : `1px solid ${theme.colors.neutralsGrey5} !important`) : `1px solid ${darkMode ? '#272727' : theme.colors.neutralsGrey5} !important`};
     
     &:hover {
-        border: 2px solid ${({ theme, isInputLimit }) => isInputLimit ? theme.colors.messageError3 : theme.colors.neutralsGrey5} !important;
+        border: 2px solid ${({ theme, isInputLimit, darkMode, isPlaceholder }) => isInputLimit ? theme.colors.messageError3 : !isPlaceholder ? (theme.colors.neutralsGrey4) : (darkMode ? '#444444' : theme.colors.neutralsGrey5)} !important;
     }
     
 `
@@ -48,7 +49,7 @@ export const InputText = styled.div<TextArea>`
     width: 100%;
     height: ${({height}) => height || '20px' };
     outline: 0;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    color: ${({ theme, darkMode }) => darkMode ? theme.colors.shadeWhite : theme.colors.neutralsGrey1};
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: normal;
@@ -58,7 +59,7 @@ export const InputText = styled.div<TextArea>`
     overflow: hidden;
     background-color: inherit;
     word-break: break-word;
-    
+    caret-color: ${({ theme, darkMode }) => darkMode && theme.colors.shadeWhite};
         
     padding: 0;
     margin: 10px 4px 40px 15px;
@@ -102,10 +103,10 @@ export const SmileIcon = styled.div`
     transition: all 0.2s ease-in-out;
 `
 export const HelperContainer = styled.div`
-    position:relative;
+    position: relative;
     padding: 5px;
 `
-export const HelperText = styled.span<{isInputLimit?:boolean}>`
+export const HelperText = styled.span<{isInputLimit?:boolean, darkMode?: boolean}>`
     display: flex;
     position: absolute;
     align-items: center;
@@ -118,11 +119,19 @@ export const HelperText = styled.span<{isInputLimit?:boolean}>`
     
     letter-spacing: -0.02em;
 
-    color: ${({ theme,isInputLimit }) => isInputLimit===true ? theme.colors.messageError3 : theme.colors.neutralsGrey2};
+    color: ${({ theme, isInputLimit, darkMode }) => isInputLimit ? theme.colors.messageError3 : darkMode ? theme.colors.neutralsGrey3 : theme.colors.neutralsGrey2};
 
     
     top:-30px;
     margin-left: 13px;
+`
+
+export const EmojiWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -45px;
+    right: 13px;
 `
 
 export const EmojiWindow = styled.div<IEmojiWindow>`
