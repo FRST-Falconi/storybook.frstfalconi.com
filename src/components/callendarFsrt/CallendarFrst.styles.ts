@@ -1,4 +1,3 @@
-
 import styled, { ThemeProvider } from "styled-components";
 
 
@@ -11,7 +10,8 @@ export const lightTheme = {
     secondaryBg: "#f4f4f4",
     hover: "#ccc",
     pressed: "#484848",
-    border: "#D5D4DF"
+    border: "#D5D4DF",
+    borderTooltip: "#484848"
   };
   
  export const darkTheme = {
@@ -23,7 +23,8 @@ export const lightTheme = {
     secondaryBg: "#1a1a1a",
     hover: "#444444",
     pressed: "#484848",
-    border: "#454545"
+    border: "#454545",
+    borderTooltip: "#f3f3f3"
   };
 
   export const IconButton = styled.div`
@@ -131,7 +132,7 @@ export const Tooltip = styled.span`
   width: max-content;
   color: ${({ theme }) => theme.text};
   background-color:${({ theme }) => theme.bg};
-  border: 1px solid ${({ theme }) =>  theme.border};
+  border: 1px solid ${({ theme }) =>  theme.borderTooltip};
   box-shadow: 0px 25px 18px -20px #22222233;
   text-align: center;
   border-radius: 8px;
@@ -158,7 +159,7 @@ export const Tooltip = styled.span`
     transform: translateX(-50%);
     border-width: 8px;
     border-style: solid;
-    border-color: transparent transparent ${({ theme }) => theme.border} transparent;
+    border-color: transparent transparent ${({ theme }) => theme.borderTooltip} transparent;
     z-index: 0;
   }
 
@@ -258,6 +259,11 @@ export const ModalBody = styled.div`
   display: flex;
   flex: 1;
   overflow: hidden;
+  flex-direction: column;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 export const CalendarSection = styled.div`
@@ -269,10 +275,35 @@ export const EventsSection = styled.div`
   width: 100%;
   padding: 20px;
   overflow-y: auto;
+  margin-top: 20px;
+  max-height: 800px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #2F2F2F;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #525252;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #747474;
+  }
 
   h3 {
     margin-top: 0;
     color: #fff;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0px;
   }
 `;
 
@@ -286,7 +317,6 @@ export const EventItem = styled.div<{ selected?: boolean }>`
   padding: 10px;
   border-radius: 8px;
   background-color: ${props => props.selected ? props.theme.primary : '#2F2F2F'};
-  border: 1px solid ${props => props.theme.border};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -298,6 +328,7 @@ export const EventItem = styled.div<{ selected?: boolean }>`
   }
 
   &:hover {
+    border: 1px solid ${props => props.theme.border};
     background-color:${({selected})=> selected ? "#D34D00" : "#444444"};
     button {
       visibility: visible;
@@ -308,9 +339,28 @@ export const EventItem = styled.div<{ selected?: boolean }>`
   }
 `;
 
+export const EventDayTitle = styled.h3`
+  color: #EBEBEB;
+  font-family: "Poppins", "PT Sans";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  border-bottom: solid 1px #5A5A5A;
+  padding-bottom: 16px;
+`;
+
+
 export const EventDate = styled.span`
-  font-size: 0.8em;
   color: #fff;
+  font-family: "Catamaran","PT Sans";
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
 `;
 
 export const EventTitle = styled.span`
@@ -336,6 +386,12 @@ export const DeleteButton = styled.button`
 `;
 
 export const NoEvents = styled.div`
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+`;
+
+export const ContainerEvents = styled.div`
   color: #fff;
   text-align: center;
   padding: 20px;

@@ -7,6 +7,7 @@ import { format, isSameMonth } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import CalendarFrst from './index'
 import { TrashIcon2 } from '@shared/icons'
+import { DeleteEventModal } from './DeleteEventModal'
 
 interface Event {
     date: string
@@ -33,6 +34,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
     const theme = darkTheme
     const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
     const [isHoverTrash, setIsHoverTrash] = useState(false)
+    const [eventToDelete, setEventToDelete] = useState<Event | null>(null)
     const monthEvents = events.filter((event) => isSameMonth(new Date(event.date + 'T12:00:00'), currentMonth))
     const trashRef = useRef<HTMLButtonElement>(null)
 
@@ -72,6 +74,18 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
         }
     }, [monthEvents])
 
+    const handleDeleteClick = (event: Event, e: React.MouseEvent) => {
+        e.stopPropagation()
+        setEventToDelete(event)
+    }
+
+    const handleConfirmDelete = () => {
+        if (eventToDelete) {
+            onDeleteEvent(eventToDelete)
+            setEventToDelete(null)
+        }
+    }
+
     if (!isOpen) return null
 
     return (
@@ -94,19 +108,19 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                         </Styled.CalendarSection>
 
                         <Styled.EventsSection>
-                            <h3>{currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</h3>
+                            <h3 style={{marginBottom: "16px"}}>{currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</h3>
                             {Object.keys(groupedEvents).length === 0 ? (
                                 <Styled.NoEvents>Nenhum evento neste mês</Styled.NoEvents>
                             ) : (
                                 <Styled.EventsList>
                                     {Object.entries(groupedEvents).map(([date, dayEvents]) => (
-                                        <div key={date} style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                                            <h2>
+                                        <div key={date} style={{display: 'flex', flexDirection: 'column', gap: '10px', background:"#2F2F2F", padding: "16px", borderRadius: "18px"}}>
+                                            <Styled.EventDayTitle>
                                                 {new Date(date + 'T12:00:00').toLocaleDateString('pt-BR', {
                                                     day: 'numeric',
                                                     month: 'long'
                                                 })}
-                                            </h2>
+                                            </Styled.EventDayTitle>
                                             {dayEvents.map((event, index) => {
                                                 const isSelected = selectedEvent?.date === event.date && 
                                                                  selectedEvent?.start === event.start && 
@@ -126,10 +140,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                                                             ref={trashRef}
                                                             onMouseEnter={() => setIsHoverTrash(true)}
                                                             onMouseLeave={() => setIsHoverTrash(false)}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation()
-                                                                onDeleteEvent(event)
-                                                            }}
+                                                            onClick={(e) => handleDeleteClick(event, e)}
                                                         >
                                                             <TrashIcon2 
                                                                 fill={isHoverTrash ? isSelected ? '#fff' : '#FF4D3E' : '#fff'}
@@ -147,6 +158,12 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                     </Styled.ModalBody>
                 </Styled.ModalContent>
             </Styled.ModalOverlay>
+            
+            <DeleteEventModal
+                isOpen={!!eventToDelete}
+                onClose={() => setEventToDelete(null)}
+                onConfirm={handleConfirmDelete}
+            />
         </ThemeProvider>
     )
 }
