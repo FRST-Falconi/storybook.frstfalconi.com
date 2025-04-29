@@ -3686,30 +3686,29 @@ const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
     border-radius: 8px !important;
     box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
     overflow: visible;
-    background: #00000000;
-    ${({ isArrowInMenu }) => isArrowInMenu &&
+    background: ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#00000000'};
+    ${({ isArrowInMenu, isDarkMode }) => isArrowInMenu &&
     `&:before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    right: 8.5px;
-    border-top: 6px solid transparent;
-    border-bottom: 10px solid #EBEBEB;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-  }
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid ${isDarkMode ? '#1f1f1f' : '#EBEBEB'};
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
   
-    &:after {
-    content: "";
-    position: absolute;
-    top: -14px;
-    right: 8.5px;
-    border-top: 6px solid transparent;
-    border-bottom: 10px solid #FFF;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-
-  }`}
+      &:after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid ${isDarkMode ? '#1f1f1f' : '#FFF'};
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }`}
   }
   ul {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
@@ -3803,7 +3802,7 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
     const handleClose = () => {
         setAnchorEl(null);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: isDarkMode ? "#EBEBEB" : "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
                         return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
@@ -4725,6 +4724,14 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
         setTimeout(() => {
+            // Check if the click was on the emoji button or picker
+            const target = document.activeElement;
+            const isEmojiButton = target?.closest('.MuiIconButton-root');
+            const isEmojiPicker = target?.closest('.EmojiPickerReact');
+            const isEmojiWrapper = target?.closest('.emoji-wrapper');
+            if (isEmojiButton || isEmojiPicker || isEmojiWrapper) {
+                return;
+            }
             if (document.activeElement?.id === 'input-comment-component')
                 return;
             // if divInputRef has any element hide the placeholder
@@ -5140,9 +5147,17 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
                             }, darkMode: darkMode }))] }), jsxRuntime.jsxs(HelperContainer, { children: [!isPlaceholder && showCharacterCounter && (jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, darkMode: darkMode, children: [textLength, "/", limit] })), !isPlaceholder && showEmojiPicker &&
                             jsxRuntime.jsx(EmojiWrapper, { children: jsxRuntime.jsx(material.IconButton, { onClick: (e) => {
                                         e.preventDefault();
+                                        e.stopPropagation();
                                         setShowPicker(!showPicker);
                                     }, children: jsxRuntime.jsx(EmojiIcon, {}) }) }), !isPlaceholder && showEmojiPicker &&
-                            jsxRuntime.jsx(EmojiPicker__default["default"], { theme: darkMode ? EmojiPicker$1.Theme.DARK : EmojiPicker$1.Theme.LIGHT, autoFocusSearch: true, onEmojiClick: handleEmojiSelected, open: showPicker, style: { position: 'absolute', right: 0 } })] }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer$1, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage$1, { children: limitMessageExceeded })] }))] }) }));
+                            jsxRuntime.jsx("div", { onClick: (e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                }, children: jsxRuntime.jsx(EmojiPicker__default["default"], { theme: darkMode ? EmojiPicker$1.Theme.DARK : EmojiPicker$1.Theme.LIGHT, autoFocusSearch: true, onEmojiClick: (emojiData, event) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        handleEmojiSelected(emojiData, event);
+                                    }, open: showPicker, skinTonesDisabled: true, style: { position: 'absolute', right: 0 } }) })] }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer$1, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage$1, { children: limitMessageExceeded })] }))] }) }));
 }
 
 const HeaderWrapper$1 = styled__default["default"].div `
@@ -5614,17 +5629,17 @@ const Box = styled__default["default"].div `
     justify-content: center;
     align-items: flex-start;
     border-radius: 0px 16px 16px 16px;
-    background-color: #f2f2f2 ;
+    background-color: ${({ darkMode }) => darkMode ? '#272727' : '#f2f2f2'} ;
 `;
 const UserDataContainer = styled__default["default"].div `
     display:flex;
     flex-direction: column;
     width: 100%;
-    heigth: 34px;
+    height: 34px;
     margin-bottom: 8px;
 `;
 const Username = styled__default["default"].h2 `
-    color: var(--neutrals-neutral-1, #222);
+    color: ${({ theme, darkMode }) => darkMode ? theme.colors.shadeWhite : theme.colors.neutralsGrey1};
     font-family: PT Sans;
     font-size: 16px;
     font-style: normal;
@@ -5637,8 +5652,8 @@ const FirstChildUserData = styled__default["default"].div `
     justify-content: space-between;
  `;
 const UserDataLastChild = styled__default["default"].div `
-    display:flex;
-    color: ${({ theme }) => theme.colors.neutralsGrey3};
+    display: flex;
+    color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey4 : theme.colors.neutralsGrey3};
     font-family: PT Sans;
     font-size: 12px;
     font-style: normal;
@@ -5646,21 +5661,20 @@ const UserDataLastChild = styled__default["default"].div `
     line-height: normal;
 `;
 const MenuMoreContainer = styled__default["default"].div `
-  border-radius: 8px;
-  height: 32px;
-  width: 24px;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 5px;
-  padding: 4px;
   
   &:hover {
-    background-color: #f2f2f2;
+    background-color: ${({ darkMode }) => darkMode ? '#323232' : '#f2f2f2'};
   }
 
 `;
-const LikesContainer = styled__default["default"].div `
+styled__default["default"].div `
     display: flex;
     align-items: center;
     gap: 4px;
@@ -5671,13 +5685,14 @@ const LikesContainer = styled__default["default"].div `
     font-weight: 400;
     line-height: 110%;
 `;
-const IconLikeContainer = styled__default["default"].div `
+styled__default["default"].div `
     & > *:last-child {
-    border-radius: 50%;
-    background-color: #757575;
-    border: 3px solid #757575;
-    width: 14px;
-    height: 14px;
+        border-radius: 50%;
+        background-color: #757575;
+        border: 3px solid #757575;
+        width: 14px;
+        height: 14px;
+    }
 `;
 const RelationContainer = styled__default["default"].div `
     display: flex;
@@ -5710,7 +5725,7 @@ const InteractiveButtonsContainer = styled__default["default"].div `
     line-height: normal;
     
     & > *:last-child {
-        height:24px;
+        /* height:24px; */
         transform: rotate(90deg);
       }
 `;
@@ -5724,21 +5739,21 @@ const FlexButtonContainer = styled__default["default"].div `
     border-radius: 8px;
    
     &:hover {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+        background-color: ${({ theme, darkMode }) => darkMode ? '#272727' : theme.colors.neutralsGrey9};
     }
-        svg {
-            :hover {
-                fill:${({ theme }) => theme.colors.neutralsGrey9};
-                background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-            }
-            :active {
-                stroke:${({ theme }) => theme.colors.neutralsGrey1};
-                background-color:  ${({ theme }) => theme.colors.neutralsGrey9};
-            }
+    svg {
+        :hover {
+            /* fill:${({ theme }) => theme.colors.neutralsGrey9}; */
+            background-color: ${({ theme, darkMode }) => darkMode ? '#272727' : theme.colors.neutralsGrey9};
         }
+        :active {
+            stroke:${({ theme }) => theme.colors.neutralsGrey1};
+            background-color:  ${({ theme }) => theme.colors.neutralsGrey9};
+        }
+    }
 `;
 const Text$2 = styled__default["default"].div `
-    color: #444;
+    color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey2};
     font-family: Work Sans;
     font-weight: 400;
     word-break: break-word;
@@ -5754,7 +5769,7 @@ const Text$2 = styled__default["default"].div `
 const TextContainer$2 = styled__default["default"].div `
 `;
 const ShowMore$1 = styled__default["default"].span `
-    color: ${({ theme }) => theme.colors.neutralsGrey2};
+    color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey2};
     font-family: Work Sans;
     font-size: 14px;
     font-style: normal;
@@ -5765,7 +5780,7 @@ const ShowMore$1 = styled__default["default"].span `
 `;
 
 const Button$3 = styled__default["default"].div `
-    ${({ variant, disabled, active, theme, isTooltipActive }) => {
+    ${({ variant, disabled, active, theme, isTooltipActive, darkMode }) => {
     let styleVariant = {
         'primary': styled.css `
                     display: flex;
@@ -5797,7 +5812,7 @@ const Button$3 = styled__default["default"].div `
                     font-weight: 700;
                     font-size: 16px;
                     width: fit-content;
-                    color: ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey2};
+                    color: ${({ theme }) => disabled ? theme.colors.borderPrimary : (darkMode ? theme.colors.neutralsGrey7 : theme.colors.neutralsGrey2)};
                     cursor: pointer;
                     user-select:none;
                     &:hover {
@@ -5821,15 +5836,15 @@ const Button$3 = styled__default["default"].div `
                 border-radius: 8px;
 
 
-                color: ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey2};
+                color: ${({ theme }) => disabled ? theme.colors.borderPrimary : (darkMode ? theme.colors.neutralsGrey7 : theme.colors.neutralsGrey2)};
                 cursor: pointer;
                 user-select:none;
                 &:hover {
-                    background-color:  ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey9};
+                    background-color:  ${({ theme }) => disabled ? theme.colors.borderPrimary : (darkMode ? '#272727' : theme.colors.neutralsGrey9)};
                 }
                 &:active {
-                    color: ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey1};
-                    background-color:  ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey9};
+                    color: ${({ theme }) => disabled ? theme.colors.borderPrimary : (darkMode ? theme.colors.neutralsGrey7 : theme.colors.neutralsGrey1)};
+                    background-color:  ${({ theme }) => disabled ? theme.colors.borderPrimary : (darkMode ? '#3D3D3D' : theme.colors.neutralsGrey9)};
                 }
                 ${active && `color : ${theme.colors.primary1}`}
             `,
@@ -5869,9 +5884,9 @@ const Button$3 = styled__default["default"].div `
 }}
 `;
 
-function MiniButton({ variant, label, disabled, onClick, styles, active, tooltipText, }) {
+function MiniButton({ variant, label, disabled, onClick, styles, active, tooltipText, darkMode }) {
     const [isTooltipActive, setIsTooltipActive] = React.useState(false);
-    const generateButtonComponent = () => (jsxRuntime.jsx(Button$3, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, active: !!active, isTooltipActive: isTooltipActive, children: label }));
+    const generateButtonComponent = () => (jsxRuntime.jsx(Button$3, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, active: !!active, isTooltipActive: isTooltipActive, darkMode: darkMode, children: label }));
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: tooltipText ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: tooltipText, trigger: "hover", width: tooltipText.length > 18 ? "220px" : "100px", height: "auto", style: { top: '50px', textAlign: 'center' }, setIsActive: setIsTooltipActive, children: generateButtonComponent() })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: generateButtonComponent() })) }));
 }
 
@@ -5906,7 +5921,7 @@ const Container$p = styled__default["default"].div `
     width:100%;
 `;
 const SpanText = styled__default["default"].p `
-    color: #000;
+    color: ${({ darkMode }) => darkMode ? '#EBEBEB' : '#000'};
     font-family: PT Sans;
     font-size: 16px;
     font-style: normal;
@@ -5921,7 +5936,7 @@ const ButtonsContainer = styled__default["default"].div `
     margin-left:auto;
 `;
 
-const InputEdit = ({ placeHolderText, commentText, commentTextWithMention, getSearchUsers, onClickEditButton, limitInput, editButtonText, cancelButtonText, orText, limitMessageExceeded, commentId, group_uuid, setIsModeEdit }) => {
+const InputEdit = ({ placeHolderText, commentText, commentTextWithMention, getSearchUsers, onClickEditButton, limitInput, editButtonText, cancelButtonText, orText, limitMessageExceeded, commentId, group_uuid, setIsModeEdit, darkMode }) => {
     const [comment, setComment] = React.useState(commentText);
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState(commentTextWithMention);
     const [captureMentions, setCaptureMentions] = React.useState([]);
@@ -5955,10 +5970,10 @@ const InputEdit = ({ placeHolderText, commentText, commentTextWithMention, getSe
     };
     return (jsxRuntime.jsxs(Container$p, { children: [jsxRuntime.jsx(InputContainer$1, { ref: inputRef, style: { width: '100%' }, children: jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, onChange: (e) => {
                         handleSearchUsers(e);
-                    }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, initialText: CaptureFormattedValue || comment }) }), jsxRuntime.jsxs(ButtonsContainer, { children: [jsxRuntime.jsx(MiniButton, { label: cancelButtonText, onClick: () => setIsModeEdit(false), variant: 'secondary' }), jsxRuntime.jsx(SpanText, { children: orText }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: editButtonText, onClick: () => handlePublish(), variant: "primary", styles: {} })] }), isLoading && jsxRuntime.jsx(Loading, {})] }));
+                    }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, initialText: CaptureFormattedValue || comment, darkMode: darkMode, showEmojiPicker: darkMode }) }), jsxRuntime.jsxs(ButtonsContainer, { children: [jsxRuntime.jsx(MiniButton, { darkMode: darkMode, label: cancelButtonText, onClick: () => setIsModeEdit(false), variant: 'secondary' }), jsxRuntime.jsx(SpanText, { darkMode: darkMode, children: orText }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: editButtonText, onClick: () => handlePublish(), variant: "primary", styles: {} })] }), isLoading && jsxRuntime.jsx(Loading, {})] }));
 };
 
-const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, actionUnlike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentUuid, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, isMainComment, hasActionToClickOnAvatar, showOptions, limitInput = 800, saveButtonText, cancelButtonText, orText, groupUuid, limitMessageExceeded, placeHolderText, getSearchUsers, likes, loggedInUser, showInterconnectionLine = false }) => {
+const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, actionUnlike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentUuid, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, isMainComment, hasActionToClickOnAvatar, showOptions, limitInput = 800, saveButtonText, cancelButtonText, orText, groupUuid, limitMessageExceeded, placeHolderText, getSearchUsers, likes, loggedInUser, showInterconnectionLine = false, darkMode }) => {
     const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`;
     const [isModeEdit, setIsModeEdit] = React.useState(false);
     const [loadingLike, setLoadingLike] = React.useState(false);
@@ -5967,14 +5982,15 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     const likeId = likes?.find((like) => like.user_uuid === loggedInUser.id || like.user?.uuid === loggedInUser.id)?.id || null;
     const edit = {
         description: editText,
-        startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222" }),
-        onClick: () => setIsModeEdit(true)
+        startIcon: jsxRuntime.jsx(EditIcon, { fill: darkMode ? '#FFFFFF' : "#222" }),
+        onClick: () => setIsModeEdit(true),
+        color: darkMode ? '#FFFFFF' : "#222"
     };
     const exclude = {
         description: deleteText,
-        startIcon: jsxRuntime.jsx(TrashIconNew, { fill: "#C1341A" }),
+        startIcon: jsxRuntime.jsx(TrashIconNew, { fill: darkMode ? '#FF4D3E' : "#C1341A" }),
         onClick: () => actionDeleteComment(commentUuid),
-        color: '#C1341A'
+        color: darkMode ? '#FF4D3E' : '#C1341A'
     };
     const authorOptions = [edit, exclude];
     const ownerPost = [exclude];
@@ -6033,16 +6049,47 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
                                     left: '16px',
                                     top: '40px',
                                     backgroundColor: '#D1D5DB'
-                                } }))] }), isModeEdit ? (jsxRuntime.jsx(InputEdit, { placeHolderText: placeHolderText, commentText: buildStringWithLinkHTML(commentText), commentTextWithMention: commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention), editButtonText: saveButtonText, onClickEditButton: actionEditComment, limitInput: limitInput, cancelButtonText: cancelButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, commentId: commentId, setIsModeEdit: setIsModeEdit, group_uuid: groupUuid, getSearchUsers: getSearchUsers })) : (jsxRuntime.jsxs(Box, { id: `comment_${commentUuid}`, children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: "#fff", stroke: "#fff", customColor_1: '#757575', width: "16px", height: "16px" }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$2, { id: "textContainerId", children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: {
+                                } }))] }), isModeEdit ? (jsxRuntime.jsx(InputEdit, { placeHolderText: placeHolderText, commentText: buildStringWithLinkHTML(commentText), commentTextWithMention: commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention), editButtonText: saveButtonText, onClickEditButton: actionEditComment, limitInput: limitInput, cancelButtonText: cancelButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, commentId: commentId, setIsModeEdit: setIsModeEdit, group_uuid: groupUuid, getSearchUsers: getSearchUsers, darkMode: darkMode })) : (jsxRuntime.jsxs(Box, { id: `comment_${commentUuid}`, darkMode: darkMode, children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsx(FirstChildUserData, { children: jsxRuntime.jsx(Username, { darkMode: darkMode, children: userName }) }), jsxRuntime.jsxs(UserDataLastChild, { darkMode: darkMode, children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$2, { id: "textContainerId", children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: {
                                             __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
-                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] }))] }), !isModeEdit && (jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: itsLiked ? handleUnlike : handleLike, style: {
-                            cursor: loadingLike ? 'not-allowed !important' : 'pointer',
-                            pointerEvents: loadingLike ? 'none' : 'auto'
-                        }, children: [itsLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: () => { }, label: likeButtonText, active: itsLiked, styles: {
-                                    padding: '0px',
-                                    cursor: loadingLike ? 'not-allowed !important' : 'pointer',
-                                    pointerEvents: loadingLike ? 'none' : 'auto'
-                                } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
+                                        }, darkMode: darkMode }), jsxRuntime.jsx(ShowMore$1, { darkMode: darkMode, isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] }))] }), !isModeEdit && (jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsx(material.Tooltip, { title: itsLiked ? 'Remover curtida' : 'Curtir', placement: 'bottom', arrow: true, slotProps: {
+                            popper: {
+                                modifiers: [
+                                    {
+                                        name: 'offset',
+                                        options: {
+                                            offset: [0, -8]
+                                        }
+                                    }
+                                ],
+                            },
+                            tooltip: {
+                                sx: {
+                                    backgroundColor: darkMode ? '#323232' : '#FFFFFF',
+                                    fontFamily: 'PT Sans',
+                                    fontWeight: 400,
+                                    fontSize: '14px',
+                                    lineHeight: 1.3,
+                                    textAlign: 'center',
+                                    color: darkMode ? '#FFFFFF' : '#757575',
+                                    border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD',
+                                    boxShadow: '0px 25px 18px -20px #22222233'
+                                }
+                            },
+                            arrow: {
+                                sx: {
+                                    ":before": {
+                                        border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD'
+                                    },
+                                    color: darkMode ? '#323232' : '#FFFFFF'
+                                }
+                            }
+                        }, children: jsxRuntime.jsxs(FlexButtonContainer, { onClick: itsLiked ? handleUnlike : handleLike, style: {
+                                cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                                pointerEvents: loadingLike ? 'none' : 'auto'
+                            }, darkMode: darkMode, children: [itsLiked ?
+                                    jsxRuntime.jsx(IconLikeFilled, { customColor_1: darkMode ? '#151515' : '#FFFFFF' })
+                                    :
+                                        jsxRuntime.jsx(IconLikeLine, { fill: darkMode ? "#EBEBEB" : "#444" }), jsxRuntime.jsx("span", { style: { color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444") }, children: likesCount })] }) })), jsxRuntime.jsx(MiniButton, { darkMode: darkMode, variant: "terciary", onClick: actionAnswer, label: answerButtonText, styles: { color: darkMode ? '#EBEBEB' : '#444444' } }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
 };
 
 const Container$o = styled__default["default"].div `
@@ -6062,21 +6109,7 @@ display:flex;
 flex-direction:column;
 `;
 const ViewReplysButtonContainer = styled__default["default"].div `
-color: #444444;
-font-family: PT Sans;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 110%; 
-position: relative;
-left: 59px;
-margin-top: 6px;
-span{
-    cursor:pointer;
-}
-
-@media screen  and (max-width:768px){
-  color: #444444;
+  color: ${({ darkMode }) => darkMode ? '#EBEBEB' : '#444444'};
   font-family: PT Sans;
   font-size: 14px;
   font-style: normal;
@@ -6085,13 +6118,26 @@ span{
   position: relative;
   left: 59px;
   margin-top: 6px;
-  max-width: 150px !important;
+  span{
+      cursor:pointer;
   }
-}
+
+  @media screen  and (max-width:768px){
+    color: ${({ darkMode }) => darkMode ? '#EBEBEB' : '#444444'};
+    font-family: PT Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; 
+    position: relative;
+    left: 59px;
+    margin-top: 6px;
+    max-width: 150px !important;
+  }
 `;
 const RepplysContainer = styled__default["default"].div `
-width: ${({ width }) => (width ? `${width}px` : 'auto')};
-margin-left:60px;
+  width: ${({ width }) => (width ? `${width}px` : 'auto')};
+  margin-left:60px;
 `;
 
 const InputContainer = styled__default["default"].div `
@@ -6104,7 +6150,7 @@ const Container$n = styled__default["default"].div `
     justify-content:center;
 `;
 
-const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput, group_uuid, limitMessageExceeded }) => {
+const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput, group_uuid, limitMessageExceeded, darkMode }) => {
     const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
     const [captureMentions, setCaptureMentions] = React.useState([]);
@@ -6160,20 +6206,20 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     };
     return (jsxRuntime.jsxs(Container$n, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '16px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { width: '100%', marginTop: '16px' }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: !userMentionedOnReplied && user, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '14px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: !userMentionedOnReplied && user, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, darkMode: darkMode, showEmojiPicker: darkMode }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '14px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
-const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, isAuthor, isOwnerPost, deleteText, editText, onClickDelete, onClickEdit, limitInput, cancelButtonText, saveButtonText, orText, limitMessageExceeded, placeHolderText, getSearchUsers, onClickLike, onClickUnlike, likeButtonText, loggedInUser, likes, replies = [], isGoalOwner, group_uuid, publishButtonText, onClickPublishButton, mainCommentUser, answersText, toViewText, answerText, threadOpenByDefault }) => {
+const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, isAuthor, isOwnerPost, deleteText, editText, onClickDelete, onClickEdit, limitInput, cancelButtonText, saveButtonText, orText, limitMessageExceeded, placeHolderText, getSearchUsers, onClickLike, onClickUnlike, likeButtonText, loggedInUser, likes, replies = [], isGoalOwner, group_uuid, publishButtonText, onClickPublishButton, mainCommentUser, answersText, toViewText, answerText, threadOpenByDefault, darkMode }) => {
     const [showAnswers, setShowAnswers] = React.useState(threadOpenByDefault);
     const [showReplyInput, setShowReplyInput] = React.useState(false);
     const handleLoadMoreReplies = () => {
         setShowAnswers(true);
     };
-    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.avatar, loggedInUser: loggedInUser, userName: commentData.user?.name, userOffice: commentData.user?.role_name, userCompany: commentData.user?.company_name, commentId: commentData.id, commentText: commentData.text, commentUuid: commentData.uuid, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => setShowReplyInput(true), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '16px' }, commentTextWithMention: commentData.mentionText, isAuthor: isAuthor, isOwnerPost: isOwnerPost, deleteText: deleteText, editText: editText, showOptions: isAuthor || isOwnerPost, actionDeleteComment: onClickDelete, limitInput: limitInput, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, actionEditComment: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, likes: likes, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, showInterconnectionLine: replies.length > 0 && showAnswers }), replies.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { style: { left: '44px' }, children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: `${toViewText} ${replies.length} ${replies.length === 1 ? answerText : answersText}` }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { imgProfile: loggedInUser?.avatar, styles: { width: '100%' }, idInput: `idInput-${commentData.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInput, onClickPublishButton: onClickPublishButton, replyMentionedUser: mainCommentUser, getSearchUsers: getSearchUsers, parentId: commentData.id, handleHiddenInput: () => setShowReplyInput(false), group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded })), showAnswers &&
-                replies?.map((reply, index) => (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginTop: '16px' }, userName: reply.user?.name, userOffice: reply.user?.role_name, userCompany: reply.user?.company_name, commentUuid: reply.uuid, commentId: reply.id, commentText: reply.text, commentTextWithMention: reply.mentionText, howLongAgo: reply.howLongAgo, placeHolderText: placeHolderText, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, likeButtonText: likeButtonText, editText: editText, deleteText: deleteText, orText: orText, limitInput: limitInput, showMoreText: showMoreButtonText, showLessText: showLessButtonText, hasActionToClickOnAvatar: false, likes: reply.likes, loggedInUser: loggedInUser, limitMessageExceeded: limitMessageExceeded, showLikeButton: true, actionLike: onClickLike, actionUnlike: onClickUnlike, getSearchUsers: getSearchUsers, actionEditComment: onClickEdit, actionDeleteComment: onClickDelete, isAuthor: reply.user?.uuid === loggedInUser?.id, isOwnerPost: isAuthor || isOwnerPost || isGoalOwner, showOptions: isAuthor || isOwnerPost || reply.user?.uuid === loggedInUser?.id || isGoalOwner, imgProfile: reply.user?.avatar, showInterconnectionLine: replies.length != index + 1 }, reply.id) })))] }));
+    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.avatar, loggedInUser: loggedInUser, userName: commentData.user?.name, userOffice: commentData.user?.role_name, userCompany: commentData.user?.company_name, commentId: commentData.id, commentText: commentData.text, commentUuid: commentData.uuid, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => setShowReplyInput(true), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '16px' }, commentTextWithMention: commentData.mentionText, isAuthor: isAuthor, isOwnerPost: isOwnerPost, deleteText: deleteText, editText: editText, showOptions: isAuthor || isOwnerPost, actionDeleteComment: onClickDelete, limitInput: limitInput, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, actionEditComment: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, likes: likes, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, showInterconnectionLine: replies.length > 0 && showAnswers, darkMode: darkMode }), replies.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { style: { left: '44px' }, darkMode: darkMode, children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: `${toViewText} ${replies.length} ${replies.length === 1 ? answerText : answersText}` }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { imgProfile: loggedInUser?.avatar, styles: { width: '100%' }, idInput: `idInput-${commentData.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInput, onClickPublishButton: onClickPublishButton, replyMentionedUser: mainCommentUser, getSearchUsers: getSearchUsers, parentId: commentData.id, handleHiddenInput: () => setShowReplyInput(false), group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, darkMode: darkMode })), showAnswers &&
+                replies?.map((reply, index) => (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginTop: '16px' }, userName: reply.user?.name, userOffice: reply.user?.role_name, userCompany: reply.user?.company_name, commentUuid: reply.uuid, commentId: reply.id, commentText: reply.text, commentTextWithMention: reply.mentionText, howLongAgo: reply.howLongAgo, placeHolderText: placeHolderText, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, likeButtonText: likeButtonText, editText: editText, deleteText: deleteText, orText: orText, limitInput: limitInput, showMoreText: showMoreButtonText, showLessText: showLessButtonText, hasActionToClickOnAvatar: false, likes: reply.likes, loggedInUser: loggedInUser, limitMessageExceeded: limitMessageExceeded, showLikeButton: true, actionLike: onClickLike, actionUnlike: onClickUnlike, getSearchUsers: getSearchUsers, actionEditComment: onClickEdit, actionDeleteComment: onClickDelete, isAuthor: reply.user?.uuid === loggedInUser?.id, isOwnerPost: isAuthor || isOwnerPost || isGoalOwner, showOptions: isAuthor || isOwnerPost || reply.user?.uuid === loggedInUser?.id || isGoalOwner, imgProfile: reply.user?.avatar, showInterconnectionLine: replies.length != index + 1, darkMode: darkMode }, reply.id) })))] }));
 };
 
-const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedInUser, group_uuid, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText, limitMessageExceeded, size = 5, showMoreReplysButtonText, isGoalOwner, editText, deleteText, onClickDelete, onClickEdit, cancelButtonText, saveButtonText, orText, onClickLike, onClickUnlike, likeButtonText, toViewText, answersText, answerText }) => {
+const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedInUser, group_uuid, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText, limitMessageExceeded, size = 5, showMoreReplysButtonText, isGoalOwner, editText, deleteText, onClickDelete, onClickEdit, cancelButtonText, saveButtonText, orText, onClickLike, onClickUnlike, likeButtonText, toViewText, answersText, answerText, darkMode }) => {
     const threadOpenByDefault = mainComment?.thread_open;
     const [showAnswers, setShowAnswers] = React.useState(false);
     const [showReplysOnClickCounter, setReplysOnClickCounter] = React.useState(0);
@@ -6202,7 +6248,7 @@ const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onCli
         }
     }, [threadOpenByDefault]);
     const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id;
-    return (jsxRuntime.jsx(Container$o, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { loggedInUser: loggedInUser, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, actionAnswer: handleCommentReply, actionDeleteComment: onClickDelete, actionEditComment: onClickEdit, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText, isMainComment: true, isAuthor: isMainCommentUser, isOwnerPost: isGoalOwner, deleteText: deleteText, editText: editText, showOptions: isMainCommentUser || isGoalOwner, commentUuid: mainComment.uuid, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, likes: mainComment.likes }), listReplyComments.length > visibleReplies && (jsxRuntime.jsx(ViewReplysButtonContainer, { id: "text-viwMsg", children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { marginLeft: '60px' }, imgProfile: loggedInUser?.avatar, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }))] }), showAnswers && visibleReplies && (jsxRuntime.jsx(RepplysContainer, { style: { marginTop: '6px' }, children: listReplyComments.slice(0, visibleReplies).map((replyComment) => (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(CommentaryBoxReply, { replies: replyComment?.replies, commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, isAuthor: replyComment.user?.uuid === loggedInUser?.id, isOwnerPost: mainComment.user?.uuid === loggedInUser?.id || isGoalOwner, deleteText: deleteText, editText: editText, onClickDelete: onClickDelete, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, onClickEdit: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, onClickLike: onClickLike, onClickUnlike: onClickUnlike, likeButtonText: likeButtonText, likes: replyComment.likes, loggedInUser: loggedInUser, isGoalOwner: isGoalOwner, group_uuid: group_uuid, publishButtonText: publishButtonText, onClickPublishButton: onClickPublishButton, mainCommentUser: replyComment.user, showReplysButtonText: showReplysButtonText, toViewText: toViewText, answersText: answersText, answerText: answerText, threadOpenByDefault: !!threadOpenByDefault }) }, replyComment.id))) }))] }) }));
+    return (jsxRuntime.jsx(Container$o, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { loggedInUser: loggedInUser, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, actionAnswer: handleCommentReply, actionDeleteComment: onClickDelete, actionEditComment: onClickEdit, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText, isMainComment: true, isAuthor: isMainCommentUser, isOwnerPost: isGoalOwner, deleteText: deleteText, editText: editText, showOptions: isMainCommentUser || isGoalOwner, commentUuid: mainComment.uuid, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, likes: mainComment.likes, darkMode: darkMode }), listReplyComments.length > visibleReplies && (jsxRuntime.jsx(ViewReplysButtonContainer, { id: "text-viwMsg", darkMode: darkMode, children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { marginLeft: '60px' }, imgProfile: loggedInUser?.avatar, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, darkMode: darkMode }))] }), showAnswers && visibleReplies && (jsxRuntime.jsx(RepplysContainer, { style: { marginTop: '6px' }, children: listReplyComments.slice(0, visibleReplies).map((replyComment) => (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(CommentaryBoxReply, { replies: replyComment?.replies, commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, isAuthor: replyComment.user?.uuid === loggedInUser?.id, isOwnerPost: mainComment.user?.uuid === loggedInUser?.id || isGoalOwner, deleteText: deleteText, editText: editText, onClickDelete: onClickDelete, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, onClickEdit: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, onClickLike: onClickLike, onClickUnlike: onClickUnlike, likeButtonText: likeButtonText, likes: replyComment.likes, loggedInUser: loggedInUser, isGoalOwner: isGoalOwner, group_uuid: group_uuid, publishButtonText: publishButtonText, onClickPublishButton: onClickPublishButton, mainCommentUser: replyComment.user, showReplysButtonText: showReplysButtonText, toViewText: toViewText, answersText: answersText, answerText: answerText, threadOpenByDefault: !!threadOpenByDefault, darkMode: darkMode }) }, replyComment.id))) }))] }) }));
 };
 
 const ButtonCheckmark = styled__default["default"].div `
