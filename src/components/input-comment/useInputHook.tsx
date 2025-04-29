@@ -244,27 +244,37 @@ export const useInputHook = ({
   }
   const handlePlaceholderInputText = (isPlaceHolderFocus: boolean = false) => {
     setTimeout(() => {
-      if (document.activeElement?.id === 'input-comment-component') return
+      // Check if the click was on the emoji button or picker
+      const target = document.activeElement as HTMLElement;
+      const isEmojiButton = target?.closest('.MuiIconButton-root');
+      const isEmojiPicker = target?.closest('.EmojiPickerReact');
+      const isEmojiWrapper = target?.closest('.emoji-wrapper');
+      
+      if (isEmojiButton || isEmojiPicker || isEmojiWrapper) {
+        return;
+      }
+
+      if (document.activeElement?.id === 'input-comment-component') return;
       // if divInputRef has any element hide the placeholder
       if (isPlaceHolderFocus) {
-        divPlaceholder.current?.style.setProperty('display', 'none')
-        divInputRef.current?.style.setProperty('display', 'block')
-        divInputRef.current?.style.setProperty('height', '19px')
-        divInputRef.current?.focus()
-        setPlaceholder(false)
+        divPlaceholder.current?.style.setProperty('display', 'none');
+        divInputRef.current?.style.setProperty('display', 'block');
+        divInputRef.current?.style.setProperty('height', '19px');
+        divInputRef.current?.focus();
+        setPlaceholder(false);
       } else {
         if (areChildrenEmpty()) {
-          resizeDiv()
-          divPlaceholder.current?.style.setProperty('display', 'block')
-          divInputRef.current?.style.setProperty('display', 'none')
-          setPlaceholder(true)
+          resizeDiv();
+          divPlaceholder.current?.style.setProperty('display', 'block');
+          divInputRef.current?.style.setProperty('display', 'none');
+          setPlaceholder(true);
         } else {
-          divPlaceholder.current?.style.setProperty('display', 'none')
-          divInputRef.current?.style.setProperty('display', 'block')
-          setPlaceholder(false)
+          divPlaceholder.current?.style.setProperty('display', 'none');
+          divInputRef.current?.style.setProperty('display', 'block');
+          setPlaceholder(false);
         }
       }
-    }, 0)
+    }, 0);
   }
 
   const getAllMentions = () => {

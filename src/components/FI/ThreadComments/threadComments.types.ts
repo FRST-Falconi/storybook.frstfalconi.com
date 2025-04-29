@@ -52,6 +52,7 @@ export interface IThreadComments {
   toViewText: string
   answersText: string
   answerText: string
+  darkMode?: boolean
 }
 
 export interface IUser {

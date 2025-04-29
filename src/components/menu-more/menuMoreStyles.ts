@@ -40,31 +40,31 @@ export const MenuCustom = styled(Menu)<{ isArrowInMenu: boolean; isPaddingInMenu
     border-radius: 8px !important;
     box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
     overflow: visible;
-    background: #00000000;
-    ${({ isArrowInMenu }) =>
+    background: ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#00000000'};
+    ${({ isArrowInMenu, isDarkMode }) =>
       isArrowInMenu &&
       `&:before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    right: 8.5px;
-    border-top: 6px solid transparent;
-    border-bottom: 10px solid #EBEBEB;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-  }
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid ${isDarkMode ? '#1f1f1f' : '#EBEBEB'};
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
   
-    &:after {
-    content: "";
-    position: absolute;
-    top: -14px;
-    right: 8.5px;
-    border-top: 6px solid transparent;
-    border-bottom: 10px solid #FFF;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-
-  }`}
+      &:after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid ${isDarkMode ? '#1f1f1f' : '#FFF'};
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }`
+    }
   }
   ul {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);

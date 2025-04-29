@@ -50,5 +50,5 @@ export interface ICommentaryBoxV2 {
     groupUuid?: string,
     loggedInUser: LoggedInUser,
     showInterconnectionLine?: boolean;
-
+    darkMode?: boolean
 }

@@ -37,7 +37,8 @@ export const CommentaryBoxReply = ({
   answersText,
   toViewText,
   answerText,
-  threadOpenByDefault
+  threadOpenByDefault,
+  darkMode
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(threadOpenByDefault)
   const [showReplyInput, setShowReplyInput] = useState(false)
@@ -85,10 +86,11 @@ export const CommentaryBoxReply = ({
         showLikeButton={true}
         likeButtonText={likeButtonText}
         showInterconnectionLine={replies.length > 0 && showAnswers}
+        darkMode={darkMode}
       />
 
       {replies.length > 0 && !showAnswers && (
-        <ViewReplysButtonContainer style={{ left: '44px' }}>
+        <ViewReplysButtonContainer style={{ left: '44px' }} darkMode={darkMode}>
           <span onClick={handleLoadMoreReplies}>{`${toViewText} ${replies.length} ${
             replies.length === 1 ? answerText : answersText
           }`}</span>
@@ -110,6 +112,7 @@ export const CommentaryBoxReply = ({
           handleHiddenInput={() => setShowReplyInput(false)}
           group_uuid={group_uuid}
           limitMessageExceeded={limitMessageExceeded}
+          darkMode={darkMode}
         />
       )}
       {showAnswers &&
@@ -151,6 +154,7 @@ export const CommentaryBoxReply = ({
               showOptions={isAuthor || isOwnerPost || reply.user?.uuid === loggedInUser?.id || isGoalOwner}
               imgProfile={reply.user?.avatar}
               showInterconnectionLine={replies.length != index + 1}
+              darkMode={darkMode}
             />
           </>
         ))}

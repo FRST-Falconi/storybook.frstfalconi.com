@@ -9,6 +9,7 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 import { InputEdit } from './utilitiesComponents'
+import { Tooltip } from '@mui/material'
 
 export const CommentaryBoxV2 = ({
   userName,
@@ -50,7 +51,8 @@ export const CommentaryBoxV2 = ({
   getSearchUsers,
   likes,
   loggedInUser,
-  showInterconnectionLine = false
+  showInterconnectionLine = false,
+  darkMode
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
@@ -62,14 +64,15 @@ export const CommentaryBoxV2 = ({
 
   const edit = {
     description: editText,
-    startIcon: <EditIcon fill="#222" />,
-    onClick: () => setIsModeEdit(true)
+    startIcon: <EditIcon fill={darkMode ? '#FFFFFF' : "#222"} />,
+    onClick: () => setIsModeEdit(true),
+    color: darkMode ? '#FFFFFF' : "#222"
   }
   const exclude = {
     description: deleteText,
-    startIcon: <TrashIconNew fill="#C1341A" />,
+    startIcon: <TrashIconNew fill={darkMode ? '#FF4D3E' : "#C1341A"} />,
     onClick: () => actionDeleteComment(commentUuid),
-    color: '#C1341A'
+    color: darkMode ? '#FF4D3E' : '#C1341A'
   }
 
   const authorOptions = [edit, exclude]
@@ -166,22 +169,23 @@ export const CommentaryBoxV2 = ({
             setIsModeEdit={setIsModeEdit}
             group_uuid={groupUuid}
             getSearchUsers={getSearchUsers}
+            darkMode={darkMode}
           />
         ) : (
-          <Styled.Box id={`comment_${commentUuid}`}>
+          <Styled.Box id={`comment_${commentUuid}`} darkMode={darkMode}>
             <Styled.UserDataContainer>
               <Styled.FirstChildUserData>
-                <Styled.Username>{userName}</Styled.Username>
-                {likesCount > 0 && (
+                <Styled.Username darkMode={darkMode}>{userName}</Styled.Username>
+                {/* {likesCount > 0 && (
                   <Styled.LikesContainer>
                     <Styled.IconLikeContainer>
                       <IconLikeFilled fill="#fff" stroke="#fff" customColor_1={'#757575'} width="16px" height="16px" />
                     </Styled.IconLikeContainer>
                     <p>{likesCount}</p>
                   </Styled.LikesContainer>
-                )}
+                )} */}
               </Styled.FirstChildUserData>
-              <Styled.UserDataLastChild>
+              <Styled.UserDataLastChild darkMode={darkMode}>
                 {userOffice && userOffice} {userCompany && `• ${userCompany}`} {howLongAgo && `• ${howLongAgo}`}
               </Styled.UserDataLastChild>
             </Styled.UserDataContainer>
@@ -193,8 +197,9 @@ export const CommentaryBoxV2 = ({
                 dangerouslySetInnerHTML={{
                   __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
                 }}
+                darkMode={darkMode}
               />
-              <Styled.ShowMore isVisible={isEllipsisVisible} onClick={toggleExpand}>
+              <Styled.ShowMore darkMode={darkMode} isVisible={isEllipsisVisible} onClick={toggleExpand}>
                 {isExpanded ? showLessText : showMoreText}
               </Styled.ShowMore>
             </Styled.TextContainer>
@@ -205,41 +210,88 @@ export const CommentaryBoxV2 = ({
       {!isModeEdit && (
         <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
           {showLikeButton && (
-            <Styled.FlexButtonContainer
-              onClick={itsLiked ? handleUnlike : handleLike}
-              style={{
-                cursor: loadingLike ? 'not-allowed !important' : 'pointer',
-                pointerEvents: loadingLike ? 'none' : 'auto'
+            <Tooltip
+              title={itsLiked ? 'Remover curtida' : 'Curtir'}
+              placement='bottom'
+              arrow
+              slotProps={{
+                  popper: {
+                      modifiers: [
+                          {
+                              name: 'offset',
+                              options: {
+                                  offset: [0, -8]
+                              }
+                          }
+                      ],
+                  },
+                  tooltip: {
+                      sx: {
+                          backgroundColor: darkMode ? '#323232' : '#FFFFFF',
+                          fontFamily: 'PT Sans',
+                          fontWeight: 400,
+                          fontSize: '14px',
+                          lineHeight: 1.3,
+                          textAlign: 'center',
+                          color: darkMode ? '#FFFFFF' : '#757575',
+                          border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD',
+                          boxShadow: '0px 25px 18px -20px #22222233'
+                      }
+                  },
+                  arrow: {
+                      sx:{
+                          ":before": {
+                              border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD'
+                          },
+                          color: darkMode ? '#323232' : '#FFFFFF'
+                      }
+                  }
               }}
             >
-              {itsLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
-              <MiniButton
-                variant="terciary"
-                onClick={() => {}}
-                label={likeButtonText}
-                active={itsLiked}
-                styles={{
-                  padding: '0px',
+              <Styled.FlexButtonContainer
+                onClick={itsLiked ? handleUnlike : handleLike}
+                style={{
                   cursor: loadingLike ? 'not-allowed !important' : 'pointer',
                   pointerEvents: loadingLike ? 'none' : 'auto'
                 }}
-              />
-            </Styled.FlexButtonContainer>
+                darkMode={darkMode}
+              >
+                {itsLiked ? 
+                  <IconLikeFilled customColor_1={darkMode ? '#151515' : '#FFFFFF'} /> 
+                  : 
+                  <IconLikeLine fill={darkMode ? "#EBEBEB" : "#444"} />
+                }
+                <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444")}}>
+                  {likesCount}
+                </span>
+                {/* <MiniButton
+                  variant="terciary"
+                  onClick={() => {}}
+                  label={likeButtonText}
+                  active={itsLiked}
+                  styles={{
+                    padding: '0px',
+                    cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                    pointerEvents: loadingLike ? 'none' : 'auto'
+                  }}
+                /> */}
+              </Styled.FlexButtonContainer>
+            </Tooltip>
           )}
 
-          <MiniButton variant="terciary" onClick={actionAnswer} label={answerButtonText} />
+          <MiniButton darkMode={darkMode} variant="terciary" onClick={actionAnswer} label={answerButtonText} styles={{color: darkMode ? '#EBEBEB' : '#444444'}} />
           {showOptions ? (
             isAuthor ? (
-              <Styled.MenuMoreContainer>
-                <MenuMore options={authorOptions} style={{}} closeAfterClick={true} isHover={false} />
+              <Styled.MenuMoreContainer darkMode={darkMode} >
+                <MenuMore isDarkMode={darkMode} options={authorOptions} style={{}} closeAfterClick={true} isHover={false} />
               </Styled.MenuMoreContainer>
             ) : isOwnerPost ? (
-              <Styled.MenuMoreContainer>
-                <MenuMore options={ownerPost} style={{}} closeAfterClick={true} isHover={false} />
+              <Styled.MenuMoreContainer darkMode={darkMode} >
+                <MenuMore isDarkMode={darkMode} options={ownerPost} style={{}} closeAfterClick={true} isHover={false} />
               </Styled.MenuMoreContainer>
             ) : (
-              <Styled.MenuMoreContainer>
-                <MenuMore options={[]} isHover={false} />
+              <Styled.MenuMoreContainer darkMode={darkMode} >
+                <MenuMore isDarkMode={darkMode} options={[]} isHover={false} />
               </Styled.MenuMoreContainer>
             )
           ) : (

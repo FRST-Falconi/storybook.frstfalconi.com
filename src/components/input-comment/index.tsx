@@ -139,21 +139,32 @@ export default function InputComment({
           {!isPlaceholder && showEmojiPicker &&
             <Styles.EmojiWrapper>
               <IconButton onClick={(e) => {
-                e.preventDefault()
-                setShowPicker(!showPicker)
+                e.preventDefault();
+                e.stopPropagation();
+                setShowPicker(!showPicker);
               }}>
                 <EmojiIcon />
               </IconButton>
             </Styles.EmojiWrapper>
           }
           {!isPlaceholder && showEmojiPicker &&
-            <EmojiPicker 
-              theme={darkMode ? Theme.DARK : Theme.LIGHT}
-              autoFocusSearch
-              onEmojiClick={handleEmojiSelected}
-              open={showPicker}
-              style={{position: 'absolute', right: 0}}
-            />
+            <div onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}>
+              <EmojiPicker 
+                theme={darkMode ? Theme.DARK : Theme.LIGHT}
+                autoFocusSearch
+                onEmojiClick={(emojiData, event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  handleEmojiSelected(emojiData, event);
+                }}
+                open={showPicker}
+                skinTonesDisabled
+                style={{position: 'absolute', right: 0}}
+              />
+            </div>
           }
         </Styles.HelperContainer>
         {styleLimitExceeded && (

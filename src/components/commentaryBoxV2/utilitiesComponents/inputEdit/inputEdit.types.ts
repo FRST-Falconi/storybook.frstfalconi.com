@@ -12,6 +12,7 @@ export interface IInputEdit {
     cancelButtonText: string;
     orText: string;
     group_uuid: string;
+    darkMode?: boolean
 }
 
 export interface OnClickEditButtonParams {
