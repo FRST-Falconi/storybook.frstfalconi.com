@@ -6213,7 +6213,7 @@ const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonTex
     const [showAnswers, setShowAnswers] = React.useState(threadOpenByDefault);
     const [showReplyInput, setShowReplyInput] = React.useState(false);
     const handleLoadMoreReplies = () => {
-        onClickShowReplies && onClickShowReplies();
+        onClickShowReplies && onClickShowReplies(commentData?.id?.toString());
         setShowAnswers(true);
     };
     return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.avatar, loggedInUser: loggedInUser, userName: commentData.user?.name, userOffice: commentData.user?.role_name, userCompany: commentData.user?.company_name, commentId: commentData.id, commentText: commentData.text, commentUuid: commentData.uuid, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => setShowReplyInput(true), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '16px' }, commentTextWithMention: commentData.mentionText, isAuthor: isAuthor, isOwnerPost: isOwnerPost, deleteText: deleteText, editText: editText, showOptions: isAuthor || isOwnerPost, actionDeleteComment: onClickDelete, limitInput: limitInput, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, actionEditComment: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, likes: likes, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, showInterconnectionLine: replies.length > 0 && showAnswers, darkMode: darkMode }), replies.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { style: { left: '44px' }, darkMode: darkMode, children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: `${toViewText} ${replies.length} ${replies.length === 1 ? answerText : answersText}` }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { imgProfile: loggedInUser?.avatar, styles: { width: '100%' }, idInput: `idInput-${commentData.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInput, onClickPublishButton: onClickPublishButton, replyMentionedUser: mainCommentUser, getSearchUsers: getSearchUsers, parentId: commentData.id, handleHiddenInput: () => setShowReplyInput(false), group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, darkMode: darkMode })), showAnswers &&
@@ -6227,7 +6227,7 @@ const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onCli
     const [showReplyInput, setShowReplyInput] = React.useState(false);
     const [visibleReplies, setVisibleReplies] = React.useState(0);
     const handleLoadMoreReplies = () => {
-        onClickShowReplies && onClickShowReplies();
+        onClickShowReplies && onClickShowReplies(mainComment?.id?.toString());
         if (showReplysOnClickCounter === 0) {
             setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size);
         }

@@ -45,7 +45,7 @@ export const CommentaryBoxReply = ({
   const [showReplyInput, setShowReplyInput] = useState(false)
 
   const handleLoadMoreReplies = () => {
-    onClickShowReplies && onClickShowReplies()
+    onClickShowReplies && onClickShowReplies(commentData?.id?.toString())
     setShowAnswers(true)
   }
 

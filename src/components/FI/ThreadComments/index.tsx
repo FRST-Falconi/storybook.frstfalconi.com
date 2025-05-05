@@ -48,7 +48,7 @@ export const ThreadComments = ({
   const [visibleReplies, setVisibleReplies] = useState(0)
 
   const handleLoadMoreReplies = () => {
-    onClickShowReplies && onClickShowReplies()
+    onClickShowReplies && onClickShowReplies(mainComment?.id?.toString())
     if (showReplysOnClickCounter === 0) {
       setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size)
     }
