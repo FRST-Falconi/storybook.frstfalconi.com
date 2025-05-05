@@ -38,4 +38,5 @@ export interface ICommentComentaryBoxReply {
   answerText: string
   threadOpenByDefault: boolean
   darkMode?: boolean
+  onClickShowReplies?: () => void
 }

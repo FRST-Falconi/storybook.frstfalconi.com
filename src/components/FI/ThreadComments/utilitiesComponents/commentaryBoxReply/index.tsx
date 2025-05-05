@@ -38,12 +38,14 @@ export const CommentaryBoxReply = ({
   toViewText,
   answerText,
   threadOpenByDefault,
-  darkMode
+  darkMode,
+  onClickShowReplies
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(threadOpenByDefault)
   const [showReplyInput, setShowReplyInput] = useState(false)
 
   const handleLoadMoreReplies = () => {
+    onClickShowReplies && onClickShowReplies()
     setShowAnswers(true)
   }
 

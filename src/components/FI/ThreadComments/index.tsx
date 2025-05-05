@@ -38,7 +38,8 @@ export const ThreadComments = ({
   toViewText,
   answersText,
   answerText,
-  darkMode
+  darkMode,
+  onClickShowReplies
 }: IThreadComments) => {
   const threadOpenByDefault = mainComment?.thread_open
   const [showAnswers, setShowAnswers] = useState(false)
@@ -47,6 +48,7 @@ export const ThreadComments = ({
   const [visibleReplies, setVisibleReplies] = useState(0)
 
   const handleLoadMoreReplies = () => {
+    onClickShowReplies && onClickShowReplies()
     if (showReplysOnClickCounter === 0) {
       setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size)
     }
@@ -187,6 +189,7 @@ export const ThreadComments = ({
                   answerText={answerText}
                   threadOpenByDefault={!!threadOpenByDefault}
                   darkMode={darkMode}
+                  onClickShowReplies={onClickShowReplies}
                 />
               </div>
             ))}
