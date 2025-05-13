@@ -92,6 +92,8 @@ export const CommentaryBoxReply = ({
         likeButtonText={likeButtonText}
         showInterconnectionLine={replies.length > 0 && showAnswers}
         darkMode={darkMode}
+        isLiked={commentData?.isLiked}
+        totalLikes={commentData?.totalLikes}
       />
 
       {replies.length > 0 && !showAnswers && (
@@ -167,6 +169,8 @@ export const CommentaryBoxReply = ({
               imgProfile={reply.user?.avatar}
               showInterconnectionLine={replies.length != index + 1}
               darkMode={darkMode}
+              isLiked={reply?.isLiked}
+              totalLikes={reply?.totalLikes}
             />
           </>
         ))}

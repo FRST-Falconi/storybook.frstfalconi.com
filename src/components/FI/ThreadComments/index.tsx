@@ -126,6 +126,8 @@ export const ThreadComments = ({
             likeButtonText={likeButtonText}
             likes={mainComment.likes}
             darkMode={darkMode}
+            isLiked={mainComment?.isLiked}
+            totalLikes={mainComment?.totalLikes}
           />
 
           {listReplyComments.length > visibleReplies && (

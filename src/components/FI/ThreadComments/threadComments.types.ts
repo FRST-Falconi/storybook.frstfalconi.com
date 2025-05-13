@@ -9,6 +9,8 @@ export interface IComment {
   mentionText?: string
   howLongAgo: string
   likes?: ILike[]
+  isLiked?: boolean
+  totalLikes?: number
   replies?: IComment[]
   thread_open?: boolean
 }

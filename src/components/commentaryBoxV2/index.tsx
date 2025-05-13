@@ -52,13 +52,15 @@ export const CommentaryBoxV2 = ({
   likes,
   loggedInUser,
   showInterconnectionLine = false,
-  darkMode
+  darkMode,
+  isLiked,
+  totalLikes = 0
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
   const [loadingLike, setLoadingLike] = useState(false)
-  const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id)
-  const likesCount = likes?.length || 0
+  const itsLiked = likes?.length > 0 ? likes?.some((like) => like.user_uuid === loggedInUser.id) : isLiked
+  const likesCount = likes?.length > 0 ? likes?.length : totalLikes
   const likeId =
     likes?.find((like) => like.user_uuid === loggedInUser.id || like.user?.uuid === loggedInUser.id)?.id || null
 
@@ -93,7 +95,7 @@ export const CommentaryBoxV2 = ({
   const handleUnlike = async () => {
     try {
       setLoadingLike(true)
-      await actionUnlike(likeId)
+      await actionUnlike(likeId ? likeId : commentId.toString())
     } catch (error) {
       console.log('error:', error)
     } finally {

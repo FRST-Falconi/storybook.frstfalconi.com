@@ -51,4 +51,6 @@ export interface ICommentaryBoxV2 {
     loggedInUser: LoggedInUser,
     showInterconnectionLine?: boolean;
     darkMode?: boolean
+    isLiked?: boolean
+    totalLikes?: number
 }
