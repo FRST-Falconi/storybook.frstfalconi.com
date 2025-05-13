@@ -39,7 +39,8 @@ export const ThreadComments = ({
   answersText,
   answerText,
   darkMode,
-  onClickShowReplies
+  toHideText,
+  hideRepliesText
 }: IThreadComments) => {
   const threadOpenByDefault = mainComment?.thread_open
   const [showAnswers, setShowAnswers] = useState(false)
@@ -48,7 +49,6 @@ export const ThreadComments = ({
   const [visibleReplies, setVisibleReplies] = useState(0)
 
   const handleLoadMoreReplies = () => {
-    onClickShowReplies && onClickShowReplies(mainComment?.id?.toString())
     if (showReplysOnClickCounter === 0) {
       setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size)
     }
@@ -57,6 +57,12 @@ export const ThreadComments = ({
       setVisibleReplies(listReplyComments?.length)
     }
     setShowAnswers(true)
+  }
+
+  const handleHideReplies = () => {
+    setVisibleReplies(0)
+    setReplysOnClickCounter(0)
+    setShowAnswers(false)
   }
 
   const handleHiddenInput = () => {
@@ -130,6 +136,14 @@ export const ThreadComments = ({
             </Styled.ViewReplysButtonContainer>
           )}
 
+          {showAnswers && visibleReplies && hideRepliesText && (
+            <Styled.ViewReplysButtonContainer id="text-viwMsg" darkMode={darkMode}>
+              <span onClick={handleHideReplies}>
+                {hideRepliesText}
+              </span>
+            </Styled.ViewReplysButtonContainer>
+          )}
+
           {showReplyInput && (
             <InputReply
               styles={{ marginLeft: '60px' }}
@@ -189,7 +203,7 @@ export const ThreadComments = ({
                   answerText={answerText}
                   threadOpenByDefault={!!threadOpenByDefault}
                   darkMode={darkMode}
-                  onClickShowReplies={onClickShowReplies}
+                  toHideText={toHideText}
                 />
               </div>
             ))}

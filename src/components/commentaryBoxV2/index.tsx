@@ -210,73 +210,75 @@ export const CommentaryBoxV2 = ({
       {!isModeEdit && (
         <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
           {showLikeButton && (
-            <Tooltip
-              title={itsLiked ? 'Remover curtida' : 'Curtir'}
-              placement='bottom'
-              arrow
-              slotProps={{
-                  popper: {
-                      modifiers: [
-                          {
-                              name: 'offset',
-                              options: {
-                                  offset: [0, -8]
-                              }
-                          }
-                      ],
-                  },
-                  tooltip: {
-                      sx: {
-                          backgroundColor: darkMode ? '#323232' : '#FFFFFF',
-                          fontFamily: 'PT Sans',
-                          fontWeight: 400,
-                          fontSize: '14px',
-                          lineHeight: 1.3,
-                          textAlign: 'center',
-                          color: darkMode ? '#FFFFFF' : '#757575',
-                          border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD',
-                          boxShadow: '0px 25px 18px -20px #22222233'
-                      }
-                  },
-                  arrow: {
-                      sx:{
-                          ":before": {
-                              border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD'
-                          },
-                          color: darkMode ? '#323232' : '#FFFFFF'
-                      }
-                  }
-              }}
-            >
-              <Styled.FlexButtonContainer
-                onClick={itsLiked ? handleUnlike : handleLike}
-                style={{
-                  cursor: loadingLike ? 'not-allowed !important' : 'pointer',
-                  pointerEvents: loadingLike ? 'none' : 'auto'
+            <>
+              <Tooltip
+                title={itsLiked ? 'Remover curtida' : 'Curtir'}
+                placement='bottom'
+                arrow
+                slotProps={{
+                    popper: {
+                        modifiers: [
+                            {
+                                name: 'offset',
+                                options: {
+                                    offset: [0, 0]
+                                }
+                            }
+                        ],
+                    },
+                    tooltip: {
+                        sx: {
+                            backgroundColor: darkMode ? '#323232' : '#FFFFFF',
+                            fontFamily: 'PT Sans',
+                            fontWeight: 400,
+                            fontSize: '14px',
+                            lineHeight: 1.3,
+                            textAlign: 'center',
+                            color: darkMode ? '#FFFFFF' : '#757575',
+                            border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD',
+                            boxShadow: '0px 25px 18px -20px #22222233'
+                        }
+                    },
+                    arrow: {
+                        sx:{
+                            ":before": {
+                                border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD'
+                            },
+                            color: darkMode ? '#323232' : '#FFFFFF'
+                        }
+                    }
                 }}
-                darkMode={darkMode}
               >
-                {itsLiked ? 
-                  <IconLikeFilled customColor_1={darkMode ? '#151515' : '#FFFFFF'} /> 
-                  : 
-                  <IconLikeLine fill={darkMode ? "#EBEBEB" : "#444"} />
-                }
-                <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444")}}>
-                  {likesCount}
-                </span>
-                {/* <MiniButton
-                  variant="terciary"
-                  onClick={() => {}}
-                  label={likeButtonText}
-                  active={itsLiked}
-                  styles={{
-                    padding: '0px',
+                <Styled.FlexButtonContainer
+                  onClick={itsLiked ? handleUnlike : handleLike}
+                  style={{
                     cursor: loadingLike ? 'not-allowed !important' : 'pointer',
                     pointerEvents: loadingLike ? 'none' : 'auto'
                   }}
-                /> */}
-              </Styled.FlexButtonContainer>
-            </Tooltip>
+                  darkMode={darkMode}
+                >
+                  {itsLiked ? 
+                    <IconLikeFilled customColor_1={darkMode ? '#151515' : '#FFFFFF'} /> 
+                    : 
+                    <IconLikeLine fill={darkMode ? "#EBEBEB" : "#444"} />
+                  }
+                  {/* <MiniButton
+                    variant="terciary"
+                    onClick={() => {}}
+                    label={likeButtonText}
+                    active={itsLiked}
+                    styles={{
+                      padding: '0px',
+                      cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                      pointerEvents: loadingLike ? 'none' : 'auto'
+                    }}
+                  /> */}
+                </Styled.FlexButtonContainer>
+              </Tooltip>
+              <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444")}}>
+                {likesCount}
+              </span>
+            </>
           )}
 
           <MiniButton darkMode={darkMode} variant="terciary" onClick={actionAnswer} label={answerButtonText} styles={{color: darkMode ? '#EBEBEB' : '#444444'}} />

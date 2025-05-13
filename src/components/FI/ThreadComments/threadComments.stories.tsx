@@ -183,5 +183,8 @@ DarkMode.args = {
   toViewText: 'Visualizar',
   answersText: 'Respostas',
   idCommentResponse: 'testeIdResposta',
-  darkMode: true
+  darkMode: true,
+  toHideText: 'Ocultar',
+  size: handleCountReplies(),
+  hideRepliesText: `Ocultar respostas (${handleCountReplies()})`
 }

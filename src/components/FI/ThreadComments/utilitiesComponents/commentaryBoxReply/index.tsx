@@ -39,14 +39,17 @@ export const CommentaryBoxReply = ({
   answerText,
   threadOpenByDefault,
   darkMode,
-  onClickShowReplies
+  toHideText
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(threadOpenByDefault)
   const [showReplyInput, setShowReplyInput] = useState(false)
 
   const handleLoadMoreReplies = () => {
-    onClickShowReplies && onClickShowReplies(commentData?.id?.toString())
     setShowAnswers(true)
+  }
+
+  const handleHideReplies = () => {
+    setShowAnswers(false)
   }
 
   return (
@@ -94,6 +97,13 @@ export const CommentaryBoxReply = ({
       {replies.length > 0 && !showAnswers && (
         <ViewReplysButtonContainer style={{ left: '44px' }} darkMode={darkMode}>
           <span onClick={handleLoadMoreReplies}>{`${toViewText} ${replies.length} ${
+            replies.length === 1 ? answerText : answersText
+          }`}</span>
+        </ViewReplysButtonContainer>
+      )}
+      {replies.length > 0 && showAnswers && toHideText && (
+        <ViewReplysButtonContainer style={{ left: '44px' }} darkMode={darkMode}>
+          <span onClick={handleHideReplies}>{`${toHideText} ${replies.length} ${
             replies.length === 1 ? answerText : answersText
           }`}</span>
         </ViewReplysButtonContainer>

@@ -53,7 +53,8 @@ export interface IThreadComments {
   answersText: string
   answerText: string
   darkMode?: boolean
-  onClickShowReplies?: (parentId: string) => void
+  toHideText?: string
+  hideRepliesText?: string
 }
 
 export interface IUser {

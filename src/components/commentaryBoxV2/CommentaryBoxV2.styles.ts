@@ -129,9 +129,8 @@ export const FlexButtonContainer = styled.div<IButton>`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:4px;
-    gap:4px;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 100px;
    
     &:hover {
         background-color: ${({ theme, darkMode }) => darkMode ? '#272727' : theme.colors.neutralsGrey9};
@@ -139,7 +138,7 @@ export const FlexButtonContainer = styled.div<IButton>`
     svg {
         :hover {
             /* fill:${({ theme }) => theme.colors.neutralsGrey9}; */
-            background-color: ${({ theme, darkMode }) => darkMode ? '#272727' : theme.colors.neutralsGrey9};
+            /* background-color: ${({ theme, darkMode }) => darkMode ? 'red' : theme.colors.neutralsGrey9}; */
         }
         :active {
             stroke:${({ theme }) => theme.colors.neutralsGrey1};
