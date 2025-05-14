@@ -141,8 +141,8 @@ export const FlexButtonContainer = styled.div<IButton>`
             /* background-color: ${({ theme, darkMode }) => darkMode ? 'red' : theme.colors.neutralsGrey9}; */
         }
         :active {
-            stroke:${({ theme }) => theme.colors.neutralsGrey1};
-            background-color:  ${({ theme }) => theme.colors.neutralsGrey9};
+            /* stroke:${({ theme }) => theme.colors.neutralsGrey1};
+            background-color:  ${({ theme }) => theme.colors.neutralsGrey9}; */
         }
     }
 `

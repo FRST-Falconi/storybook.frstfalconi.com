@@ -5746,8 +5746,8 @@ const FlexButtonContainer = styled__default["default"].div `
             /* background-color: ${({ theme, darkMode }) => darkMode ? 'red' : theme.colors.neutralsGrey9}; */
         }
         :active {
-            stroke:${({ theme }) => theme.colors.neutralsGrey1};
-            background-color:  ${({ theme }) => theme.colors.neutralsGrey9};
+            /* stroke:${({ theme }) => theme.colors.neutralsGrey1};
+            background-color:  ${({ theme }) => theme.colors.neutralsGrey9}; */
         }
     }
 `;
@@ -6088,7 +6088,11 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
                                     }, darkMode: darkMode, children: itsLiked ?
                                         jsxRuntime.jsx(IconLikeFilled, { customColor_1: darkMode ? '#151515' : '#FFFFFF' })
                                         :
-                                            jsxRuntime.jsx(IconLikeLine, { fill: darkMode ? "#EBEBEB" : "#444" }) }) }), jsxRuntime.jsx("span", { style: { color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444") }, children: likesCount })] })), jsxRuntime.jsx(MiniButton, { darkMode: darkMode, variant: "terciary", onClick: actionAnswer, label: answerButtonText, styles: { color: darkMode ? '#EBEBEB' : '#444444' } }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
+                                            jsxRuntime.jsx(IconLikeLine, { fill: darkMode ? "#EBEBEB" : "#444" }) }) }), jsxRuntime.jsx("span", { style: { color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444"),
+                                    fontFamily: 'PT Sans',
+                                    fontSize: '14px',
+                                    fontWeight: 700
+                                }, children: likesCount })] })), jsxRuntime.jsx(MiniButton, { darkMode: darkMode, variant: "terciary", onClick: actionAnswer, label: answerButtonText, styles: { color: darkMode ? '#EBEBEB' : '#444444' } }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { darkMode: darkMode, children: jsxRuntime.jsx(MenuMore, { isDarkMode: darkMode, options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
 };
 
 const Container$o = styled__default["default"].div `

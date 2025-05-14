@@ -277,7 +277,11 @@ export const CommentaryBoxV2 = ({
                   /> */}
                 </Styled.FlexButtonContainer>
               </Tooltip>
-              <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444")}}>
+              <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444"),
+                fontFamily: 'PT Sans',
+                fontSize: '14px',
+                fontWeight: 700
+              }}>
                 {likesCount}
               </span>
             </>
