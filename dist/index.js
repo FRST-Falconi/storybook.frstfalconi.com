@@ -23575,11 +23575,11 @@ const TextContainer = styled__default["default"].div `
     text-overflow: ellipsis;
     max-width: 100%;
 `;
-const selectTag = styled__default["default"].div `
+const SelectTag = styled__default["default"].div `
     display: inline-flex;
     align-items: center;
     min-height: 32px;
-    background: ${({ isVariant }) => (isVariant ? '#6A3F86' : '#00828c')};
+    background: ${({ isVariant, tagColor }) => (tagColor ? tagColor : isVariant ? '#6A3F86' : '#00828c')};
     border-radius: 4px;
     gap: 8px;
     padding: 4px 8px;
@@ -23587,7 +23587,7 @@ const selectTag = styled__default["default"].div `
     z-index: 999;
 
     :hover {
-        background: ${({ isVariant }) => (isVariant ? '#6A3F86' : '#1f6e74')};
+        background: ${({ isVariant, tagColor }) => (tagColor ? tagColor : isVariant ? '#6A3F86' : '#1f6e74')};
     }
 
     & > p {
@@ -23699,7 +23699,7 @@ var css_248z = ".p-component,\r\n.p-component * {\r\n  box-sizing: border-box;\r
 styleInject(css_248z);
 
 function DropdownMultiselect(props) {
-    const { canShowAvatar = true, useTextFilter = false, searchTerm, hiddenAddAll, variantModeDescritpion, width, listItems, selectedDefault, getSelectedItems, onSearch } = props;
+    const { canShowAvatar = true, useTextFilter = false, searchTerm, hiddenAddAll, variantModeDescritpion, width, listItems, selectedDefault, getSelectedItems, onSearch, tagColor } = props;
     const [selectedValues, setSelectedValues] = React.useState([]);
     const [textFilter, setTextFilter] = React.useState(searchTerm || '');
     const [listItemsFilter, setListItemsFilter] = React.useState(listItems);
@@ -23773,7 +23773,7 @@ function DropdownMultiselect(props) {
         const pessoasAMais = selectedValues?.length - props.maxSelectedShow;
         return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: option.map((item, index) => {
                 if (index < props.maxSelectedShow) {
-                    return props.optionLayout ? (props.optionLayout(item)) : (jsxRuntime.jsxs(selectTag, { id: "tag-container", isVariant: !!item?.isVariant, children: [canShowAvatar &&
+                    return props.optionLayout ? (props.optionLayout(item)) : (jsxRuntime.jsxs(SelectTag, { id: "tag-container", isVariant: !!item?.isVariant, tagColor: tagColor, children: [canShowAvatar &&
                                 (item?.isVariant ? (externaAvatarBackgroundWhite) : (jsxRuntime.jsx(Avatar, { src: item?.avatar, size: "24px" }))), jsxRuntime.jsxs("p", { children: [" ", item?.name, " "] }), jsxRuntime.jsx(material.IconButton, { id: "close-icon", onClick: () => removeSelectedValue(item.id), children: jsxRuntime.jsx(CloseIcon, { width: "8", height: "8", fill: "#FFFFFF" }) })] }, index));
                 }
                 else if (index === props?.maxSelectedShow) {

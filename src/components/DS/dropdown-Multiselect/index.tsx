@@ -38,6 +38,7 @@ interface IDropdownMultiselect {
     hiddenAddAll?: boolean
     variantModeDescritpion?: boolean
     width?: string
+    tagColor?: string
 }
 
 type ISelectedValue = {
@@ -60,7 +61,8 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         listItems,
         selectedDefault,
         getSelectedItems,
-        onSearch
+        onSearch,
+        tagColor
     } = props
     
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([])
@@ -175,7 +177,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         return props.optionLayout ? (
                             props.optionLayout(item)
                         ) : (
-                            <S.selectTag key={index} id="tag-container" isVariant={!!item?.isVariant}>
+                            <S.SelectTag key={index} id="tag-container" isVariant={!!item?.isVariant} tagColor={tagColor}>
                                 {canShowAvatar &&
                                     (item?.isVariant ? (
                                         externaAvatarBackgroundWhite
@@ -186,7 +188,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                 <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
                                     <CloseIcon width="8" height="8" fill="#FFFFFF" />
                                 </IconButton>
-                            </S.selectTag>
+                            </S.SelectTag>
                         )
                     } else if (index === props?.maxSelectedShow) {
                         return (
