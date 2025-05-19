@@ -37,7 +37,10 @@ export const ThreadComments = ({
   likeButtonText,
   toViewText,
   answersText,
-  answerText
+  answerText,
+  darkMode,
+  toHideText,
+  hideRepliesText
 }: IThreadComments) => {
   const threadOpenByDefault = mainComment?.thread_open
   const [showAnswers, setShowAnswers] = useState(false)
@@ -54,6 +57,12 @@ export const ThreadComments = ({
       setVisibleReplies(listReplyComments?.length)
     }
     setShowAnswers(true)
+  }
+
+  const handleHideReplies = () => {
+    setVisibleReplies(0)
+    setReplysOnClickCounter(0)
+    setShowAnswers(false)
   }
 
   const handleHiddenInput = () => {
@@ -116,12 +125,23 @@ export const ThreadComments = ({
             showLikeButton={true}
             likeButtonText={likeButtonText}
             likes={mainComment.likes}
+            darkMode={darkMode}
+            isLiked={mainComment?.isLiked}
+            totalLikes={mainComment?.totalLikes}
           />
 
           {listReplyComments.length > visibleReplies && (
-            <Styled.ViewReplysButtonContainer id="text-viwMsg">
+            <Styled.ViewReplysButtonContainer id="text-viwMsg" darkMode={darkMode}>
               <span onClick={handleLoadMoreReplies}>
                 {showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText}
+              </span>
+            </Styled.ViewReplysButtonContainer>
+          )}
+
+          {showAnswers && visibleReplies && hideRepliesText && (
+            <Styled.ViewReplysButtonContainer id="text-viwMsg" darkMode={darkMode}>
+              <span onClick={handleHideReplies}>
+                {hideRepliesText}
               </span>
             </Styled.ViewReplysButtonContainer>
           )}
@@ -141,6 +161,7 @@ export const ThreadComments = ({
               handleHiddenInput={handleHiddenInput}
               group_uuid={group_uuid}
               limitMessageExceeded={limitMessageExceeded}
+              darkMode={darkMode}
             />
           )}
         </div>
@@ -183,6 +204,8 @@ export const ThreadComments = ({
                   answersText={answersText}
                   answerText={answerText}
                   threadOpenByDefault={!!threadOpenByDefault}
+                  darkMode={darkMode}
+                  toHideText={toHideText}
                 />
               </div>
             ))}

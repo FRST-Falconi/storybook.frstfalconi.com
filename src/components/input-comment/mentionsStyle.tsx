@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ hide: boolean; top: string; width?: number; height?: number }>`
-  background-color: #ffff;
+export const Container = styled.div<{ hide: boolean; top: string; width?: number; height?: number; darkMode?: boolean }>`
+  background-color: ${({darkMode}) => darkMode ? '#323232' : '#ffff'} ;
   display: ${({ hide }) => hide ? 'none' : 'flex'};
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@ export const Container = styled.div<{ hide: boolean; top: string; width?: number
   overflow-x: hidden;
   z-index: 100;
   border-radius: 8px;
-  box-shadow: 4px 8px 10px 0 #BDBDBD;
+  box-shadow: ${({darkMode}) => darkMode ? '4px 8px 10px 0px #0000004D' : '4px 8px 10px 0 #BDBDBD'};
  
   ::-webkit-scrollbar {
     width: 17px; 
@@ -45,21 +45,21 @@ export const MentionList = styled.div`
   width: 100%;
 `
 
-export const MentionItem = styled.div<{ active?: boolean }>`
+export const MentionItem = styled.div<{ active?: boolean; darkMode?: boolean }>`
   display: flex;
   cursor: pointer;
   align-items: center;
   justify-content: flex-start;
   padding: 8px;
-  border-bottom:${({ theme }) =>  `0.5px solid ${theme.colors.neutralsGrey5}`};
+  border-bottom:${({ theme, darkMode }) =>  `0.5px solid ${darkMode ? theme.colors.neutralsGrey3 : theme.colors.neutralsGrey5}`};
   &:last-child {
     border-bottom: none; /* Remove the border for the last child */
   }
   &:hover {
-    background-color:${({ active }) => active ? '#FCF3EB' : '#F1F5F9'};
+    background-color:${({ active, darkMode }) => active ? (darkMode ? '#3D3D3D' : '#FCF3EB') : (darkMode ? '#3D3D3D' :'#F1F5F9')};
   }
   &:focus{
-    background-color:${({ active }) => active ? '#FCF3EB' : '#F1F5F9'};
+    background-color:${({ active, darkMode }) => active ? (darkMode ? '#4B4B4B' : '#FCF3EB') : (darkMode ? '#4B4B4B' : '#F1F5F9')};
   }
   
   
@@ -88,18 +88,18 @@ export const MentionUserContainer = styled.div`
   
 `
 
-export const MentionUserName = styled.span`
+export const MentionUserName = styled.span<{darkMode?: boolean}>`
   font-weight: 400;
   font-size: 16px;
-  
+  color: ${({ theme, darkMode }) => darkMode ? theme.colors.shadeWhite : '#343434'};
 `
 
-export const MentionSubTitleContainer = styled.div`
+export const MentionSubTitleContainer = styled.div<{darkMode?: boolean}>`
   margin-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.colors.neutralsGrey3};
+  color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey3};
   font-weight: 400;
 `
 
@@ -110,17 +110,17 @@ export const MentionSubTitleText = styled.span`
   justify-content: flex-start;
  
 `
-export const Circle = styled.div`
+export const Circle = styled.div<{darkMode?: boolean}>`
   width: 4px;
   height: 4px;
   border-radius: 50%;
   font-weight: 400;
-  background-color: ${({ theme }) => theme.colors.neutralsGrey3};
-  color: ${({ theme }) => theme.colors.neutralsGrey3};
+  background-color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey3};
+  color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey3};
   margin: 0 8px;
 `
 export const CompanyName = styled.span`
-    white-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 50%;

@@ -13,8 +13,8 @@ export const Container = styled.div`
     width:100%;
 `
 
-export const SpanText = styled.p`
-    color: #000;
+export const SpanText = styled.p<{darkMode?: boolean}>`
+    color: ${({darkMode}) => darkMode ? '#EBEBEB' : '#000'};
     font-family: PT Sans;
     font-size: 16px;
     font-style: normal;

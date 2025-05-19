@@ -9,6 +9,8 @@ export interface IComment {
   mentionText?: string
   howLongAgo: string
   likes?: ILike[]
+  isLiked?: boolean
+  totalLikes?: number
   replies?: IComment[]
   thread_open?: boolean
 }
@@ -52,6 +54,9 @@ export interface IThreadComments {
   toViewText: string
   answersText: string
   answerText: string
+  darkMode?: boolean
+  toHideText?: string
+  hideRepliesText?: string
 }
 
 export interface IUser {
