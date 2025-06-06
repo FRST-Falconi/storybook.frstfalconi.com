@@ -8,6 +8,7 @@ import SearchField from '@components/search-field'
 import Avatar from '@components/avatar'
 import { IconButton, Modal, Skeleton } from '@mui/material'
 import './styles/primereact.css'
+import './styles/stylesMulti.css'
 // import './styles/primeflex.css'
 // import './styles/theme.css'
 import Tooltip, { TooltipV2 } from '../tooltip'
@@ -39,6 +40,7 @@ interface IDropdownMultiselect {
     variantModeDescritpion?: boolean
     width?: string
     tagColor?: string
+    darkMode?: boolean
 }
 
 type ISelectedValue = {
@@ -62,7 +64,8 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         selectedDefault,
         getSelectedItems,
         onSearch,
-        tagColor
+        tagColor,
+        darkMode
     } = props
     
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([])
@@ -145,7 +148,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
-                <S.selectItem id="select-items" width={width}>
+                <S.selectItem id="select-items" width={width} darkMode={darkMode}>
                     {canShowAvatar &&
                         (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
                     <S.TextContainer>
@@ -192,7 +195,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         )
                     } else if (index === props?.maxSelectedShow) {
                         return (
-                            <S.overShowInfo key={index} onClick={() => setShowModal(true)} id="number-people">
+                            <S.overShowInfo key={index} onClick={() => setShowModal(true)} id="number-people" darkMode={darkMode}>
                                 <p>{`+ ${pessoasAMais} ${pessoasAMais > 1 ? props?.people : props?.person}`}</p>
                             </S.overShowInfo>
                         )
@@ -225,6 +228,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         hasSearchIcon={true}
                         value={textFilter}
                         onChange={(e: any) => handleSearchChange(e.target.value)}
+                        darkMode={darkMode}
                     />
                 </div>
                 {listFilterSearch?.length > 0 && !hiddenAddAll ? (
@@ -234,6 +238,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         label={props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos'}
                         disabled={false}
                         handleClick={handleSelectAll}
+                        style={{color: darkMode && '#F26818'}}
                     />
                 ) : (
                     <></>
@@ -345,7 +350,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         <ThemeProvider theme={FRSTTheme}>
             <S.containerSelect style={{ ...props.style }} id="container-select">
                 {selectedValues?.length > 0 && (
-                    <S.headerSelect>
+                    <S.headerSelect darkMode={darkMode}>
                         {selectTemplate(selectedValues)}
 
                         {selectedValues?.length > 1 && (
@@ -357,26 +362,27 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                     style={{ height: 'auto' }}
                                 >
                                     <IconButton onClick={() => setSelectedValues([])}>
-                                        <Trash fill="#9C9C9C" />
+                                        <Trash fill={darkMode ? "#757575" : "#9C9C9C"} />
                                     </IconButton>
                                 </Tooltip>
                             </div>
                         )}
                     </S.headerSelect>
                 )}
-                <S.customSelect onClick={() => textFilter !== '' && setTextFilter('')}>
+                <S.customSelect onClick={() => textFilter !== '' && setTextFilter('')} darkMode={darkMode}>
                     <MultiSelect
                         id="list-selected"
                         panelStyle={{
                             display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block',
-                            background: '#fff'
+                            background: darkMode ? '#323232' : '#fff'
                         }}
                         value={selectedValues}
                         options={listFilterSearch}
                         onChange={(e) => setSelectedValues(e.value)}
                         placeholder={props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui'}
                         className="custom-multiselect"
-                        dropdownIcon={<DropdownIcon fill={FRSTTheme['colors'].shadeBlack} />}
+                        panelClassName={darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown'}
+                        dropdownIcon={<DropdownIcon fill={darkMode ? FRSTTheme['colors'].neutralsGrey3 : FRSTTheme['colors'].shadeBlack} />}
                         panelHeaderTemplate={handleTemplateHeader()}
                         itemTemplate={itemTemplate}
                         disabled={props.isDisabled}
@@ -387,6 +393,13 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                 selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}`
                         }}
                         virtualScrollerOptions={renderVirtualScrollerOptions()}
+                        pt={{
+                            item: {
+                                style: {
+                                    borderColor: darkMode && '#444444'
+                                }
+                            }
+                        }}
                     />
                 </S.customSelect>
                 {selectValuesModal()}

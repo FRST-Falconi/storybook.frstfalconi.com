@@ -4,6 +4,7 @@ interface ISearchField {
   isHover?: boolean
   isOnFocus?: boolean
   inputSearchNewStyle?: boolean
+  darkMode?: boolean
 }
 
 export const Container = styled.div`
@@ -37,7 +38,7 @@ export const ContainerIcon = styled.div`
 
 export const InputSearchWrapper = styled.div<ISearchField>`
   height: 48px;
-  background-color: ${({ theme, inputSearchNewStyle }) => (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
+  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
 
   border-radius: 8px;
 
@@ -46,8 +47,8 @@ export const InputSearchWrapper = styled.div<ISearchField>`
   align-items: center;
 
   border: 1px solid
-    ${({ isHover, theme, inputSearchNewStyle }) =>
-      isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : '#E0E0E0'};
+    ${({ isHover, theme, inputSearchNewStyle, darkMode }) =>
+      isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
 
   ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}
 `
@@ -65,7 +66,7 @@ export const InputText = styled.input<ISearchField>`
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  color: ${({ theme }) => theme.colors.neutralsGrey1};
+  color: ${({ theme, darkMode }) => darkMode ? theme.colors.shadeWhite : theme.colors.neutralsGrey1};
 
   &::placeholder {
     font-family: 'PT Sans';
@@ -73,7 +74,6 @@ export const InputText = styled.input<ISearchField>`
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    backgorund-color: #fff;
     color: ${({ theme, inputSearchNewStyle }) =>
       inputSearchNewStyle ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey3};
   }

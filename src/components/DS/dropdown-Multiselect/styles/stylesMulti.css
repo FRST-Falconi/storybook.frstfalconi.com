@@ -1,0 +1,12 @@
+.custom-darkMode-dropdown
+  .p-multiselect-items-wrapper
+  .p-multiselect-items
+  .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+    background: #444444 !important;
+    color: #ffffff !important;
+}
+
+.custom-darkMode-dropdown .p-multiselect-items-wrapper .p-multiselect-items .p-multiselect-item.p-highlight {
+    color: #ffffff !important;
+    background: #323232 !important;
+}
