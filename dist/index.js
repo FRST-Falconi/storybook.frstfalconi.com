@@ -23828,7 +23828,7 @@ function DropdownMultiselect(props) {
     }, [selectedValues]);
     React.useEffect(() => {
         notifySelectedItemsChange();
-    }, [getSelectedItems]);
+    }, [selectedValues]);
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
             const newValues = [...prev];
