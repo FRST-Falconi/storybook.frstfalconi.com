@@ -23825,7 +23825,7 @@ function DropdownMultiselect(props) {
         if (getSelectedItems) {
             getSelectedItems(selectedValues);
         }
-    }, []);
+    }, [selectedValues]);
     React.useEffect(() => {
         notifySelectedItemsChange();
     }, [selectedValues, getSelectedItems]);

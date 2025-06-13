@@ -115,7 +115,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         if (getSelectedItems) {
             getSelectedItems(selectedValues)
         }
-    }, [])
+    }, [selectedValues])
 
     useEffect(() => {
         notifySelectedItemsChange()
