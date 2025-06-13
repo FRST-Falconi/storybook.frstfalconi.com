@@ -115,11 +115,11 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         if (getSelectedItems) {
             getSelectedItems(selectedValues)
         }
-    }, [selectedValues, getSelectedItems])
+    }, [])
 
-    // useEffect(() => {
-    //     notifySelectedItemsChange()
-    // }, [notifySelectedItemsChange])
+    useEffect(() => {
+        notifySelectedItemsChange()
+    }, [selectedValues, getSelectedItems])
 
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {

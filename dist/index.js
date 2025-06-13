@@ -23821,14 +23821,14 @@ function DropdownMultiselect(props) {
     }, [selectedDefault]);
     // Notifica o componente pai sobre alterações nos valores selecionados
     // Envolvendo em um useCallback para evitar loops infinitos
-    React.useCallback(() => {
+    const notifySelectedItemsChange = React.useCallback(() => {
         if (getSelectedItems) {
             getSelectedItems(selectedValues);
         }
+    }, []);
+    React.useEffect(() => {
+        notifySelectedItemsChange();
     }, [selectedValues, getSelectedItems]);
-    // useEffect(() => {
-    //     notifySelectedItemsChange()
-    // }, [notifySelectedItemsChange])
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
             const newValues = [...prev];
