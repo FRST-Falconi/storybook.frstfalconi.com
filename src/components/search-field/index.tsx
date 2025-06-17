@@ -18,7 +18,8 @@ export default function SearchField({
   isButton,
   id,
   style,
-  inputSearchNewStyle
+  inputSearchNewStyle,
+  darkMode
 }: ISearchField) {
   const [actionAreaInput, setActionAreaInput] = useState(false)
   const [inputOnFocus, setInputOnFocus] = useState(false)
@@ -44,11 +45,12 @@ export default function SearchField({
           isHover={actionAreaInput}
           isOnFocus={inputOnFocus}
           inputSearchNewStyle={inputSearchNewStyle}
+          darkMode={darkMode}
         >
           {hasSearchIcon && (
             <ContainerIcon>
               {' '}
-              <SearchIcon fill="#222222" />{' '}
+              <SearchIcon fill={darkMode ? "#9C9C9C" : "#222222"} />{' '}
             </ContainerIcon>
           )}
           <InputText
@@ -61,6 +63,7 @@ export default function SearchField({
                 handleClickButton(event)
               }
             }}
+            darkMode={darkMode}
           />
           {!isButton && <ButtonAction onClick={(event) => handleClickButton(event)}>{textButton}</ButtonAction>}
         </InputSearchWrapper>

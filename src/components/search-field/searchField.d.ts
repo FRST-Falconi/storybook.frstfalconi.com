@@ -14,4 +14,5 @@ export interface ISearchField {
   id?: string
   style?: any
   inputSearchNewStyle?: boolean
+  darkMode?: boolean
 }
