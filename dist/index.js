@@ -23667,7 +23667,7 @@ const SelectTag = styled__default["default"].div `
     gap: 8px;
     padding: 4px 8px;
     margin: 5px 10px 5px 0;
-    z-index: 999;
+    /* z-index: 999; */
 
     :hover {
         background: ${({ isVariant, tagColor }) => (tagColor ? tagColor : isVariant ? '#6A3F86' : '#1f6e74')};
@@ -23691,7 +23691,7 @@ const overShowInfo = styled__default["default"].div `
     height: 32px;
     padding: 4px 8px;
     margin: 5px 10px 5px 0;
-    z-index: 999;
+    /* z-index: 999; */
     cursor: pointer;
 
     & :hover {
@@ -23922,7 +23922,7 @@ function DropdownMultiselect(props) {
                 }, children: jsxRuntime.jsx(material.Skeleton, { width: option.even ? '70%' : '60%', height: '2rem' }) }))
         };
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 && (jsxRuntime.jsxs(headerSelect, { darkMode: darkMode, children: [selectTemplate(selectedValues), selectedValues?.length > 1 && (jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: darkMode ? "#757575" : "#9C9C9C" }) }) }) }))] })), jsxRuntime.jsx(customSelect, { onClick: () => textFilter !== '' && setTextFilter(''), darkMode: darkMode, children: jsxRuntime.jsx(multiselect.MultiSelect, { id: "list-selected", panelStyle: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 && (jsxRuntime.jsxs(headerSelect, { darkMode: darkMode, children: [selectTemplate(selectedValues), selectedValues?.length > 1 && (jsxRuntime.jsx("div", { style: { position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: darkMode ? "#757575" : "#9C9C9C" }) }) }) }))] })), jsxRuntime.jsx(customSelect, { onClick: () => textFilter !== '' && setTextFilter(''), darkMode: darkMode, children: jsxRuntime.jsx(multiselect.MultiSelect, { id: "list-selected", panelStyle: {
                             display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block',
                             background: darkMode ? '#323232' : '#fff'
                         }, value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui', className: "custom-multiselect", panelClassName: darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown', dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: darkMode ? FRSTTheme['colors'].neutralsGrey3 : FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: {

@@ -106,7 +106,7 @@ export const SelectTag = styled.div<{ isVariant?: boolean, tagColor?: string }>`
     gap: 8px;
     padding: 4px 8px;
     margin: 5px 10px 5px 0;
-    z-index: 999;
+    /* z-index: 999; */
 
     :hover {
         background: ${({ isVariant, tagColor }) => (tagColor ? tagColor : isVariant ? '#6A3F86' : '#1f6e74')};
@@ -131,7 +131,7 @@ export const overShowInfo = styled.div<{darkMode?: boolean}>`
     height: 32px;
     padding: 4px 8px;
     margin: 5px 10px 5px 0;
-    z-index: 999;
+    /* z-index: 999; */
     cursor: pointer;
 
     & :hover {

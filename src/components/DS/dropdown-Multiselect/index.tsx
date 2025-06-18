@@ -354,7 +354,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         {selectTemplate(selectedValues)}
 
                         {selectedValues?.length > 1 && (
-                            <div style={{ zIndex: 999, position: 'absolute', right: 40 }} id="remove-all-selected">
+                            <div style={{ position: 'absolute', right: 40 }} id="remove-all-selected">
                                 <Tooltip
                                     content={props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos'}
                                     direction="bottom"
