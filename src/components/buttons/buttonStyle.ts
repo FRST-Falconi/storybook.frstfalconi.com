@@ -1,5 +1,14 @@
 import styled, { css } from 'styled-components'
 
+const colorVariants = {
+  '#F26818': { hover: '#ee4c15', pressed: '#d14211' }, // default
+  '#E7AD00': { hover: '#D49F00', pressed: '#C79500' }, //amarelo
+  '#2457E3': { hover: '#2652CC', pressed: '#2A4DAC' }, //azul
+  '#27AA3D': { hover: '#1F9B33', pressed: '#238D35' }, //verde
+  '#9A37E1': { hover: '#8E29D6', pressed: '#7F28BE' }, //roxo
+  '#E64040': { hover: '#D13A3A', pressed: '#C23636' } //vermelho
+}
+
 export const LinkButton = styled.a<{ disabled: boolean }>`
   border: none;
   text-decoration: none;
@@ -115,32 +124,43 @@ export const LinkButtonEndIcon = styled.a<{ disabled: boolean; sizeIcon: string 
     `}
 `
 
-const variantStyles = (variant = 'contained') =>
+const variantStyles = (variant = 'contained', backgroundColor?: string) =>
   ({
-    primary: css`
-      background-color: #f26818;
-      color: ${({ theme }) => theme.colors.shadeWhite};
+    primary: ({ theme }) => {
+      const isDefault = !backgroundColor || backgroundColor === '#F26818';
+      const baseColor = isDefault ? '#F26818' : backgroundColor;
+      const hoverColor = isDefault
+        ? colorVariants['#F26818'].hover
+        : colorVariants[backgroundColor]?.hover || baseColor;
+      const pressedColor = isDefault
+        ? colorVariants['#F26818'].pressed
+        : colorVariants[backgroundColor]?.pressed || baseColor;
 
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.primary2};
-      }
+      return css`
+        background-color: ${baseColor};
+        color: ${theme.colors.shadeWhite};
 
-      &:active {
-        background-color: ${({ theme }) => theme.colorsprimary3};
-      }
+        &:hover {
+          background-color: ${hoverColor};
+        }
 
-      &:focus {
-        border: 2px solid #f26818 4d;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-      }
+        &:active {
+          background-color: ${pressedColor};
+        }
 
-      &:disabled {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey5};
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-    `,
+        &:focus {
+          border: 2px solid ${baseColor}4D;
+          -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+        }
+
+        &:disabled {
+          background-color: ${theme.colors.neutralsGrey5};
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+      `;
+    },
     secondary: css`
       background-color: transparent;
       color: ${({ theme }) => theme.colors.primary1};
@@ -169,30 +189,42 @@ const variantStyles = (variant = 'contained') =>
         pointer-events: none;
       }
     `,
-    expandedPrimary: css`
-      background-color: #f26818;
-      color: ${({ theme }) => theme.colors.shadeWhite};
-      width: 100%;
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.primary2};
-      }
+     expandedPrimary: ({ theme }) => {
+      const isDefault = !backgroundColor || backgroundColor === '#F26818';
+      const baseColor = isDefault ? '#F26818' : backgroundColor;
+      const hoverColor = isDefault
+        ? colorVariants['#F26818'].hover
+        : colorVariants[backgroundColor]?.hover || baseColor;
+      const pressedColor = isDefault
+        ? colorVariants['#F26818'].pressed
+        : colorVariants[backgroundColor]?.pressed || baseColor;
 
-      &:active {
-        background-color: ${({ theme }) => theme.colorsprimary3};
-      }
+      return css`
+        background-color: ${baseColor};
+        color: ${theme.colors.shadeWhite};
+        width: 100%;
 
-      &:focus {
-        border: 2px solid #f26818 4D;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-      }
+        &:hover {
+          background-color: ${hoverColor};
+        }
 
-      &:disabled {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey5};
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-    `,
+        &:active {
+          background-color: ${pressedColor};
+        }
+
+        &:focus {
+          border: 2px solid ${baseColor}4D;
+          -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+        }
+
+        &:disabled {
+          background-color: ${theme.colors.neutralsGrey5};
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+      `;
+    },
     expandedSecondary: css`
       background-color: transparent;
       color: ${({ theme }) => theme.colors.primary1};
@@ -222,9 +254,15 @@ const variantStyles = (variant = 'contained') =>
         pointer-events: none;
       }
     `
+    
   }[variant])
 
-export const Button = styled.button<{ variant: string; active: boolean; length: number }>`
+export const Button = styled.button<{
+  variant: string
+  active: boolean
+  length: number
+  backgroundColor?: string
+}>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -243,7 +281,7 @@ export const Button = styled.button<{ variant: string; active: boolean; length: 
   line-height: 19px;
   box-shadow: none;
 
-  ${({ variant }) => variantStyles(variant)}
+  ${({ variant, backgroundColor }) => variantStyles(variant, backgroundColor)}
 
   ${({ theme, length }) =>
     theme.type === 'group' &&
@@ -261,7 +299,7 @@ export const Button = styled.button<{ variant: string; active: boolean; length: 
         }
     `}
 
-    ${({ theme, length }) =>
+  ${({ theme, length }) =>
     theme.type === 'group' &&
     length > 2 &&
     `
@@ -287,13 +325,30 @@ export const Button = styled.button<{ variant: string; active: boolean; length: 
         }
     `}
 
-    ${({ active }) =>
+  ${({ active }) =>
     active === true &&
     css`
       background: #d14211;
     `}
+
+  /* AQUI COMEÇA A ADIÇÃO NOVA: */
+
+  ${({ backgroundColor }) =>
+    backgroundColor &&
+    backgroundColor !== '#F26818' &&
+    css`
+      background-color: ${backgroundColor};
+
+      &:hover {
+        background-color: ${colorVariants[backgroundColor]?.hover || backgroundColor};
+      }
+
+      &:active {
+        background-color: ${colorVariants[backgroundColor]?.pressed || backgroundColor};
+      }
+    `}
 `
-export const ButtonStartIcon = styled.button<{ variant: string; sizeIcon: string }>`
+export const ButtonStartIcon = styled.button<{ variant: string; sizeIcon: string, backgroundColor: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -319,9 +374,9 @@ export const ButtonStartIcon = styled.button<{ variant: string; sizeIcon: string
     width: auto;
   }
 
-  ${({ variant }) => variantStyles(variant)}
+  ${({ variant, backgroundColor}) => variantStyles(variant, backgroundColor)}
 `
-export const ButtonEndIcon = styled.button<{ variant: string; sizeIcon: string }>`
+export const ButtonEndIcon = styled.button<{ variant: string; sizeIcon: string, backgroundColor: string}>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -347,5 +402,5 @@ export const ButtonEndIcon = styled.button<{ variant: string; sizeIcon: string }
     width: auto;
   }
 
-  ${({ variant }) => variantStyles(variant)}
+  ${({ variant, backgroundColor }) => variantStyles(variant, backgroundColor)}
 `
