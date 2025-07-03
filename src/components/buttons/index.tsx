@@ -24,6 +24,7 @@ interface ButtonProps {
     ref?: any,
     handleMount?: (e:any) => void
     buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>
+    backgroundColor?: string; 
 }
 
 export default function Button({
@@ -42,7 +43,8 @@ export default function Button({
     id,
     ref,
     handleMount,
-    buttonProps
+    buttonProps,
+    backgroundColor, 
 }: ButtonProps) {
 
     useEffect(() => {
@@ -60,7 +62,7 @@ export default function Button({
                         {label}                        
                     </Styles.LinkButtonStartIcon>
                 :
-                    <Styles.ButtonStartIcon {...buttonProps} ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
+                    <Styles.ButtonStartIcon backgroundColor={backgroundColor} {...buttonProps} ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {startIcon}
                         {label}
                     </Styles.ButtonStartIcon>
@@ -71,7 +73,7 @@ export default function Button({
                         {endIcon}                       
                     </Styles.LinkButtonEndIcon>
                 :
-                    <Styles.ButtonEndIcon {...buttonProps} ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
+                    <Styles.ButtonEndIcon backgroundColor={backgroundColor} {...buttonProps} ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {label}
                         {endIcon}
                     </Styles.ButtonEndIcon>
@@ -81,7 +83,7 @@ export default function Button({
                         {label}                       
                     </Styles.LinkButton>
                 :
-                    <Styles.Button {...buttonProps} ref={ref} style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick} id={id}>
+                    <Styles.Button {...buttonProps} backgroundColor={backgroundColor} ref={ref} style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick} id={id}>
                         {label}
                     </Styles.Button>
                     

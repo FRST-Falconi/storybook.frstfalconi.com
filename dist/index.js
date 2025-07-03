@@ -2387,6 +2387,14 @@ function AvatarWithInfo(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, onClick: () => props?.onClick ? props.onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar, isActiveClick: !!props?.onClick }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
 }
 
+const colorVariants = {
+    '#F26818': { hover: '#ee4c15', pressed: '#d14211' },
+    '#E7AD00': { hover: '#D49F00', pressed: '#C79500' },
+    '#2457E3': { hover: '#2652CC', pressed: '#2A4DAC' },
+    '#27AA3D': { hover: '#1F9B33', pressed: '#238D35' },
+    '#9A37E1': { hover: '#8E29D6', pressed: '#7F28BE' },
+    '#E64040': { hover: '#D13A3A', pressed: '#C23636' } //vermelho
+};
 const LinkButton$1 = styled__default["default"].a `
   border: none;
   text-decoration: none;
@@ -2498,31 +2506,41 @@ const LinkButtonEndIcon = styled__default["default"].a `
       color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `;
-const variantStyles$1 = (variant = 'contained') => ({
-    primary: styled.css `
-      background-color: #f26818;
-      color: ${({ theme }) => theme.colors.shadeWhite};
+const variantStyles$1 = (variant = 'contained', backgroundColor) => ({
+    primary: ({ theme }) => {
+        const isDefault = !backgroundColor || backgroundColor === '#F26818';
+        const baseColor = isDefault ? '#F26818' : backgroundColor;
+        const hoverColor = isDefault
+            ? colorVariants['#F26818'].hover
+            : colorVariants[backgroundColor]?.hover || baseColor;
+        const pressedColor = isDefault
+            ? colorVariants['#F26818'].pressed
+            : colorVariants[backgroundColor]?.pressed || baseColor;
+        return styled.css `
+        background-color: ${baseColor};
+        color: ${theme.colors.shadeWhite};
 
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.primary2};
-      }
+        &:hover {
+          background-color: ${hoverColor};
+        }
 
-      &:active {
-        background-color: ${({ theme }) => theme.colorsprimary3};
-      }
+        &:active {
+          background-color: ${pressedColor};
+        }
 
-      &:focus {
-        border: 2px solid #f26818 4d;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-      }
+        &:focus {
+          border: 2px solid ${baseColor}4D;
+          -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+        }
 
-      &:disabled {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey5};
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-    `,
+        &:disabled {
+          background-color: ${theme.colors.neutralsGrey5};
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+      `;
+    },
     secondary: styled.css `
       background-color: transparent;
       color: ${({ theme }) => theme.colors.primary1};
@@ -2551,30 +2569,41 @@ const variantStyles$1 = (variant = 'contained') => ({
         pointer-events: none;
       }
     `,
-    expandedPrimary: styled.css `
-      background-color: #f26818;
-      color: ${({ theme }) => theme.colors.shadeWhite};
-      width: 100%;
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.primary2};
-      }
+    expandedPrimary: ({ theme }) => {
+        const isDefault = !backgroundColor || backgroundColor === '#F26818';
+        const baseColor = isDefault ? '#F26818' : backgroundColor;
+        const hoverColor = isDefault
+            ? colorVariants['#F26818'].hover
+            : colorVariants[backgroundColor]?.hover || baseColor;
+        const pressedColor = isDefault
+            ? colorVariants['#F26818'].pressed
+            : colorVariants[backgroundColor]?.pressed || baseColor;
+        return styled.css `
+        background-color: ${baseColor};
+        color: ${theme.colors.shadeWhite};
+        width: 100%;
 
-      &:active {
-        background-color: ${({ theme }) => theme.colorsprimary3};
-      }
+        &:hover {
+          background-color: ${hoverColor};
+        }
 
-      &:focus {
-        border: 2px solid #f26818 4D;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-      }
+        &:active {
+          background-color: ${pressedColor};
+        }
 
-      &:disabled {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey5};
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-    `,
+        &:focus {
+          border: 2px solid ${baseColor}4D;
+          -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+        }
+
+        &:disabled {
+          background-color: ${theme.colors.neutralsGrey5};
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+      `;
+    },
     expandedSecondary: styled.css `
       background-color: transparent;
       color: ${({ theme }) => theme.colors.primary1};
@@ -2624,7 +2653,7 @@ const Button$6 = styled__default["default"].button `
   line-height: 19px;
   box-shadow: none;
 
-  ${({ variant }) => variantStyles$1(variant)}
+  ${({ variant, backgroundColor }) => variantStyles$1(variant, backgroundColor)}
 
   ${({ theme, length }) => theme.type === 'group' &&
     length === 2 &&
@@ -2641,7 +2670,7 @@ const Button$6 = styled__default["default"].button `
         }
     `}
 
-    ${({ theme, length }) => theme.type === 'group' &&
+  ${({ theme, length }) => theme.type === 'group' &&
     length > 2 &&
     `
         border-radius: 0px;
@@ -2666,9 +2695,25 @@ const Button$6 = styled__default["default"].button `
         }
     `}
 
-    ${({ active }) => active === true &&
+  ${({ active }) => active === true &&
     styled.css `
       background: #d14211;
+    `}
+
+  /* AQUI COMEÇA A ADIÇÃO NOVA: */
+
+  ${({ backgroundColor }) => backgroundColor &&
+    backgroundColor !== '#F26818' &&
+    styled.css `
+      background-color: ${backgroundColor};
+
+      &:hover {
+        background-color: ${colorVariants[backgroundColor]?.hover || backgroundColor};
+      }
+
+      &:active {
+        background-color: ${colorVariants[backgroundColor]?.pressed || backgroundColor};
+      }
     `}
 `;
 const ButtonStartIcon$1 = styled__default["default"].button `
@@ -2697,7 +2742,7 @@ const ButtonStartIcon$1 = styled__default["default"].button `
     width: auto;
   }
 
-  ${({ variant }) => variantStyles$1(variant)}
+  ${({ variant, backgroundColor }) => variantStyles$1(variant, backgroundColor)}
 `;
 const ButtonEndIcon = styled__default["default"].button `
   display: flex;
@@ -2725,10 +2770,10 @@ const ButtonEndIcon = styled__default["default"].button `
     width: auto;
   }
 
-  ${({ variant }) => variantStyles$1(variant)}
+  ${({ variant, backgroundColor }) => variantStyles$1(variant, backgroundColor)}
 `;
 
-function Button$5({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount, buttonProps }) {
+function Button$5({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount, buttonProps, backgroundColor, }) {
     React.useEffect(() => {
         if (handleMount && id) {
             handleMount(id);
@@ -2738,17 +2783,17 @@ function Button$5({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
             (variant === 'link') ?
                 jsxRuntime.jsxs(LinkButtonStartIcon, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [startIcon, label] })
                 :
-                    jsxRuntime.jsxs(ButtonStartIcon$1, { ...buttonProps, ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [startIcon, label] })
+                    jsxRuntime.jsxs(ButtonStartIcon$1, { backgroundColor: backgroundColor, ...buttonProps, ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [startIcon, label] })
             : endIcon ?
                 (variant === 'link') ?
                     jsxRuntime.jsxs(LinkButtonEndIcon, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [label, endIcon] })
                     :
-                        jsxRuntime.jsxs(ButtonEndIcon, { ...buttonProps, ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [label, endIcon] })
+                        jsxRuntime.jsxs(ButtonEndIcon, { backgroundColor: backgroundColor, ...buttonProps, ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [label, endIcon] })
                 :
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, id: id, children: label })
                         :
-                            jsxRuntime.jsx(Button$6, { ...buttonProps, ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
+                            jsxRuntime.jsx(Button$6, { ...buttonProps, backgroundColor: backgroundColor, ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
 }
 
 var css_248z$k = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n@media (max-width:570px) {\n\n  .BannerProblem-module_container__iitVU {\n    padding: 10px !important;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    flex-direction: row;\n    flex-wrap: wrap;\n    background-color: white;\n    font-family: 'Work Sans';\n    font-style: normal;\n  \n  }\n  }\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";

@@ -12,6 +12,15 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <Button {...args} />
 
+export const buttonColors = Template.bind({})
+buttonColors.args = {
+    variant: 'primary',
+    label: 'Button text',
+    disabled: false,
+    handleClick: () => { alert('Click') },
+    backgroundColor: '#2457E3'
+}
+
 export const primary = Template.bind({})
 primary.args = {
     variant: 'primary',
@@ -41,6 +50,8 @@ expandedPrimary.args = {
     label: 'Button text',
     disabled: false,
     handleClick: () => { alert('Click') },
+    // backgroundColor: '#2457E3'
+
 }
 
 export const expandedSecondary = Template.bind({})
