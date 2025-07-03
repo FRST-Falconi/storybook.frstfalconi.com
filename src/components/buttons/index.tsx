@@ -24,7 +24,7 @@ interface ButtonProps {
     ref?: any,
     handleMount?: (e:any) => void
     buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>
-    backgroundColor?: string; // <-- adiciona aqui
+    backgroundColor?: string; 
 }
 
 export default function Button({
@@ -44,7 +44,7 @@ export default function Button({
     ref,
     handleMount,
     buttonProps,
-    backgroundColor, // <-- passa para o styled-component
+    backgroundColor, 
 }: ButtonProps) {
 
     useEffect(() => {
