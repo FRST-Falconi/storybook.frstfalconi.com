@@ -38,7 +38,8 @@ Success.args = {
     type: 'success',
     message: 'This is a success toast!',
     showBySeconds: 5,
-    styles: {}
+    styles: {},
+    handleClick: () => alert('cliquei aqui')
 }
 
 export const Info = Template.bind({})

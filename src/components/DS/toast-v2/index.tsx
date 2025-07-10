@@ -1,5 +1,6 @@
 import React from 'react'
-import { toast, ToastOptions, ToastPosition } from 'react-toastify'
+import { toast, ToastOptions, ToastPosition, CloseButtonProps } from 'react-toastify'
+
 import * as Styled from './toast-v2.styles'
 import { ThemeProvider } from 'styled-components'
 import { ToastProps } from './toast-v2.types'
@@ -13,7 +14,8 @@ export const showToastV2 = ({
     showBySeconds = 5,
     styles,
     startICon,
-    isHiddenCloseicon
+    isHiddenCloseicon,
+    handleClick
 }: ToastProps) => {
     let iconComponent = startICon
     switch (type) {
@@ -29,30 +31,41 @@ export const showToastV2 = ({
         default:
             iconComponent = undefined
     }
+
+    const CustomCloseButton = ({ closeToast }: CloseButtonProps) => (
+        <span
+            onClick={(e) => {
+                e.stopPropagation()
+                e.preventDefault()
+                closeToast(e)
+            }}
+            style={{
+                display: 'flex',
+                marginTop: 'auto',
+                marginBottom: 'auto',
+                marginRight: '20px',
+                marginLeft: '4px',
+                cursor: 'pointer'
+            }}
+        >
+            <CloseIcon width="14" height="14" />
+        </span>
+    )
     const toastOptions: ToastOptions = {
         position: 'top-right' as ToastPosition,
         autoClose: showBySeconds * 1000,
-        closeButton: isHiddenCloseicon ? (
-            <></>
-        ) : (
-            <span
-                style={{
-                    display: 'flex',
-                    marginTop: 'auto',
-                    marginBottom: 'auto',
-                    marginRight: '20px',
-                    marginLeft: '4px'
-                }}
-            >
-                <CloseIcon width="14" height="14" />
-            </span>
-        ),
+        closeButton: isHiddenCloseicon ? false : CustomCloseButton,
         icon: startICon ? startICon : iconComponent,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        onClick: (e) => {
+            e?.preventDefault()
+            e?.stopPropagation()
+            handleClick ? handleClick() : null
+        },
         style: styles
     }
 

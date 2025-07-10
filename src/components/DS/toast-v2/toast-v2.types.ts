@@ -7,4 +7,5 @@ export interface ToastProps {
     styles: any
     startICon?: any
     isHiddenCloseicon?: boolean
+    handleClick?: () => void
 }

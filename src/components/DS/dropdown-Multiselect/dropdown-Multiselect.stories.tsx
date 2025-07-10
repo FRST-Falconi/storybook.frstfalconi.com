@@ -376,7 +376,7 @@ lazyLoad.args = {
     searchSelectPlaceholder: 'Pesquisar',
     isDisabled: false,
     removeItemsToolTip: 'Excluir todos',
-    // style: {width: '400px'},
+    style: { width: '400px' },
     modalTitle: 'Este grupo é administrado por',
     btnSelectAllText: 'Selecionar todos',
     removeModalText: 'Remover',
