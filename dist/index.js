@@ -3305,7 +3305,7 @@ const StyledContainer = styled__default["default"](reactToastify.ToastContainer)
   }
 `;
 
-const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, startICon, isHiddenCloseicon }) => {
+const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, startICon, isHiddenCloseicon, handleClick }) => {
     let iconComponent = startICon;
     switch (type) {
         case 'error':
@@ -3320,22 +3320,33 @@ const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles, sta
         default:
             iconComponent = undefined;
     }
+    const CustomCloseButton = ({ closeToast }) => (jsxRuntime.jsx("span", { onClick: (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            closeToast(e);
+        }, style: {
+            display: 'flex',
+            marginTop: 'auto',
+            marginBottom: 'auto',
+            marginRight: '20px',
+            marginLeft: '4px',
+            cursor: 'pointer'
+        }, children: jsxRuntime.jsx(CloseIcon, { width: "14", height: "14" }) }));
     const toastOptions = {
         position: 'top-right',
         autoClose: showBySeconds * 1000,
-        closeButton: isHiddenCloseicon ? (jsxRuntime.jsx(jsxRuntime.Fragment, {})) : (jsxRuntime.jsx("span", { style: {
-                display: 'flex',
-                marginTop: 'auto',
-                marginBottom: 'auto',
-                marginRight: '20px',
-                marginLeft: '4px'
-            }, children: jsxRuntime.jsx(CloseIcon, { width: "14", height: "14" }) })),
+        closeButton: isHiddenCloseicon ? false : CustomCloseButton,
         icon: startICon ? startICon : iconComponent,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        onClick: (e) => {
+            e?.preventDefault();
+            e?.stopPropagation();
+            handleClick ? handleClick() : null;
+        },
         style: styles
     };
     switch (type) {
