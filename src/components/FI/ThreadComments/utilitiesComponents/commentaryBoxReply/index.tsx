@@ -122,7 +122,7 @@ export const CommentaryBoxReply = ({
           onClickPublishButton={onClickPublishButton}
           replyMentionedUser={mainCommentUser}
           getSearchUsers={getSearchUsers}
-          parentId={commentData.id}
+          parentId={Number(commentData.id)}
           handleHiddenInput={() => setShowReplyInput(false)}
           group_uuid={group_uuid}
           limitMessageExceeded={limitMessageExceeded}
