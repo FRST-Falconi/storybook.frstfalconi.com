@@ -83,6 +83,7 @@ export { default as Checkmark } from './src/components/checkmark'
 export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as TotalizerCard } from './src/components/totalizer-card'
+export { ActioExperience } from './src/components/actioExperience'
 
 // Quasar design system
 export { default as Tooltip } from './src/components/DS/tooltip'
