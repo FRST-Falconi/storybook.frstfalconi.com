@@ -37,6 +37,6 @@
         "src/components/LXP/progressBar/progressStyle.ts",
         "src/components/audio-player/old_index.tsx",
         "src/components/DS/ConfirmationModal/ConfirmationModal.tsx"
-    ],
+, "src/components/actioExperience/index.tsx"    ],
     "exclude": ["node_modules", "./src/**/*.stories.@(js|jsx|ts|tsx)"]
 }
