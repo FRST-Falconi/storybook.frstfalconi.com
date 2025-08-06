@@ -7,6 +7,8 @@ export const ActioExperience = ({
     handleClickLift,
     stylesButton,
     stylesModal,
+    isModalStartOpen,
+    idButton,
     mainText = 'Você está saindo da Plataforma FRST e indo para o ambiente da Actio. Consulte as soluções abaixo para alinhar o seu desenvolvimento com:'
 }: {
     handleClickTune: () => void
@@ -14,8 +16,10 @@ export const ActioExperience = ({
     mainText?: string
     stylesButton?: any
     stylesModal?: any
+    isModalStartOpen?: boolean
+    idButton?: string
 }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(!!isModalStartOpen)
 
     const handleOpenModal = () => {
         setIsModalOpen(true)
@@ -27,7 +31,7 @@ export const ActioExperience = ({
 
     return (
         <>
-            <S.ButtonActionExperience onClick={handleOpenModal} style={{...stylesButton}}>
+            <S.ButtonActionExperience onClick={handleOpenModal} style={{ ...stylesButton }} id={idButton}>
                 <ActioLogo />
             </S.ButtonActionExperience>
             {isModalOpen && (
@@ -54,11 +58,11 @@ const ModalActionExperience = ({
     handleClickTune: () => void
     handleClickLift: () => void
     mainText?: string
-    styles?:any
+    styles?: any
 }) => {
     return (
         <S.ModalOverlay onClick={onClose}>
-            <S.ModalContainer onClick={(e) => e.stopPropagation()} style={{...styles}}>
+            <S.ModalContainer onClick={(e) => e.stopPropagation()} style={{ ...styles }}>
                 <S.CloseButton onClick={onClose}>
                     <CloseIcon />
                 </S.CloseButton>
