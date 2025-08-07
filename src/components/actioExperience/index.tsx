@@ -31,9 +31,6 @@ export const ActioExperience = ({
 
     return (
         <>
-            <S.ButtonActionExperience onClick={handleOpenModal} style={{ ...stylesButton }} id={idButton}>
-                <ActioLogo />
-            </S.ButtonActionExperience>
             {isModalOpen && (
                 <ModalActionExperience
                     styles={stylesModal}
@@ -43,6 +40,9 @@ export const ActioExperience = ({
                     mainText={mainText}
                 />
             )}
+            <S.ButtonActionExperience onClick={handleOpenModal} style={{ ...stylesButton }} id={idButton}>
+                <ActioLogo />
+            </S.ButtonActionExperience>
         </>
     )
 }
