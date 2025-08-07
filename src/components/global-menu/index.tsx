@@ -386,6 +386,7 @@ export default function GlobalMenu({
                                                 handleClickBack={() => handleCloseNotification()}
                                                 textDeleteAll={notification.textDeleteAll}
                                                 handleClickDeleteAll={notification.handleClickDeleteAll}
+                                                isLoading={notification?.isLoading}
                                             />
                                         </div>
                                     )}
@@ -458,6 +459,7 @@ export default function GlobalMenu({
                                                     handleClickBack={() => handleCloseNotification()}
                                                     textDeleteAll={notification.textDeleteAll}
                                                     handleClickDeleteAll={notification.handleClickDeleteAll}
+                                                    isLoading={notification?.isLoading}
                                                 />
                                             ) : null}
                                         </S.WrapperIconNotificationMobile>
@@ -549,6 +551,7 @@ export default function GlobalMenu({
                             handleClickBack={() => handleCloseNotification()}
                             textDeleteAll={notification.textDeleteAll}
                             handleClickDeleteAll={notification.handleClickDeleteAll}
+                            isLoading={notification?.isLoading}
                         />
                     ) : null}
                 </>
@@ -735,7 +738,7 @@ export default function GlobalMenu({
                                             >
                                                 <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
                                                 {hasNewNotification ? (
-                                                    <div style={{ position: 'relative', bottom: '5px', right: "10px"}}>
+                                                    <div style={{ position: 'relative', bottom: '5px', right: '10px' }}>
                                                         <HasNotificationIcon />
                                                     </div>
                                                 ) : null}{' '}
@@ -757,6 +760,7 @@ export default function GlobalMenu({
                                                 handleClickBack={() => handleCloseNotification()}
                                                 textDeleteAll={notification.textDeleteAll}
                                                 handleClickDeleteAll={notification.handleClickDeleteAll}
+                                                isLoading={notification?.isLoading}
                                             />
                                         </S.WrapperIconNotification>
                                     </>
@@ -802,6 +806,7 @@ export default function GlobalMenu({
                                                 handleClickBack={() => handleCloseNotification()}
                                                 textDeleteAll={notification.textDeleteAll}
                                                 handleClickDeleteAll={notification.handleClickDeleteAll}
+                                                isLoading={notification?.isLoading}
                                             />
                                         ) : null}
                                     </S.WrapperIconNotificationMobile>
@@ -847,6 +852,7 @@ export default function GlobalMenu({
                                                 handleClickBack={() => handleCloseNotification()}
                                                 textDeleteAll={notification.textDeleteAll}
                                                 handleClickDeleteAll={notification.handleClickDeleteAll}
+                                                isLoading={notification?.isLoading}
                                             />
                                         ) : null}
                                     </S.WrapperIconNotificationMobile>
@@ -905,6 +911,7 @@ export default function GlobalMenu({
                             handleClickBack={() => handleCloseNotification()}
                             textDeleteAll={notification.textDeleteAll}
                             handleClickDeleteAll={notification.handleClickDeleteAll}
+                            isLoading={notification?.isLoading}
                         />
                     ) : null}
                 </>

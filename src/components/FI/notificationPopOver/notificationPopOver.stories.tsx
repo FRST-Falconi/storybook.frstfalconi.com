@@ -4,8 +4,8 @@ import NotificationPopOver from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'FI/Notification PopOver',
-  component: NotificationPopOver
+    title: 'FI/Notification PopOver',
+    component: NotificationPopOver
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -13,118 +13,127 @@ const Template = (args) => <NotificationPopOver {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-  textBack: 'Voltar',
-  textNotification: 'Notificações',
-  textMarkAllAsRead: 'Marcar todas como lidas',
-  textDeleteAll: 'Excluir todas',
-  textEmptyState: 'No momento você não tem notificações.',
+    textBack: 'Voltar',
+    textNotification: 'Notificações',
+    textMarkAllAsRead: 'Marcar todas como lidas',
+    textDeleteAll: 'Excluir todas',
+    textEmptyState: 'No momento você não tem notificações.',
+    handleClickMarkRead: () => alert('Click!'),
+    handleClickBack: () => alert('Click!'),
+    isOpen: true,
+    isMobile: false,
 
-  handleClickMarkRead: () => alert('Click!'),
-  handleClickBack: () => alert('Click!'),
-  isOpen: true,
-  isMobile: false,
+    notificationList: [
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `<a href=\"https://www.google.com.br\"><p>Olá, <b>Roberto Lima Up3</b>! <b>Sergio Henrique</b> atribuiu para você o desafio \"Testar todas faces para troca do novo modal\". <b>Sergio Henrique</b> pode contar com você?<br></p></a>`,
+            isNewNotification: true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+            notificationHour: '14:39',
+            onClickUserInfo: () => alert('perfil clicado - 1'),
+            textVisitProfile: 'Visit profile',
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification: true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
 
-  notificationList: [
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `<a href=\"https://www.google.com.br\"><p>Olá, <b>Roberto Lima Up3</b>! <b>Sergio Henrique</b> atribuiu para você o desafio \"Testar todas faces para troca do novo modal\". <b>Sergio Henrique</b> pode contar com você?<br></p></a>`,
-      isNewNotification: true,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
-      notificationHour: '14:39',
-      onClickUserInfo: () => alert('perfil clicado - 1'),
-      textVisitProfile: 'Visit profile',
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-      isNewNotification: true,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
+            // onClickUserInfo: () => alert('perfil clicado  - 2'),
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification: true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
 
-      // onClickUserInfo: () => alert('perfil clicado  - 2'),
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-      isNewNotification: true,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
+            onClickUserInfo: () => alert('perfil clicado - 3'),
+            textVisitProfile: 'Visit profile',
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
+            isNewNotification: true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
 
-      onClickUserInfo: () => alert('perfil clicado - 3'),
-      textVisitProfile: 'Visit profile',
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
-      isNewNotification: true,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
+            onClickUserInfo: () => alert('perfil clicado - 4'),
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
+            isNewNotification: true,
+            notificationHour: '14:39',
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
 
-      onClickUserInfo: () => alert('perfil clicado - 4'),
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
-      isNewNotification: true,
-      notificationHour: '14:39',
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
+            onClickUserInfo: () => alert('perfil clicado - 5'),
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
+            isNewNotification: true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
 
-      onClickUserInfo: () => alert('perfil clicado - 5'),
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
-      isNewNotification: true,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
+            onClickUserInfo: () => alert('perfil clicado - 6'),
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification: false,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
 
-      onClickUserInfo: () => alert('perfil clicado - 6'),
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-      isNewNotification: false,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
-
-      onClickUserInfo: () => alert('perfil clicado - '),
-      handleClick: () => alert('Notificação clicada!')
-    },
-    {
-      notificationAvatar:
-        'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-      isNewNotification: false,
-      textNew: 'Nova',
-      notificationDate: 'Hoje',
-      notificationHour: '14:39',
-      onClickUserInfo: () => alert('perfil clicado - '),
-      handleClick: () => alert('Notificação clicada!')
-    }
-  ]
+            onClickUserInfo: () => alert('perfil clicado - '),
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar:
+                'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification: false,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+            notificationHour: '14:39',
+            onClickUserInfo: () => alert('perfil clicado - '),
+            handleClick: () => alert('Notificação clicada!')
+        }
+    ]
 }
 export const emptyState = Template.bind({})
 emptyState.args = {
-  textNotification: 'Notificações',
-  textMarkAllAsRead: 'Marcar todas como lidas',
-  textDeleteAll: 'Excluir todas',
-  textEmptyState: 'No momento você não tem notificações.',
+    textNotification: 'Notificações',
+    textMarkAllAsRead: 'Marcar todas como lidas',
+    textDeleteAll: 'Excluir todas',
+    textEmptyState: 'No momento você não tem notificações.',
 
-  handleClickMarkRead: () => alert('Click!'),
-  isOpen: true
+    handleClickMarkRead: () => alert('Click!'),
+    isOpen: true
+}
+
+export const loading = Template.bind({})
+loading.args = {
+    textNotification: 'Notificações',
+    textMarkAllAsRead: 'Marcar todas como lidas',
+    textDeleteAll: 'Excluir todas',
+    textEmptyState: 'No momento você não tem notificações.',
+    isLoading: true,
+    isOpen: true
 }

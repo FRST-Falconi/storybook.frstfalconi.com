@@ -13,7 +13,14 @@ export const PopoverCustom = styled(Popover)`
   }
   margin-top:24px;
   box-shadow: 0px 0px 10px 0px #00000033;
+`
 
+export const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `
 
 export const notificationContainer = styled.div`

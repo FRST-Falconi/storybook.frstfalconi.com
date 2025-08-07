@@ -36,7 +36,7 @@ export const ModalOverlay = styled.div`
 export const ModalContainer = styled.div`
     background: #fff;
     border-radius: 16px;
-    padding: 28px;
+    padding: 52px;
     max-width: 90vw;
     width: 654px;
     max-height: 90vh;
@@ -71,7 +71,7 @@ export const CloseButton = styled.button`
 export const ModalHeader = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 `
 
 export const ModalContent = styled.div`
@@ -90,7 +90,8 @@ export const ModalContent = styled.div`
 export const WomanIllustration = styled.div`
     position: absolute;    
     width: 140px;
-    right:634px;
+    right: 633px;
+    top: 24px;
     svg {
         width: 100%;
         height: auto;
@@ -101,13 +102,13 @@ export const TextSection = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 `
 
 export const MainText = styled.p`
 color: #444;
 font-family: "Poppins", "PT Sans";
-font-size: 18px;
+font-size: 17px;
 font-weight: 400;
 line-height: normal;
 `
@@ -121,7 +122,7 @@ export const SolutionsContainer = styled.div`
 export const SolutionItem = styled.span`
     color: #444;
     font-family: "Poppins", "PT Sans";
-    font-size: 18px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -132,7 +133,7 @@ export const ButtonsContainer = styled.div`
     display: flex;
     gap: 12px;
     justify-content: center;
-    margin-top: 4px;
+    margin-top: 12px;
 
     @media (max-width: 768px) {
         flex-direction: column;

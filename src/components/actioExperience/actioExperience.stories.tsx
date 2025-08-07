@@ -21,7 +21,9 @@ Default.args = {
     handleClickLift: () => {
         console.log('Clicou em Lift - Seu desenvolvimento e da sua equipe')
         alert('Redirecionando para Lift...')
-    }
+    },
+    stylesButton: { display: 'none' },
+    isModalStartOpen: true
 }
 
 Default.storyName = 'Modal ActioExperience'
