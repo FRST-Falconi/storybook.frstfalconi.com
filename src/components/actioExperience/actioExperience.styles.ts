@@ -107,7 +107,7 @@ export const TextSection = styled.div`
 
 export const MainText = styled.p`
 color: #444;
-font-family: "Poppins", "PT Sans";
+font-family: "PT Sans";
 font-size: 17px;
 font-weight: 400;
 line-height: normal;
@@ -121,7 +121,7 @@ export const SolutionsContainer = styled.div`
 
 export const SolutionItem = styled.span`
     color: #444;
-    font-family: "Poppins", "PT Sans";
+    font-family: "PT Sans";
     font-size: 17px;
     font-style: normal;
     font-weight: 400;

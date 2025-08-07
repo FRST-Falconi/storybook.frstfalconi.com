@@ -6858,7 +6858,7 @@ const TextSection = styled__default["default"].div `
 `;
 const MainText = styled__default["default"].p `
 color: #444;
-font-family: "Poppins", "PT Sans";
+font-family: "PT Sans";
 font-size: 17px;
 font-weight: 400;
 line-height: normal;
@@ -6869,7 +6869,7 @@ const SolutionsContainer = styled__default["default"].div `
 `;
 const SolutionItem = styled__default["default"].span `
     color: #444;
-    font-family: "Poppins", "PT Sans";
+    font-family: "PT Sans";
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
