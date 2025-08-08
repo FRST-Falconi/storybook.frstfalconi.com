@@ -38,7 +38,7 @@ export const ModalContainer = styled.div`
     border-radius: 16px;
     padding: 52px;
     max-width: 90vw;
-    width: 654px;
+    width: 720px;
     max-height: 90vh;
     height: 363px;
     position: relative;
@@ -90,7 +90,7 @@ export const ModalContent = styled.div`
 export const WomanIllustration = styled.div`
     position: absolute;    
     width: 140px;
-    right: 633px;
+    right: 699px;
     top: 24px;
     svg {
         width: 100%;
@@ -107,7 +107,7 @@ export const TextSection = styled.div`
 
 export const MainText = styled.p`
 color: #444;
-font-family: "Poppins", "PT Sans";
+font-family: "Poppins";
 font-size: 17px;
 font-weight: 400;
 line-height: normal;
@@ -121,7 +121,7 @@ export const SolutionsContainer = styled.div`
 
 export const SolutionItem = styled.span`
     color: #444;
-    font-family: "Poppins", "PT Sans";
+    font-family: "Poppins";
     font-size: 17px;
     font-style: normal;
     font-weight: 400;

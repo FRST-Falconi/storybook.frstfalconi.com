@@ -6795,7 +6795,7 @@ const ModalContainer$1 = styled__default["default"].div `
     border-radius: 16px;
     padding: 52px;
     max-width: 90vw;
-    width: 654px;
+    width: 720px;
     max-height: 90vh;
     height: 363px;
     position: relative;
@@ -6843,7 +6843,7 @@ const ModalContent$1 = styled__default["default"].div `
 const WomanIllustration = styled__default["default"].div `
     position: absolute;    
     width: 140px;
-    right: 633px;
+    right: 699px;
     top: 24px;
     svg {
         width: 100%;
@@ -6858,7 +6858,7 @@ const TextSection = styled__default["default"].div `
 `;
 const MainText = styled__default["default"].p `
 color: #444;
-font-family: "Poppins", "PT Sans";
+font-family: "Poppins";
 font-size: 17px;
 font-weight: 400;
 line-height: normal;
@@ -6869,7 +6869,7 @@ const SolutionsContainer = styled__default["default"].div `
 `;
 const SolutionItem = styled__default["default"].span `
     color: #444;
-    font-family: "Poppins", "PT Sans";
+    font-family: "Poppins";
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
