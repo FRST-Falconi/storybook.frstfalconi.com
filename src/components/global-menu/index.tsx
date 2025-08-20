@@ -83,6 +83,7 @@ export default function GlobalMenu({
     const [SelectedItem, setSelectedItem] = useState()
     const [isTabletVersion, setIsTabletVersion] = useState(false)
     const [HideHambMenu, setHideHambMenu] = useState(false)
+    const [showTooltipHelp, setShowTooltipHelp] = useState(false)
 
     const [hasNewNotification, setHasNewNotification] = useState(false)
     const [updatedNotificationList, setUpdatedNotificationList] = useState([])
@@ -878,10 +879,22 @@ export default function GlobalMenu({
                                     </S.Navigation>
                                 )}
                                 {showHelp && (
-                                    <S.Help onClick={onClickHelp}>
+                                    <S.Help
+                                        onClick={onClickHelp}
+                                        onMouseEnter={() => setShowTooltipHelp(true)}
+                                        onMouseLeave={() => setShowTooltipHelp(false)}
+                                    >
                                         {<HelpIcon />}
                                         <S.TextNotification>Suporte</S.TextNotification>
                                     </S.Help>
+                                )}
+
+                                {showTooltipHelp && (
+                                    <div id="cardAjuda" style={{ position: 'relative' }}>
+                                        <S.TolltipTopbar>
+                                            Clique aqui para tirar suas dúvidas com o nosso suporte.
+                                        </S.TolltipTopbar>
+                                    </div>
                                 )}
 
                                 {/* {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (

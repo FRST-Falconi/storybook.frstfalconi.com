@@ -263,3 +263,65 @@ export const TextNotification = styled.p`
         font-weight: bold;
     }
 `
+
+
+export const TolltipTopbar = styled.div`
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #bdbdbd;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #757575;
+  box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+  padding: 6px;
+  position: absolute;
+  width: 205px;
+  height: 54px;
+  right: 145px;
+  text-align: center;
+  top: 24px;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: 10px; /* Ajuste conforme necessário */
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+
+  @media screen and (max-width: 1199px) {
+    width: 205px;
+    right: 28px;;
+    font-size: 14px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) and (max-width: 1320px) {
+    width: 205px;
+    right: 28px;
+    font-size: 14px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+  @media screen and (min-width: 1321px) {
+    width: 205px;
+    right: 28px;
+    font-size: 14px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+`
