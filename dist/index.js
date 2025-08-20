@@ -13964,6 +13964,66 @@ const TextNotification = styled__default["default"].p `
         font-weight: bold;
     }
 `;
+const TolltipTopbar = styled__default["default"].div `
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #bdbdbd;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #757575;
+  box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+  padding: 6px;
+  position: absolute;
+  width: 205px;
+  height: 54px;
+  right: 145px;
+  text-align: center;
+  top: 24px;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: 10px; /* Ajuste conforme necessário */
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+
+  @media screen and (max-width: 1199px) {
+    width: 205px;
+    right: 28px;;
+    font-size: 14px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) and (max-width: 1320px) {
+    width: 205px;
+    right: 28px;
+    font-size: 14px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+  @media screen and (min-width: 1321px) {
+    width: 205px;
+    right: 28px;
+    font-size: 14px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+`;
 
 const Container$c = styled__default["default"].div `
     height: 100%;
@@ -14789,6 +14849,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
     const [SelectedItem, setSelectedItem] = React.useState();
     const [isTabletVersion, setIsTabletVersion] = React.useState(false);
     const [HideHambMenu, setHideHambMenu] = React.useState(false);
+    const [showTooltipHelp, setShowTooltipHelp] = React.useState(false);
     const [hasNewNotification, setHasNewNotification] = React.useState(false);
     const [updatedNotificationList, setUpdatedNotificationList] = React.useState([]);
     React.useEffect(() => {
@@ -15005,7 +15066,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                 }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', hasNewNotification ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] > 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })), jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, hiddenProfileMenu: hiddenProfileMenu, showProfile: showProfile, style: {
                                             marginLeft: isMobileVersion ? '0px' : '5px',
                                             marginRight: isMobileVersion ? '0px' : '5px'
-                                        } }), showNavigation && (jsxRuntime.jsxs(Navigation, { onClick: onClickNavigation, children: [jsxRuntime.jsx(HandWave, {}), jsxRuntime.jsx(TextNotification, { children: "Ajuda" })] })), showHelp && (jsxRuntime.jsxs(Help, { onClick: onClickHelp, children: [jsxRuntime.jsx(HelpIcon, {}), jsxRuntime.jsx(TextNotification, { children: "Suporte" })] }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
+                                        } }), showNavigation && (jsxRuntime.jsxs(Navigation, { onClick: onClickNavigation, children: [jsxRuntime.jsx(HandWave, {}), jsxRuntime.jsx(TextNotification, { children: "Ajuda" })] })), showHelp && (jsxRuntime.jsxs(Help, { onClick: onClickHelp, onMouseEnter: () => setShowTooltipHelp(true), onMouseLeave: () => setShowTooltipHelp(false), children: [jsxRuntime.jsx(HelpIcon, {}), jsxRuntime.jsx(TextNotification, { children: "Suporte" })] })), showTooltipHelp && (jsxRuntime.jsx("div", { id: "cardAjuda", style: { position: 'relative' }, children: jsxRuntime.jsx(TolltipTopbar, { children: "Clique aqui para tirar suas d\u00FAvidas com o nosso suporte." }) }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
                             menu.length > 0 &&
                             menu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "default", type: "menu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
