@@ -18535,6 +18535,7 @@ const infoWithView = styled__default["default"].div `
     font-size: 16px;
     line-height: 110%;
     letter-spacing: 0%;
+    position: static !important;
 `;
 const buttonsContent = styled__default["default"].div `
     display: flex;

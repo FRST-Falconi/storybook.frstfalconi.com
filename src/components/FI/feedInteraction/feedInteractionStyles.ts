@@ -58,6 +58,7 @@ export const infoWithView = styled.div`
     font-size: 16px;
     line-height: 110%;
     letter-spacing: 0%;
+    position: static !important;
 `
 
 export const buttonsContent = styled.div`
