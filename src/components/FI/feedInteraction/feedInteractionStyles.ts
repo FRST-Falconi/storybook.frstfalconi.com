@@ -34,6 +34,7 @@ export const infoContentWithView = styled.div`
     font-size: 16px;
     font-weight: 400;
     padding-top: 12px;
+    position: static !important;
 `
 
 export const info = styled.div`
@@ -52,7 +53,6 @@ export const infoWithView = styled.div`
     align-items: center;
     flex-direction: row;
     margin-bottom: 12px;
-
     font-family: PT Sans;
     font-weight: 400;
     font-size: 16px;
