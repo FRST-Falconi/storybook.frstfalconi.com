@@ -10112,7 +10112,7 @@ function StarRatingComponent({ id, variant, isEmpty, active, handleClick, sizeSt
     const getColorStarPrimary = () => (active ? '#FFC200' : '#757575');
     const getColorStarSecondary = () => {
         if (isEmpty && !active)
-            return 'transparent';
+            return '#BDBDBD';
         return active ? '#FDD836' : '#BDBDBD';
     };
     React.useEffect(() => {
