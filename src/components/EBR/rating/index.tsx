@@ -85,7 +85,7 @@ function StarRatingComponent({
 
     const getColorStarPrimary = () => (active ? '#FFC200' : '#757575')
     const getColorStarSecondary = () => {
-        if (isEmpty && !active) return 'transparent'
+        if (isEmpty && !active) return '#BDBDBD'
         return active ? '#FDD836' : '#BDBDBD'
     }
 
