@@ -30,6 +30,7 @@ interface IDropdownMultiselect {
     getSelectedItems?: (selectedItems) => void
     style?: React.CSSProperties
     optionLayout?: (options) => void
+    itemLayout?: (item) => React.ReactNode
     selectedDefault?: ISelectedValue
     activeLazyLoad?: boolean
     onSearch?: (searchTerm) => void
@@ -148,22 +149,26 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
-                <S.selectItem id="select-items" width={width} darkMode={darkMode}>
-                    {canShowAvatar &&
-                        (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
-                    <S.TextContainer>
-                        {item?.name}
-                        {variantModeDescritpion ? (
-                            <>
-                                {!!item?.description && ` - ${item.description}`}
-                                {!!item?.subDescription && ` - ${item.subDescription}`}
-                                {!!item?.isVariant && <span style={{ color: '#757575' }}>{` (Externo)`}</span>}
-                            </>
-                        ) : (
-                            item?.description && <span style={{ color: '#757575' }}> ({item.description}) </span>
-                        )}
-                    </S.TextContainer>
-                </S.selectItem>
+                {props?.itemLayout ? 
+                    props.itemLayout(item)
+                    :
+                    <S.selectItem id="select-items" width={width} darkMode={darkMode}>
+                        {canShowAvatar &&
+                            (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
+                        <S.TextContainer>
+                            {item?.name}
+                            {variantModeDescritpion ? (
+                                <>
+                                    {!!item?.description && ` - ${item.description}`}
+                                    {!!item?.subDescription && ` - ${item.subDescription}`}
+                                    {!!item?.isVariant && <span style={{ color: '#757575' }}>{` (Externo)`}</span>}
+                                </>
+                            ) : (
+                                item?.description && <span style={{ color: '#757575' }}> ({item.description}) </span>
+                            )}
+                        </S.TextContainer>
+                    </S.selectItem>
+                }
             </TooltipV2>
         )
     }
