@@ -46,7 +46,7 @@ interface IDropdownMultiselect {
 
 type ISelectedValue = {
     id: string
-    avatar: string
+    avatar: any
     name: string
     description: string
     subDescription?: string
