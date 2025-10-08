@@ -28,7 +28,7 @@ export interface ICommentaryBoxV2 {
     orText?: string;
     limitMessageExceeded?: string;
     placeHolderText?: string;
-    showAnswersButton: boolean
+    showAnswersButton?: boolean
 
 
     onClickUserInfo?: () => void;
