@@ -54,7 +54,8 @@ export const CommentaryBoxV2 = ({
   showInterconnectionLine = false,
   darkMode,
   isLiked,
-  totalLikes = 0
+  totalLikes = 0,
+  showAnswersButton
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
@@ -287,7 +288,9 @@ export const CommentaryBoxV2 = ({
             </>
           )}
 
-          <MiniButton darkMode={darkMode} variant="terciary" onClick={actionAnswer} label={answerButtonText} styles={{color: darkMode ? '#EBEBEB' : '#444444'}} />
+          {showAnswersButton &&
+            <MiniButton darkMode={darkMode} variant="terciary" onClick={actionAnswer} label={answerButtonText} styles={{color: darkMode ? '#EBEBEB' : '#444444'}} />
+          }
           {showOptions ? (
             isAuthor ? (
               <Styled.MenuMoreContainer darkMode={darkMode} >

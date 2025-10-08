@@ -57,6 +57,8 @@ export interface IThreadComments {
   darkMode?: boolean
   toHideText?: string
   hideRepliesText?: string
+  showLikeButton?: boolean
+  showAnswersButton?:boolean
 }
 
 export interface IUser {

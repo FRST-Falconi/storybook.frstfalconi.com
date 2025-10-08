@@ -40,7 +40,9 @@ export const ThreadComments = ({
   answerText,
   darkMode,
   toHideText,
-  hideRepliesText
+  hideRepliesText,
+  showLikeButton=true,
+  showAnswersButton=true
 }: IThreadComments) => {
   const threadOpenByDefault = mainComment?.thread_open
   const [showAnswers, setShowAnswers] = useState(false)
@@ -122,12 +124,13 @@ export const ThreadComments = ({
             getSearchUsers={getSearchUsers}
             actionLike={onClickLike}
             actionUnlike={onClickUnlike}
-            showLikeButton={true}
+            showLikeButton={showLikeButton}
             likeButtonText={likeButtonText}
             likes={mainComment.likes}
             darkMode={darkMode}
             isLiked={mainComment?.isLiked}
             totalLikes={mainComment?.totalLikes}
+            showAnswersButton={showAnswersButton}
           />
 
           {listReplyComments.length > visibleReplies && (
