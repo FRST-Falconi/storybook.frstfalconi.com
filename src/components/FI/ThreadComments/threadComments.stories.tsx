@@ -126,7 +126,9 @@ Default.args = {
   likeButtonText: 'Curtir',
   toViewText: 'Visualizar',
   answersText: 'Respostas',
-  idCommentResponse: 'testeIdResposta'
+  idCommentResponse: 'testeIdResposta',
+  showLikeButton: false,
+  showAnswersButton: false
 }
 
 DarkMode.args = {
