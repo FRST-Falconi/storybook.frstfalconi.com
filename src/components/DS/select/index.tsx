@@ -1,7 +1,7 @@
 import Select from './Select'
 import SelectItem from './SelectItem'
 
-export default function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled, ArrowIcon }) {
+export default function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled, ArrowIcon = null }) {
   return (
     <Select
       placeholder={placeholder}

@@ -7141,7 +7141,7 @@ function SelectItem({ value, label, selected, handleSelect, disabled }) {
     return (jsxRuntime.jsx(SelectContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem$1, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
 }
 
-function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled, ArrowIcon }) {
+function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled, ArrowIcon = null }) {
     return (jsxRuntime.jsx(Select$2, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, disabled: disabled, ArrowIconFormatted: ArrowIcon, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
