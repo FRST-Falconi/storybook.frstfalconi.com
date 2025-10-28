@@ -20,6 +20,7 @@ interface SelectProps {
   isError?: boolean
   style?: React.CSSProperties
   disabled?: boolean
+  ArrowIconFormatted?: any
 }
 
 export default function Select({
@@ -30,7 +31,8 @@ export default function Select({
   loading,
   isError,
   style,
-  disabled
+  disabled,
+  ArrowIconFormatted
 }: SelectProps) {
   const wrapperRef = useRef(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -85,7 +87,7 @@ export default function Select({
             <p>{placeholder}</p>
           )}
           <StylesSelect.DropDownHeaderIcon open={isOpen}>
-            <ArrowIcon fill={disabled && '#BDBDBD'} />
+           { ArrowIconFormatted ? <ArrowIconFormatted fill={disabled && '#BDBDBD'}/> : <ArrowIcon fill={disabled && '#BDBDBD'} />}
           </StylesSelect.DropDownHeaderIcon>
         </StylesSelect.DropDownHeader>
         {isOpen && (
