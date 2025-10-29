@@ -4,6 +4,7 @@ import GlobalMenu from './index'
 import * as Icons from '../../shared/icons'
 import { onClickAsyncMock } from '../../utilityFunctions'
 import { InputField } from './components'
+import { FrstLogoIcon } from '../../../public/customIcons'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -71,6 +72,7 @@ normal.args = {
         ]
     },
     showSearchField: true,
+    FrstIconFormatted: <FrstLogoIcon />,
     search: {
         label: 'O que você busca?',
         loading: false,

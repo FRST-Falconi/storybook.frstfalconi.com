@@ -69,4 +69,5 @@ export interface IGlobalMenu {
     customMenuOptions?: any
 
     showProfile: boolean
+    FrstIconFormatted?: any;
 }

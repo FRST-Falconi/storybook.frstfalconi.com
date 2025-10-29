@@ -1,3 +1,4 @@
+import { FrstLogoChallengeIcon } from './FrstLogoChallengeIcon';
 export { SmallTrash } from './SmallTrash'
 export { TagAlert } from './TagAlert'
 export { CircledCheck } from './CircledCheck'
@@ -10,3 +11,5 @@ export { CheckIcon } from './CheckIcon'
 export { CloseIcon } from './CloseIcon'
 export { SwitchVoteIcon } from './SwitchVoteIcon'
 export { WarningIcon } from './WarningIcon'
+export { FrstLogoIcon } from './FrstLogoIcon'
+export { FrstLogoChallengeIcon } from './FrstLogoChallengeIcon'
