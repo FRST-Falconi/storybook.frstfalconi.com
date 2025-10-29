@@ -62,7 +62,8 @@ export default function GlobalMenu({
     showProfile = true,
     InputField,
     hideNotification,
-    showNavigation
+    showNavigation,
+    FrstIconFormatted
 }: IGlobalMenu) {
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
@@ -243,12 +244,12 @@ export default function GlobalMenu({
                                     onClick={() => onClickLogo()}
                                     style={{ marginRight: isTabletVersion && 32 }}
                                 >
-                                    <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />
+                                    {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}
                                 </S.WrapperLogo>
                             )}
                             {showLogo && (
                                 <S.WrapperLogo onClick={() => onClickLogo()} style={{ marginRight: '0px' }}>
-                                    <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />
+                                    {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}      
                                 </S.WrapperLogo>
                             )}
                             <S.WrapperMenu
@@ -608,12 +609,12 @@ export default function GlobalMenu({
                             )}
                             {!isMobileVersion && !isTabletVersion && (
                                 <S.WrapperLogo onClick={() => onClickLogo()}>
-                                    <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />
+                                {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}
                                 </S.WrapperLogo>
                             )}
                             {showLogo && (
                                 <S.WrapperLogo onClick={() => onClickLogo()} style={{ marginRight: '0px' }}>
-                                    <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />
+                                  {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />} 
                                 </S.WrapperLogo>
                             )}
                             <S.WrapperMenu
@@ -932,7 +933,7 @@ export default function GlobalMenu({
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', ...style }}>
                     <S.MenuContainer variant={variant} style={{ ...style, display: 'none' }}>
                         <S.WrapperLogo onClick={() => onClickLogo()}>
-                            <FRSTLogo height="28" />
+                            {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" />}
                         </S.WrapperLogo>
                         <S.WrapperMenu>
                             {menu &&
