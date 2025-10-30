@@ -1,7 +1,7 @@
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import { MultiSelect } from 'primereact/multiselect'
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as S from './styles/multiselectStyles'
 import { CloseIcon, DropdownIcon, Trash } from '@shared/icons'
 import SearchField from '@components/search-field'
@@ -111,16 +111,11 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     }, [selectedDefault])
 
     // Notifica o componente pai sobre alterações nos valores selecionados
-    // Envolvendo em um useCallback para evitar loops infinitos
-    const notifySelectedItemsChange = useCallback(() => {
+    useEffect(() => {
         if (getSelectedItems) {
             getSelectedItems(selectedValues)
         }
-    }, [selectedValues])
-
-    useEffect(() => {
-        notifySelectedItemsChange()
-    }, [selectedValues])
+    }, [selectedValues, getSelectedItems])
 
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
