@@ -77,7 +77,7 @@ export const HypothesisAndImpediment = ({
     ].filter((item) => item)
 
     //if the type is prioritize, the option to delete is not available, just edit
-    options = type === 'prioritize' ? options.filter((item) => item.description !== 'Excluir') : options
+    // options = type === 'prioritize' ? options.filter((item) => item.description !== 'Excluir') : options
     useEffect(() => {
         setEditDescription(description)
     }, [description])
