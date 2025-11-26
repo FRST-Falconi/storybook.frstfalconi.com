@@ -77,6 +77,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [lazyLoading, setLazyLoading] = useState(false)
     const [lazyItems, setLazyItems] = useState([])
     const loadLazyTimeout = useRef(null)
+    const getSelectedItemsRef = useRef(getSelectedItems)
 
     // Atualiza a lista de itens quando props.listItems muda
     useEffect(() => {
@@ -110,12 +111,17 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         }
     }, [selectedDefault])
 
+    // Mantém a referência de getSelectedItems atualizada
+    useEffect(() => {
+        getSelectedItemsRef.current = getSelectedItems
+    }, [getSelectedItems])
+
     // Notifica o componente pai sobre alterações nos valores selecionados
     useEffect(() => {
-        if (getSelectedItems) {
-            getSelectedItems(selectedValues)
+        if (getSelectedItemsRef.current) {
+            getSelectedItemsRef.current(selectedValues)
         }
-    }, [selectedValues, getSelectedItems])
+    }, [selectedValues])
 
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
