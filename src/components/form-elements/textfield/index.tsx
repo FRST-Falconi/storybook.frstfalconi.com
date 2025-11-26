@@ -35,6 +35,8 @@ export interface TextFieldProps {
     handleClickEndIcon?: () => void
     textRef?: React.RefObject<HTMLInputElement>
     inputBackground?: string
+    textFieldStyle?: React.CSSProperties
+    containerTextFieldStyle?: React.CSSProperties
 }
 
 export default function TextField(props: TextFieldProps) {
@@ -85,6 +87,7 @@ export default function TextField(props: TextFieldProps) {
                     isClicked={click}
                     isHelpTextBox={props.isHelperTextBox}
                     inputBackground={props.inputBackground}
+                    style={props?.containerTextFieldStyle}
                 >
                     {props.startIcon && !props.multiline && <Styles.StartIcon>{props.startIcon}</Styles.StartIcon>}
                     <Styles.TextField
@@ -102,6 +105,7 @@ export default function TextField(props: TextFieldProps) {
                         required={props.required}
                         defaultValue={props.defaultValue}
                         maxLength={props.maxLength}
+                        style={props?.textFieldStyle}
                     />
                     {props.endIcon && !props.multiline && !!props.endIcon && (
                         <Styles.InputIconButton onClick={props.handleClickEndIcon}>

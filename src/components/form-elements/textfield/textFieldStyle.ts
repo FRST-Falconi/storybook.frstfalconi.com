@@ -31,7 +31,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     width: ${(props) => props.theme.width || '100%'};
     height: 48px;
     background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.neutralsGrey6)};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+   
     box-sizing: border-box;
     border-radius: 8px;
     outline: none;
@@ -41,12 +41,6 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     display: flex;
     align-items: center;
     overflow: hidden;
-
-    ${({ isClicked }) =>
-        isClicked &&
-        `
-        box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
-        border: 1px solid #663366 !important;`}
 
     ${(props) =>
         props.isHelpTextBox &&
@@ -116,7 +110,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
 export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     type: type || 'text',
     as: as || 'input'
-}))<{ as: string }>`
+})) <{ as: string }>`
     width: 100%;
     height: 100%;
     padding: 15px 16px;
@@ -129,6 +123,11 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     font-size: 14px;
     line-height: 18px;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
+    border-radius: 8px;
+
+    :hover {
+        border: 2px solid #f18624;
+    }
 
     ${placeholderStyle('neutralsGrey3')}
 
@@ -153,6 +152,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
             color: ${({ theme }) => theme.colors.messageError1};
             ${placeholderStyle('linkError')}
         `}
+
 `
 
 export const Label = styled.label<{ isClicked }>`
@@ -186,12 +186,6 @@ export const Label = styled.label<{ isClicked }>`
         css`
             color: ${({ theme }) => theme.colors.messageError1};
         `}
-
-    ${({ isClicked }) =>
-        isClicked &&
-        `
-        color: #663366 !important;
-    `}
 `
 
 export const HelperText = styled.span`
