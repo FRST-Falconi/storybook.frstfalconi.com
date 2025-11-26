@@ -4319,10 +4319,6 @@ const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     border-radius: 8px;
 
-    :hover {
-        border: 2px solid #f18624;
-    }
-
     ${placeholderStyle('neutralsGrey3')}
 
     ${({ as }) => as === 'textarea' &&
@@ -9675,7 +9671,7 @@ const LabelField = styled__default["default"].label `
 
   color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
 
-  color: ${({ isOnFocus }) => isOnFocus && '#663366'};
+  color: ${({ isOnFocus }) => isOnFocus && '#f18624 '};
 `;
 const ContainerIcon$2 = styled__default["default"].div `
   min-height: 20px;
@@ -9697,7 +9693,7 @@ const InputSearchWrapper$1 = styled__default["default"].div `
   border: 1px solid
     ${({ isHover, theme, inputSearchNewStyle, darkMode }) => isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
 
-  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}
+  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #f18624 ;'}
 `;
 const InputText$3 = styled__default["default"].input `
   display: flex;
