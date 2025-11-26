@@ -50,7 +50,7 @@ export const InputSearchWrapper = styled.div<ISearchField>`
     ${({ isHover, theme, inputSearchNewStyle, darkMode }) =>
     isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
 
-  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #f18624 ;'}
+  ${({ isOnFocus }) => isOnFocus && 'border: 1px solid #f18624 ;'}
 `
 
 export const InputText = styled.input<ISearchField>`
