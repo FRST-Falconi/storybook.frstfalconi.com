@@ -714,7 +714,7 @@ const DesignTokens = {
         linkDisabled: '#bdbdbd',
         linkHover: '#0b0080',
         linkOnfocus: '#0645ad',
-        linkPressed: '#663366',
+        linkPressed: '#f18624',
         linkError: '#923534',
         inputError: '#ffe0e0',
         inputSelect: '#9BB5DE',
@@ -4273,12 +4273,11 @@ const TextFieldContainer = styled__default["default"].div `
 
     ${(props) => props.theme.hovered &&
     styled.css `
-            border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
+            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
         `}
 
     ${(props) => props.theme.focused &&
     styled.css `
-            box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
             border: 1px solid ${({ theme }) => theme.colors.linkPressed};
         `}
 
