@@ -124,10 +124,6 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     border-radius: 8px;
 
-    :hover {
-        border: 2px solid #f18624;
-    }
-
     ${placeholderStyle('neutralsGrey3')}
 
     ${({ as }) =>

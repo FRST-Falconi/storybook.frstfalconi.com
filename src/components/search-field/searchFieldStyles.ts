@@ -25,7 +25,7 @@ export const LabelField = styled.label<ISearchField>`
 
   color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
 
-  color: ${({ isOnFocus }) => isOnFocus && '#663366'};
+  color: ${({ isOnFocus }) => isOnFocus && '#f18624 '};
 `
 
 export const ContainerIcon = styled.div`
@@ -48,9 +48,9 @@ export const InputSearchWrapper = styled.div<ISearchField>`
 
   border: 1px solid
     ${({ isHover, theme, inputSearchNewStyle, darkMode }) =>
-      isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
+    isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
 
-  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}
+  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #f18624 ;'}
 `
 
 export const InputText = styled.input<ISearchField>`
@@ -75,7 +75,7 @@ export const InputText = styled.input<ISearchField>`
     font-size: 14px;
     line-height: 18px;
     color: ${({ theme, inputSearchNewStyle }) =>
-      inputSearchNewStyle ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey3};
+    inputSearchNewStyle ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey3};
   }
 `
 
