@@ -9,7 +9,7 @@ export const DesignTokens = {
     linkDisabled: '#bdbdbd',
     linkHover: '#0b0080',
     linkOnfocus: '#0645ad',
-    linkPressed: '#663366',
+    linkPressed: '#f18624',
     linkError: '#923534',
     inputError: '#ffe0e0',
     inputSelect: '#9BB5DE',

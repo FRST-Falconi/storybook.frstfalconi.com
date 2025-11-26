@@ -74,13 +74,12 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     ${(props) =>
         props.theme.hovered &&
         css`
-            border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
+            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
         `}
 
     ${(props) =>
         props.theme.focused &&
         css`
-            box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
             border: 1px solid ${({ theme }) => theme.colors.linkPressed};
         `}
 
