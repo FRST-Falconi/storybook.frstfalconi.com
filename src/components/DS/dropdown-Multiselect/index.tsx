@@ -114,12 +114,15 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     // Notifica o componente pai sobre alterações nos valores selecionados
     // Envolvendo em um useCallback para evitar loops infinitos
     const notifySelectedItemsChange = useCallback(() => {
+        console.log('selectedValues', selectedValues)
+        console.log('getSelectedItems', getSelectedItems)
         if (getSelectedItems) {
             getSelectedItems(selectedValues)
         }
     }, [selectedValues])
 
     useEffect(() => {
+        console.log('selectedValues', selectedValues)
         notifySelectedItemsChange()
     }, [selectedValues])
 
