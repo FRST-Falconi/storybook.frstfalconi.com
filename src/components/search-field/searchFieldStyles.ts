@@ -38,7 +38,7 @@ export const ContainerIcon = styled.div`
 
 export const InputSearchWrapper = styled.div<ISearchField>`
   height: 48px;
-  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
+  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.inputBg : '#ebeded')};
 
   border-radius: 8px;
 
@@ -48,9 +48,14 @@ export const InputSearchWrapper = styled.div<ISearchField>`
 
   border: 1px solid
     ${({ isHover, theme, inputSearchNewStyle, darkMode }) =>
-    isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
-
-  ${({ isOnFocus }) => isOnFocus && 'border: 1px solid #f18624 ;'}
+    isHover ? theme.colors.inputBorderFocus : inputSearchNewStyle ? theme.colors.inputBorder : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
+    
+    :hover {
+      border: 2px solid ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.inputBorderFocus : undefined};
+    }
+    :focus {
+      background-color:  ${({ theme, inputSearchNewStyle, darkMode }) => inputSearchNewStyle && !darkMode && theme.colors.inputFocusBg};
+    }
 `
 
 export const InputText = styled.input<ISearchField>`

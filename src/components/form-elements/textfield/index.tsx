@@ -72,7 +72,8 @@ export default function TextField(props: TextFieldProps) {
                 error: props.error,
                 multiline: props.multiline,
                 width: props.width,
-                height: props.height
+                height: props.height,
+                isValue: !!props?.value
             }}
         >
             <div style={props.style} className={props.className}>

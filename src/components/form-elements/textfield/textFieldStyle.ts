@@ -30,8 +30,8 @@ const placeholderStyle = (color: string) => css`
 export const TextFieldContainer = styled.div<TextFieldProps>`
     width: ${(props) => props.theme.width || '100%'};
     height: 48px;
-    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.neutralsGrey6)};
-   
+    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.inputBg)};
+    border: 1px solid ${({ theme }) => (theme ? theme.colors.inputBorder : "#BDBDBD")};
     box-sizing: border-box;
     border-radius: 8px;
     outline: none;
@@ -42,22 +42,11 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     align-items: center;
     overflow: hidden;
 
-    ${(props) =>
-        props.isHelpTextBox &&
-        props.isClicked &&
-        css`
-            box-shadow: none !important;
-            border: 1px solid #f18624 !important;
-        `}
-
-    ${(props) =>
+            ${(props) =>
         props.theme.focused &&
-        props.isHelpTextBox &&
         css`
-            box-shadow: 0px 0px 0px 1px #f18624 !important;
-            border: 1px solid #f18624 !important;
-        `}
-
+            background-color: ${({ theme }) => theme.isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
+        `}    
 
   ${(props) =>
         props.theme.multiline &&
@@ -70,18 +59,12 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
             overflow: hidden;
         `}
 
-
-    ${(props) =>
+        ${(props) =>
         props.theme.hovered &&
         css`
-            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-        `}
+            border: 2px solid ${({ theme }) => theme.colors.inputBorderFocus};
+        `}    
 
-    ${(props) =>
-        props.theme.focused &&
-        css`
-            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-        `}
 
     ${(props) =>
         props.theme.disabled &&

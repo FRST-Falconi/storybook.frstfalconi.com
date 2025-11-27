@@ -715,6 +715,10 @@ const DesignTokens = {
         linkHover: '#0b0080',
         linkOnfocus: '#0645ad',
         linkPressed: '#f18624',
+        inputBg: '#F2F2F2',
+        inputBorder: '#BDBDBD',
+        inputBorderFocus: '#9C9C9C',
+        inputFocusBg: '#FFF',
         linkError: '#923534',
         inputError: '#ffe0e0',
         inputSelect: '#9BB5DE',
@@ -4233,8 +4237,8 @@ const placeholderStyle = (color) => styled.css `
 const TextFieldContainer = styled__default["default"].div `
     width: ${(props) => props.theme.width || '100%'};
     height: 48px;
-    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.neutralsGrey6)};
-   
+    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.inputBg)};
+    border: 1px solid ${({ theme }) => (theme ? theme.colors.inputBorder : "#BDBDBD")};
     box-sizing: border-box;
     border-radius: 8px;
     outline: none;
@@ -4245,20 +4249,10 @@ const TextFieldContainer = styled__default["default"].div `
     align-items: center;
     overflow: hidden;
 
-    ${(props) => props.isHelpTextBox &&
-    props.isClicked &&
+            ${(props) => props.theme.focused &&
     styled.css `
-            box-shadow: none !important;
-            border: 1px solid #f18624 !important;
-        `}
-
-    ${(props) => props.theme.focused &&
-    props.isHelpTextBox &&
-    styled.css `
-            box-shadow: 0px 0px 0px 1px #f18624 !important;
-            border: 1px solid #f18624 !important;
-        `}
-
+            background-color: ${({ theme }) => theme.isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
+        `}    
 
   ${(props) => props.theme.multiline &&
     styled.css `
@@ -4270,16 +4264,11 @@ const TextFieldContainer = styled__default["default"].div `
             overflow: hidden;
         `}
 
-
-    ${(props) => props.theme.hovered &&
+        ${(props) => props.theme.hovered &&
     styled.css `
-            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-        `}
+            border: 2px solid ${({ theme }) => theme.colors.inputBorderFocus};
+        `}    
 
-    ${(props) => props.theme.focused &&
-    styled.css `
-            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-        `}
 
     ${(props) => props.theme.disabled &&
     styled.css `
@@ -4430,7 +4419,8 @@ function TextField(props) {
             error: props.error,
             multiline: props.multiline,
             width: props.width,
-            height: props.height
+            height: props.height,
+            isValue: !!props?.value
         }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, inputBackground: props.inputBackground, style: props?.containerTextFieldStyle, children: [props.startIcon && !props.multiline && jsxRuntime.jsx(StartIcon, { children: props.startIcon }), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength, style: props?.textFieldStyle }), props.endIcon && !props.multiline && !!props.endIcon && (jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsx(HelperTextBox, { helperTextBox: props.helperTextBox })] }) }));
 }
 
@@ -9682,7 +9672,7 @@ const ContainerIcon$2 = styled__default["default"].div `
 `;
 const InputSearchWrapper$1 = styled__default["default"].div `
   height: 48px;
-  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
+  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.inputBg : '#ebeded')};
 
   border-radius: 8px;
 
@@ -9691,9 +9681,14 @@ const InputSearchWrapper$1 = styled__default["default"].div `
   align-items: center;
 
   border: 1px solid
-    ${({ isHover, theme, inputSearchNewStyle, darkMode }) => isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
-
-  ${({ isOnFocus }) => isOnFocus && 'border: 1px solid #f18624 ;'}
+    ${({ isHover, theme, inputSearchNewStyle, darkMode }) => isHover ? theme.colors.inputBorderFocus : inputSearchNewStyle ? theme.colors.inputBorder : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
+    
+    :hover {
+      border: 2px solid ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.inputBorderFocus : undefined};
+    }
+    :focus {
+      background-color:  ${({ theme, inputSearchNewStyle, darkMode }) => inputSearchNewStyle && !darkMode && theme.colors.inputFocusBg};
+    }
 `;
 const InputText$3 = styled__default["default"].input `
   display: flex;
