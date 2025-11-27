@@ -5,6 +5,7 @@ interface ISearchField {
   isOnFocus?: boolean
   inputSearchNewStyle?: boolean
   darkMode?: boolean
+  isValue?: boolean
 }
 
 export const Container = styled.div`
@@ -53,8 +54,8 @@ export const InputSearchWrapper = styled.div<ISearchField>`
     :hover {
       border: 2px solid ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.inputBorderFocus : undefined};
     }
-    :focus {
-      background-color:  ${({ theme, inputSearchNewStyle, darkMode }) => inputSearchNewStyle && !darkMode && theme.colors.inputFocusBg};
+    :focus-within {
+      background-color:  ${({ theme, inputSearchNewStyle, darkMode, isValue }) => inputSearchNewStyle && !darkMode && isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
     }
 `
 
