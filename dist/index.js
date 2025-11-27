@@ -24178,6 +24178,8 @@ function DropdownMultiselect(props) {
         const fullText = variantModeDescritpion
             ? `${item?.name} ${item?.description ? `- ${item.description}` : ''} ${item?.subDescription ? `- ${item.subDescription}` : ''} ${!!item?.isVariant ? ' (Externo)' : ''}`
             : `${item?.name} ${item?.description ? `(${item?.description})` : ''}`;
+        console.log('itemTemplate', item);
+        console.log('itemTemplate Layout', props.itemLayout(item));
         return (jsxRuntime.jsx(TooltipV2, { style: { maxWidth: '275px' }, content: fullText, children: props?.itemLayout ?
                 props.itemLayout(item)
                 :

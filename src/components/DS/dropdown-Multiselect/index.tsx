@@ -150,7 +150,8 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                   item?.subDescription ? `- ${item.subDescription}` : ''
               } ${!!item?.isVariant ? ' (Externo)' : ''}`
             : `${item?.name} ${item?.description ? `(${item?.description})` : ''}`
-
+        console.log('itemTemplate', item)
+        console.log('itemTemplate Layout', props.itemLayout(item))
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
                 {props?.itemLayout ? 
