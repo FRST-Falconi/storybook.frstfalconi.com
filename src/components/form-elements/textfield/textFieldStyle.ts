@@ -30,8 +30,8 @@ const placeholderStyle = (color: string) => css`
 export const TextFieldContainer = styled.div<TextFieldProps>`
     width: ${(props) => props.theme.width || '100%'};
     height: 48px;
-    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.neutralsGrey6)};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.inputBg)};
+    border: 1px solid ${({ theme }) => (theme ? theme.colors.inputBorder : "#BDBDBD")};
     box-sizing: border-box;
     border-radius: 8px;
     outline: none;
@@ -42,28 +42,11 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     align-items: center;
     overflow: hidden;
 
-    ${({ isClicked }) =>
-        isClicked &&
-        `
-        box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
-        border: 1px solid #663366 !important;`}
-
-    ${(props) =>
-        props.isHelpTextBox &&
-        props.isClicked &&
-        css`
-            box-shadow: none !important;
-            border: 1px solid #f18624 !important;
-        `}
-
-    ${(props) =>
+            ${(props) =>
         props.theme.focused &&
-        props.isHelpTextBox &&
         css`
-            box-shadow: 0px 0px 0px 1px #f18624 !important;
-            border: 1px solid #f18624 !important;
-        `}
-
+            background-color: ${({ theme }) => theme.isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
+        `}    
 
   ${(props) =>
         props.theme.multiline &&
@@ -76,19 +59,12 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
             overflow: hidden;
         `}
 
-
-    ${(props) =>
+        ${(props) =>
         props.theme.hovered &&
         css`
-            border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
-        `}
+            border: 2px solid ${({ theme }) => theme.colors.inputBorderFocus};
+        `}    
 
-    ${(props) =>
-        props.theme.focused &&
-        css`
-            box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
-            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-        `}
 
     ${(props) =>
         props.theme.disabled &&
@@ -116,7 +92,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
 export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     type: type || 'text',
     as: as || 'input'
-}))<{ as: string }>`
+})) <{ as: string }>`
     width: 100%;
     height: 100%;
     padding: 15px 16px;
@@ -129,6 +105,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     font-size: 14px;
     line-height: 18px;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
+    border-radius: 8px;
 
     ${placeholderStyle('neutralsGrey3')}
 
@@ -153,6 +130,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
             color: ${({ theme }) => theme.colors.messageError1};
             ${placeholderStyle('linkError')}
         `}
+
 `
 
 export const Label = styled.label<{ isClicked }>`
@@ -186,12 +164,6 @@ export const Label = styled.label<{ isClicked }>`
         css`
             color: ${({ theme }) => theme.colors.messageError1};
         `}
-
-    ${({ isClicked }) =>
-        isClicked &&
-        `
-        color: #663366 !important;
-    `}
 `
 
 export const HelperText = styled.span`
