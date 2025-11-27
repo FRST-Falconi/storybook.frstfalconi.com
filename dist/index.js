@@ -9686,8 +9686,8 @@ const InputSearchWrapper$1 = styled__default["default"].div `
     :hover {
       border: 2px solid ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.inputBorderFocus : undefined};
     }
-    :focus {
-      background-color:  ${({ theme, inputSearchNewStyle, darkMode }) => inputSearchNewStyle && !darkMode && theme.colors.inputFocusBg};
+    :focus-within {
+      background-color:  ${({ theme, inputSearchNewStyle, darkMode, isValue }) => inputSearchNewStyle && !darkMode && isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
     }
 `;
 const InputText$3 = styled__default["default"].input `
@@ -9739,7 +9739,7 @@ const ButtonAction$1 = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton, isButton, id, style, inputSearchNewStyle, darkMode }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$l, { style: style, id: "container-search-field", className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label && (jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [' ', label, ' '] })), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, inputSearchNewStyle: inputSearchNewStyle, darkMode: darkMode, children: [hasSearchIcon && (jsxRuntime.jsxs(ContainerIcon$2, { children: [' ', jsxRuntime.jsx(SearchIcon, { fill: darkMode ? "#9C9C9C" : "#222222" }), ' '] })), jsxRuntime.jsx(InputText$3, { inputSearchNewStyle: inputSearchNewStyle, placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$l, { style: style, id: "container-search-field", className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label && (jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [' ', label, ' '] })), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, inputSearchNewStyle: inputSearchNewStyle, darkMode: darkMode, isValue: !!value, children: [hasSearchIcon && (jsxRuntime.jsxs(ContainerIcon$2, { children: [' ', jsxRuntime.jsx(SearchIcon, { fill: darkMode ? "#9C9C9C" : "#222222" }), ' '] })), jsxRuntime.jsx(InputText$3, { inputSearchNewStyle: inputSearchNewStyle, placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
                                 if (event.key === 'Enter') {
                                     handleClickButton(event);
                                 }
