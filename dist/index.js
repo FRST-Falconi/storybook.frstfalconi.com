@@ -24118,7 +24118,7 @@ function DropdownMultiselect(props) {
     const [lazyLoading, setLazyLoading] = React.useState(false);
     const [lazyItems, setLazyItems] = React.useState([]);
     const loadLazyTimeout = React.useRef(null);
-    const getSelectedItemsRef = React.useRef(getSelectedItems);
+    React.useRef(getSelectedItems);
     // Atualiza a lista de itens quando props.listItems muda
     React.useEffect(() => {
         if (listItems) {
@@ -24145,15 +24145,15 @@ function DropdownMultiselect(props) {
             setSelectedValues(selectedDefault);
         }
     }, [selectedDefault]);
-    // Mantém a referência de getSelectedItems atualizada
-    React.useEffect(() => {
-        getSelectedItemsRef.current = getSelectedItems;
-    }, [getSelectedItems]);
     // Notifica o componente pai sobre alterações nos valores selecionados
-    React.useEffect(() => {
-        if (getSelectedItemsRef.current) {
-            getSelectedItemsRef.current(selectedValues);
+    // Envolvendo em um useCallback para evitar loops infinitos
+    const notifySelectedItemsChange = React.useCallback(() => {
+        if (getSelectedItems) {
+            getSelectedItems(selectedValues);
         }
+    }, [selectedValues]);
+    React.useEffect(() => {
+        notifySelectedItemsChange();
     }, [selectedValues]);
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
