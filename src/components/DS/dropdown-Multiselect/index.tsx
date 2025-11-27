@@ -122,7 +122,6 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     }, [selectedValues])
 
     useEffect(() => {
-        console.log('selectedValues', selectedValues)
         notifySelectedItemsChange()
     }, [selectedValues])
 
@@ -150,8 +149,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                   item?.subDescription ? `- ${item.subDescription}` : ''
               } ${!!item?.isVariant ? ' (Externo)' : ''}`
             : `${item?.name} ${item?.description ? `(${item?.description})` : ''}`
-        console.log('itemTemplate', item)
-        console.log('itemTemplate Layout', props.itemLayout(item))
+
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
                 {props?.itemLayout ? 
@@ -388,7 +386,10 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         }}
                         value={selectedValues}
                         options={listFilterSearch}
-                        onChange={(e) => setSelectedValues(e.value)}
+                        onChange={(e) => {
+                            console.log('e => multiselect', e)
+                            setSelectedValues(e.value)
+                        }}
                         placeholder={props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui'}
                         className="custom-multiselect"
                         panelClassName={darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown'}
