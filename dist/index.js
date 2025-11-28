@@ -4237,8 +4237,8 @@ const placeholderStyle = (color) => styled.css `
 const TextFieldContainer = styled__default["default"].div `
     width: ${(props) => props.theme.width || '100%'};
     height: 48px;
-    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.neutralsGrey6)};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    background: ${({ theme, inputBackground }) => (inputBackground ? inputBackground : theme.colors.inputBg)};
+    border: 1px solid ${({ theme }) => (theme ? theme.colors.inputBorder : "#BDBDBD")};
     box-sizing: border-box;
     border-radius: 8px;
     outline: none;
@@ -4249,25 +4249,10 @@ const TextFieldContainer = styled__default["default"].div `
     align-items: center;
     overflow: hidden;
 
-    ${({ isClicked }) => isClicked &&
-    `
-        box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
-        border: 1px solid #663366 !important;`}
-
-    ${(props) => props.isHelpTextBox &&
-    props.isClicked &&
+            ${(props) => props.theme.focused &&
     styled.css `
-            box-shadow: none !important;
-            border: 1px solid #f18624 !important;
-        `}
-
-    ${(props) => props.theme.focused &&
-    props.isHelpTextBox &&
-    styled.css `
-            box-shadow: 0px 0px 0px 1px #f18624 !important;
-            border: 1px solid #f18624 !important;
-        `}
-
+            background-color: ${({ theme }) => theme.isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
+        `}    
 
   ${(props) => props.theme.multiline &&
     styled.css `
@@ -4279,17 +4264,11 @@ const TextFieldContainer = styled__default["default"].div `
             overflow: hidden;
         `}
 
-
-    ${(props) => props.theme.hovered &&
+        ${(props) => props.theme.hovered &&
     styled.css `
-            border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
-        `}
+            border: 2px solid ${({ theme }) => theme.colors.inputBorderFocus};
+        `}    
 
-    ${(props) => props.theme.focused &&
-    styled.css `
-            box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
-            border: 1px solid ${({ theme }) => theme.colors.linkPressed};
-        `}
 
     ${(props) => props.theme.disabled &&
     styled.css `
@@ -4327,6 +4306,7 @@ const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     font-size: 14px;
     line-height: 18px;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
+    border-radius: 8px;
 
     ${placeholderStyle('neutralsGrey3')}
 
@@ -4348,6 +4328,7 @@ const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
             color: ${({ theme }) => theme.colors.messageError1};
             ${placeholderStyle('linkError')}
         `}
+
 `;
 const Label$2 = styled__default["default"].label `
     font-family: 'PT Sans';
@@ -4376,11 +4357,6 @@ const Label$2 = styled__default["default"].label `
     styled.css `
             color: ${({ theme }) => theme.colors.messageError1};
         `}
-
-    ${({ isClicked }) => isClicked &&
-    `
-        color: #663366 !important;
-    `}
 `;
 const HelperText$3 = styled__default["default"].span `
     font-family: 'Work Sans';
@@ -9685,7 +9661,7 @@ const LabelField = styled__default["default"].label `
 
   color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
 
-  color: ${({ isOnFocus }) => isOnFocus && '#663366'};
+  color: ${({ isOnFocus }) => isOnFocus && '#f18624 '};
 `;
 const ContainerIcon$2 = styled__default["default"].div `
   min-height: 20px;
@@ -9696,7 +9672,7 @@ const ContainerIcon$2 = styled__default["default"].div `
 `;
 const InputSearchWrapper$1 = styled__default["default"].div `
   height: 48px;
-  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
+  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.inputBg : '#ebeded')};
 
   border-radius: 8px;
 
@@ -9705,9 +9681,14 @@ const InputSearchWrapper$1 = styled__default["default"].div `
   align-items: center;
 
   border: 1px solid
-    ${({ isHover, theme, inputSearchNewStyle, darkMode }) => isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
-
-  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}
+    ${({ isHover, theme, inputSearchNewStyle, darkMode }) => isHover ? theme.colors.inputBorderFocus : inputSearchNewStyle ? theme.colors.inputBorder : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
+    
+    :hover {
+      border: 2px solid ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.inputBorderFocus : undefined};
+    }
+    :focus-within {
+      background-color:  ${({ theme, inputSearchNewStyle, darkMode, isValue }) => inputSearchNewStyle && !darkMode && isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
+    }
 `;
 const InputText$3 = styled__default["default"].input `
   display: flex;
