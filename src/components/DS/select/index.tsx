@@ -1,7 +1,7 @@
 import Select from './Select'
 import SelectItem from './SelectItem'
 
-export default function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled }) {
+export default function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled, ArrowIcon = null }) {
   return (
     <Select
       placeholder={placeholder}
@@ -10,6 +10,7 @@ export default function SelectFRST({ placeholder, valueSelect, handleValueSelect
       isError={isError}
       style={style}
       disabled={disabled}
+      ArrowIconFormatted={ArrowIcon}
     >
       {listItems.map((item, index) => (
         <SelectItem label={item} value={item} key={index} />

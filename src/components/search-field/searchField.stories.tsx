@@ -35,7 +35,7 @@ withoutLabel.args = {
   placeholder: 'Input Text',
   textButton: 'Button CTA',
   className: null,
-  handleClickButton: () => alert('Click')
+  handleClickButton: () => alert('Click'),
 }
 
 export const newStyle = Template.bind({})
