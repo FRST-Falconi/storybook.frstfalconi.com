@@ -5,7 +5,6 @@ interface ISearchField {
   isOnFocus?: boolean
   inputSearchNewStyle?: boolean
   darkMode?: boolean
-  isValue?: boolean
 }
 
 export const Container = styled.div`
@@ -26,7 +25,6 @@ export const LabelField = styled.label<ISearchField>`
 
   color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
 
-  color: ${({ isOnFocus }) => isOnFocus && '#f18624 '};
 `
 
 export const ContainerIcon = styled.div`
@@ -39,7 +37,7 @@ export const ContainerIcon = styled.div`
 
 export const InputSearchWrapper = styled.div<ISearchField>`
   height: 48px;
-  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.inputBg : '#ebeded')};
+  background-color: ${({ theme, inputSearchNewStyle, darkMode }) => darkMode ? theme.colors.neutralsGrey2 : (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
 
   border-radius: 8px;
 
@@ -49,14 +47,7 @@ export const InputSearchWrapper = styled.div<ISearchField>`
 
   border: 1px solid
     ${({ isHover, theme, inputSearchNewStyle, darkMode }) =>
-    isHover ? theme.colors.inputBorderFocus : inputSearchNewStyle ? theme.colors.inputBorder : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
-    
-    :hover {
-      border: 2px solid ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.inputBorderFocus : undefined};
-    }
-    :focus-within {
-      background-color:  ${({ theme, inputSearchNewStyle, darkMode, isValue }) => inputSearchNewStyle && !darkMode && isValue ? theme.colors.inputBg : theme.colors.inputFocusBg};
-    }
+      isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : darkMode ? theme.colors.neutralsGrey2 : '#E0E0E0'};
 `
 
 export const InputText = styled.input<ISearchField>`
@@ -81,7 +72,7 @@ export const InputText = styled.input<ISearchField>`
     font-size: 14px;
     line-height: 18px;
     color: ${({ theme, inputSearchNewStyle }) =>
-    inputSearchNewStyle ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey3};
+      inputSearchNewStyle ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey3};
   }
 `
 
