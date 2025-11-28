@@ -30,6 +30,7 @@ interface IDropdownMultiselect {
     getSelectedItems?: (selectedItems) => void
     style?: React.CSSProperties
     optionLayout?: (options) => void
+    itemLayout?: (item) => React.ReactNode
     selectedDefault?: ISelectedValue
     activeLazyLoad?: boolean
     onSearch?: (searchTerm) => void
@@ -45,7 +46,7 @@ interface IDropdownMultiselect {
 
 type ISelectedValue = {
     id: string
-    avatar: string
+    avatar: any
     name: string
     description: string
     subDescription?: string
@@ -68,7 +69,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         darkMode
     } = props
     
-    const [selectedValues, setSelectedValues] = useState<ISelectedValue>([])
+    const [selectedValues, setSelectedValues] = useState<ISelectedValue>(selectedDefault || [])
     const [textFilter, setTextFilter] = useState(searchTerm || '')
     const [listItemsFilter, setListItemsFilter] = useState<ISelectedValue>(listItems)
     const [showModal, setShowModal] = useState(false)
@@ -76,6 +77,8 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [lazyLoading, setLazyLoading] = useState(false)
     const [lazyItems, setLazyItems] = useState([])
     const loadLazyTimeout = useRef(null)
+    const getSelectedItemsRef = useRef(getSelectedItems)
+    const isFirstRender = useRef(true)
 
     // Atualiza a lista de itens quando props.listItems muda
     useEffect(() => {
@@ -102,8 +105,18 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         setListFilterSearch(temp)
     }, [textFilter, listItemsFilter, useTextFilter])
 
-    // Inicializa valores selecionados com selectedDefault
+    // Atualiza a ref com a versão mais recente de getSelectedItems
     useEffect(() => {
+        getSelectedItemsRef.current = getSelectedItems
+    }, [getSelectedItems])
+
+    // Sincroniza selectedValues quando selectedDefault muda após o mount
+    useEffect(() => {
+        // Pula a primeira renderização pois o estado já foi inicializado corretamente
+        if (isFirstRender.current) {
+            isFirstRender.current = false
+            return
+        }
         if (selectedDefault) {
             setSelectedValues(selectedDefault)
         }
@@ -112,14 +125,14 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     // Notifica o componente pai sobre alterações nos valores selecionados
     // Envolvendo em um useCallback para evitar loops infinitos
     const notifySelectedItemsChange = useCallback(() => {
-        if (getSelectedItems) {
-            getSelectedItems(selectedValues)
+        if (getSelectedItemsRef.current) {
+            getSelectedItemsRef.current(selectedValues)
         }
     }, [selectedValues])
 
     useEffect(() => {
         notifySelectedItemsChange()
-    }, [selectedValues])
+    }, [notifySelectedItemsChange])
 
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
@@ -148,22 +161,26 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
-                <S.selectItem id="select-items" width={width} darkMode={darkMode}>
-                    {canShowAvatar &&
-                        (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
-                    <S.TextContainer>
-                        {item?.name}
-                        {variantModeDescritpion ? (
-                            <>
-                                {!!item?.description && ` - ${item.description}`}
-                                {!!item?.subDescription && ` - ${item.subDescription}`}
-                                {!!item?.isVariant && <span style={{ color: '#757575' }}>{` (Externo)`}</span>}
-                            </>
-                        ) : (
-                            item?.description && <span style={{ color: '#757575' }}> ({item.description}) </span>
-                        )}
-                    </S.TextContainer>
-                </S.selectItem>
+                {props?.itemLayout ? 
+                    props.itemLayout(item)
+                    :
+                    <S.selectItem id="select-items" width={width} darkMode={darkMode}>
+                        {canShowAvatar &&
+                            (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
+                        <S.TextContainer>
+                            {item?.name}
+                            {variantModeDescritpion ? (
+                                <>
+                                    {!!item?.description && ` - ${item.description}`}
+                                    {!!item?.subDescription && ` - ${item.subDescription}`}
+                                    {!!item?.isVariant && <span style={{ color: '#757575' }}>{` (Externo)`}</span>}
+                                </>
+                            ) : (
+                                item?.description && <span style={{ color: '#757575' }}> ({item.description}) </span>
+                            )}
+                        </S.TextContainer>
+                    </S.selectItem>
+                }
             </TooltipV2>
         )
     }
