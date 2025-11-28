@@ -46,7 +46,6 @@ export default function SearchField({
           isOnFocus={inputOnFocus}
           inputSearchNewStyle={inputSearchNewStyle}
           darkMode={darkMode}
-          isValue={!!value}
         >
           {hasSearchIcon && (
             <ContainerIcon>
