@@ -259,3 +259,24 @@ Muito bom o seu projeto! No momento estou lidando com um problema bem parecido e
     textTotalView: '12 Visualizações',
     handleClickTextTotalViews: () => alert('Click Views')
 }*/
+
+export const ChallengeWithoutAvaliations = Template.bind({})
+ChallengeWithoutAvaliations.args = {
+    style: { border: '0px' },
+    isChallengeReview: true,
+    id: 'certifyUuidAqui',
+    isLiked: false,
+    qtdLikes: '23',
+    qtdComments: '1 comentário',
+    textComments: 'Comentar',
+    textLikes: 'Curtir',
+    textDeslike: 'Descurtir',
+    tooltipLikesText: 'teste',
+    textAvaluation: '',
+    textAvaluationTitle: 'Avalie o desafio',
+    handleShowLikes: () => console.log('show likes'),
+    handleLikeClick: () => console.log('like clicked'),
+    userAvatar: null,
+    isVisibleAvaliations: false,
+    isCommentV2: true,
+  }
