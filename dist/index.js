@@ -24110,7 +24110,7 @@ styleInject(css_248z);
 
 function DropdownMultiselect(props) {
     const { canShowAvatar = true, useTextFilter = false, searchTerm, hiddenAddAll, variantModeDescritpion, width, listItems, selectedDefault, getSelectedItems, onSearch, tagColor, darkMode } = props;
-    const [selectedValues, setSelectedValues] = React.useState([]);
+    const [selectedValues, setSelectedValues] = React.useState(selectedDefault || []);
     const [textFilter, setTextFilter] = React.useState(searchTerm || '');
     const [listItemsFilter, setListItemsFilter] = React.useState(listItems);
     const [showModal, setShowModal] = React.useState(false);
@@ -24118,7 +24118,8 @@ function DropdownMultiselect(props) {
     const [lazyLoading, setLazyLoading] = React.useState(false);
     const [lazyItems, setLazyItems] = React.useState([]);
     const loadLazyTimeout = React.useRef(null);
-    React.useRef(getSelectedItems);
+    const getSelectedItemsRef = React.useRef(getSelectedItems);
+    const isFirstRender = React.useRef(true);
     // Atualiza a lista de itens quando props.listItems muda
     React.useEffect(() => {
         if (listItems) {
@@ -24139,8 +24140,17 @@ function DropdownMultiselect(props) {
         const temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter.toLowerCase()));
         setListFilterSearch(temp);
     }, [textFilter, listItemsFilter, useTextFilter]);
-    // Inicializa valores selecionados com selectedDefault
+    // Atualiza a ref com a versão mais recente de getSelectedItems
     React.useEffect(() => {
+        getSelectedItemsRef.current = getSelectedItems;
+    }, [getSelectedItems]);
+    // Sincroniza selectedValues quando selectedDefault muda após o mount
+    React.useEffect(() => {
+        // Pula a primeira renderização pois o estado já foi inicializado corretamente
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
         if (selectedDefault) {
             setSelectedValues(selectedDefault);
         }
@@ -24149,14 +24159,14 @@ function DropdownMultiselect(props) {
     // Envolvendo em um useCallback para evitar loops infinitos
     const notifySelectedItemsChange = React.useCallback(() => {
         console.log('selectedValues', selectedValues);
-        console.log('getSelectedItems', getSelectedItems);
-        if (getSelectedItems) {
-            getSelectedItems(selectedValues);
+        console.log('getSelectedItems', getSelectedItemsRef.current);
+        if (getSelectedItemsRef.current) {
+            getSelectedItemsRef.current(selectedValues);
         }
     }, [selectedValues]);
     React.useEffect(() => {
         notifySelectedItemsChange();
-    }, [selectedValues]);
+    }, [notifySelectedItemsChange]);
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
             const newValues = [...prev];

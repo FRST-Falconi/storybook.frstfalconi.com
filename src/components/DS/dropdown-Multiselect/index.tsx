@@ -69,7 +69,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         darkMode
     } = props
     
-    const [selectedValues, setSelectedValues] = useState<ISelectedValue>([])
+    const [selectedValues, setSelectedValues] = useState<ISelectedValue>(selectedDefault || [])
     const [textFilter, setTextFilter] = useState(searchTerm || '')
     const [listItemsFilter, setListItemsFilter] = useState<ISelectedValue>(listItems)
     const [showModal, setShowModal] = useState(false)
@@ -78,6 +78,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [lazyItems, setLazyItems] = useState([])
     const loadLazyTimeout = useRef(null)
     const getSelectedItemsRef = useRef(getSelectedItems)
+    const isFirstRender = useRef(true)
 
     // Atualiza a lista de itens quando props.listItems muda
     useEffect(() => {
@@ -104,8 +105,18 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         setListFilterSearch(temp)
     }, [textFilter, listItemsFilter, useTextFilter])
 
-    // Inicializa valores selecionados com selectedDefault
+    // Atualiza a ref com a versão mais recente de getSelectedItems
     useEffect(() => {
+        getSelectedItemsRef.current = getSelectedItems
+    }, [getSelectedItems])
+
+    // Sincroniza selectedValues quando selectedDefault muda após o mount
+    useEffect(() => {
+        // Pula a primeira renderização pois o estado já foi inicializado corretamente
+        if (isFirstRender.current) {
+            isFirstRender.current = false
+            return
+        }
         if (selectedDefault) {
             setSelectedValues(selectedDefault)
         }
@@ -115,15 +126,15 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     // Envolvendo em um useCallback para evitar loops infinitos
     const notifySelectedItemsChange = useCallback(() => {
         console.log('selectedValues', selectedValues)
-        console.log('getSelectedItems', getSelectedItems)
-        if (getSelectedItems) {
-            getSelectedItems(selectedValues)
+        console.log('getSelectedItems', getSelectedItemsRef.current)
+        if (getSelectedItemsRef.current) {
+            getSelectedItemsRef.current(selectedValues)
         }
     }, [selectedValues])
 
     useEffect(() => {
         notifySelectedItemsChange()
-    }, [selectedValues])
+    }, [notifySelectedItemsChange])
 
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
