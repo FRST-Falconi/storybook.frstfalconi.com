@@ -125,8 +125,6 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     // Notifica o componente pai sobre alterações nos valores selecionados
     // Envolvendo em um useCallback para evitar loops infinitos
     const notifySelectedItemsChange = useCallback(() => {
-        console.log('selectedValues', selectedValues)
-        console.log('getSelectedItems', getSelectedItemsRef.current)
         if (getSelectedItemsRef.current) {
             getSelectedItemsRef.current(selectedValues)
         }
@@ -397,10 +395,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         }}
                         value={selectedValues}
                         options={listFilterSearch}
-                        onChange={(e) => {
-                            console.log('e => multiselect', e)
-                            setSelectedValues(e.value)
-                        }}
+                        onChange={(e) => setSelectedValues(e.value)}
                         placeholder={props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui'}
                         className="custom-multiselect"
                         panelClassName={darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown'}

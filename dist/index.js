@@ -24145,8 +24145,6 @@ function DropdownMultiselect(props) {
     // Notifica o componente pai sobre alterações nos valores selecionados
     // Envolvendo em um useCallback para evitar loops infinitos
     const notifySelectedItemsChange = React.useCallback(() => {
-        console.log('selectedValues', selectedValues);
-        console.log('getSelectedItems', getSelectedItemsRef.current);
         if (getSelectedItemsRef.current) {
             getSelectedItemsRef.current(selectedValues);
         }
@@ -24252,10 +24250,7 @@ function DropdownMultiselect(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 && (jsxRuntime.jsxs(headerSelect, { darkMode: darkMode, children: [selectTemplate(selectedValues), selectedValues?.length > 1 && (jsxRuntime.jsx("div", { style: { zIndex: '1', position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: darkMode ? "#757575" : "#9C9C9C" }) }) }) }))] })), jsxRuntime.jsx(customSelect, { onClick: () => textFilter !== '' && setTextFilter(''), darkMode: darkMode, children: jsxRuntime.jsx(multiselect.MultiSelect, { id: "list-selected", panelStyle: {
                             display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block',
                             background: darkMode ? '#323232' : '#fff'
-                        }, value: selectedValues, options: listFilterSearch, onChange: (e) => {
-                            console.log('e => multiselect', e);
-                            setSelectedValues(e.value);
-                        }, placeholder: props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui', className: "custom-multiselect", panelClassName: darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown', dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: darkMode ? FRSTTheme['colors'].neutralsGrey3 : FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: {
+                        }, value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui', className: "custom-multiselect", panelClassName: darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown', dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: darkMode ? FRSTTheme['colors'].neutralsGrey3 : FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: {
                             border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}`
                         }, virtualScrollerOptions: renderVirtualScrollerOptions(), pt: {
                             item: {
