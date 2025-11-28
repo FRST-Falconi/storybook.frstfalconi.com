@@ -4,7 +4,7 @@ import FeedInteraction from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'FI/Feed Interaction',
+    title: 'FI/Interaction',
     component: FeedInteraction
 }
 
