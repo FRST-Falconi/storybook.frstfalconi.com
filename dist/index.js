@@ -4338,15 +4338,6 @@ const Label$2 = styled__default["default"].label `
     line-height: 21px;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    ${(props) => props.theme.hovered &&
-    styled.css `
-            color: ${({ theme }) => theme.colors.linkOnfocus};
-        `}
-
-    ${(props) => props.theme.focused &&
-    styled.css `
-            color: ${({ theme }) => theme.colors.linkOnfocus};
-        `}
 
     ${(props) => props.theme.disabled &&
     styled.css `
