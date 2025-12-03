@@ -38,6 +38,8 @@ export default function FeedInteractionV2(props: IFeedInteraction) {
 
     const toggleComments = () => setOpenComments(!openComments)
 
+    const qtdLikesText = props?.qtdLikes !== "1" ? 'pessoas curtiram esse desafio' : 'pessoa curtiu esse desafio'
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Container style={{ ...props.style }} id={props.id}>
@@ -70,7 +72,7 @@ export default function FeedInteractionV2(props: IFeedInteraction) {
                 {props.qtdLikes && (
                     <Styles.BottomInfo onClick={() => props.handleShowLikes?.()}>
                         <Icons.ThumbsUpCovered2 />
-                        <span>{props.qtdLikes} pessoas curtiram esse desafio</span>
+                        <span>{qtdLikesText}</span>
                     </Styles.BottomInfo>
                 )}
 

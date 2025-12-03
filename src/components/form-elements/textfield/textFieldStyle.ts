@@ -141,17 +141,6 @@ export const Label = styled.label<{ isClicked }>`
     line-height: 21px;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    ${(props) =>
-        props.theme.hovered &&
-        css`
-            color: ${({ theme }) => theme.colors.linkOnfocus};
-        `}
-
-    ${(props) =>
-        props.theme.focused &&
-        css`
-            color: ${({ theme }) => theme.colors.linkOnfocus};
-        `}
 
     ${(props) =>
         props.theme.disabled &&
