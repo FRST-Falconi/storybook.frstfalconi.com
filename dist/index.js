@@ -18722,7 +18722,7 @@ function FeedInteractionV2(props) {
     React.useEffect(() => {
         setStateTotalComments(props.qtdComments);
     }, [props.qtdComments]);
-    const qtdLikesText = props?.qtdLikes !== "1" ? 'pessoas curtiram esse desafio' : 'pessoa curtiu esse desafio';
+    const qtdLikesText = props?.qtdLikes !== "1" ? `${props.qtdLikes} pessoas curtiram esse desafio` : '1 pessoa curtiu esse desafio';
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { style: { ...props.style }, id: props.id, children: [jsxRuntime.jsxs(TopBar, { children: [jsxRuntime.jsxs(LeftAction, { onClick: () => props.handleLikeClick?.(), children: [jsxRuntime.jsx(ThumbsUpIcon2, {}), jsxRuntime.jsxs("span", { style: { marginTop: '2px' }, children: [" ", props.isLiked ? props.textDeslike : props.textLikes] })] }), jsxRuntime.jsxs(RightInfo, { children: [stateTotalComments && (jsxRuntime.jsx("span", { children: stateTotalComments })), props.textTotalView && (jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews?.(), children: props.textTotalView }))] })] }), jsxRuntime.jsx(Divider, {}), props.qtdLikes && (jsxRuntime.jsxs(BottomInfo, { onClick: () => props.handleShowLikes?.(), children: [jsxRuntime.jsx(ThumbsUpCovered2, {}), jsxRuntime.jsx("span", { children: qtdLikesText })] })), openComments && props.isCommentV2 && (jsxRuntime.jsx("div", { children: props.childrenCommentV2 }))] }) }));
 }
 
