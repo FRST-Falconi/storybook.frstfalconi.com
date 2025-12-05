@@ -4,6 +4,7 @@ import { UsersChallengeProps } from './types'
 import UsersChallengeFeed from './variant-feed'
 import UsersChallengeForm from './variant-form'
 import UsersChallengeVitrine from './variant-vitrine'
+import UsersChallengeLXP from './variant-lxp'
 
 export default function UsersChallenge({
     goalUsers = [],
@@ -51,6 +52,20 @@ export default function UsersChallenge({
                 )}
                 {variant === 'vitrine' && (
                     <UsersChallengeVitrine
+                        areaName={areaName}
+                        avatar={avatar}
+                        companyName={companyName}
+                        createData={createData}
+                        goalUsers={goalUsers}
+                        hasOnlyAutor={hasOnlyAutor}
+                        name={name}
+                        onClickAvatar={onClickAvatar}
+                        onUserNameClick={onUserNameClick}
+                        userId={userId}
+                    />
+                )}
+                {variant === 'lxp' && (
+                    <UsersChallengeLXP
                         areaName={areaName}
                         avatar={avatar}
                         companyName={companyName}
