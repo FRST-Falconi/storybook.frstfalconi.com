@@ -3,6 +3,8 @@ import { useState } from 'react'
 import * as S from './styles'
 import ModalShowUsers from '@components/modal/modalShowUsers'
 import { UsersChallengeProps } from '../types'
+import {LightTooltip} from '@components/DS/LightTooltip'
+import { LightPrivateIcon, LightProtectedIcon, PrivateIcon, ProtectedIcon } from '@shared/icons'
 
 export default function UsersChallengeFeed({
     goalUsers = [],
@@ -15,6 +17,7 @@ export default function UsersChallengeFeed({
     areaName,
     companyName,
     createData,
+    accessLevel
 }: UsersChallengeProps) {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -23,6 +26,31 @@ export default function UsersChallengeFeed({
     const reorderedUsers = [...goalUsers.filter((user) => user.author), ...goalUsers.filter((user) => !user.author)]
 
     const remainingUsersCount = reorderedUsers.length - maxVisibleUsers
+
+    
+        const AccessLevelIcon = ({ accessLevel }: { accessLevel: 'protected' | 'private' }) => {
+        if (accessLevel === 'private') {
+            return (
+                <LightTooltip title="Este desafio pode ser visto e acessado apenas por pessoas selecionadas">
+                    <span style={{ display: 'inline-flex', cursor: 'pointer' }}>
+                        <LightPrivateIcon/>
+                    </span>
+                </LightTooltip>
+            );
+        }
+    
+        if (accessLevel === 'protected') {
+            return (
+                <LightTooltip title="Este desafio pode ser visto e acessado por todas as pessoas da organização de seu autor" >
+                    <span style={{ display: 'inline-flex', cursor: 'pointer' }}>
+                        <LightProtectedIcon/>
+                    </span>
+                </LightTooltip>
+            );
+        }
+    
+        return null;
+    };
 
     return (
         <S.Container>
@@ -49,10 +77,13 @@ export default function UsersChallengeFeed({
                         >
                             {name}
                         </Typography>
-                        <Box>
+                        <Box sx={{display: 'flex', gap:'4px'}}>
                             <S.StyledTypography>
-                                {`${areaName} `} · {` ${companyName}`}
+                                {`${areaName} `} · {` ${companyName}`} .
                             </S.StyledTypography>
+                            <span>
+                                <AccessLevelIcon accessLevel={accessLevel}/>
+                            </span>
                         </Box>
 
                         <S.StyledTypography>{`${createData}`}</S.StyledTypography>
@@ -118,6 +149,10 @@ export default function UsersChallengeFeed({
                                     {remainingUsersCount > 1 ? 's' : ''}
                                 </span>
                             )}
+
+                            <span>
+                                <AccessLevelIcon accessLevel={accessLevel}/>
+                            </span>
                         </Box>
                     </S.AllAvatarUsers>
                 </S.AvatarsSection>

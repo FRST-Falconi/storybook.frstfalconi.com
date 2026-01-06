@@ -18,6 +18,7 @@ AllUsers.args = {
   onUserNameClick: () => console.log('Clicou no nome'),
   onClickAvatar: () => console.log('Clicou na foto do avatar'),
   variant: 'feed',
+  accessLevel: 'private',
   goalUsers: [
       {
           name: 'Isabella Lopes',
@@ -97,4 +98,5 @@ AutorOnly.args = {
     companyName: 'Falconi',
     createData: "10 dias atrás",
     variant: 'vitrine',
+    accessLevel: 'protected'
 }

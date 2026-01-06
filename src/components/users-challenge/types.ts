@@ -4,6 +4,7 @@ export interface User {
   avatar?: string
   author?: boolean
 }
+type AccessLevel = "private" | "protected";
 export interface UsersChallengeProps {
   goalUsers?: User[]
   hasOnlyAutor?: boolean
@@ -16,4 +17,5 @@ export interface UsersChallengeProps {
   companyName?: string
   createData?: string | number
   variant?: string
+  accessLevel?: AccessLevel
 }

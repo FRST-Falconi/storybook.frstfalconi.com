@@ -3,6 +3,8 @@ import { useState } from 'react'
 import * as S from './styles'
 import ModalShowUsers from '@components/modal/modalShowUsers'
 import { UsersChallengeProps } from '../types'
+import {LightTooltip} from '@components/DS/LightTooltip'
+import { PrivateIcon, ProtectedIcon } from '@shared/icons'
 
 export default function UsersChallengeVitrine({
     goalUsers = [],
@@ -14,7 +16,8 @@ export default function UsersChallengeVitrine({
     userId,
     areaName,
     companyName,
-    createData
+    createData,
+    accessLevel
 }: UsersChallengeProps) {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -23,6 +26,30 @@ export default function UsersChallengeVitrine({
     const reorderedUsers = [...goalUsers.filter((user) => user.author), ...goalUsers.filter((user) => !user.author)]
 
     const remainingUsersCount = reorderedUsers.length - maxVisibleUsers
+
+    const AccessLevelIcon = ({ accessLevel }: { accessLevel: 'protected' | 'private' }) => {
+    if (accessLevel === 'private') {
+        return (
+            <LightTooltip title="Este desafio pode ser visto e acessado apenas por pessoas selecionadas">
+                <span style={{ display: 'inline-flex', cursor: 'pointer' }}>
+                    <PrivateIcon width={16} height={16} />
+                </span>
+            </LightTooltip>
+        );
+    }
+
+    if (accessLevel === 'protected') {
+        return (
+            <LightTooltip title="Este desafio pode ser visto e acessado por todas as pessoas da organização de seu autor" >
+                <span style={{ display: 'inline-flex', cursor: 'pointer' }}>
+                    <ProtectedIcon width={16} height={16} />
+                </span>
+            </LightTooltip>
+        );
+    }
+
+    return null;
+};
 
     return (
         <S.Container>
@@ -49,10 +76,14 @@ export default function UsersChallengeVitrine({
                         >
                             {name}
                         </Typography>
-                        <Box>
+                        <Box sx={{display: 'flex', gap:'10px'}}>
                             <S.StyledText>
                                 {`${areaName} `} · {` ${companyName}`}
                             </S.StyledText>
+                            
+                            <span>
+                                <AccessLevelIcon accessLevel={accessLevel}/>
+                            </span>
                         </Box>
 
                         <S.StyledText>{`${createData}`}</S.StyledText>
@@ -118,6 +149,9 @@ export default function UsersChallengeVitrine({
                                     {remainingUsersCount > 1 ? 's' : ''}
                                 </span>
                             )}
+                            <span>
+                                <AccessLevelIcon accessLevel={accessLevel}/>
+                            </span>
                         </Box>
                     </S.AllAvatarUsers>
                 </S.AvatarsSection>
