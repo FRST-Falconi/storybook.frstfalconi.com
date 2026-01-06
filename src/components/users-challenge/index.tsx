@@ -17,7 +17,8 @@ export default function UsersChallenge({
     areaName,
     companyName,
     createData,
-    variant
+    variant,
+    accessLevel
 }: UsersChallengeProps) {
     return (
         <S.Container>
@@ -34,6 +35,7 @@ export default function UsersChallenge({
                         onClickAvatar={onClickAvatar}
                         onUserNameClick={onUserNameClick}
                         userId={userId}
+                        accessLevel={accessLevel}
                     />
                 )}
                 {variant === 'form' && (
@@ -62,6 +64,7 @@ export default function UsersChallenge({
                         onClickAvatar={onClickAvatar}
                         onUserNameClick={onUserNameClick}
                         userId={userId}
+                        accessLevel={accessLevel}
                     />
                 )}
                 {variant === 'lxp' && (
