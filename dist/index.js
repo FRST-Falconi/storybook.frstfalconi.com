@@ -7220,6 +7220,7 @@ function Modal({ children, width, headerContent, style, onClose, onOpen, handleC
     const [active, setActive] = React.useState(false);
     React.useEffect(() => {
         function handleClickOutside(event) {
+            console.log("handleClickOutside: originalOverflowRef.current", originalOverflowRef.current);
             const ModalWreapperEl = ModalWrapperRef?.current;
             if (ModalWreapperEl === event.target && active) {
                 document.body.style.overflow = originalOverflowRef.current;
@@ -7235,6 +7236,7 @@ function Modal({ children, width, headerContent, style, onClose, onOpen, handleC
         };
     }, [ModalWrapperRef, active, closeOnClickOutside, onClose]);
     React.useEffect(() => {
+        console.log("entrei em abrir", document.body.style.overflow);
         if (open === true) {
             originalOverflowRef.current = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
