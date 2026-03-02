@@ -40,6 +40,7 @@ export default function Modal({
 }: ModalProps): JSX.Element {
   const ModalWrapperRef = useRef(null)
   const ModalContentRef = useRef(null)
+  const originalOverflowRef = useRef<string>('')
   const AnimationType = animation.toLowerCase()
   const [active, setActive] = useState<boolean>(false)
 
@@ -47,6 +48,7 @@ export default function Modal({
     function handleClickOutside(event: any) {
       const ModalWreapperEl = ModalWrapperRef?.current
       if (ModalWreapperEl === event.target && active) {
+        document.body.style.overflow = originalOverflowRef.current
         if (onClose) onClose(event)
         if (closeOnClickOutside === true) setActive(false)
       }
@@ -59,10 +61,11 @@ export default function Modal({
 
   useEffect(() => {
     if (open === true) {
+      originalOverflowRef.current = document.body.style.overflow
       document.body.style.overflow = 'hidden'
       if (onOpen) onOpen()
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = originalOverflowRef.current
     }
     setActive(open)
   }, [onOpen, open])
@@ -70,6 +73,7 @@ export default function Modal({
   const handleClose = (e: MouseEvent) => {
     if (propagationOnClose) e.stopPropagation()
 
+    document.body.style.overflow = originalOverflowRef.current
     setActive(false)
 
     if (onClose) onClose(e)
