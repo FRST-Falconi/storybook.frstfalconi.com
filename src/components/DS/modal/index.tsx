@@ -46,7 +46,6 @@ export default function Modal({
 
   useEffect(() => {
     function handleClickOutside(event: any) {
-      console.log("handleClickOutside: originalOverflowRef.current", originalOverflowRef.current)
       const ModalWreapperEl = ModalWrapperRef?.current
       if (ModalWreapperEl === event.target && active) {
         document.body.style.overflow = originalOverflowRef.current
@@ -61,7 +60,6 @@ export default function Modal({
   }, [ModalWrapperRef, active, closeOnClickOutside, onClose])
 
   useEffect(() => {
-    console.log("entrei em abrir", document.body.style.overflow)
     if (open === true) {
       originalOverflowRef.current = document.body.style.overflow
       document.body.style.overflow = 'hidden'
