@@ -61,11 +61,8 @@ export default function Modal({
 
   useEffect(() => {
     if (open === true) {
-      originalOverflowRef.current = document.body.style.overflow
-      document.body.style.overflow = 'hidden'
+       document.body.style.overflow = 'hidden'
       if (onOpen) onOpen()
-    } else {
-      document.body.style.overflow = originalOverflowRef.current
     }
     setActive(open)
   }, [onOpen, open])
@@ -73,7 +70,7 @@ export default function Modal({
   const handleClose = (e: MouseEvent) => {
     if (propagationOnClose) e.stopPropagation()
 
-    document.body.style.overflow = originalOverflowRef.current
+    document.body.style.overflow = 'auto'
     setActive(false)
 
     if (onClose) onClose(e)
