@@ -196,7 +196,7 @@ export default function ThumbListContent(props: IThumbListContent) {
               width="32.6364"
               height="32.6364"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
