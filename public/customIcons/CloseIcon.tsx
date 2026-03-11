@@ -7,16 +7,16 @@ export function CloseIcon() {
             <path
                 d="M21.3332 10.6666L10.6665 21.3333"
                 stroke="#C00F00"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M10.6665 10.6666L21.3332 21.3333"
                 stroke="#C00F00"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     )

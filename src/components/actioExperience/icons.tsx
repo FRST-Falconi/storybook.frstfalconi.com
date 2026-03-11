@@ -114,16 +114,16 @@ export const CloseIcon = ({ width = 16, height = 16 }: { width?: number; height?
             <path
                 d="M13.3334 2.66663L2.66675 13.3333"
                 stroke="#757575"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M2.66675 2.66663L13.3334 13.3333"
                 stroke="#757575"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     )

@@ -2617,9 +2617,9 @@ export function StarOutlined2({ stroke = '#444444', width = '24', height = '24' 
             <path
                 d="M11.0948 2.92837C11.4547 2.16162 12.5453 2.16162 12.9052 2.92838L15.1725 7.75831C15.3141 8.05989 15.5965 8.27116 15.9258 8.32177L21.0777 9.1136C21.882 9.23721 22.2098 10.2184 21.6413 10.8006L17.8527 14.6808C17.6309 14.908 17.5302 15.227 17.5813 15.5404L18.4664 20.9672C18.6008 21.7911 17.7261 22.4073 16.9956 22.0033L12.4839 19.5084C12.1828 19.3419 11.8172 19.3419 11.5161 19.5084L7.00445 22.0033C6.27389 22.4073 5.39918 21.7911 5.53357 20.9672L6.41872 15.5404C6.46983 15.227 6.36909 14.908 6.14727 14.6808L2.3587 10.8006C1.79024 10.2184 2.11804 9.23721 2.92229 9.1136L8.07418 8.32177C8.40347 8.27116 8.68592 8.05989 8.82749 7.75831L11.0948 2.92837Z"
                 stroke={stroke}
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     )
@@ -2673,11 +2673,11 @@ export function ThumbsUpIcon2({ stroke = '#444444', width = '24', height = '24' 
             <path
                 d="M14 5V9H19.66C19.9499 8.99672 20.2371 9.0565 20.5016 9.17522C20.7661 9.29393 21.0016 9.46873 21.1919 9.68751C21.3821 9.90629 21.5225 10.1638 21.6033 10.4423C21.6842 10.7207 21.7035 11.0134 21.66 11.3L20.28 20.3C20.2077 20.7769 19.9654 21.2116 19.5979 21.524C19.2304 21.8364 18.7623 22.0055 18.28 22H7H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V13C2 12.4696 2.21071 11.9609 2.58579 11.5858C2.96086 11.2107 3.46957 11 4 11H7L11 2C11.7956 2 12.5587 2.31607 13.1213 2.87868C13.6839 3.44129 14 4.20435 14 5Z"
                 stroke={stroke}
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
-            <path d="M7 11L7 22" stroke={stroke} stroke-width="1.8" />
+            <path d="M7 11L7 22" stroke={stroke} strokeWidth="1.8" />
         </svg>
     )
 }
@@ -2720,11 +2720,11 @@ export function ThumbsUpCovered2({ fill = '#F26818', width = '16', height = '16'
                 d="M8.8335 5.58203V7.2487H11.1918C11.3126 7.24733 11.4323 7.27224 11.5425 7.32171C11.6527 7.37117 11.7508 7.444 11.8301 7.53516C11.9094 7.62632 11.9679 7.73362 12.0016 7.84964C12.0352 7.96565 12.0433 8.0876 12.0252 8.20703L11.4502 11.957C11.42 12.1557 11.3191 12.3369 11.166 12.467C11.0128 12.5972 10.8178 12.6676 10.6168 12.6654H5.91683H4.66683C4.44582 12.6654 4.23385 12.5776 4.07757 12.4213C3.92129 12.265 3.8335 12.053 3.8335 11.832V8.91537C3.8335 8.69435 3.92129 8.48239 4.07757 8.32611C4.23385 8.16983 4.44582 8.08203 4.66683 8.08203H5.91683L7.5835 4.33203C7.91502 4.33203 8.23296 4.46373 8.46738 4.69815C8.7018 4.93257 8.8335 5.25051 8.8335 5.58203Z"
                 fill="white"
                 stroke={fill}
-                stroke-width="0.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="0.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
-            <path d="M5.70068 8.08203L5.70068 12.6654" stroke={fill} stroke-width="0.8" />
+            <path d="M5.70068 8.08203L5.70068 12.6654" stroke={fill} strokeWidth="0.8" />
         </svg>
     )
 }
@@ -3219,7 +3219,7 @@ export function PlayIcon({ width, height, customColor_1, customColor_2 }: IconsP
                     width={width ? width : '32'}
                     height={height ? height : '32'}
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
@@ -3276,7 +3276,7 @@ export function PauseIcon({ customColor_1, customColor_2, width, height }: Icons
                     width={width ? width : '32'}
                     height={height ? height : '32'}
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
@@ -3299,7 +3299,7 @@ export function PauseIcon({ customColor_1, customColor_2, width, height }: Icons
                     width={width ? width : '32'}
                     height={height ? height : '32'}
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
@@ -3466,13 +3466,13 @@ export function ThumbVideo({ fill, width, height }: IconsProps) {
                 d="M56.78 55.96C56.78 47.62 60.1 39.61 66 33.71C71.9 27.81 79.91 24.49 88.25 24.49C96.59 24.49 104.6 27.81 110.5 33.71C116.4 39.61 119.72 47.62 119.72 55.96C119.72 64.3 116.4 72.31 110.5 78.21C104.6 84.11 96.59 87.43 88.25 87.43C79.91 87.42 71.91 84.1 66.01 78.2C60.11 72.3 56.79 64.3 56.78 55.96Z"
                 stroke="white"
                 strokeWidth="3"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
             />
             <path
                 d="M82.28 44.93V66.77C82.28 67.9 83.56 68.55 84.47 67.89L99.47 56.97C100.23 56.42 100.23 55.29 99.47 54.74L84.47 43.82C83.56 43.16 82.28 43.81 82.28 44.94V44.93Z"
                 stroke="white"
                 strokeWidth="3"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
             />
         </svg>
     )
@@ -4482,7 +4482,7 @@ export const RoomGroupIcon = ({ width = '24', height = '24', stroke = '#222222' 
 export function HandWave() {
     return (
         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_645_3671)">
+            <g clipPath="url(#clip0_645_3671)">
                 <path
                     d="M14.0303 7.97569L14.5293 7.47671C15.2438 6.76221 16.4023 6.76223 17.1169 7.47677L19.4072 9.76708C22.1284 12.4883 22.1284 16.9002 19.4072 19.6214V19.6214C16.6881 22.3404 12.2805 22.3429 9.55841 19.6269L4.12333 14.204C3.40743 13.4897 3.40675 12.3301 4.12181 11.6149L4.73693 10.9998M14.0303 7.97569L10.6778 4.62324C9.96324 3.90868 8.80471 3.90868 8.09015 4.62324L7.44324 5.27015M14.0303 7.97569L16.6858 10.6313C16.8127 10.7582 16.8354 10.9557 16.7405 11.1081V11.1081C16.0743 12.1778 16.04 13.5246 16.6509 14.627L17.2698 15.7436M7.44324 5.27015L6.81286 4.63976C6.22673 4.05363 5.27642 4.05363 4.69028 4.63977L4.51673 4.81332C4.03489 5.29515 4.02744 6.07403 4.49997 6.565V6.565M7.44324 5.27015L12.8827 10.7096M4.49997 6.565L3.69331 7.37166C2.97798 8.08699 2.97886 9.24704 3.69528 9.96128L4.73693 10.9998M4.49997 6.565L10.7803 12.8121M4.73693 10.9998L9.62908 15.8658"
                     stroke="white"
