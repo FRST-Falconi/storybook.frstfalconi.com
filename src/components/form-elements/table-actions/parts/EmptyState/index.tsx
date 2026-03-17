@@ -20,8 +20,8 @@ export default function EmptyState({ emptyState, customImage }: IEmptyState) {
       <ImageEmptyState src={customImage ? customImage : imgEmpty} alt="Empty" />
       <LabelEmptyState>
         {emptyState?.labels &&
-          emptyState?.labels?.map((label?: string) => {
-            return <p>{label}</p>
+          emptyState?.labels?.map((label: string, index: number) => {
+            return <p key={index}>{label}</p>
           })}
       </LabelEmptyState>
       {emptyState?.handleClickButtonCreate && <ButtonCreateAction onClick={() => emptyState?.handleClickButtonCreate?.()}>
