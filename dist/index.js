@@ -24836,8 +24836,8 @@ function EmptyState({ emptyState, customImage }) {
             border: '1.5px solid #ebebeb',
             borderTopWidth: '0px'
         }, children: [jsxRuntime.jsx(ImageEmptyState, { src: customImage ? customImage : imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
-                    emptyState?.labels?.map((label) => {
-                        return jsxRuntime.jsx("p", { children: label });
+                    emptyState?.labels?.map((label, index) => {
+                        return jsxRuntime.jsx("p", { children: label }, index);
                     }) }), emptyState?.handleClickButtonCreate && jsxRuntime.jsx(ButtonCreateAction, { onClick: () => emptyState?.handleClickButtonCreate?.(), children: emptyState?.labelButtonCreate })] }));
 }
 
@@ -25011,7 +25011,7 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         setAdaptedData(newData);
     }, [data]);
     const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
-        ? { borderRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+        ? { borderTopRightRadius: '8px', borderTopLeftRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
         : { borderRadius: '8px' };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), !isLoading && data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), !isLoading && data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }
