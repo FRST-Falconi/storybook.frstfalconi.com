@@ -8763,17 +8763,17 @@ const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index
 };
 
 const MESSAGES = {
-    reachedGoal: jsxRuntime.jsx("div", { children: "Este resultado atingiu a meta definida! \uD83C\uDF89" }),
-    progressExceeded: (jsxRuntime.jsxs("div", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "superou a meta" }), " definida! \uD83C\uDF89"] })),
-    progressImproved: (jsxRuntime.jsxs("div", { children: ["Este ", jsxRuntime.jsx("strong", { children: "resultado evoluiu" }), ", mas ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
-    progressNoResults: (jsxRuntime.jsxs("div", { children: ["Este desafio ", jsxRuntime.jsx("strong", { children: "n\u00E3o obteve resultados" }), " e ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
-    progressNoGoal: (jsxRuntime.jsxs("div", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida e ", jsxRuntime.jsx("strong", { children: "regrediu" }), " em rela\u00E7\u00E3o ao valor inicial"] })),
-    currentTextResult: jsxRuntime.jsx("div", { children: "RESULTADO" }),
-    currentTextInitAndResult: jsxRuntime.jsx("div", { children: "IN\u00CDCIO E RESULTADO" }),
-    currentTextInit: jsxRuntime.jsx("div", { children: "IN\u00CDCIO" }),
-    stabilizeExceedingText: jsxRuntime.jsx("div", { children: "IN\u00CDCIO E META" }),
-    textGoal: jsxRuntime.jsx("div", { children: "META E RESULTADO" }),
-    TextoGoalDefault: jsxRuntime.jsx("div", { children: "META" })
+    reachedGoal: jsxRuntime.jsx("span", { children: "Este resultado atingiu a meta definida! \uD83C\uDF89" }),
+    progressExceeded: (jsxRuntime.jsxs("span", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "superou a meta" }), " definida! \uD83C\uDF89"] })),
+    progressImproved: (jsxRuntime.jsxs("span", { children: ["Este ", jsxRuntime.jsx("strong", { children: "resultado evoluiu" }), ", mas ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
+    progressNoResults: (jsxRuntime.jsxs("span", { children: ["Este desafio ", jsxRuntime.jsx("strong", { children: "n\u00E3o obteve resultados" }), " e ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
+    progressNoGoal: (jsxRuntime.jsxs("span", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida e ", jsxRuntime.jsx("strong", { children: "regrediu" }), " em rela\u00E7\u00E3o ao valor inicial"] })),
+    currentTextResult: jsxRuntime.jsx("span", { children: "RESULTADO" }),
+    currentTextInitAndResult: jsxRuntime.jsx("span", { children: "IN\u00CDCIO E RESULTADO" }),
+    currentTextInit: jsxRuntime.jsx("span", { children: "IN\u00CDCIO" }),
+    stabilizeExceedingText: jsxRuntime.jsx("span", { children: "IN\u00CDCIO E META" }),
+    textGoal: jsxRuntime.jsx("span", { children: "META E RESULTADO" }),
+    TextoGoalDefault: jsxRuntime.jsx("span", { children: "META" })
 };
 
 function toRange(start, end, current) {
