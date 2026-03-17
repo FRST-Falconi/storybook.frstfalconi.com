@@ -8763,17 +8763,17 @@ const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index
 };
 
 const MESSAGES = {
-    reachedGoal: jsxRuntime.jsx("div", { children: "Este resultado atingiu a meta definida! \uD83C\uDF89" }),
-    progressExceeded: (jsxRuntime.jsxs("div", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "superou a meta" }), " definida! \uD83C\uDF89"] })),
-    progressImproved: (jsxRuntime.jsxs("div", { children: ["Este ", jsxRuntime.jsx("strong", { children: "resultado evoluiu" }), ", mas ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
-    progressNoResults: (jsxRuntime.jsxs("div", { children: ["Este desafio ", jsxRuntime.jsx("strong", { children: "n\u00E3o obteve resultados" }), " e ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
-    progressNoGoal: (jsxRuntime.jsxs("div", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida e ", jsxRuntime.jsx("strong", { children: "regrediu" }), " em rela\u00E7\u00E3o ao valor inicial"] })),
-    currentTextResult: jsxRuntime.jsx("div", { children: "RESULTADO" }),
-    currentTextInitAndResult: jsxRuntime.jsx("div", { children: "IN\u00CDCIO E RESULTADO" }),
-    currentTextInit: jsxRuntime.jsx("div", { children: "IN\u00CDCIO" }),
-    stabilizeExceedingText: jsxRuntime.jsx("div", { children: "IN\u00CDCIO E META" }),
-    textGoal: jsxRuntime.jsx("div", { children: "META E RESULTADO" }),
-    TextoGoalDefault: jsxRuntime.jsx("div", { children: "META" })
+    reachedGoal: jsxRuntime.jsx("span", { children: "Este resultado atingiu a meta definida! \uD83C\uDF89" }),
+    progressExceeded: (jsxRuntime.jsxs("span", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "superou a meta" }), " definida! \uD83C\uDF89"] })),
+    progressImproved: (jsxRuntime.jsxs("span", { children: ["Este ", jsxRuntime.jsx("strong", { children: "resultado evoluiu" }), ", mas ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
+    progressNoResults: (jsxRuntime.jsxs("span", { children: ["Este desafio ", jsxRuntime.jsx("strong", { children: "n\u00E3o obteve resultados" }), " e ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida."] })),
+    progressNoGoal: (jsxRuntime.jsxs("span", { children: ["Este resultado ", jsxRuntime.jsx("strong", { children: "n\u00E3o atingiu" }), " a meta definida e ", jsxRuntime.jsx("strong", { children: "regrediu" }), " em rela\u00E7\u00E3o ao valor inicial"] })),
+    currentTextResult: jsxRuntime.jsx("span", { children: "RESULTADO" }),
+    currentTextInitAndResult: jsxRuntime.jsx("span", { children: "IN\u00CDCIO E RESULTADO" }),
+    currentTextInit: jsxRuntime.jsx("span", { children: "IN\u00CDCIO" }),
+    stabilizeExceedingText: jsxRuntime.jsx("span", { children: "IN\u00CDCIO E META" }),
+    textGoal: jsxRuntime.jsx("span", { children: "META E RESULTADO" }),
+    TextoGoalDefault: jsxRuntime.jsx("span", { children: "META" })
 };
 
 function toRange(start, end, current) {
@@ -19637,9 +19637,9 @@ function InteractionsModal({ textTitle, textSubtitle, listUsers, isOpen, handleC
                     transform: 'translate(-50%, -50%)',
                     ...style
                 }, children: [jsxRuntime.jsxs(HeaderDiv, { children: [jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(CloseButton$1, { onClick: () => handleClickClose(), children: jsxRuntime.jsx(CloseIcon$1, { width: '11' }) }) }), jsxRuntime.jsx(Typography, { children: textTitle }), jsxRuntime.jsx(Typography, { children: textSubtitle })] }), jsxRuntime.jsx(ContentDiv, { ref: scrollContainerRef, onScroll: handleScroll, onClick: trackClick ? () => trackClick() : () => { }, children: jsxRuntime.jsx(ContentScroll, { children: newListUsers && newListUsers.map((item) => {
-                                return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(CardItemUser, { children: item?.onClickUserInfo ?
-                                            jsxRuntime.jsxs(Tooltip$2, { direction: "bottom", content: item.textVisitProfile ? item.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar, isActiveClick: true, onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {} }), jsxRuntime.jsxs(UserInfoContainer, { onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {}, style: { cursor: item?.onClickUserInfo ? 'pointer' : 'auto' }, children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] })
-                                            : jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar }), jsxRuntime.jsxs(UserInfoContainer, { onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {}, style: { cursor: item?.onClickUserInfo ? 'pointer' : 'auto' }, children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] }) }, item?.id) }));
+                                return (jsxRuntime.jsx(CardItemUser, { children: item?.onClickUserInfo ?
+                                        jsxRuntime.jsxs(Tooltip$2, { direction: "bottom", content: item.textVisitProfile ? item.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar, isActiveClick: true, onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {} }), jsxRuntime.jsxs(UserInfoContainer, { onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {}, style: { cursor: item?.onClickUserInfo ? 'pointer' : 'auto' }, children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] })
+                                        : jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar }), jsxRuntime.jsxs(UserInfoContainer, { onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {}, style: { cursor: item?.onClickUserInfo ? 'pointer' : 'auto' }, children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] }) }, item?.id));
                             }) }) })] }) }) }));
 }
 
@@ -24836,8 +24836,8 @@ function EmptyState({ emptyState, customImage }) {
             border: '1.5px solid #ebebeb',
             borderTopWidth: '0px'
         }, children: [jsxRuntime.jsx(ImageEmptyState, { src: customImage ? customImage : imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
-                    emptyState?.labels?.map((label) => {
-                        return jsxRuntime.jsx("p", { children: label });
+                    emptyState?.labels?.map((label, index) => {
+                        return jsxRuntime.jsx("p", { children: label }, index);
                     }) }), emptyState?.handleClickButtonCreate && jsxRuntime.jsx(ButtonCreateAction, { onClick: () => emptyState?.handleClickButtonCreate?.(), children: emptyState?.labelButtonCreate })] }));
 }
 
@@ -25011,7 +25011,7 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         setAdaptedData(newData);
     }, [data]);
     const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
-        ? { borderRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+        ? { borderTopRightRadius: '8px', borderTopLeftRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
         : { borderRadius: '8px' };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), !isLoading && data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), !isLoading && data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }

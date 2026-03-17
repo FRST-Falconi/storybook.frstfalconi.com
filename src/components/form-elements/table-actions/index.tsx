@@ -118,7 +118,7 @@ export default function TableActions({
 
   const customStyleBorderTable =
     buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
-      ? { borderRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+      ? { borderTopRightRadius: '8px', borderTopLeftRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
       : {borderRadius: '8px'}
 
   return (

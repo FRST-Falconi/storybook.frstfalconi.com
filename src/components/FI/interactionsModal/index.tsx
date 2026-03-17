@@ -81,7 +81,7 @@ export default function InteractionsModal({
                         >
                             <ContentScroll>
                                 { newListUsers && newListUsers.map((item: IUser) => {
-                                        return (<>
+                                        return (
                                             <CardItemUser key={item?.id}>
                                                 {item?.onClickUserInfo ?
                                                     <Tooltip
@@ -120,7 +120,7 @@ export default function InteractionsModal({
                                                 </>
                                                 }
                                             </CardItemUser>
-                                        </>)
+                                        )
                                     })
                                 }
                             </ContentScroll>

@@ -1,32 +1,32 @@
 import React from 'react'
 
 export const MESSAGES = {
-    reachedGoal: <div>Este resultado atingiu a meta definida! 🎉</div>,
+    reachedGoal: <span>Este resultado atingiu a meta definida! 🎉</span>,
     progressExceeded: (
-        <div>
+        <span>
             Este resultado <strong>superou a meta</strong> definida! 🎉
-        </div>
+        </span>
     ),
     progressImproved: (
-        <div>
+        <span>
             Este <strong>resultado evoluiu</strong>, mas <strong>não atingiu</strong> a meta definida.
-        </div>
+        </span>
     ),
     progressNoResults: (
-        <div>
+        <span>
             Este desafio <strong>não obteve resultados</strong> e <strong>não atingiu</strong> a meta definida.
-        </div>
+        </span>
     ),
     progressNoGoal: (
-        <div>
+        <span>
             Este resultado <strong>não atingiu</strong> a meta definida e <strong>regrediu</strong> em relação ao valor
             inicial
-        </div>
+        </span>
     ),
-    currentTextResult: <div>RESULTADO</div> ,
-    currentTextInitAndResult: <div>INÍCIO E RESULTADO</div> ,
-    currentTextInit: <div>INÍCIO</div>, 
-    stabilizeExceedingText: <div>INÍCIO E META</div>,
-    textGoal: <div>META E RESULTADO</div>,
-    TextoGoalDefault: <div>META</div>
+    currentTextResult: <span>RESULTADO</span> ,
+    currentTextInitAndResult: <span>INÍCIO E RESULTADO</span> ,
+    currentTextInit: <span>INÍCIO</span>, 
+    stabilizeExceedingText: <span>INÍCIO E META</span>,
+    textGoal: <span>META E RESULTADO</span>,
+    TextoGoalDefault: <span>META</span>
 }
