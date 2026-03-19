@@ -75,7 +75,7 @@ export default function DropdownProfileMenu({
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            variantstyle={'LXP'}
+            $variantstyle={'LXP'}
           >
             <Styles.ProfileInfos>
               <Styles.AvatarCustomUser
@@ -100,7 +100,7 @@ export default function DropdownProfileMenu({
                 if (item.subItens) {
                   if (item.subItens.length > 1)
                     return (
-                      <Styles.MenuItemCustom key={index} onClick={handleSubitens(item.subItens)} variantstyle={'LXP'}>
+                      <Styles.MenuItemCustom key={index} onClick={handleSubitens(item.subItens)} $variantstyle={'LXP'}>
                         {item.iconBegin && item.iconBegin}
                         {item.iconBegin && <span>&nbsp;</span>}
                         <div
@@ -119,7 +119,7 @@ export default function DropdownProfileMenu({
                     )
                 } else
                   return (
-                    <Styles.MenuItemCustom key={index} onClick={item.onClick || handleClose} variantstyle={'LXP'}>
+                    <Styles.MenuItemCustom key={index} onClick={item.onClick || handleClose} $variantstyle={'LXP'}>
                       {item.iconBegin && item.iconBegin}
                       <div
                         style={{
@@ -143,12 +143,12 @@ export default function DropdownProfileMenu({
             anchorEl={anchorSub}
             open={openSub}
             onClose={handleClose}
-            variantstyle={'default'}
+            $variantstyle={'default'}
           >
             {subMenu &&
               subMenu.map((item, index) => {
                 return (
-                  <Styles.SubMenuItemCustom key={item.id} onClick={(e) => item.onClick(e)} variantstyle={'LXP'}>
+                  <Styles.SubMenuItemCustom key={item.id} onClick={(e) => item.onClick(e)} $variantstyle={'LXP'}>
                     {item.label}
                   </Styles.SubMenuItemCustom>
                 )
@@ -182,7 +182,7 @@ export default function DropdownProfileMenu({
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            variantstyle={'default'}
+            $variantstyle={'default'}
           >
             {menuItems &&
               menuItems.length > 0 &&
@@ -193,7 +193,7 @@ export default function DropdownProfileMenu({
                       <Styles.MenuItemCustom
                         key={index}
                         onClick={handleSubitens(item.subItens)}
-                        variantstyle={'default'}
+                        $variantstyle={'default'}
                       >
                         {item.iconBegin && item.iconBegin}
                         {item.iconBegin && <span>&nbsp;</span>}
@@ -213,7 +213,7 @@ export default function DropdownProfileMenu({
                     )
                 } else
                   return (
-                    <Styles.MenuItemCustom key={index} onClick={item.onClick || handleClose} variantstyle={'default'}>
+                    <Styles.MenuItemCustom key={index} onClick={item.onClick || handleClose} $variantstyle={'default'}>
                       {item.iconBegin && item.iconBegin}
                       <div
                         style={{
@@ -238,12 +238,12 @@ export default function DropdownProfileMenu({
             anchorEl={anchorSub}
             open={openSub}
             onClose={handleClose}
-            variantstyle={'default'}
+            $variantstyle={'default'}
           >
             {subMenu &&
               subMenu.map((item, index) => {
                 return (
-                  <Styles.SubMenuItemCustom key={item.id} onClick={(e) => item.onClick(e)} variantstyle={'default'}>
+                  <Styles.SubMenuItemCustom key={item.id} onClick={(e) => item.onClick(e)} $variantstyle={'default'}>
                     {item.label}
                   </Styles.SubMenuItemCustom>
                 )

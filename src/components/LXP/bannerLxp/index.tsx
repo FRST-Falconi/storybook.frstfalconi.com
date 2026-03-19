@@ -124,7 +124,7 @@ export default function BannerLxp(props: BannerLxpParams) {
         <Styles.LoadingBanner />
       ) : (
         <Styles.BannerContainer
-          backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
+          $backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
           style={{
             ...props.style,
             objectFit: 'fill'

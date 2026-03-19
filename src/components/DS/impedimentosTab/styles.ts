@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 
 
 interface ImpedimentoSelectProps {
-    activeSelect?: boolean;
-    style?: React.CSSProperties; 
-    selected?: boolean
+    $activeSelect?: boolean;
+    style?: React.CSSProperties;
+    $selected?: boolean
 }
 
 export const ContainerImpedimentos = styled('div')`
@@ -22,12 +22,12 @@ export const TabWrapper = styled('div')`
 export const Tab = styled('div')<ImpedimentoSelectProps>`
     width: 137px;
     padding: 12px 16px;
-    background-color: ${({ theme, style, selected }) => 
-        style?.backgroundColor || (selected ? '#D2ACE4' : theme.colors.shadeWhite)};
+    background-color: ${({ theme, style, $selected }) =>
+        style?.backgroundColor || ($selected ? '#D2ACE4' : theme.colors.shadeWhite)};
     border-radius: 8px 8px 0px 0px;
     cursor: pointer;
 
-    ${(props) => props.selected &&
+    ${(props) => props.$selected &&
         css`
             background-color: #D2ACE4;
         `
@@ -38,7 +38,7 @@ export const Tab = styled('div')<ImpedimentoSelectProps>`
         font-size: 16px;
         line-height: 1.1;
         color: ${({theme}) => theme.colors.neutralsGrey1};
-        font-weight: ${ props => props.selected ? 700 : 400 };
+        font-weight: ${ props => props.$selected ? 700 : 400 };
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -48,7 +48,7 @@ export const Tab = styled('div')<ImpedimentoSelectProps>`
     :hover {
         background-color: ${({theme}) => theme.colors.neutralsGrey8};
 
-        ${(props) => props.selected &&
+        ${(props) => props.$selected &&
             css`
                 background-color: #D2ACE4;
             `
@@ -78,7 +78,7 @@ export const TabInfoWrapper = styled('div')`
 
 `
 
-export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
+export const WrapperAddButton = styled('div')<{$activeButton: boolean}>`
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@ export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
         color: #8E0EC8;
     }
 
-    ${(props) => props.activeButton &&
+    ${(props) => props.$activeButton &&
         css`
             color: #7C0EAF;
         `
@@ -114,7 +114,7 @@ export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
         height: 16px;
 
         path {
-            ${(props) => props.activeButton ?
+            ${(props) => props.$activeButton ?
                 css`
                     stroke: #7C0EAF;
                 `
@@ -144,7 +144,7 @@ export const WrapperImpedimentoSelect = styled('div')<ImpedimentoSelectProps>`
         font-weight: 400;
         color: ${({theme}) => theme.colors.neutralsGrey1};
 
-        ${(props) => props.activeSelect &&
+        ${(props) => props.$activeSelect &&
             css`
                 font-weight: 700;
                 color: ${({theme}) => theme.colors.neutralsGrey2};
@@ -158,12 +158,12 @@ export const WrapperImpedimentoSelect = styled('div')<ImpedimentoSelectProps>`
 
 `
 
-export const WrapperSelectIcon = styled('div')<{isOpenSelect: boolean}>`
+export const WrapperSelectIcon = styled('div')<{$isOpenSelect: boolean}>`
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease-in-out;
-    transform: ${({ isOpenSelect }) => (isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')} ;
+    transform: ${({ $isOpenSelect }) => ($isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')} ;
 
     svg {
         width: 16px;
@@ -187,12 +187,12 @@ export const EditWrapper = styled('div')`
     gap: 16px;
 `
 
-export const EditButtons = styled('div')<{buttonColor: string}>`
+export const EditButtons = styled('div')<{$buttonColor: string}>`
     width: 32px;
     height: 32px;
     border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.buttonColor};
+    background-color: ${(props) => props.$buttonColor};
 `

@@ -16,7 +16,7 @@ export default function StepsProgress({ definedSteps, stepSelected, width = 600,
             <ProgressBar>
                 { stepColor && Array.isArray(stepColor) ?
                     stepColor.map((item: any, index: any) => 
-                        <ProgressItem key={index} active={item?.active}/>
+                        <ProgressItem key={index} $active={item?.active}/>
                     )
                 :null }
             </ProgressBar>
@@ -65,14 +65,14 @@ function StepItem({index, name, action, step, variant,colorItemWhite = false}) {
     return (
         <>
             <Box key={index}>
-                <CicleStep 
-                    variant={variant}/>
-                <CicleStepChar 
-                    variant={variant} 
+                <CicleStep
+                    $variant={variant}/>
+                <CicleStepChar
+                    $variant={variant}
                     onClick={() => variant != 'disabled' ? action() : () => {}}>{step}</CicleStepChar>
-                <CicleStepName 
-                    variant={variant}
-                    colorItemWhite={colorItemWhite}
+                <CicleStepName
+                    $variant={variant}
+                    $colorItemWhite={colorItemWhite}
                     onClick={() => variant != 'disabled' ? action() : () => {}}>{name}</CicleStepName>
             </Box>
     </>

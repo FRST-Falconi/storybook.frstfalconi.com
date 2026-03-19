@@ -10,22 +10,22 @@ export const ProgressContainer = styled.div`
   }
 `
 
-export const ValueAndProgress = styled.div<{ colorText?: string}>`
+export const ValueAndProgress = styled.div<{ $colorText?: string}>`
   display: flex;
   flex-direction: row;
   align-items: center;
   font-family: 'PT Sans';
-  color: ${({ colorText }) => colorText || '#ffffff'};
+  color: ${({ $colorText }) => $colorText || '#ffffff'};
   font-weight: 400;
 `
-export const BorderLinearProgress = styled(LinearProgress)<{ bgColor?: string, trackColor?: string }>`
+export const BorderLinearProgress = styled(LinearProgress)<{ $bgColor?: string, $trackColor?: string }>`
   width: 100%;
   height: 8px !important;
   border-radius: 8px;
-  background: ${({ trackColor }) => trackColor || 'rgba(255, 77, 13, 0.3)'} !important;
+  background: ${({ $trackColor }) => $trackColor || 'rgba(255, 77, 13, 0.3)'} !important;
 
 
   .MuiLinearProgress-bar {
-    background: ${({ bgColor }) => bgColor || '#ff4d0d'} !important;
+    background: ${({ $bgColor }) => $bgColor || '#ff4d0d'} !important;
   }
 `;

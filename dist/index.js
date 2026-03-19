@@ -2264,7 +2264,7 @@ const ProgressBar$2 = styled__default["default"](material.Box) `
 `;
 const ProgressItem$1 = styled__default["default"](material.Box) `
     height: 8px;
-    background: ${({ active }) => active ? '#FEA852' : '#D9D9D9'};
+    background: ${({ $active }) => $active ? '#FEA852' : '#D9D9D9'};
     width: 100%;
     @media (max-width: 400px) {
         height: 5px;
@@ -2284,8 +2284,8 @@ const CicleStep = styled__default["default"](material.Box) `
     border-radius: 50%;
     background: #FFE0C2;
     color: #FFF;
-    opacity: ${({ variant }) => variant == 'selected' ? '0.5' : '0'};
-    cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    opacity: ${({ $variant }) => $variant == 'selected' ? '0.5' : '0'};
+    cursor: ${({ $variant }) => $variant == 'disabled' ? 'not-allowed' : 'pointer'};
     @media (max-width: 400px) {    
         opacity: 0;
         width: 25px;
@@ -2302,9 +2302,9 @@ const CicleStepChar = styled__default["default"](material.Box) `
     color: #FFF;
     margin-left: 10px;
     margin-top: -40px;
-    background: ${({ variant }) => variant == 'disabled' ? ('#BDBDBD') : (variant == 'selected' ? '#F26818' : '#FEA852')};
-    position: ${({ variant }) => variant != 'disabled' && 'relative'};
-    cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    background: ${({ $variant }) => $variant == 'disabled' ? ('#BDBDBD') : ($variant == 'selected' ? '#F26818' : '#FEA852')};
+    position: ${({ $variant }) => $variant != 'disabled' && 'relative'};
+    cursor: ${({ $variant }) => $variant == 'disabled' ? 'not-allowed' : 'pointer'};
 
     @media (max-width: 400px) {
         width: 15px;
@@ -2317,11 +2317,11 @@ const CicleStepName = styled__default["default"](material.Box) `
     margin-top: 20px;
     width: 70px;
     text-align: center;
-    color: ${({ variant }) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : (variant == 'white' ? '#FFF' : '#222'))};
-    font-weight: ${({ variant }) => variant == 'selected' ? '600' : '400'};
-    cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    color: ${({ $variant }) => $variant == 'disabled' ? ('#757575') : ($variant == 'selected' ? '#F26818' : ($variant == 'white' ? '#FFF' : '#222'))};
+    font-weight: ${({ $variant }) => $variant == 'selected' ? '600' : '400'};
+    cursor: ${({ $variant }) => $variant == 'disabled' ? 'not-allowed' : 'pointer'};
 
-    ${({ colorItemWhite }) => colorItemWhite &&
+    ${({ $colorItemWhite }) => $colorItemWhite &&
     `
     color:#fff;
     `}
@@ -2335,7 +2335,7 @@ const CicleStepName = styled__default["default"](material.Box) `
 function StepsProgress({ definedSteps, stepSelected, width = 600, colorItemWhite = false }) {
     const stepColor = definedSteps.filter(s => s.step !== 1);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(ProgressBar$2, { children: stepColor && Array.isArray(stepColor) ?
-                    stepColor.map((item, index) => jsxRuntime.jsx(ProgressItem$1, { active: item?.active }, index))
+                    stepColor.map((item, index) => jsxRuntime.jsx(ProgressItem$1, { "$active": item?.active }, index))
                     : null }), jsxRuntime.jsx(ContainerSteps, { children: definedSteps && Array.isArray(definedSteps) ?
                     definedSteps.map((item, index) => {
                         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(item?.step == stepSelected) &&
@@ -2346,7 +2346,7 @@ function StepsProgress({ definedSteps, stepSelected, width = 600, colorItemWhite
                     : null })] }));
 }
 function StepItem({ index, name, action, step, variant, colorItemWhite = false }) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, colorItemWhite: colorItemWhite, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { "$variant": variant }), jsxRuntime.jsx(CicleStepChar, { "$variant": variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { "$variant": variant, "$colorItemWhite": colorItemWhite, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
 }
 
 var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
@@ -3749,7 +3749,7 @@ const ButtonMore$2 = styled__default["default"](Button__default["default"]) `
   background-color: transparent !important;
 `;
 const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
-  margin-top: ${({ isArrowInMenu }) => (isArrowInMenu ? '8px' : '15px')};
+  margin-top: ${({ $isArrowInMenu }) => ($isArrowInMenu ? '8px' : '15px')};
   margin-left: 30px;
   overflow: hidden;
   border-radius: 8px;
@@ -3758,26 +3758,26 @@ const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
     border-radius: 8px !important;
     box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
     overflow: visible;
-    background: ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#00000000'};
-    ${({ isArrowInMenu, isDarkMode }) => isArrowInMenu &&
+    background: ${({ $isDarkMode }) => $isDarkMode ? '#1f1f1f' : '#00000000'};
+    ${({ $isArrowInMenu, $isDarkMode }) => $isArrowInMenu &&
     `&:before {
         content: "";
         position: absolute;
         top: -15px;
         right: 8.5px;
         border-top: 6px solid transparent;
-        border-bottom: 10px solid ${isDarkMode ? '#1f1f1f' : '#EBEBEB'};
+        border-bottom: 10px solid ${$isDarkMode ? '#1f1f1f' : '#EBEBEB'};
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
       }
-  
+
       &:after {
         content: "";
         position: absolute;
         top: -14px;
         right: 8.5px;
         border-top: 6px solid transparent;
-        border-bottom: 10px solid ${isDarkMode ? '#1f1f1f' : '#FFF'};
+        border-bottom: 10px solid ${$isDarkMode ? '#1f1f1f' : '#FFF'};
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
       }`}
@@ -3786,32 +3786,32 @@ const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
     padding-top: 0px;
     padding-bottom: 0px;
-    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#1f1f1f !important;' : '#EBEBEB !important;')}!important;
+    border: 1px solid ${({ $isDarkMode }) => ($isDarkMode ? '#1f1f1f !important;' : '#EBEBEB !important;')}!important;
     border-radius: 8px !important;
     overflow: hidden;
-    background: ${({ isDarkMode }) => (isDarkMode ? '#1f1f1f !important;' : '#FFF !important;')};
+    background: ${({ $isDarkMode }) => ($isDarkMode ? '#1f1f1f !important;' : '#FFF !important;')};
     min-width: 160px;
     width: auto;
     /* &:hover {
-    background:${({ isDarkMode }) => (isDarkMode ? '#525252 !important;' : '#FFF !important;')};
-    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#525252 !important;' : '#EBEBEB !important;')} !important;
+    background:${({ $isDarkMode }) => ($isDarkMode ? '#525252 !important;' : '#FFF !important;')};
+    border: 1px solid ${({ $isDarkMode }) => ($isDarkMode ? '#525252 !important;' : '#EBEBEB !important;')} !important;
   } */
     li {
-      ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px; !important;`}
+      ${({ $isPaddingInMenu }) => $isPaddingInMenu && `padding-left: 25px; !important;`}
     }
   }
 `;
 styled__default["default"](MenuItem__default["default"]) `
-  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f !important;` : theme.colors.shadeWhite} !important;
-  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px !important;`}
+  background-color: ${({ theme, $isDarkMode }) => $isDarkMode ? `#1f1f1f !important;` : theme.colors.shadeWhite} !important;
+  ${({ $isPaddingInMenu }) => $isPaddingInMenu && `padding-right: 45px !important;`}
   margin: 1px!important;
   transition: none !important;
   animation: none !important;
   &:hover {
-    background-color: ${({ isDarkMode }) => (isDarkMode ? `#525252 !important;` : `#F7F9FC !important;`)};
+    background-color: ${({ $isDarkMode }) => ($isDarkMode ? `#525252 !important;` : `#F7F9FC !important;`)};
   }
   &:active {
-    background-color: ${({ isDarkMode }) => (isDarkMode ? `#525252 !important;` : `#FCF3EB !important;`)};
+    background-color: ${({ $isDarkMode }) => ($isDarkMode ? `#525252 !important;` : `#FCF3EB !important;`)};
   }
 `;
 styled__default["default"](MenuItem__default["default"]) `
@@ -3843,8 +3843,8 @@ const IconOption = styled__default["default"].div `
 const ButtonMenuNotification = styled__default["default"].button `
   width: 100% !important;
   text-decoration: none !important;
-  color: ${({ isColor }) => (isColor ? isColor : `#FFFFF`)} !important;
-  padding: ${({ isContainerOptions }) => isContainerOptions ? '4px 10px 4px 8px' : ' 6px 16px !important'};
+  color: ${({ $isColor }) => ($isColor ? $isColor : `#FFFFF`)} !important;
+  padding: ${({ $isContainerOptions }) => $isContainerOptions ? '4px 10px 4px 8px' : ' 6px 16px !important'};
   border: none !important;
   background: transparent !important;
   font-family: 'PT Sans' !important;
@@ -3857,7 +3857,7 @@ const ButtonMenuNotification = styled__default["default"].button `
   gap: 8px !important;
   cursor: ${({ disabled }) => disabled ? 'default !important' : 'pointer !important'};
   :hover {
-    background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
+    background-color: ${({ $isDarkMode }) => ($isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
   }
 `;
 
@@ -3874,11 +3874,11 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
     const handleClose = () => {
         setAnchorEl(null);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: isDarkMode ? "#EBEBEB" : "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: isDarkMode ? "#EBEBEB" : "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, "$isArrowInMenu": isArrowInMenu, "$isPaddingInMenu": isPaddingInMenu, "$isDarkMode": isDarkMode, children: listOptions.map((itemOption, index) => {
                         return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
-                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, disabled: itemOption?.disabled, isContainerOptions: isContainerOptions, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
+                                }, "$isColor": itemOption?.color, "$isDarkMode": isDarkMode, disabled: itemOption?.disabled, "$isContainerOptions": isContainerOptions, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
                     }) }))] }) }));
 }
 
@@ -4569,6 +4569,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const [inputSearch, setInputSearch] = React.useState('');
     const divInputRef = React.useRef(null);
     const divPlaceholder = React.useRef(null);
+    const isMounted = React.useRef(true);
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 20}px`;
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
@@ -4764,6 +4765,8 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
         setTimeout(() => {
+            if (!isMounted.current)
+                return;
             // Check if the click was on the emoji button or picker
             const target = document.activeElement;
             const isEmojiButton = target?.closest('.MuiIconButton-root');
@@ -4856,37 +4859,15 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         setStyleLimitExceeded(textLength > limit);
     }, [textLength]);
     React.useEffect(() => {
+        isMounted.current = true;
+        return () => { isMounted.current = false; };
+    }, []);
+    React.useEffect(() => {
         if (!divInputRef.current || !divPlaceholder.current)
             return;
-        document.addEventListener('mousedown', () => {
-            handlePlaceholderInputText();
-        });
-        document.addEventListener('focus', () => {
-            handlePlaceholderInputText();
-        });
-        document.addEventListener('blur', () => {
-            handlePlaceholderInputText();
-        });
-        divPlaceholder.current?.addEventListener('mousedown', () => {
-            handlePlaceholderInputText(true);
-        });
-        divPlaceholder.current?.addEventListener('focus', () => {
-            handlePlaceholderInputText(true);
-        });
-        divPlaceholder.current?.addEventListener('blur', () => {
-            handlePlaceholderInputText(true);
-        });
-        divInputRef.current?.addEventListener('mousedown', () => {
-            handlePlaceholderInputText();
-        });
-        divInputRef.current?.addEventListener('focus', () => {
-            handlePlaceholderInputText();
-        });
-        divInputRef.current?.addEventListener('blur', () => {
-            handlePlaceholderInputText();
-        });
-        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-        divInputRef.current?.addEventListener('keyup', (event) => {
+        const onDocEvent = () => handlePlaceholderInputText();
+        const onPlaceholderEvent = () => handlePlaceholderInputText(true);
+        const onArrowKey = (event) => {
             if (event.key === 'ArrowUp' ||
                 event.key === 'ArrowDown' ||
                 event.key === 'ArrowLeft' ||
@@ -4894,45 +4875,30 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 event.key === 'Enter') {
                 setShowMention(false);
             }
-        });
+        };
+        document.addEventListener('mousedown', onDocEvent);
+        document.addEventListener('focus', onDocEvent);
+        document.addEventListener('blur', onDocEvent);
+        const placeholderEl = divPlaceholder.current;
+        placeholderEl.addEventListener('mousedown', onPlaceholderEvent);
+        placeholderEl.addEventListener('focus', onPlaceholderEvent);
+        placeholderEl.addEventListener('blur', onPlaceholderEvent);
+        const inputEl = divInputRef.current;
+        inputEl.addEventListener('mousedown', onDocEvent);
+        inputEl.addEventListener('focus', onDocEvent);
+        inputEl.addEventListener('blur', onDocEvent);
+        inputEl.addEventListener('keyup', onArrowKey);
         return () => {
-            document.removeEventListener('mousedown', () => {
-                handlePlaceholderInputText();
-            });
-            document.removeEventListener('focus', () => {
-                handlePlaceholderInputText();
-            });
-            document.removeEventListener('blur', () => {
-                handlePlaceholderInputText();
-            });
-            divPlaceholder.current?.removeEventListener('mousedown', () => {
-                handlePlaceholderInputText(true);
-            });
-            divPlaceholder.current?.removeEventListener('focus', () => {
-                handlePlaceholderInputText(true);
-            });
-            divPlaceholder.current?.removeEventListener('blur', () => {
-                handlePlaceholderInputText(true);
-            });
-            divInputRef.current?.removeEventListener('mousedown', () => {
-                handlePlaceholderInputText();
-            });
-            divInputRef.current?.removeEventListener('focus', () => {
-                handlePlaceholderInputText();
-            });
-            divInputRef.current?.removeEventListener('blur', () => {
-                handlePlaceholderInputText();
-            });
-            //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-            divInputRef.current?.removeEventListener('keyup', (event) => {
-                if (event.key === 'ArrowUp' ||
-                    event.key === 'ArrowDown' ||
-                    event.key === 'ArrowLeft' ||
-                    event.key === 'ArrowRight' ||
-                    event.key === 'Enter') {
-                    setShowMention(false);
-                }
-            });
+            document.removeEventListener('mousedown', onDocEvent);
+            document.removeEventListener('focus', onDocEvent);
+            document.removeEventListener('blur', onDocEvent);
+            placeholderEl.removeEventListener('mousedown', onPlaceholderEvent);
+            placeholderEl.removeEventListener('focus', onPlaceholderEvent);
+            placeholderEl.removeEventListener('blur', onPlaceholderEvent);
+            inputEl.removeEventListener('mousedown', onDocEvent);
+            inputEl.removeEventListener('focus', onDocEvent);
+            inputEl.removeEventListener('blur', onDocEvent);
+            inputEl.removeEventListener('keyup', onArrowKey);
         };
     }, []);
     React.useEffect(() => {
@@ -5181,7 +5147,7 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, onMouseDown: () => divPlaceholder.current.focus(), children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, onMouseDown: () => divPlaceholder.current.focus(), darkMode: darkMode, children: [jsxRuntime.jsx(InputText$4, { id: "input-comment-component", tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
-                            }, "data-text": "enter", suppressContentEditableWarning: true, onPaste: handlePaste, darkMode: darkMode }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                            }, "data-text": "enter", suppressContentEditableWarning: true, onPaste: handlePaste, darkMode: darkMode }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, suppressContentEditableWarning: true, children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
                             }, darkMode: darkMode }))] }), jsxRuntime.jsxs(HelperContainer, { children: [!isPlaceholder && showCharacterCounter && (jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, darkMode: darkMode, children: [textLength, "/", limit] })), !isPlaceholder && showEmojiPicker &&
@@ -5293,8 +5259,8 @@ const Dropdown$2 = styled__default["default"].div `
 const DropdownWrapper = styled__default["default"].div `
     display: flex;
     flex-direction: column;
-    visibility: ${(props) => props.isVisible ? 'visible' : 'hidden'};
-    opacity:${(props) => props.isVisible ? '1' : '0'};
+    visibility: ${(props) => props.$isVisible ? 'visible' : 'hidden'};
+    opacity:${(props) => props.$isVisible ? '1' : '0'};
     position: absolute;
     width: 210px;
     background-color: gray;   
@@ -5320,7 +5286,7 @@ const ItemDrop = styled__default["default"].div `
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    border-bottom: ${(props) => props.isLastItem ? 'transparent' : '1px solid #EBEBEB'};
+    border-bottom: ${(props) => props.$isLastItem ? 'transparent' : '1px solid #EBEBEB'};
     
     &:hover { 
         background-color: ${({ theme }) => theme.colors.neutralsGrey5};
@@ -5637,14 +5603,14 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$2, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
                                     jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown$2, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
-                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
+                                    jsxRuntime.jsxs(Dropdown$2, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { "$isVisible": isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { "$isLastItem": true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
-                                                                    jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isAuthor && !isMe &&
-                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] })] })] })] })] }), size[0] <= WIDTH_MOBILE &&
+                                                                    jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { "$isLastItem": true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isAuthor && !isMe &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }), jsxRuntime.jsxs(ItemDrop, { "$isLastItem": true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] })] })] })] })] }), size[0] <= WIDTH_MOBILE &&
                     jsxRuntime.jsxs("div", { style: { display: 'flex', marginLeft: '14px', marginTop: '5px', alignItems: 'center' }, children: [(isPrivateAuthor || isPrivateMe) &&
                                 jsxRuntime.jsx("div", { style: { marginRight: '10px' }, children: jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }) }), jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] })] }), onEditing ?
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$5, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary", style: { marginRight: '20px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { "$width": size[0], children: [jsxRuntime.jsx(Button$5, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary", style: { marginRight: '20px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
                     :
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [showStatusLike ? jsxRuntime.jsxs(LikesStatistics, { children: [!isLiked ?
                                                     jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px' })
@@ -6365,7 +6331,7 @@ const WrapperContent$5 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   width: 100%;
-  overflow-x: ${({ hiddenHorizontalScrollBar }) => (hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
+  overflow-x: ${({ $hiddenHorizontalScrollBar }) => ($hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
   overflow-y: hidden;
   white-space: nowrap;
   gap: 24px;
@@ -6374,40 +6340,40 @@ const WrapperContent$5 = styled__default["default"].div `
   &::-webkit-scrollbar {
     display: none;
   }
-  padding-left: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
-  padding-right: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
+  padding-left: ${({ $paddingIntern }) => ($paddingIntern ? $paddingIntern : '150px')};
+  padding-right: ${({ $paddingIntern }) => ($paddingIntern ? $paddingIntern : '150px')};
 `;
 const ButtonControll$1 = styled__default["default"].div `
   display: flex;
-  visibility: ${({ visibility }) => visibility};
+  visibility: ${({ $visibility }) => $visibility};
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-top: ${({ marginTopArrrowButton }) => (marginTopArrrowButton ? marginTopArrrowButton : '0.5rem')};
+  margin-top: ${({ $marginTopArrrowButton }) => ($marginTopArrrowButton ? $marginTopArrrowButton : '0.5rem')};
 
-  width: ${({ sizeButton }) => sizeButton + 'px'};
-  height: ${({ sizeButton }) => sizeButton + 'px'};
+  width: ${({ $sizeButton }) => $sizeButton + 'px'};
+  height: ${({ $sizeButton }) => $sizeButton + 'px'};
 
-  min-width: ${({ sizeButton }) => sizeButton + 'px'};
-  min-height: ${({ sizeButton }) => sizeButton + 'px'};
+  min-width: ${({ $sizeButton }) => $sizeButton + 'px'};
+  min-height: ${({ $sizeButton }) => $sizeButton + 'px'};
 
   background: ${({ theme }) => theme.colors.shadeWhite};
   border: 1px solid #e8e8e8;
 
   border-radius: 50%;
 
-  /* ${({ sizeButton, isLeftButton, marginsArrowButton }) => {
+  /* ${({ $sizeButton, $isLeftButton, $marginsArrowButton }) => {
     let result = '';
-    if (sizeButton >= 80) {
-        result = isLeftButton
-            ? 'padding-right: 6px; margin-right: ' + marginsArrowButton + ';'
-            : 'padding-left: 6px; margin-left: ' + marginsArrowButton + ';';
+    if ($sizeButton >= 80) {
+        result = $isLeftButton
+            ? 'padding-right: 6px; margin-right: ' + $marginsArrowButton + ';'
+            : 'padding-left: 6px; margin-left: ' + $marginsArrowButton + ';';
     }
     else {
-        result = isLeftButton
-            ? 'padding-right: 3px; margin-right:  ' + marginsArrowButton + ';'
-            : 'padding-left: 3px; margin-left:  ' + marginsArrowButton + ';';
+        result = $isLeftButton
+            ? 'padding-right: 3px; margin-right:  ' + $marginsArrowButton + ';'
+            : 'padding-left: 3px; margin-left:  ' + $marginsArrowButton + ';';
     }
     return result;
 }} */
@@ -6489,7 +6455,7 @@ function ScrollContainer$1({ children, type, isVisibleControlsButtons, positionA
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$5, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$5, { id: iDScroll, "$paddingIntern": horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', "$hiddenHorizontalScrollBar": hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
                             display: 'flex',
                             flexDirection: 'row',
                             marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'
@@ -6512,7 +6478,7 @@ function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButt
             background: !isLeftButton
                 ? `linear-gradient(270deg, ${colorBackground} 15%, rgba(243, 243, 243, 0.00) 100%)`
                 : `linear-gradient(90deg, ${colorBackground} 15%, rgba(235, 235, 235, 0.00) 100%)`
-        }, children: jsxRuntime.jsx(ButtonControll$1, { id: `button-controll${isLeftButton}`, isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
+        }, children: jsxRuntime.jsx(ButtonControll$1, { id: `button-controll${isLeftButton}`, "$isLeftButton": isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), "$sizeButton": sizeButton, "$visibility": isVisible ? 'visible' : 'hidden', "$marginsArrowButton": margin, "$marginTopArrrowButton": marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -6944,7 +6910,7 @@ const DropDownContainer$1 = styled__default["default"].div `
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   position: relative;
-  ${(props) => props.error &&
+  ${(props) => props.$error &&
     styled.css `
       background: ${({ theme }) => theme.colors.inputError};
       border: 1px solid ${({ theme }) => theme.colors.messageError1};
@@ -6957,7 +6923,7 @@ const EventOverlay$1 = styled__default["default"].div `
   top: 0;
   left: 0;
   background: transparent;
-  ${props => props.disabled &&
+  ${props => props.$disabled &&
     styled.css `
       cursor: not-allowed !important;
       pointer-events: none;
@@ -6984,14 +6950,14 @@ const DropDownHeader$1 = styled__default["default"].div `
     line-height: 19px;
     color: #a6a6a6;
   }
-  ${(props) => props.error &&
+  ${(props) => props.$error &&
     styled.css `
       background: ${({ theme }) => theme.colors.inputError};
       p {
         color: ${({ theme }) => theme.colors.linkError};
       }
     `};
-  ${(props) => props.disabled &&
+  ${(props) => props.$disabled &&
     styled.css `
         background: ${({ theme }) => theme.colors.neutralsGrey8};
         border: 1px solid ${({ theme }) => theme.colors.neutralsGrey6};
@@ -7027,7 +6993,7 @@ const DropDownHeaderIcon$1 = styled__default["default"]('div') `
   justify-content: center;
   transition: transform 0.1s ease-in-out;
 
-  ${({ open }) => open === true &&
+  ${({ $open }) => $open === true &&
     styled.css `
       transform: rotate(180deg);
     `}
@@ -7081,7 +7047,7 @@ function Select$2({ placeholder, defaultValue, children, onChange, loading, isEr
         onChange(e);
         toggle();
     };
-    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle, disabled: disabled }), jsxRuntime.jsxs(DropDownHeader$1, { error: isError, disabled: disabled, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { open: isOpen, children: ArrowIconFormatted ? jsxRuntime.jsx(ArrowIconFormatted, { fill: disabled && '#BDBDBD' }) : jsxRuntime.jsx(ArrowIcon$2, { fill: disabled && '#BDBDBD' }) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, "$error": isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle, "$disabled": disabled }), jsxRuntime.jsxs(DropDownHeader$1, { "$error": isError, "$disabled": disabled, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { "$open": isOpen, children: ArrowIconFormatted ? jsxRuntime.jsx(ArrowIconFormatted, { fill: disabled && '#BDBDBD' }) : jsxRuntime.jsx(ArrowIcon$2, { fill: disabled && '#BDBDBD' }) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
 const ListItem$1 = styled__default["default"]("li") `
@@ -7895,11 +7861,11 @@ const TabWrapper = styled__default["default"]('div') `
 const Tab$1 = styled__default["default"]('div') `
     width: 137px;
     padding: 12px 16px;
-    background-color: ${({ theme, style, selected }) => style?.backgroundColor || (selected ? '#D2ACE4' : theme.colors.shadeWhite)};
+    background-color: ${({ theme, style, $selected }) => style?.backgroundColor || ($selected ? '#D2ACE4' : theme.colors.shadeWhite)};
     border-radius: 8px 8px 0px 0px;
     cursor: pointer;
 
-    ${(props) => props.selected &&
+    ${(props) => props.$selected &&
     styled.css `
             background-color: #D2ACE4;
         `}
@@ -7909,7 +7875,7 @@ const Tab$1 = styled__default["default"]('div') `
         font-size: 16px;
         line-height: 1.1;
         color: ${({ theme }) => theme.colors.neutralsGrey1};
-        font-weight: ${props => props.selected ? 700 : 400};
+        font-weight: ${props => props.$selected ? 700 : 400};
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -7919,7 +7885,7 @@ const Tab$1 = styled__default["default"]('div') `
     :hover {
         background-color: ${({ theme }) => theme.colors.neutralsGrey8};
 
-        ${(props) => props.selected &&
+        ${(props) => props.$selected &&
     styled.css `
                 background-color: #D2ACE4;
             `}
@@ -7962,7 +7928,7 @@ const WrapperAddButton = styled__default["default"]('div') `
         color: #8E0EC8;
     }
 
-    ${(props) => props.activeButton &&
+    ${(props) => props.$activeButton &&
     styled.css `
             color: #7C0EAF;
         `}
@@ -7981,7 +7947,7 @@ const WrapperAddButton = styled__default["default"]('div') `
         height: 16px;
 
         path {
-            ${(props) => props.activeButton ?
+            ${(props) => props.$activeButton ?
     styled.css `
                     stroke: #7C0EAF;
                 `
@@ -8009,7 +7975,7 @@ const WrapperImpedimentoSelect = styled__default["default"]('div') `
         font-weight: 400;
         color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-        ${(props) => props.activeSelect &&
+        ${(props) => props.$activeSelect &&
     styled.css `
                 font-weight: 700;
                 color: ${({ theme }) => theme.colors.neutralsGrey2};
@@ -8026,7 +7992,7 @@ const WrapperSelectIcon$1 = styled__default["default"]('div') `
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease-in-out;
-    transform: ${({ isOpenSelect }) => (isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')} ;
+    transform: ${({ $isOpenSelect }) => ($isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')} ;
 
     svg {
         width: 16px;
@@ -8054,7 +8020,7 @@ styled__default["default"]('div') `
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.buttonColor};
+    background-color: ${(props) => props.$buttonColor};
 `;
 
 const ContainerModal = styled__default["default"]('div') `
@@ -8311,7 +8277,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
         handleClickTab(impedimento);
     };
     const renderTabs = (tabInfo, index) => {
-        return (jsxRuntime.jsx(Tab$1, { style: style, selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
+        return (jsxRuntime.jsx(Tab$1, { style: style, "$selected": tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
     };
     const handleUpdate = () => {
         if (editDescription == '')
@@ -8356,7 +8322,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                         color: 'rgba(117, 117, 117, 1)',
                                         textAlign: 'center',
                                         boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                    }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), style: style, children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon$1, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
+                                    }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { "$activeSelect": openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), style: style, children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon$1, { "$isOpenSelect": openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ? (jsxRuntime.jsxs(WrapperAddButton, { "$activeButton": openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) })] }), selectedTab?.id ? (jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: "bottom", delay: 200, style: {
                                 fontFamily: 'PT Sans',
                                 fontWeight: 400,
                                 fontSize: '14px',
@@ -9218,15 +9184,15 @@ const Tabs = styled__default["default"].div `
 const Tab = styled__default["default"].div `
     font-family: 'PT Sans';
     color: #222222;
-    font-weight: ${(props) => (props.isActive ? 700 : 400)};
-    background-color: ${(props) => (props.isActive ? '#ACC8E4' : '')};
+    font-weight: ${(props) => (props.$isActive ? 700 : 400)};
+    background-color: ${(props) => (props.$isActive ? '#ACC8E4' : '')};
     cursor: pointer;
     padding: 12px 16px;
-    border-top-left-radius: ${(props) => (props.isActive ? '8px' : '8px')};
-    border-top-right-radius: ${(props) => (props.isActive ? '8px' : '8px')};
+    border-top-left-radius: ${(props) => (props.$isActive ? '8px' : '8px')};
+    border-top-right-radius: ${(props) => (props.$isActive ? '8px' : '8px')};
 
     &:hover {
-        background-color: ${(props) => (props.isActive ? '' : '#f0f0f0')}; /* Cinza clarinho no hover se não for ativo */
+        background-color: ${(props) => (props.$isActive ? '' : '#f0f0f0')}; /* Cinza clarinho no hover se não for ativo */
     }
 `;
 const Content$3 = styled__default["default"].div `
@@ -9300,7 +9266,7 @@ const Menu = styled__default["default"].div `
 `;
 const WrapperTabsResultSelect = styled__default["default"]('div') `
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 8px;
     padding: 8px;
     border-radius: 8px;
@@ -9310,7 +9276,7 @@ const WrapperTabsResultSelect = styled__default["default"]('div') `
         font-family: 'PT Sans';
         font-size: 16px;
         line-height: 1.1;
-        font-weight: ${({ activeSelect }) => (activeSelect ? '700' : '400')};
+        font-weight: ${({ $activeSelect }) => ($activeSelect ? '700' : '400')};
         color: #444444;
     }
 
@@ -9323,7 +9289,7 @@ const WrapperSelectIcon = styled__default["default"]('div') `
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease-in-out;
-    transform: ${({ isOpenSelect }) => (isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')};
+    transform: ${({ $isOpenSelect }) => ($isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')};
 
     svg {
         width: 16px;
@@ -9488,7 +9454,7 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
         }
     };
     const tabs = React.useMemo(() => {
-        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { isActive: activeTab === index, onClick: () => handleTabClick(index, result?.version), children: [result.name, " ", result.name === 'Resultado' ? result?.version : result?.version - 1] }, index))) }));
+        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: filteredResults?.map((result, index) => (jsxRuntime.jsxs(Tab, { "$isActive": activeTab === index, onClick: () => handleTabClick(index, result?.version), children: [result.name, " ", result.name === 'Resultado' ? result?.version : result?.version - 1] }, index))) }));
     }, [filteredResults, activeTab]);
     const handleEdit = () => {
         if (!isEditing)
@@ -9538,10 +9504,10 @@ const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLimit }) 
             setDateValue(dateFixed);
         }
     }, [newDate]);
-    return (jsxRuntime.jsxs(Container$o, { children: [jsxRuntime.jsxs(Tabs, { children: [jsxRuntime.jsx("div", { style: { display: 'flex' }, children: tabs }), canShowDropdown && (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os Resultados", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperTabsResultSelect, { activeSelect: isDropdownOpen, onClick: (event) => {
+    return (jsxRuntime.jsxs(Container$o, { children: [jsxRuntime.jsxs(Tabs, { children: [jsxRuntime.jsx("div", { style: { display: 'flex' }, children: tabs }), canShowDropdown && (jsxRuntime.jsx(Tooltip$2, { content: "Ver todos os Resultados", direction: "bottom", delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperTabsResultSelect, { "$activeSelect": isDropdownOpen, onClick: (event) => {
                                 setAnchor(event?.currentTarget);
                                 toggleDropdown();
-                            }, children: [jsxRuntime.jsxs("p", { children: ["Mais ", hiddenTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: isDropdownOpen, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) }))] }), jsxRuntime.jsxs(Content$3, { ref: editContainerRef, onDoubleClick: handleDoubleClick, children: [jsxRuntime.jsxs(Info, { children: [jsxRuntime.jsxs("p", { children: ["Valor a ser atingido:", ' ', isEditing ? (jsxRuntime.jsx(inputIndicator, { type: "text", value: newValue, onChange: (e) => {
+                            }, children: [jsxRuntime.jsxs("p", { children: ["Mais ", hiddenTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { "$isOpenSelect": isDropdownOpen, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) }))] }), jsxRuntime.jsxs(Content$3, { ref: editContainerRef, onDoubleClick: handleDoubleClick, children: [jsxRuntime.jsxs(Info, { children: [jsxRuntime.jsxs("p", { children: ["Valor a ser atingido:", ' ', isEditing ? (jsxRuntime.jsx(inputIndicator, { type: "text", value: newValue, onChange: (e) => {
                                             const maskedValue = e?.target?.value;
                                             // Aceita números, ponto e vírgula
                                             const numericValue = maskedValue.replace(/[^\d.,]/g, '');
@@ -12205,7 +12171,7 @@ function AvatarAssociatedChannel({ descriptionChannel, nameChannel, channel, col
 }
 
 const BannerContainer = styled__default["default"].div `
-  background: ${(props) => props.backgroundBanner};
+  background: ${(props) => props.$backgroundBanner};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -12423,7 +12389,7 @@ function BannerLxp(props) {
         setColorTitle(props?.titleColor);
         setDisableText(props.isDisabledTitle);
     }, [props?.title, props?.titleColor, props.isDisabledTitle]);
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props?.isLoading ? (jsxRuntime.jsx(LoadingBanner, {})) : (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: props?.bgColor || `url(${props?.bgSrc})`, style: {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props?.isLoading ? (jsxRuntime.jsx(LoadingBanner, {})) : (jsxRuntime.jsxs(BannerContainer, { "$backgroundBanner": props?.bgColor || `url(${props?.bgSrc})`, style: {
                     ...props.style,
                     objectFit: 'fill'
                 }, children: [!props?.isDisabledTitle && (jsxRuntime.jsx("span", { style: {
@@ -13071,23 +13037,23 @@ const ValueAndProgress = styled__default["default"].div `
   flex-direction: row;
   align-items: center;
   font-family: 'PT Sans';
-  color: ${({ colorText }) => colorText || '#ffffff'};
+  color: ${({ $colorText }) => $colorText || '#ffffff'};
   font-weight: 400;
 `;
 const BorderLinearProgress = styled__default["default"](LinearProgress__default["default"]) `
   width: 100%;
   height: 8px !important;
   border-radius: 8px;
-  background: ${({ trackColor }) => trackColor || 'rgba(255, 77, 13, 0.3)'} !important;
+  background: ${({ $trackColor }) => $trackColor || 'rgba(255, 77, 13, 0.3)'} !important;
 
 
   .MuiLinearProgress-bar {
-    background: ${({ bgColor }) => bgColor || '#ff4d0d'} !important;
+    background: ${({ $bgColor }) => $bgColor || '#ff4d0d'} !important;
   }
 `;
 
 function ProgressBar$1({ value, label, style, bgColor, trackColor, colorText }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ProgressContainer, { style: style, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs(ValueAndProgress, { colorText: colorText, children: [jsxRuntime.jsx(BorderLinearProgress, { trackColor: trackColor, bgColor: bgColor, variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ProgressContainer, { style: style, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs(ValueAndProgress, { "$colorText": colorText, children: [jsxRuntime.jsx(BorderLinearProgress, { "$trackColor": trackColor, "$bgColor": bgColor, variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
 const Container$g = styled__default["default"].div `
@@ -13798,11 +13764,11 @@ const WrapperIconNotificationMobile = styled__default["default"].div `
 const SubMenuContainer = styled__default["default"].div `
     width: 100%;
     height: 50px;
-    ${(props) => props.marginTop &&
+    ${(props) => props.$marginTop &&
     styled.css `
             margin-top: 4rem;
         `}
-    background: ${({ variant, theme }) => (variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1)};
+    background: ${({ $variant, theme }) => ($variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1)};
 
     padding-left: 124px;
     padding-right: 124px;
@@ -13812,7 +13778,7 @@ const SubMenuContainer = styled__default["default"].div `
     justify-content: center;
 `;
 const MenuMobile$1 = styled__default["default"].div `
-    display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+    display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
@@ -13824,7 +13790,7 @@ const MenuMobile$1 = styled__default["default"].div `
     background: #222;
 `;
 const SideMenu$1 = styled__default["default"].div `
-    display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+    display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
@@ -14247,10 +14213,10 @@ const Wrapper$4 = styled__default["default"].button `
     gap: 2px;
     cursor: pointer;
     border: 0;
-    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
-    border-top: ${({ typeItem }) => typeItem == 'menu' ? '10px' : '2px'} solid transparent;
+    border-bottom: ${({ $typeItem }) => $typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-top: ${({ $typeItem }) => $typeItem == 'menu' ? '10px' : '2px'} solid transparent;
 
-    background-color: ${({ variant, theme, typeItem }) => typeItem == 'submenu' ? 'transparent' : variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+    background-color: ${({ $variant, theme, $typeItem }) => $typeItem == 'submenu' ? 'transparent' : $variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
 
     font-family: 'PT Sans';
     font-style: normal;
@@ -14260,21 +14226,21 @@ const Wrapper$4 = styled__default["default"].button `
 
     color: #FFFFFF;
 
-    white-space: ${({ wrapText }) => wrapText ? 'wrap' : 'nowrap'};
+    white-space: ${({ $wrapText }) => $wrapText ? 'wrap' : 'nowrap'};
 
     &:hover {
-        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
-        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+        background-color: ${({ $variant, theme }) => $variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
+        border-bottom: ${({ $typeItem }) => $typeItem == 'menu' ? '4px' : '2px'} solid transparent;
     }
-    ${({ pressed, variant, typeItem, theme }) => pressed && `
+    ${({ $pressed, $variant, $typeItem, theme }) => $pressed && `
         font-weight: 700;
-        border-bottom: ${typeItem == 'menu' ? '4px' : '2px'} solid 
-        ${variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+        border-bottom: ${$typeItem == 'menu' ? '4px' : '2px'} solid
+        ${$variant == 'LXP' && $typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
     `}
     &:focus {
         font-weight: 700;
-        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
-        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+        border-bottom: ${({ $typeItem }) => $typeItem == 'menu' ? '4px' : '2px'} solid
+        ${({ $variant, $typeItem, theme }) => $variant == 'LXP' && $typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
     }
 `;
 styled__default["default"].button `
@@ -14284,8 +14250,8 @@ styled__default["default"].button `
     justify-content: center;
     cursor: pointer;
     border: 0;
-    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
-    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-bottom: ${({ $typeItem }) => $typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-top: ${({ $typeItem }) => $typeItem == 'menu' ? '4px' : '2px'} solid transparent;
 
     background-color: transparent;
 
@@ -14297,12 +14263,12 @@ styled__default["default"].button `
 
     color: #FFFFFF;
 
-    white-space: ${({ wrapText }) => wrapText ? 'wrap' : 'nowrap'};
+    white-space: ${({ $wrapText }) => $wrapText ? 'wrap' : 'nowrap'};
 
     &:hover {
-        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
-        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
-        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+        background-color: ${({ $variant, theme }) => $variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
+        border-bottom: ${({ $typeItem }) => $typeItem == 'menu' ? '4px' : '2px'} solid
+        ${({ $variant, $typeItem, theme }) => $variant == 'LXP' && $typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
     }
 
     &:focus {
@@ -14311,7 +14277,7 @@ styled__default["default"].button `
 `;
 
 function ItemGlobalMenu({ variant, type, label, handleOnClick, wrapText, pressed, style, icon, customMenu }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { "$variant": variant, "$pressed": pressed, "$typeItem": type, "$wrapText": wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
 }
 
 const Container$d = styled__default["default"].div `
@@ -14412,7 +14378,7 @@ const AvatarCustomUser = styled__default["default"](Avatar__default["default"]) 
 const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
   & .MuiPaper-root{
     border-radius: 0px;
-    ${({ variantstyle }) => variantstyle == 'LXP' && `border-bottom-left-radius: 8px;
+    ${({ $variantstyle }) => $variantstyle == 'LXP' && `border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       box-shadow: none !important;`}
   }
@@ -14436,7 +14402,7 @@ const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]
   color: white !important;
   border: 0;
 
-  ${({ variantstyle }) => variantstyle == 'LXP' ?
+  ${({ $variantstyle }) => $variantstyle == 'LXP' ?
     `background-color: #222222 !important;
      border-top: 0.5px solid #757575 !important;`
     :
@@ -14447,7 +14413,7 @@ const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]
 
   &:hover {
 
-    ${({ variantstyle }) => variantstyle == 'LXP' ?
+    ${({ $variantstyle }) => $variantstyle == 'LXP' ?
     `background-color: #444444 !important;`
     :
         `background-color: #F5792A !important;`}
@@ -14457,13 +14423,13 @@ const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]
 const SubMenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
   color: white !important;
 
-  ${({ variantstyle }) => variantstyle == 'LXP' ?
+  ${({ $variantstyle }) => $variantstyle == 'LXP' ?
     `background-color: #222222 !important;`
     :
         `background-color: #FF4D0D !important;`}
 
   &:hover {
-    ${({ variantstyle }) => variantstyle == 'LXP' ?
+    ${({ $variantstyle }) => $variantstyle == 'LXP' ?
     `background-color: #444444 !important;`
     :
         `background-color: #F5792A !important;`}
@@ -14493,12 +14459,12 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
     };
     return (jsxRuntime.jsx(Container$d, { style: { ...style }, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [showProfile ?
                     jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), !isMobileVersion && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }))] })
-                    : null, jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png', style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), !hiddenProfileMenu && (jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$5, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) }))] })] }), menuItems &&
+                    : null, jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, "$variantstyle": 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png', style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), !hiddenProfileMenu && (jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$5, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) }))] })] }), menuItems &&
                             menuItems.length > 0 &&
                             menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
-                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
+                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), "$variantstyle": 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
                                                         width: '100%',
                                                         display: 'flex',
                                                         flexDirection: 'row',
@@ -14507,24 +14473,24 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                                                     }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                                 }
                                 else
-                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, "$variantstyle": 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
                                                     width: '100%',
                                                     display: 'flex',
                                                     flexDirection: 'row',
                                                     alignItems: 'center',
                                                     justifyContent: 'space-between'
                                                 }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                            })] }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu &&
+                            })] }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, "$variantstyle": 'default', children: subMenu &&
                         subMenu.map((item, index) => {
-                            return (jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'LXP', children: item.label }, item.id));
+                            return (jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), "$variantstyle": 'LXP', children: item.label }, item.id));
                         }) })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [showProfile ?
                     jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })
-                    : null, jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems &&
+                    : null, jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, "$variantstyle": 'default', children: menuItems &&
                         menuItems.length > 0 &&
                         menuItems.map((item, index) => {
                             if (item.subItens) {
                                 if (item.subItens.length > 1)
-                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), "$variantstyle": 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
                                                     width: '100%',
                                                     display: 'flex',
                                                     flexDirection: 'row',
@@ -14533,16 +14499,16 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                                                 }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                             }
                             else
-                                return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
+                                return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, "$variantstyle": 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
                                                 width: '100%',
                                                 display: 'flex',
                                                 flexDirection: 'row',
                                                 alignItems: 'center',
                                                 justifyContent: 'space-between'
                                             }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                        }) }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu &&
+                        }) }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, "$variantstyle": 'default', children: subMenu &&
                         subMenu.map((item, index) => {
-                            return (jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'default', children: item.label }, item.id));
+                            return (jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), "$variantstyle": 'default', children: item.label }, item.id));
                         }) })] })) }));
 }
 
@@ -14915,7 +14881,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
     // const newNotification = notification.notificationList
     //   ? notification.notificationList.filter((notification) => notification.isNewNotification)
     //   : []
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx(SideMenu, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleSideMenu, setVisible: (e) => setIsVisibleSideMenu(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx(SideMenu, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleSideMenu, setVisible: (e) => setIsVisibleSideMenu(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { "$variant": variant, style: {
                                 paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 ...style
@@ -14931,7 +14897,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                         : windowSize[0] > 1500
                                                             ? '428px'
                                                             : '332px'
-                                                } }))), jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                                                } }))), jsxRuntime.jsxs(MenuContainer, { "$variant": variant, style: {
                                                 height: '100%',
                                                 paddingLeft: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
                                                 paddingRight: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
@@ -14980,13 +14946,13 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                 paddingLeft: '10px',
                                                 height: '100%',
                                                 flexDirection: 'inherit'
-                                            } }, item.id ? item.id : index)))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { variant: variant, marginTop: marginTopSubMenu, style: {
+                                            } }, item.id ? item.id : index)))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { "$variant": variant, "$marginTop": marginTopSubMenu, style: {
                                 paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
                                 ...style
                             }, children: SubMenu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "LXP", type: "submenu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
-                            }) }))] }), openNotificationMobile && windowSize[0] < 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })) : variant === 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                            }) }))] }), openNotificationMobile && windowSize[0] < 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })) : variant === 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { "$variant": variant, style: {
                             paddingRight: windowSize[0] > 1400
                                 ? '70px'
                                 : windowSize[0] > 1199
@@ -15048,7 +15014,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                 }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', hasNewNotification ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] > 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })), jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, hiddenProfileMenu: hiddenProfileMenu, showProfile: showProfile, style: {
                                             marginLeft: isMobileVersion ? '0px' : '5px',
                                             marginRight: isMobileVersion ? '0px' : '5px'
-                                        } }), showNavigation && (jsxRuntime.jsxs(Navigation, { onClick: onClickNavigation, children: [jsxRuntime.jsx(HandWave, {}), jsxRuntime.jsx(TextNotification, { children: "Ajuda" })] })), showHelp && (jsxRuntime.jsxs(Help, { onClick: onClickHelp, onMouseEnter: () => setShowTooltipHelp(true), onMouseLeave: () => setShowTooltipHelp(false), children: [jsxRuntime.jsx(HelpIcon, {}), jsxRuntime.jsx(TextNotification, { children: "Suporte" })] })), showTooltipHelp && (jsxRuntime.jsx("div", { id: "cardAjuda", style: { position: 'relative' }, children: jsxRuntime.jsx(TolltipTopbar, { children: "Clique aqui para tirar suas d\u00FAvidas com o nosso suporte." }) }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: FrstIconFormatted ? FrstIconFormatted : jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
+                                        } }), showNavigation && (jsxRuntime.jsxs(Navigation, { onClick: onClickNavigation, children: [jsxRuntime.jsx(HandWave, {}), jsxRuntime.jsx(TextNotification, { children: "Ajuda" })] })), showHelp && (jsxRuntime.jsxs(Help, { onClick: onClickHelp, onMouseEnter: () => setShowTooltipHelp(true), onMouseLeave: () => setShowTooltipHelp(false), children: [jsxRuntime.jsx(HelpIcon, {}), jsxRuntime.jsx(TextNotification, { children: "Suporte" })] })), showTooltipHelp && (jsxRuntime.jsx("div", { id: "cardAjuda", style: { position: 'relative' }, children: jsxRuntime.jsx(TolltipTopbar, { children: "Clique aqui para tirar suas d\u00FAvidas com o nosso suporte." }) }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll, isLoading: notification?.isLoading })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { "$variant": variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: FrstIconFormatted ? FrstIconFormatted : jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
                             menu.length > 0 &&
                             menu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "default", type: "menu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
@@ -15061,7 +15027,7 @@ function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, o
         setOptionsSubmenu(items);
         setTimeout(() => setSubMenuIsVisible(true), 200);
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' || variant === 'custom' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx(MenuMobile$1, { "$isVisible": isVisible, children: variant === 'LXP' || variant === 'custom' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
                                     items.length > 0 &&
                                     items.map((item, index) => {
                                         if (item.label == 'Criar conteúdo')
@@ -15088,7 +15054,7 @@ function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected
     React.useEffect(() => {
         setOptions(items);
     }, [items]);
-    return (jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, style: { zIndex: '10002' }, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: options &&
+    return (jsxRuntime.jsx(MenuMobile$1, { "$isVisible": isVisible, style: { zIndex: '10002' }, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: options &&
                         options.length > 0 &&
                         options.map((item, index) => {
                             if (item.label == 'Criar conteúdo')
@@ -15113,7 +15079,7 @@ function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onC
         setOptionsSubmenu(items);
         setTimeout(() => setSubMenuIsVisible(true), 200);
     };
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(SideMenu$1, { isVisible: isVisible, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemSideMenu, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(SideMenu$1, { "$isVisible": isVisible, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemSideMenu, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
                                 items.length > 0 &&
                                 items.map((item, index) => {
                                     if (item.label == 'Criar conteúdo')
@@ -16792,7 +16758,7 @@ const DropDownHeaderIcon = styled__default["default"]('div') `
   justify-content: center;
   transition: transform 0.1s ease-in-out;
 
-  ${({ open }) => open === true && styled.css `
+  ${({ $open }) => $open === true && styled.css `
     transform: rotate(180deg);
   `}
 `;
@@ -16845,7 +16811,7 @@ function SelectLXP$1({ placeholder, defaultValue, children, onChange, loading })
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { children: [loading ?
                             jsxRuntime.jsx("p", { children: "Carregando dados..." })
                             :
-                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$1, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectLXPContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { "$open": isOpen, children: jsxRuntime.jsx(ArrowIcon$1, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectLXPContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
 const ListItem = styled__default["default"]("li") `
@@ -16863,13 +16829,13 @@ const ListItem = styled__default["default"]("li") `
     align-items: center;
     cursor: pointer;
 
-    ${props => props.disabled === true && styled.css `
+    ${props => props.$disabled === true && styled.css `
         cursor: not-allowed;
         background-color: #e5e5e5;
         opacity: 0.3;
     `}
 
-    ${props => props.selected === true && styled.css `
+    ${props => props.$selected === true && styled.css `
         background-color: #e5e5e5;
         cursor: pointer;
         opacity: 1;
@@ -16880,7 +16846,7 @@ const ListItem = styled__default["default"]("li") `
     }
 `;
 function SelectLXPItem({ value, label, selected, handleSelect, disabled }) {
-    return (jsxRuntime.jsx(SelectLXPContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
+    return (jsxRuntime.jsx(SelectLXPContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem, { "$disabled": disabled, "$selected": selected === value, value: value, onClick: handleSelect, children: label })) }));
 }
 
 function SelectLXP({ placeholder, valueSelect, handleValueSelect, listItems }) {
@@ -17460,9 +17426,9 @@ const CardContainer$2 = styled__default["default"](_.Card) `
 const HeaderImage = styled__default["default"](_.Box) `
     width: 320px;
     height: 200px;
-    cursor: ${({ notstarted }) => notstarted ? 'no-drop' : 'pointer'};
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('${({ image }) => image}');
-    filter: grayscale(${({ notstarted }) => notstarted ? '1' : '0'});
+    cursor: ${({ $notstarted }) => $notstarted ? 'no-drop' : 'pointer'};
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('${({ $image }) => $image}');
+    filter: grayscale(${({ $notstarted }) => $notstarted ? '1' : '0'});
     background-size: contain;
 `;
 const MyBox = styled__default["default"](_.Box) `
@@ -17471,14 +17437,14 @@ const MyBox = styled__default["default"](_.Box) `
     padding-top: 12px;
 `;
 const MyCardContent = styled__default["default"](_.CardContent) `
-    cursor: ${({ notstarted }) => notstarted ? 'no-drop' : 'pointer'};
+    cursor: ${({ $notstarted }) => $notstarted ? 'no-drop' : 'pointer'};
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: ${({ hasmentor }) => hasmentor ? 'space-between' : 'flex-start'};
+    justify-content: ${({ $hasmentor }) => $hasmentor ? 'space-between' : 'flex-start'};
 `;
 const WrapperDate = styled__default["default"].div `
-    display: ${({ notstarted }) => notstarted ? 'flex' : 'none'};
+    display: ${({ $notstarted }) => $notstarted ? 'flex' : 'none'};
     margin-bottom: 7px;
 `;
 
@@ -17507,12 +17473,12 @@ function CardTrail(props) {
         return +true;
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$2, { children: [!props?.notStarted && props.variant == 'primary' &&
-                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notstarted: +props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notstarted: +props?.notStarted, hasmentor: getAlign(), children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, "$image": props.bannerImage, "$notstarted": +props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { "$notstarted": +props?.notStarted, "$hasmentor": getAlign(), children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.start &&
-                                            jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
+                                            jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, "$notstarted": +props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notstarted: +props?.notStarted })] })] })
                                 :
-                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }) })] }) })] }) }));
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, "$notstarted": +true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }) })] }) })] }) }));
 }
 function MentorComponent(props) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(GridFooter, { container: true, spacing: 2, onClick: () => { props.mentor.linkedin && window.open(`${props.mentor.linkedin}`, '_blank'); }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props?.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), props.mentor.linkedin && jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
@@ -17534,7 +17500,7 @@ const WrapperCard$4 = styled__default["default"].div `
     flex-direction: column;
     width: 282px;
     height: 445px;
-    background: ${({ theme, active }) => active ? theme.colors.neutralsGrey9 : theme.colors.shadeWhite};
+    background: ${({ theme, $active }) => $active ? theme.colors.neutralsGrey9 : theme.colors.shadeWhite};
     border-radius: 8px;
 
     overflow: hidden;
@@ -17575,10 +17541,10 @@ const TagStep = styled__default["default"].div `
         align-self: flex-end;
         padding: 4px 15px;
         border-radius: 0px 8px;
-        
+
         height: 24px;
         z-index: 2 ;
-        ${({ variant, theme }) => getVariantTagStyle(variant, theme)};
+        ${({ $variant, theme }) => getVariantTagStyle($variant, theme)};
     `;
 const BannerCard = styled__default["default"].img `
         margin-top: -24px;
@@ -17592,13 +17558,13 @@ const StepName = styled__default["default"].div `
         color: white;
         -webkit-text-stroke: 0.5px black;
         text-shadow: 2px 0 0 black, 0 2px 0 black,-2px 0 0 black,0 -2px 0 black;
-        
+
         display: flex;
         justify-content: center;
         border: 2px dashed #FFF;
 
         z-index: 2;
-        ${({ variant }) => variant != 'completed' && variant != 'srg' &&
+        ${({ $variant }) => $variant != 'completed' && $variant != 'srg' &&
     `margin-top: -60px;
             margin-bottom: 16px;`}
         padding: 0px 12px 0px 12px;
@@ -17697,7 +17663,7 @@ const ButtonAction = styled__default["default"].div `
     color: ${({ theme }) => theme.colors.linkOnfocus};
 
     &:nth-child(1) {
-        ${({ variant, theme }) => variant != 'completed' && variant != 'srg' && `
+        ${({ $variant, theme }) => $variant != 'completed' && $variant != 'srg' && `
             border-right: 1px solid ${theme.colors.neutralsGrey5};
         `}
     }
@@ -17778,7 +17744,7 @@ styled__default["default"].p `
   font-size: 16px;
 `;
 const MenuCustom = styled__default["default"](Menu__default["default"]) `
-  margin-left: ${({ step }) => step == 'completed' ? '-64px' : '-84px'} ;
+  margin-left: ${({ $step }) => $step == 'completed' ? '-64px' : '-84px'} ;
   margin-top: 10px;
 
   & .MuiPaper-root {
@@ -17869,16 +17835,16 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
             setActiveClick(false);
         }, 700);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$4, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
-                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle$1, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner$1, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard$1, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$4, { style: { ...style }, "$active": activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), "$variant": variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle$1, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner$1, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { "$variant": variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard$1, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, textEdit: label.edit, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), handleEdit: () => onClickEdit(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
-                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsxs(ButtonActionWrapper, { children: [jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), variant: variant, children: variant == 'srg' ?
+                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsxs(ButtonActionWrapper, { children: [jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), "$variant": variant, children: variant == 'srg' ?
                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
                                         :
                                             label.view }), variant !== 'srg' && variant !== 'completed' && onClickContinue &&
-                                    jsxRuntime.jsx(ButtonAction, { onClick: () => onClickContinue(), variant: variant, children: jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.continue }) })] })] })] }) }));
+                                    jsxRuntime.jsx(ButtonAction, { onClick: () => onClickContinue(), "$variant": variant, children: jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.continue }) })] })] })] }) }));
 }
 const resumeString = (str, limit) => {
     if (!str)
@@ -18011,7 +17977,7 @@ function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, 
                     padding: 0,
                     display: 'flex',
                     justifyContent: 'center'
-                }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
+                }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, "$step": variant, children: [variant !== 'completed' &&
                         jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
@@ -22321,7 +22287,7 @@ const Name = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: ${({ large }) => large ? '20px' : '16px'};
+    font-size: ${({ $large }) => $large ? '20px' : '16px'};
     line-height: 110%;
 
     color:  ${({ theme }) => theme.colors.neutralsGrey1};
@@ -22330,7 +22296,7 @@ const Text = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: ${({ large }) => large ? '16px' : '12px'};
+    font-size: ${({ $large }) => $large ? '16px' : '12px'};
     line-height: 16px;
 
     color:  ${({ theme }) => theme.colors.neutralsGrey3};
@@ -22344,14 +22310,14 @@ const WrapperHandle = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
-    height: ${({ large }) => large ? '32px' : '20px'};
-    width: ${({ large }) => large ? '32px' : '20px'};
+    height: ${({ $large }) => $large ? '32px' : '20px'};
+    width: ${({ $large }) => $large ? '32px' : '20px'};
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.5);
     margin-left: 8px;
     margin-bottom: 3px;
     cursor: pointer;
-    padding: ${({ large }) => large ? '7px' : '5px'};
+    padding: ${({ $large }) => $large ? '7px' : '5px'};
 
     &:hover{
         background: rgba(255, 255, 255, 0.7);
@@ -22359,7 +22325,7 @@ const WrapperHandle = styled__default["default"].div `
 `;
 
 function HeaderUser({ avatar, name, text, onClick, large, showHandleButtons, onClickEdit, onClickDelete, }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => !!(onClick) ? onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: large ? '56px' : '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { style: { justifyContent: 'space-around' }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx(Name, { large: large, children: name }), showHandleButtons ? jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(WrapperHandle, { onClick: () => onClickEdit ? onClickEdit() : {}, large: large, children: jsxRuntime.jsx(EditIcon, { fill: '#444444' }) }), jsxRuntime.jsx(WrapperHandle, { onClick: () => onClickDelete ? onClickDelete() : {}, large: large, children: jsxRuntime.jsx(TrashIconNew, { fill: '#444444' }) })] }) : null] }), jsxRuntime.jsx(Text, { large: large, children: text })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => !!(onClick) ? onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: large ? '56px' : '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { style: { justifyContent: 'space-around' }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx(Name, { "$large": large, children: name }), showHandleButtons ? jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(WrapperHandle, { onClick: () => onClickEdit ? onClickEdit() : {}, "$large": large, children: jsxRuntime.jsx(EditIcon, { fill: '#444444' }) }), jsxRuntime.jsx(WrapperHandle, { onClick: () => onClickDelete ? onClickDelete() : {}, "$large": large, children: jsxRuntime.jsx(TrashIconNew, { fill: '#444444' }) })] }) : null] }), jsxRuntime.jsx(Text, { "$large": large, children: text })] })] }) }));
 }
 
 const InputWrapper = styled__default["default"].div `

@@ -217,7 +217,7 @@ export default function GlobalMenu({
                     />
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                         <S.MenuContainer
-                            variant={variant}
+                            $variant={variant}
                             style={{
                                 paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
@@ -292,7 +292,7 @@ export default function GlobalMenu({
                                     ))}
 
                                 <S.MenuContainer
-                                    variant={variant}
+                                    $variant={variant}
                                     style={{
                                         height: '100%',
                                         paddingLeft: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
@@ -515,8 +515,8 @@ export default function GlobalMenu({
                         </S.MenuContainer>
                         {SubMenu && SubMenu.length > 0 && (
                             <S.SubMenuContainer
-                                variant={variant}
-                                marginTop={marginTopSubMenu}
+                                $variant={variant}
+                                $marginTop={marginTopSubMenu}
                                 style={{
                                     paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                     paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
@@ -576,7 +576,7 @@ export default function GlobalMenu({
                     />
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                         <S.MenuContainer
-                            variant={variant}
+                            $variant={variant}
                             style={{
                                 paddingRight:
                                     windowSize[0] > 1400
@@ -931,7 +931,7 @@ export default function GlobalMenu({
                 </>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', ...style }}>
-                    <S.MenuContainer variant={variant} style={{ ...style, display: 'none' }}>
+                    <S.MenuContainer $variant={variant} style={{ ...style, display: 'none' }}>
                         <S.WrapperLogo onClick={() => onClickLogo()}>
                             {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" />}
                         </S.WrapperLogo>
@@ -1019,7 +1019,7 @@ export function MenuMobile({
                 onClickPodCast={onClickPodCast}
                 customMenu={customMenu}
             />
-            <S.MenuMobile isVisible={isVisible}>
+            <S.MenuMobile $isVisible={isVisible}>
                 {variant === 'LXP' || variant === 'custom' ? (
                     <>
                         <div>
@@ -1202,7 +1202,7 @@ export function SubMenuMobile({
     }, [items])
 
     return (
-        <S.MenuMobile isVisible={isVisible} style={{ zIndex: '10002' }}>
+        <S.MenuMobile $isVisible={isVisible} style={{ zIndex: '10002' }}>
             {variant === 'LXP' ? (
                 <>
                     <div>
@@ -1330,7 +1330,7 @@ export function SideMenu({
 
     return (
         <>
-            <S.SideMenu isVisible={isVisible}>
+            <S.SideMenu $isVisible={isVisible}>
                 {variant === 'LXP' ? (
                     <>
                         <div>

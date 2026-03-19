@@ -32,17 +32,17 @@ export default function HeaderUser({
                     style={{justifyContent: 'space-around'}}
                 >
                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        <Name large={large}>{name}</Name>
+                        <Name $large={large}>{name}</Name>
                         {showHandleButtons ? <>
-                            <WrapperHandle onClick={() => onClickEdit ? onClickEdit() : {}} large={large}> 
+                            <WrapperHandle onClick={() => onClickEdit ? onClickEdit() : {}} $large={large}>
                                 <EditIcon fill={'#444444'}/>
                             </WrapperHandle>
-                            <WrapperHandle onClick={() => onClickDelete ? onClickDelete() : {}} large={large}> 
+                            <WrapperHandle onClick={() => onClickDelete ? onClickDelete() : {}} $large={large}>
                                 <TrashIconNew fill={'#444444'}/>
                             </WrapperHandle>
                         </>: null}
-                        </div> 
-                    <Text large={large}>{text}</Text>
+                        </div>
+                    <Text $large={large}>{text}</Text>
                 </WrapperText>
             </Wrapper>
         </ThemeProvider>

@@ -5,8 +5,8 @@ interface ICommentaryBox {
     size?: string,
     src?: any,
     disabled?: boolean,
-    isVisible?: boolean,
-    isLastItem?: boolean,
+    $isVisible?: boolean,
+    $isLastItem?: boolean,
     isMe?: boolean,
 }
 
@@ -115,8 +115,8 @@ export const Dropdown = styled.div`
 export const DropdownWrapper = styled.div<ICommentaryBox>`
     display: flex;
     flex-direction: column;
-    visibility: ${(props:any)  => props.isVisible ? 'visible' : 'hidden'};
-    opacity:${(props:any)  => props.isVisible ? '1' : '0'};
+    visibility: ${(props:any)  => props.$isVisible ? 'visible' : 'hidden'};
+    opacity:${(props:any)  => props.$isVisible ? '1' : '0'};
     position: absolute;
     width: 210px;
     background-color: gray;   
@@ -143,7 +143,7 @@ export const ItemDrop = styled.div<ICommentaryBox>`
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    border-bottom: ${(props:any)  => props.isLastItem ? 'transparent' : '1px solid #EBEBEB'};
+    border-bottom: ${(props:any)  => props.$isLastItem ? 'transparent' : '1px solid #EBEBEB'};
     
     &:hover { 
         background-color: ${({ theme }) => theme.colors.neutralsGrey5};
@@ -220,7 +220,7 @@ export const TextTotalLikes = styled.span`
     margin-left: 6px;
 `
 
-export const FooterEditingWrapper = styled.div<{width?:number}>`
+export const FooterEditingWrapper = styled.div<{$width?:number}>`
     display: flex;
     align-self: flex-end;
     margin: 14px;

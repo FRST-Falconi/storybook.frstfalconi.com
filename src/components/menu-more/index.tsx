@@ -57,9 +57,9 @@ export default function MenuMore({
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            isArrowInMenu={isArrowInMenu}
-            isPaddingInMenu={isPaddingInMenu}
-            isDarkMode={isDarkMode}
+            $isArrowInMenu={isArrowInMenu}
+            $isPaddingInMenu={isPaddingInMenu}
+            $isDarkMode={isDarkMode}
           >
             {listOptions.map((itemOption, index) => {
               return (
@@ -68,10 +68,10 @@ export default function MenuMore({
                       itemOption?.onClick()
                       closeAfterClick && handleClose()
                     }}
-                    isColor={itemOption?.color}
-                    isDarkMode={isDarkMode}
+                    $isColor={itemOption?.color}
+                    $isDarkMode={isDarkMode}
                     disabled={itemOption?.disabled}
-                    isContainerOptions={isContainerOptions}
+                    $isContainerOptions={isContainerOptions}
                   >
                     {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}
                     {itemOption?.description}

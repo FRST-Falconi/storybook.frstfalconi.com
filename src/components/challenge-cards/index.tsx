@@ -48,8 +48,8 @@ export default function ChallengeCard({
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.WrapperCard style={{...style}} active={activeClick}>                
-                <Styles.TagStep onClick={() => handleClick()} variant={variant}>
+            <Styles.WrapperCard style={{...style}} $active={activeClick}>
+                <Styles.TagStep onClick={() => handleClick()} $variant={variant}>
                     <Styles.TagText>
                         {label.tagStep[variant]}
                     </Styles.TagText>
@@ -61,7 +61,7 @@ export default function ChallengeCard({
                 </Styles.TagStep>                    
                 <Styles.WrapperBanner onClick={() => handleClick()}>
                     <Styles.BannerCard src={BannersSRC[variant]} />
-                    <Styles.StepName variant={variant}>{label.nameStep[variant]}</Styles.StepName>
+                    <Styles.StepName $variant={variant}>{label.nameStep[variant]}</Styles.StepName>
                 </Styles.WrapperBanner>
 
                 <Styles.ContentCard>
@@ -93,7 +93,7 @@ export default function ChallengeCard({
                     }
 
                     <Styles.ButtonActionWrapper>
-                        <Styles.ButtonAction onClick={() => handleClick()} variant={variant}>
+                        <Styles.ButtonAction onClick={() => handleClick()} $variant={variant}>
                             {variant == 'srg' ? 
                             <>
                                 <Plus/>
@@ -106,7 +106,7 @@ export default function ChallengeCard({
                             }
                         </Styles.ButtonAction>
                         {variant !== 'srg' && variant !== 'completed' && onClickContinue &&
-                            <Styles.ButtonAction onClick={() => onClickContinue()} variant={variant}>
+                            <Styles.ButtonAction onClick={() => onClickContinue()} $variant={variant}>
                                 <span style={{marginLeft: '12px'}}>
                                     {label.continue}
                                 </span>
@@ -276,7 +276,7 @@ export function MoreVerticalMenu({textContinue, textDelete, textEdit, handleCont
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          step={variant}
+          $step={variant}
         >   
             {variant !== 'completed' &&
                 <StylesDrop.MenuItemCustom 

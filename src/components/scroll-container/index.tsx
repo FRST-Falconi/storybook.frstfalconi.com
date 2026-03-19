@@ -110,8 +110,8 @@ export default function ScrollContainer({
           )}
           <WrapperContent
             id={iDScroll}
-            paddingIntern={horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px'}
-            hiddenHorizontalScrollBar={hiddenHorizontalScrollBar}
+            $paddingIntern={horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px'}
+            $hiddenHorizontalScrollBar={hiddenHorizontalScrollBar}
           >
             {children}
           </WrapperContent>
@@ -209,14 +209,14 @@ function ButtonArrow({
     >
       <ButtonControll
         id={`button-controll${isLeftButton}`}
-        isLeftButton={isLeftButton}
+        $isLeftButton={isLeftButton}
         onClick={onClick}
         onMouseOver={() => onActionArea(true)}
         onMouseOut={() => onActionArea(false)}
-        sizeButton={sizeButton}
-        visibility={ isVisible ? 'visible' : 'hidden' }
-        marginsArrowButton={margin}
-        marginTopArrrowButton={marginTopArrrowButton}
+        $sizeButton={sizeButton}
+        $visibility={ isVisible ? 'visible' : 'hidden' }
+        $marginsArrowButton={margin}
+        $marginTopArrrowButton={marginTopArrrowButton}
       >
         <ArrowScroll
           fill={actionArea ? '#fff' : '#000'}

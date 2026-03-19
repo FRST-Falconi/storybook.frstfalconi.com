@@ -115,7 +115,7 @@ export default function InputComment({
             darkMode={darkMode}
           >
           </Styles.InputText>
-          <Styles.InputPlaceholder style={{ display: 'none' }} contentEditable={true} ref={divPlaceholder}>
+          <Styles.InputPlaceholder style={{ display: 'none' }} contentEditable={true} ref={divPlaceholder} suppressContentEditableWarning={true}>
             {placeholder}
           </Styles.InputPlaceholder>
           {showMention && users && users.length > 0 && (

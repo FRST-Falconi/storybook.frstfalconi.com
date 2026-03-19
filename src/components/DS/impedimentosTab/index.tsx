@@ -100,7 +100,7 @@ export default function ImpedimentosTab({
 
     const renderTabs = (tabInfo: TabInfo, index: number) => {
         return (
-            <Tab style={style} key={index} selected={tabInfo.id === selectedTab?.id} onClick={() => handleClickTab(tabInfo)}>
+            <Tab style={style} key={index} $selected={tabInfo.id === selectedTab?.id} onClick={() => handleClickTab(tabInfo)}>
                 <p>{tabInfo.title}</p>
             </Tab>
         )
@@ -171,11 +171,11 @@ export default function ImpedimentosTab({
                                     }}
                                 >
                                     <WrapperImpedimentoSelect
-                                        activeSelect={openImpedimentoSelect}
+                                        $activeSelect={openImpedimentoSelect}
                                         onClick={(e) => setImpedimentoSelectAnchor(e.currentTarget)}
                                         style={style}                                    >
                                         <p>Mais {onHideTabs.length}</p>
-                                        <WrapperSelectIcon isOpenSelect={openImpedimentoSelect}>
+                                        <WrapperSelectIcon $isOpenSelect={openImpedimentoSelect}>
                                             <ArrrowExpandDropdown />
                                         </WrapperSelectIcon>
                                     </WrapperImpedimentoSelect>
@@ -187,7 +187,7 @@ export default function ImpedimentosTab({
                         <Box display={'flex'} alignItems={'center'}>
                             {showAddButton ? (
                                 <WrapperAddButton
-                                    activeButton={openAddImpedimento}
+                                    $activeButton={openAddImpedimento}
                                     onClick={handleClickAddImpedimento}
                                 >
                                     <AddIcon />

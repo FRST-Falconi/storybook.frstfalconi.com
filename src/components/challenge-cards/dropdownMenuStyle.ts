@@ -8,8 +8,8 @@ export const UserName = styled.p`
   font-size: 16px;
 `
 
-export const MenuCustom = styled(Menu)<{step}>`
-  margin-left: ${({step}) => step == 'completed' ? '-64px' : '-84px'} ;
+export const MenuCustom = styled(Menu)<{$step}>`
+  margin-left: ${({$step}) => $step == 'completed' ? '-64px' : '-84px'} ;
   margin-top: 10px;
 
   & .MuiPaper-root {
