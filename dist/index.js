@@ -1580,10 +1580,10 @@ function CalendarCard$1(props) {
         const hasPrevius = hasPreviusData();
         return (jsxRuntime.jsxs("div", { children: [hasCurrent.length > 0 &&
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.current }), hasAssignedLicense.length > 0 &&
-                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.assignedLicense, ": ", ' ', hasAssignedLicense.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), !hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasDefinedTrail.length > 0 &&
-                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.definedTrail, ": ", ' ', hasDefinedTrail.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasEnrollments.length > 0 &&
-                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.enrollments, ": ", ' ', hasEnrollments.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] })] }), hasPrevius.length > 0 &&
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.previus }), jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [hasPrevius.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#BDBDBD', selected: selected, inverted: false })), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#BDBDBD', selected: selected, inverted: false, iconType: "checked" })] })] })] }));
+                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.assignedLicense, ": ", ' ', hasAssignedLicense.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false }, p.name)), !hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasDefinedTrail.length > 0 &&
+                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.definedTrail, ": ", ' ', hasDefinedTrail.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false }, p.name)), !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasEnrollments.length > 0 &&
+                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.enrollments, ": ", ' ', hasEnrollments.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false }, p.name)), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] })] }), hasPrevius.length > 0 &&
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.previus }), jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [hasPrevius.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#BDBDBD', selected: selected, inverted: false }, p.name)), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#BDBDBD', selected: selected, inverted: false, iconType: "checked" })] })] })] }));
     };
     React.useEffect(() => {
         switch (props.userStatus) {
@@ -1616,7 +1616,7 @@ function CalendarCard$1(props) {
                                                 :
                                                     jsxRuntime.jsxs("div", { children: [props.licenses.length > 0 ?
                                                                 props.licenses.map((p) => {
-                                                                    return jsxRuntime.jsx(Tag, { title: p, color: '#000', selected: selected, inverted: false });
+                                                                    return jsxRuntime.jsx(Tag, { title: p, color: '#000', selected: selected, inverted: false }, p);
                                                                 })
                                                                 :
                                                                     jsxRuntime.jsx(Tag, { title: t('user.card.noProduct'), color: '#FF0000', selected: selected, inverted: true }), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" }), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "checked" })] })] }) })] }), jsxRuntime.jsxs(material.Button, { onClick: props.editAction, className: 'frstButton blue fixedBottom', fullWidth: true, children: [jsxRuntime.jsx(EditIcon, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('globals.edit') })] })] }) }));
@@ -2338,10 +2338,10 @@ function StepsProgress({ definedSteps, stepSelected, width = 600, colorItemWhite
                     stepColor.map((item, index) => jsxRuntime.jsx(ProgressItem$1, { "$active": item?.active }, index))
                     : null }), jsxRuntime.jsx(ContainerSteps, { children: definedSteps && Array.isArray(definedSteps) ?
                     definedSteps.map((item, index) => {
-                        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(item?.step == stepSelected) &&
+                        return (jsxRuntime.jsxs(React__default["default"].Fragment, { children: [(item?.step == stepSelected) &&
                                     jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'selected' }), (!(item?.step == stepSelected) && item?.active) &&
                                     jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'normal', colorItemWhite: colorItemWhite }), (!item?.active) &&
-                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'disabled' })] }));
+                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'disabled' })] }, index));
                     })
                     : null })] }));
 }
@@ -7507,7 +7507,7 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, textHe
                                                             left: '4px',
                                                             whiteSpace: 'nowrap',
                                                             boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                                        }, children: jsxRuntime.jsx(AdmButton, { image: adm.image, variant: 'image' }, adm.id) });
+                                                        }, children: jsxRuntime.jsx(AdmButton, { image: adm.image, variant: 'image' }) }, adm.id);
                                                 })] }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsx("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }, children: !i.isRoot &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => !i.isRoot && onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => !i.isRoot && onDeleteClick(i.id, index) })] }) }) })] }, index))) })] }) })] }));
 }
@@ -7765,7 +7765,7 @@ function OnboardingProgressMenu(props) {
                         right: 36,
                         width: 'calc(100% - 46px)',
                         zIndex: 10
-                    } })), jsxRuntime.jsx(ScroollableContent, { id: "scrool-content", ref: scrollRef, children: internalItems.map((i, index) => (jsxRuntime.jsxs(StepBox, { id: "container-step", children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: "12" }) : jsxRuntime.jsx(Dot, { width: "16", height: "16" }) }), items.length + 1 > index && jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] }))) }), !isScrollInBottom && (jsxRuntime.jsx("div", { style: {
+                    } })), jsxRuntime.jsx(ScroollableContent, { id: "scrool-content", ref: scrollRef, children: internalItems.map((i, index) => (jsxRuntime.jsxs(StepBox, { id: "container-step", children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: "12" }) : jsxRuntime.jsx(Dot, { width: "16", height: "16" }) }), items.length + 1 > index && jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] }, i.id))) }), !isScrollInBottom && (jsxRuntime.jsx("div", { style: {
                         background: 'linear-gradient(#ffffff19, #ffffff)',
                         height: '50px',
                         position: 'absolute',
@@ -13554,8 +13554,8 @@ const skillTag = styled__default["default"].div `
 
 function SearchResults({ src, title, description, textSkills, skills, style, onClick }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$f, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer$1, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
-                            jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map(item => {
-                                        return (jsxRuntime.jsx(skillTag, { children: item }));
+                            jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map((item, index) => {
+                                        return (jsxRuntime.jsx(skillTag, { children: item }, index));
                                     })] })
                             : null] })] }) }));
 }
@@ -16963,7 +16963,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons, colorBackgro
         setRefesh((prev) => prev + 1);
     }, [listThumbnails]);
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ScrollContainer$1, { colorBackground: colorBackground, refreshResize: refesh, stepMove: 600, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 40, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '0rem', widthProtectClick: 50, className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
-                return (jsxRuntime.jsx(ParticipantThumbnails, { imgThumbnails: item.imgThumbnails, titleThumbnail: item.titleThumbnail, descpThumbnail: item.descpThumbnail, handleFunctionThumbnail: item.handleFunctionThumbnail }));
+                return (jsxRuntime.jsx(ParticipantThumbnails, { imgThumbnails: item.imgThumbnails, titleThumbnail: item.titleThumbnail, descpThumbnail: item.descpThumbnail, handleFunctionThumbnail: item.handleFunctionThumbnail }, index));
             }) }) }));
 }
 function ParticipantThumbnailsList({ listThumbnails, colorBackground }) {

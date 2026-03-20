@@ -1,6 +1,6 @@
 
 import { Box } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 import '../../../shared/global.css';
 import { ThemeProvider } from 'styled-components';
 import { FRSTTheme } from '../../../theme';
@@ -23,34 +23,35 @@ export default function StepsProgress({ definedSteps, stepSelected, width = 600,
             <ContainerSteps>
                 {definedSteps && Array.isArray(definedSteps) ? 
                     definedSteps.map((item: any, index: any) => {
-                        return ( <>
-                            { (item?.step == stepSelected) &&
-                                <StepItem
-                                    index={index}
-                                    name={item?.name}
-                                    action={item?.action} 
-                                    step={item?.step} 
-                                    variant={'selected'}
-                                /> }
-                            { (!(item?.step == stepSelected)  && item?.active) && 
-                                <StepItem
-                                    index={index}
-                                    name={item?.name}
-                                    action={item?.action} 
-                                    step={item?.step} 
-                                    variant={'normal'}
-                                    colorItemWhite={colorItemWhite}
+                        return ( 
+                            <React.Fragment key={index}>
+                                { (item?.step == stepSelected) &&
+                                    <StepItem
+                                        index={index}
+                                        name={item?.name}
+                                        action={item?.action} 
+                                        step={item?.step} 
+                                        variant={'selected'}
+                                    /> }
+                                { (!(item?.step == stepSelected)  && item?.active) && 
+                                    <StepItem
+                                        index={index}
+                                        name={item?.name}
+                                        action={item?.action} 
+                                        step={item?.step} 
+                                        variant={'normal'}
+                                        colorItemWhite={colorItemWhite}
 
-                                /> }
-                            { (!item?.active) &&
-                                <StepItem
-                                    index={index}
-                                    name={item?.name}
-                                    action={item?.action} 
-                                    step={item?.step} 
-                                    variant={'disabled'}
-                                /> }
-                            </>
+                                    /> }
+                                { (!item?.active) &&
+                                    <StepItem
+                                        index={index}
+                                        name={item?.name}
+                                        action={item?.action} 
+                                        step={item?.step} 
+                                        variant={'disabled'}
+                                    /> }
+                            </React.Fragment>
                         )
                     })
                 :null

@@ -86,7 +86,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                 )}
                 <ScroollableContent id="scrool-content" ref={scrollRef}>
                     {internalItems.map((i, index) => (
-                        <StepBox id="container-step">
+                        <StepBox key={i.id} id="container-step">
                             <StepBoxIconBlock>
                                 <CheckCircle isComplete={i.finished} isChecked={i.finished}>
                                     {i.finished ? <Tick width="12" /> : <Dot width="16" height="16" />}

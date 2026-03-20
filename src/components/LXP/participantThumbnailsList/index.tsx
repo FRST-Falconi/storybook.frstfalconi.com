@@ -36,6 +36,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons, colorBackgro
         {listThumbnails.map((item, index) => {
           return (
             <ParticipantThumbnails
+              key={index}
               imgThumbnails={item.imgThumbnails}
               titleThumbnail={item.titleThumbnail}
               descpThumbnail={item.descpThumbnail}
