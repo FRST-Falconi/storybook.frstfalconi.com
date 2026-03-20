@@ -166,26 +166,26 @@ export default function CommentaryBox({
                         >
                             <MoreDotsHorizontal fill={ getColorIconMore() } />
                         </Styles.ButtonMore>
-                        <Styles.DropdownWrapper isVisible={isOpenDrop} isMe={isMe}>
+                        <Styles.DropdownWrapper $isVisible={isOpenDrop} isMe={isMe}>
                             {isMe && isAuthor && 
                                 <>
                                     <Styles.ItemDrop onClick={ actionMakePrivate }> { (!isPrivateAuthor && !isPrivateMe)  ? textMakePrivate : textMakePublic }  </Styles.ItemDrop>
                                     <Styles.ItemDrop onClick={ () => editingComment() } > { textEditComment } </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ actionDeleteComment }> { textDeleteComment } </Styles.ItemDrop>
-                                </> 
-                            } 
+                                    <Styles.ItemDrop $isLastItem={true} onClick={ actionDeleteComment }> { textDeleteComment } </Styles.ItemDrop>
+                                </>
+                            }
                             {isMe && !isAuthor &&
                                 <>
                                     { (!isPrivateAuthor) &&
                                         <Styles.ItemDrop onClick={ actionMakePrivate }> {!isPrivateMe ? textMakePrivate : textMakePublic}  </Styles.ItemDrop> }
                                     <Styles.ItemDrop onClick={ () => editingComment() } > {textEditComment} </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ actionDeleteComment }> {textDeleteComment} </Styles.ItemDrop>
-                                </> 
-                            } 
+                                    <Styles.ItemDrop $isLastItem={true} onClick={ actionDeleteComment }> {textDeleteComment} </Styles.ItemDrop>
+                                </>
+                            }
                             {isAuthor && !isMe  &&
                                 <>
                                     <Styles.ItemDrop onClick={ actionMakePrivate } > {(!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic} </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ actionDeleteComment }> {textDeleteComment} </Styles.ItemDrop>
+                                    <Styles.ItemDrop $isLastItem={true} onClick={ actionDeleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </>
                             }
                          </Styles.DropdownWrapper>
@@ -217,7 +217,7 @@ export default function CommentaryBox({
                     >
                         { value }
                     </Styles.CommentaryEditingContent>
-                    <Styles.FooterEditingWrapper width={size[0]} >
+                    <Styles.FooterEditingWrapper $width={size[0]} >
                         <Button 
                             handleClick={() => { saveEditComment() }} 
                             label={size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile } 

@@ -6,12 +6,12 @@ interface AvatarI {
     disabled?: boolean,
 }
 
-export const WrapperCard = styled.div<{active}>`
+export const WrapperCard = styled.div<{$active}>`
     display: flex;
     flex-direction: column;
     width: 282px;
     height: 445px;
-    background: ${({theme, active}) => active ? theme.colors.neutralsGrey9 : theme.colors.shadeWhite};
+    background: ${({theme, $active}) => $active ? theme.colors.neutralsGrey9 : theme.colors.shadeWhite};
     border-radius: 8px;
 
     overflow: hidden;
@@ -48,17 +48,17 @@ export const WrapperBanner = styled.div`
     max-height: 200px;
 `   
 
-    export const TagStep = styled.div<{variant}>`
+    export const TagStep = styled.div<{$variant}>`
         display: flex;
         align-items: center;
         justify-content: center;
         align-self: flex-end;
         padding: 4px 15px;
         border-radius: 0px 8px;
-        
+
         height: 24px;
         z-index: 2 ;
-        ${({variant, theme}) => getVariantTagStyle(variant, theme)};
+        ${({$variant, theme}) => getVariantTagStyle($variant, theme)};
     `
     export const BannerCard = styled.img`
         margin-top: -24px;
@@ -66,19 +66,19 @@ export const WrapperBanner = styled.div`
         margin-bottom: 0px;
         height: fit-content;
     `
-    export const StepName = styled.div<{variant}>`
+    export const StepName = styled.div<{$variant}>`
         font-family: 'VT323', monospace;
         font-size: 40px;
         color: white;
         -webkit-text-stroke: 0.5px black;
         text-shadow: 2px 0 0 black, 0 2px 0 black,-2px 0 0 black,0 -2px 0 black;
-        
+
         display: flex;
         justify-content: center;
         border: 2px dashed #FFF;
 
         z-index: 2;
-        ${({variant}) => variant != 'completed' && variant != 'srg' &&
+        ${({$variant}) => $variant != 'completed' && $variant != 'srg' &&
             `margin-top: -60px;
             margin-bottom: 16px;`
         }
@@ -167,7 +167,7 @@ export const ButtonActionWrapper = styled.div`
     align-items: center;
 `
 
-export const ButtonAction = styled.div<{ variant: string }>`
+export const ButtonAction = styled.div<{ $variant: string }>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,7 +186,7 @@ export const ButtonAction = styled.div<{ variant: string }>`
     color: ${({theme}) => theme.colors.linkOnfocus};
 
     &:nth-child(1) {
-        ${({variant, theme}) => variant != 'completed' && variant != 'srg' && `
+        ${({$variant, theme}) => $variant != 'completed' && $variant != 'srg' && `
             border-right: 1px solid ${theme.colors.neutralsGrey5};
         `}
     }

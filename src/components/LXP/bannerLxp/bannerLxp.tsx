@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components'
 
 interface BannerLxp {
-  backgroundBanner?: any
+  $backgroundBanner?: any
 }
 interface IActionButtons {
   isLoading?: boolean
 }
 
 export const BannerContainer = styled.div<BannerLxp>`
-  background: ${(props) => props.backgroundBanner};
+  background: ${(props) => props.$backgroundBanner};
   display: flex;
   justify-content: flex-start;
   align-items: center;

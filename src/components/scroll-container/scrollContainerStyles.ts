@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 interface IButtonContoll {
-  isLeftButton?: boolean
-  sizeButton?: number
-  visibility?: string
-  marginsArrowButton?: string
-  marginTopArrrowButton?: string
+  $isLeftButton?: boolean
+  $sizeButton?: number
+  $visibility?: string
+  $marginsArrowButton?: string
+  $marginTopArrrowButton?: string
 }
 
 export const WrapperHorizontal = styled.div`
@@ -17,11 +17,11 @@ export const WrapperHorizontal = styled.div`
   height: auto;
 `
 
-export const WrapperContent = styled.div<{ paddingIntern?: string; hiddenHorizontalScrollBar: boolean }>`
+export const WrapperContent = styled.div<{ $paddingIntern?: string; $hiddenHorizontalScrollBar: boolean }>`
   display: flex;
   flex-direction: row;
   width: 100%;
-  overflow-x: ${({ hiddenHorizontalScrollBar }) => (hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
+  overflow-x: ${({ $hiddenHorizontalScrollBar }) => ($hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
   overflow-y: hidden;
   white-space: nowrap;
   gap: 24px;
@@ -30,40 +30,40 @@ export const WrapperContent = styled.div<{ paddingIntern?: string; hiddenHorizon
   &::-webkit-scrollbar {
     display: none;
   }
-  padding-left: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
-  padding-right: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
+  padding-left: ${({ $paddingIntern }) => ($paddingIntern ? $paddingIntern : '150px')};
+  padding-right: ${({ $paddingIntern }) => ($paddingIntern ? $paddingIntern : '150px')};
 `
 
 export const ButtonControll = styled.div<IButtonContoll>`
   display: flex;
-  visibility: ${({ visibility }) => visibility};
+  visibility: ${({ $visibility }) => $visibility};
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-top: ${({ marginTopArrrowButton }) => (marginTopArrrowButton ? marginTopArrrowButton : '0.5rem')};
+  margin-top: ${({ $marginTopArrrowButton }) => ($marginTopArrrowButton ? $marginTopArrrowButton : '0.5rem')};
 
-  width: ${({ sizeButton }) => sizeButton + 'px'};
-  height: ${({ sizeButton }) => sizeButton + 'px'};
+  width: ${({ $sizeButton }) => $sizeButton + 'px'};
+  height: ${({ $sizeButton }) => $sizeButton + 'px'};
 
-  min-width: ${({ sizeButton }) => sizeButton + 'px'};
-  min-height: ${({ sizeButton }) => sizeButton + 'px'};
+  min-width: ${({ $sizeButton }) => $sizeButton + 'px'};
+  min-height: ${({ $sizeButton }) => $sizeButton + 'px'};
 
   background: ${({ theme }) => theme.colors.shadeWhite};
   border: 1px solid #e8e8e8;
 
   border-radius: 50%;
 
-  /* ${({ sizeButton, isLeftButton, marginsArrowButton }) => {
+  /* ${({ $sizeButton, $isLeftButton, $marginsArrowButton }) => {
     let result = ''
-    if (sizeButton >= 80) {
-      result = isLeftButton
-        ? 'padding-right: 6px; margin-right: ' + marginsArrowButton + ';'
-        : 'padding-left: 6px; margin-left: ' + marginsArrowButton + ';'
+    if ($sizeButton >= 80) {
+      result = $isLeftButton
+        ? 'padding-right: 6px; margin-right: ' + $marginsArrowButton + ';'
+        : 'padding-left: 6px; margin-left: ' + $marginsArrowButton + ';'
     } else {
-      result = isLeftButton
-        ? 'padding-right: 3px; margin-right:  ' + marginsArrowButton + ';'
-        : 'padding-left: 3px; margin-left:  ' + marginsArrowButton + ';'
+      result = $isLeftButton
+        ? 'padding-right: 3px; margin-right:  ' + $marginsArrowButton + ';'
+        : 'padding-left: 3px; margin-left:  ' + $marginsArrowButton + ';'
     }
 
     return result

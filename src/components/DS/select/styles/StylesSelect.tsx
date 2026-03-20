@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
 interface PropsSelect {
-  error?: boolean
-  disabled?: boolean
+  $error?: boolean
+  $disabled?: boolean
 }
 
 export const DropDownContainer = styled.div<PropsSelect>`
@@ -13,7 +13,7 @@ export const DropDownContainer = styled.div<PropsSelect>`
   border-radius: 4px;
   position: relative;
   ${(props) =>
-    props.error &&
+    props.$error &&
     css`
       background: ${({ theme }) => theme.colors.inputError};
       border: 1px solid ${({ theme }) => theme.colors.messageError1};
@@ -26,7 +26,7 @@ export const EventOverlay = styled.div<PropsSelect>`
   top: 0;
   left: 0;
   background: transparent;
-  ${props => props.disabled && 
+  ${props => props.$disabled &&
     css`
       cursor: not-allowed !important;
       pointer-events: none;
@@ -54,7 +54,7 @@ export const DropDownHeader = styled.div<PropsSelect>`
     color: #a6a6a6;
   }
   ${(props) =>
-    props.error &&
+    props.$error &&
     css`
       background: ${({ theme }) => theme.colors.inputError};
       p {
@@ -62,7 +62,7 @@ export const DropDownHeader = styled.div<PropsSelect>`
       }
     `};
   ${(props) =>
-    props.disabled &&
+    props.$disabled &&
       css`
         background: ${({ theme }) => theme.colors.neutralsGrey8};
         border: 1px solid ${({ theme }) => theme.colors.neutralsGrey6};
@@ -91,7 +91,7 @@ export const DropDownList = styled('ul')`
     padding-top: 0.8em;
   }
 `
-export const DropDownHeaderIcon = styled('div')<{ open: boolean }>`
+export const DropDownHeaderIcon = styled('div')<{ $open: boolean }>`
   position: absolute;
   right: 16.48px;
   display: flex;
@@ -99,8 +99,8 @@ export const DropDownHeaderIcon = styled('div')<{ open: boolean }>`
   justify-content: center;
   transition: transform 0.1s ease-in-out;
 
-  ${({ open }) =>
-    open === true &&
+  ${({ $open }) =>
+    $open === true &&
     css`
       transform: rotate(180deg);
     `}

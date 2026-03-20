@@ -21,10 +21,10 @@ export default function ItemGlobalMenu({
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.Wrapper
-        variant={variant}
-        pressed={pressed}
-        typeItem={type}
-        wrapText={wrapText}
+        $variant={variant}
+        $pressed={pressed}
+        $typeItem={type}
+        $wrapText={wrapText}
         style={{ ...style }}
         onClick={handleOnClick}
       >

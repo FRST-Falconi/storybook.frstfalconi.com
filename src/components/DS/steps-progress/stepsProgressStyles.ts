@@ -16,9 +16,9 @@ export const ProgressBar = styled(Box)`
     }
 `
 
-export const ProgressItem = styled(Box)<{active}>`
+export const ProgressItem = styled(Box)<{$active}>`
     height: 8px;
-    background: ${({active}) => active ? '#FEA852' : '#D9D9D9'};
+    background: ${({$active}) => $active ? '#FEA852' : '#D9D9D9'};
     width: 100%;
     @media (max-width: 400px) {
         height: 5px;
@@ -34,14 +34,14 @@ export const ContainerSteps = styled(Box)`
     z-index: 1;
 `
 
-export const CicleStep = styled(Box)<{variant}>`
+export const CicleStep = styled(Box)<{$variant}>`
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background: #FFE0C2;
     color: #FFF;
-    opacity: ${({variant}) => variant == 'selected' ? '0.5' : '0'};
-    cursor: ${({variant}) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    opacity: ${({$variant}) => $variant == 'selected' ? '0.5' : '0'};
+    cursor: ${({$variant}) => $variant == 'disabled' ? 'not-allowed' : 'pointer'};
     @media (max-width: 400px) {    
         opacity: 0;
         width: 25px;
@@ -49,7 +49,7 @@ export const CicleStep = styled(Box)<{variant}>`
     }
 `
 
-export const CicleStepChar = styled(Box)<{variant}>`
+export const CicleStepChar = styled(Box)<{$variant}>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,9 +59,9 @@ export const CicleStepChar = styled(Box)<{variant}>`
     color: #FFF;
     margin-left: 10px;
     margin-top: -40px;
-    background: ${({variant}) => variant == 'disabled' ? ('#BDBDBD') : (variant == 'selected' ? '#F26818' : '#FEA852')};
-    position: ${({variant}) => variant != 'disabled' && 'relative' };
-    cursor: ${({variant}) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    background: ${({$variant}) => $variant == 'disabled' ? ('#BDBDBD') : ($variant == 'selected' ? '#F26818' : '#FEA852')};
+    position: ${({$variant}) => $variant != 'disabled' && 'relative' };
+    cursor: ${({$variant}) => $variant == 'disabled' ? 'not-allowed' : 'pointer'};
 
     @media (max-width: 400px) {
         width: 15px;
@@ -70,17 +70,17 @@ export const CicleStepChar = styled(Box)<{variant}>`
     }
 `
 
-export const CicleStepName = styled(Box)<{variant,colorItemWhite}>`
+export const CicleStepName = styled(Box)<{$variant, $colorItemWhite?: boolean}>`
     margin-left: -10px;
     margin-top: 20px;
     width: 70px;
     text-align: center;
-    color: ${({variant}) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : (variant == 'white' ? '#FFF' : '#222'))};
-    font-weight: ${({variant}) => variant == 'selected' ? '600' : '400'};
-    cursor: ${({variant}) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    color: ${({$variant}) => $variant == 'disabled' ? ('#757575') : ($variant == 'selected' ? '#F26818' : ($variant == 'white' ? '#FFF' : '#222'))};
+    font-weight: ${({$variant}) => $variant == 'selected' ? '600' : '400'};
+    cursor: ${({$variant}) => $variant == 'disabled' ? 'not-allowed' : 'pointer'};
 
-    ${({ colorItemWhite }) =>
-    colorItemWhite &&
+    ${({ $colorItemWhite }) =>
+    $colorItemWhite &&
     `
     color:#fff;
     `}

@@ -90,7 +90,7 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
         return (
             <>
                 {filteredResults?.map((result, index) => (
-                    <Styles.Tab key={index} isActive={activeTab === index} onClick={() => handleTabClick(index, result?.version)}>
+                    <Styles.Tab key={index} $isActive={activeTab === index} onClick={() => handleTabClick(index, result?.version)}>
                         {result.name} {result.name === 'Resultado' ? result?.version : result?.version - 1}
                     </Styles.Tab>
                 ))}
@@ -162,14 +162,14 @@ export const ResultFilterTabs = ({ results, onTabChange, onDelete, onEdit, tabLi
                         style={{ textAlign: 'center' }}
                     >
                         <Styles.WrapperTabsResultSelect
-                            activeSelect={isDropdownOpen}
+                            $activeSelect={isDropdownOpen}
                             onClick={(event) => {
                                 setAnchor(event?.currentTarget)
                                 toggleDropdown()
                             }}
                         >
                             <p>Mais {hiddenTabs.length}</p>
-                            <Styles.WrapperSelectIcon isOpenSelect={isDropdownOpen}>
+                            <Styles.WrapperSelectIcon $isOpenSelect={isDropdownOpen}>
                                 <ArrrowExpandDropdown />
                             </Styles.WrapperSelectIcon>
                         </Styles.WrapperTabsResultSelect>

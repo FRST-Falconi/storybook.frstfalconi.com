@@ -30,6 +30,7 @@ export const useInputHook = ({
   const [inputSearch, setInputSearch] = useState('')
   const divInputRef = useRef<HTMLDivElement>(null)
   const divPlaceholder = useRef<HTMLDivElement>(null)
+  const isMounted = useRef(true)
   const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 20}px`
   const [textLength, setTextLength] = useState(0)
   const [isPlaceholder, setPlaceholder] = useState(false)
@@ -244,12 +245,14 @@ export const useInputHook = ({
   }
   const handlePlaceholderInputText = (isPlaceHolderFocus: boolean = false) => {
     setTimeout(() => {
+      if (!isMounted.current) return;
+
       // Check if the click was on the emoji button or picker
       const target = document.activeElement as HTMLElement;
       const isEmojiButton = target?.closest('.MuiIconButton-root');
       const isEmojiPicker = target?.closest('.EmojiPickerReact');
       const isEmojiWrapper = target?.closest('.emoji-wrapper');
-      
+
       if (isEmojiButton || isEmojiPicker || isEmojiWrapper) {
         return;
       }
@@ -345,38 +348,16 @@ export const useInputHook = ({
   }, [textLength])
 
   useEffect(() => {
+    isMounted.current = true
+    return () => { isMounted.current = false }
+  }, [])
+
+  useEffect(() => {
     if (!divInputRef.current || !divPlaceholder.current) return
 
-    document.addEventListener('mousedown', () => {
-      handlePlaceholderInputText()
-    })
-    document.addEventListener('focus', () => {
-      handlePlaceholderInputText()
-    })
-    document.addEventListener('blur', () => {
-      handlePlaceholderInputText()
-    })
-    divPlaceholder.current?.addEventListener('mousedown', () => {
-      handlePlaceholderInputText(true)
-    })
-    divPlaceholder.current?.addEventListener('focus', () => {
-      handlePlaceholderInputText(true)
-    })
-    divPlaceholder.current?.addEventListener('blur', () => {
-      handlePlaceholderInputText(true)
-    })
-    divInputRef.current?.addEventListener('mousedown', () => {
-      handlePlaceholderInputText()
-    })
-    divInputRef.current?.addEventListener('focus', () => {
-      handlePlaceholderInputText()
-    })
-    divInputRef.current?.addEventListener('blur', () => {
-      handlePlaceholderInputText()
-    })
-
-    //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-    divInputRef.current?.addEventListener('keyup', (event) => {
+    const onDocEvent = () => handlePlaceholderInputText()
+    const onPlaceholderEvent = () => handlePlaceholderInputText(true)
+    const onArrowKey = (event: KeyboardEvent) => {
       if (
         event.key === 'ArrowUp' ||
         event.key === 'ArrowDown' ||
@@ -386,50 +367,36 @@ export const useInputHook = ({
       ) {
         setShowMention(false)
       }
-    })
+    }
+
+    document.addEventListener('mousedown', onDocEvent)
+    document.addEventListener('focus', onDocEvent)
+    document.addEventListener('blur', onDocEvent)
+
+    const placeholderEl = divPlaceholder.current
+    placeholderEl.addEventListener('mousedown', onPlaceholderEvent)
+    placeholderEl.addEventListener('focus', onPlaceholderEvent)
+    placeholderEl.addEventListener('blur', onPlaceholderEvent)
+
+    const inputEl = divInputRef.current
+    inputEl.addEventListener('mousedown', onDocEvent)
+    inputEl.addEventListener('focus', onDocEvent)
+    inputEl.addEventListener('blur', onDocEvent)
+    inputEl.addEventListener('keyup', onArrowKey)
 
     return () => {
-      document.removeEventListener('mousedown', () => {
-        handlePlaceholderInputText()
-      })
-      document.removeEventListener('focus', () => {
-        handlePlaceholderInputText()
-      })
-      document.removeEventListener('blur', () => {
-        handlePlaceholderInputText()
-      })
+      document.removeEventListener('mousedown', onDocEvent)
+      document.removeEventListener('focus', onDocEvent)
+      document.removeEventListener('blur', onDocEvent)
 
-      divPlaceholder.current?.removeEventListener('mousedown', () => {
-        handlePlaceholderInputText(true)
-      })
-      divPlaceholder.current?.removeEventListener('focus', () => {
-        handlePlaceholderInputText(true)
-      })
-      divPlaceholder.current?.removeEventListener('blur', () => {
-        handlePlaceholderInputText(true)
-      })
-      divInputRef.current?.removeEventListener('mousedown', () => {
-        handlePlaceholderInputText()
-      })
-      divInputRef.current?.removeEventListener('focus', () => {
-        handlePlaceholderInputText()
-      })
-      divInputRef.current?.removeEventListener('blur', () => {
-        handlePlaceholderInputText()
-      })
+      placeholderEl.removeEventListener('mousedown', onPlaceholderEvent)
+      placeholderEl.removeEventListener('focus', onPlaceholderEvent)
+      placeholderEl.removeEventListener('blur', onPlaceholderEvent)
 
-      //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-      divInputRef.current?.removeEventListener('keyup', (event) => {
-        if (
-          event.key === 'ArrowUp' ||
-          event.key === 'ArrowDown' ||
-          event.key === 'ArrowLeft' ||
-          event.key === 'ArrowRight' ||
-          event.key === 'Enter'
-        ) {
-          setShowMention(false)
-        }
-      })
+      inputEl.removeEventListener('mousedown', onDocEvent)
+      inputEl.removeEventListener('focus', onDocEvent)
+      inputEl.removeEventListener('blur', onDocEvent)
+      inputEl.removeEventListener('keyup', onArrowKey)
     }
   }, [])
 

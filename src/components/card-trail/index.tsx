@@ -67,14 +67,14 @@ export default function CardTrail(props: ModuleCardProps) {
         }
         <HeaderImage
           onClick={redirectToD2L}
-          image={props.bannerImage}
-          notstarted={+props?.notStarted}
+          $image={props.bannerImage}
+          $notstarted={+props?.notStarted}
         />
 
         <MyBox>{/* ((props.mentor?.name && props.start) || props.variant !== 'primary') */}
-          <MyCardContent 
-            notstarted={+props?.notStarted} 
-            hasmentor={getAlign()}
+          <MyCardContent
+            $notstarted={+props?.notStarted}
+            $hasmentor={getAlign()}
           >
             <Styles.TitleCard onClick={redirectToD2L} >{props.name}</Styles.TitleCard>
             <Styles.TextDescription onClick={redirectToD2L} >
@@ -83,7 +83,7 @@ export default function CardTrail(props: ModuleCardProps) {
             {props.variant == 'primary' ? 
             <> 
               { props.start &&
-                <WrapperDate onClick={redirectToD2L} notstarted={+props?.notStarted}>
+                <WrapperDate onClick={redirectToD2L} $notstarted={+props?.notStarted}>
                   <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}:&nbsp;</b> 
                   {props.start}
                 </WrapperDate>
@@ -102,7 +102,7 @@ export default function CardTrail(props: ModuleCardProps) {
             </> 
             : 
             <>
-            <WrapperDate onClick={redirectToD2L} notstarted={+true} style={{margin: '0px'}}>
+            <WrapperDate onClick={redirectToD2L} $notstarted={+true} style={{margin: '0px'}}>
                 <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}:&nbsp;</b> 
                 {props.start}
               </WrapperDate>

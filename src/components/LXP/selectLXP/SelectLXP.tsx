@@ -61,7 +61,7 @@ const DropDownList = styled("ul")`
   }
 
 `
-const DropDownHeaderIcon = styled('div')<{ open: boolean }>`
+const DropDownHeaderIcon = styled('div')<{ $open: boolean }>`
   position: absolute;
   right: 16.48px;
   display: flex;
@@ -69,7 +69,7 @@ const DropDownHeaderIcon = styled('div')<{ open: boolean }>`
   justify-content: center;
   transition: transform 0.1s ease-in-out;
 
-  ${({ open }) => open === true && css`
+  ${({ $open }) => $open === true && css`
     transform: rotate(180deg);
   `}
 `
@@ -149,7 +149,7 @@ export default function SelectLXP({ placeholder, defaultValue, children, onChang
             :
             selectedOption ? <SelectedOption>{selectedOption}</SelectedOption> : <p>{placeholder}</p>
           }
-          <DropDownHeaderIcon open={isOpen}>
+          <DropDownHeaderIcon $open={isOpen}>
             <ArrowIcon />
           </DropDownHeaderIcon>
         </DropDownHeader>

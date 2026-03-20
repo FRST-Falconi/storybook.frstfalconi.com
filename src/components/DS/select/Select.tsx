@@ -76,9 +76,9 @@ export default function Select({
 
   return (
     <div style={style}>
-      <StylesSelect.DropDownContainer ref={wrapperRef} error={isError} theme={FRSTTheme}>
-        <StylesSelect.EventOverlay onClick={toggle} disabled={disabled}></StylesSelect.EventOverlay>
-        <StylesSelect.DropDownHeader error={isError} disabled={disabled} theme={FRSTTheme}>
+      <StylesSelect.DropDownContainer ref={wrapperRef} $error={isError} theme={FRSTTheme}>
+        <StylesSelect.EventOverlay onClick={toggle} $disabled={disabled}></StylesSelect.EventOverlay>
+        <StylesSelect.DropDownHeader $error={isError} $disabled={disabled} theme={FRSTTheme}>
           {loading ? (
             <p>Carregando dados...</p>
           ) : selectedOption ? (
@@ -86,7 +86,7 @@ export default function Select({
           ) : (
             <p>{placeholder}</p>
           )}
-          <StylesSelect.DropDownHeaderIcon open={isOpen}>
+          <StylesSelect.DropDownHeaderIcon $open={isOpen}>
            { ArrowIconFormatted ? <ArrowIconFormatted fill={disabled && '#BDBDBD'}/> : <ArrowIcon fill={disabled && '#BDBDBD'} />}
           </StylesSelect.DropDownHeaderIcon>
         </StylesSelect.DropDownHeader>

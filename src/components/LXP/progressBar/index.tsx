@@ -9,8 +9,8 @@ export default function ProgressBar({ value, label, style, bgColor,trackColor, c
     <ThemeProvider theme={FRSTTheme}>
       <Style.ProgressContainer style={style}>
         <span>{label}</span>
-        <Style.ValueAndProgress colorText={colorText}>
-          <Style.BorderLinearProgress trackColor={trackColor} bgColor={bgColor} variant="determinate" value={value} /> &nbsp;{value + '%'}
+        <Style.ValueAndProgress $colorText={colorText}>
+          <Style.BorderLinearProgress $trackColor={trackColor} $bgColor={bgColor} variant="determinate" value={value} /> &nbsp;{value + '%'}
         </Style.ValueAndProgress>
       </Style.ProgressContainer>
     </ThemeProvider>

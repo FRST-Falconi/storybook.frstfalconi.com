@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components'
 import { enumVariant } from './globalMenu'
 
 interface IMenuContainer {
-    variant?: enumVariant
-    marginTop?: boolean
+    $variant?: enumVariant
+    $marginTop?: boolean
 }
 
 export const MenuContainer = styled.div<IMenuContainer>`
@@ -105,11 +105,11 @@ export const SubMenuContainer = styled.div<IMenuContainer>`
     width: 100%;
     height: 50px;
     ${(props) =>
-        props.marginTop &&
+        props.$marginTop &&
         css`
             margin-top: 4rem;
         `}
-    background: ${({ variant, theme }) => (variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1)};
+    background: ${({ $variant, theme }) => ($variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1)};
 
     padding-left: 124px;
     padding-right: 124px;
@@ -119,8 +119,8 @@ export const SubMenuContainer = styled.div<IMenuContainer>`
     justify-content: center;
 `
 
-export const MenuMobile = styled.div<{ isVisible }>`
-    display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+export const MenuMobile = styled.div<{ $isVisible }>`
+    display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
@@ -132,8 +132,8 @@ export const MenuMobile = styled.div<{ isVisible }>`
     background: #222;
 `
 
-export const SideMenu = styled.div<{ isVisible }>`
-    display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+export const SideMenu = styled.div<{ $isVisible }>`
+    display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: space-between;
     position: absolute;

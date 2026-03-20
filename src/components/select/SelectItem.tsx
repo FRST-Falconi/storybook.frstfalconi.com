@@ -3,9 +3,9 @@ import styled, { css } from "styled-components"
 import { SelectContext } from "./SelectContext"
 
 interface props {
-    selected: boolean
+    $selected: boolean
     value: any
-    disabled?: boolean
+    $disabled?: boolean
 }
 
 const ListItem = styled("li")<props>`
@@ -23,13 +23,13 @@ const ListItem = styled("li")<props>`
     align-items: center;
     cursor: pointer;
 
-    ${props => props.disabled === true && css`
+    ${props => props.$disabled === true && css`
         cursor: not-allowed;
         background-color: #e5e5e5;
         opacity: 0.3;
     `}
 
-    ${props => props.selected === true && css`
+    ${props => props.$selected === true && css`
         background-color: #e5e5e5;
         cursor: pointer;
         opacity: 1;
@@ -54,7 +54,7 @@ export default function SelectItem({ value, label, selected, handleSelect, disab
     return (
         <SelectContext.Consumer>
             {({ selected }) => (
-                <ListItem disabled={disabled} selected={selected === value} value={value} onClick={handleSelect}>
+                <ListItem $disabled={disabled} $selected={selected === value} value={value} onClick={handleSelect}>
                     {label}
                 </ListItem>
             )}
