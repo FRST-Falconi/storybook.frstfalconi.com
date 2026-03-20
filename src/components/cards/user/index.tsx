@@ -71,21 +71,21 @@ export default function CalendarCard(props: UserCardProps) {
                         {hasAssignedLicense.length > 0 && 
                             <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
                                 {props.newTexts.assignedLicense}: {' '}
-                                {hasAssignedLicense.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                                {hasAssignedLicense.map(p => <Tag key={p.name} title={p.name} color='#000' selected={selected} inverted={false} />)}
                                 {!hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
                             </div>
                         }
                         {hasDefinedTrail.length > 0 && 
                             <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
                                 {props.newTexts.definedTrail}: {' '}
-                                {hasDefinedTrail.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                                {hasDefinedTrail.map(p => <Tag key={p.name} title={p.name} color='#000' selected={selected} inverted={false} />)}
                                 {!hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
                             </div>
                         }
                         {hasEnrollments.length > 0 && 
                             <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
                                 {props.newTexts.enrollments}: {' '}
-                                {hasEnrollments.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                                {hasEnrollments.map(p => <Tag key={p.name} title={p.name} color='#000' selected={selected} inverted={false} />)}
                                 {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
                             </div>
                         }
@@ -95,7 +95,7 @@ export default function CalendarCard(props: UserCardProps) {
                     <>
                         <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{props.newTexts.previus}</div>
                         <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                            {hasPrevius.map(p => <Tag title={p.name} color='#BDBDBD' selected={selected} inverted={false} />)}
+                            {hasPrevius.map(p => <Tag key={p.name} title={p.name} color='#BDBDBD' selected={selected} inverted={false} />)}
                             {props.assessment === 'finished' && <Tag title={'Assessment'} color='#BDBDBD' selected={selected} inverted={false} iconType="checked" />}
                         </div>
                     </>
@@ -181,7 +181,7 @@ export default function CalendarCard(props: UserCardProps) {
                                             {
                                                 props.licenses.length > 0 ?
                                                     props.licenses.map((p) => {
-                                                        return <Tag title={p} color='#000' selected={selected} inverted={false} />
+                                                        return <Tag key={p} title={p} color='#000' selected={selected} inverted={false} />
                                                     })
                                                     :
                                                     <Tag title={t('user.card.noProduct')} color='#FF0000' selected={selected} inverted />

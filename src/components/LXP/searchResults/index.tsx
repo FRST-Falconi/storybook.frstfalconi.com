@@ -18,9 +18,9 @@ export default function SearchResults({ src, title, description, textSkills, ski
             <Styles.skillSets>
               {textSkills}:
               {
-                skills.map( item => {
+                skills.map( (item, index) => {
                   return(
-                    <Styles.skillTag>
+                    <Styles.skillTag key={index}>
                       {item}
                     </Styles.skillTag>
                   )

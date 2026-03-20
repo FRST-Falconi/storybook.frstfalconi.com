@@ -244,6 +244,7 @@ export default function GroupsTable({
 											.filter((a, aIndex) => aIndex < maxAdmToShow)
 											.map((adm) => {
 												return <Tooltip
+													key={adm.id}
 													content={adm.name}
 													direction={'bottom'}
 													delay={500}
@@ -260,7 +261,7 @@ export default function GroupsTable({
 														boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 													}}
 												>
-													<AdmButton key={adm.id} image={adm.image} variant={'image'} />
+													<AdmButton image={adm.image} variant={'image'} />
 												</Tooltip>
 											})}
 									</div>
