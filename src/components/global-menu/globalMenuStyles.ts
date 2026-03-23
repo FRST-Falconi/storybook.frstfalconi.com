@@ -20,6 +20,16 @@ export const MenuContainer = styled.div<IMenuContainer>`
     }
 `
 
+export const MenuInner = styled.div`
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
 export const WrapperLogo = styled.div`
     margin-right: 65px;
     cursor: pointer;

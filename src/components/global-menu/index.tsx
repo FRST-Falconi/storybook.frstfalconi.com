@@ -24,11 +24,8 @@ import {
 
 import FieldSearch from '@components/field-search-dropdown'
 import ItemGlobalMenu from '@components/item-menu-global'
-import LanguagesDropdown from '@components/languages-dropdown'
 import DropdownProfileMenu from '@components/dropdown-profile-menu'
 import NotificationPopOver from '@components/FI/notificationPopOver'
-import { styled } from '@mui/material/styles'
-import Tooltip from '@components/DS/tooltip'
 
 export default function GlobalMenu({
     variant,
@@ -69,25 +66,17 @@ export default function GlobalMenu({
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
     const [loadingSearch, setLoadingSearch] = useState(search.loading)
 
-    const [isMobileVersion, setIsMobileVersion] = useState(false)
-    const [controlExpandedSearchMobile, setControlExpandedSearchMobile] = useState(false)
-    const [showLogo, setShowLogo] = useState(false)
+    const [isCompact, setIsCompact] = useState(false)
     const [isVisibleMenuMobile, setIsVisibleMenuMobile] = useState(false)
-    const [isVisibleSideMenu, setIsVisibleSideMenu] = useState(false)
-
-    const [windowSize, setWindowSize] = useState([0, 0])
     const [openNotification, setOpenNotification] = useState(false)
     const [openNotificationMobile, setOpenNotificationMobile] = useState(false)
     const [anchorNotification, setAnchorNotification] = useState(null)
     const [onAreaPopOver, setOnAreaPopOver] = useState(false)
     const [SubMenu, setSubMenu] = useState([])
     const [SelectedItem, setSelectedItem] = useState()
-    const [isTabletVersion, setIsTabletVersion] = useState(false)
-    const [HideHambMenu, setHideHambMenu] = useState(false)
-    const [showTooltipHelp, setShowTooltipHelp] = useState(false)
-
     const [hasNewNotification, setHasNewNotification] = useState(false)
     const [updatedNotificationList, setUpdatedNotificationList] = useState([])
+    const [showTooltipHelp, setShowTooltipHelp] = useState(false)
 
     useEffect(() => {
         setHasNewNotification(!!notification?.hasNewNotification)
@@ -107,10 +96,7 @@ export default function GlobalMenu({
 
     useEffect(() => {
         function updateSize() {
-            setWindowSize([window.innerWidth, window.innerHeight])
-            setIsMobileVersion(window.innerWidth < 700)
-            setIsTabletVersion(window.innerWidth < 1200 && window.innerWidth >= 700)
-            setShowLogo(false)
+            setIsCompact(window.innerWidth < 1000)
             setIsVisibleMenuMobile(false)
         }
         window.addEventListener('resize', updateSize)
@@ -124,26 +110,6 @@ export default function GlobalMenu({
         setLoadingSearch(search.loading)
     }, [search])
 
-    useEffect(() => {
-        setShowLogo(isMobileVersion)
-        if (isMobileVersion) setControlExpandedSearchMobile(false)
-        else {
-            setControlExpandedSearchMobile(true)
-        }
-    }, [isMobileVersion])
-
-    useEffect(() => {
-        if (!controlExpandedSearchMobile)
-            setTimeout(() => {
-                setShowLogo(!controlExpandedSearchMobile && isMobileVersion)
-                setHideHambMenu(window.innerWidth < 420 ? controlExpandedSearchMobile : false)
-            }, 1500)
-        else {
-            setShowLogo(!controlExpandedSearchMobile && isMobileVersion)
-            setHideHambMenu(window.innerWidth < 420 ? controlExpandedSearchMobile : false)
-        }
-    }, [controlExpandedSearchMobile])
-
     const handleChangeValueSearch = (value) => {
         setValueSearch(value)
         search.onChange(value)
@@ -155,7 +121,6 @@ export default function GlobalMenu({
     }
 
     const handleOpenNotification = (event) => {
-        // OPPA
         setOpenNotification(!openNotification)
         setOpenNotificationMobile(!openNotificationMobile)
         setAnchorNotification(event.currentTarget)
@@ -163,7 +128,7 @@ export default function GlobalMenu({
     }
 
     const onClickNotification = (event) => {
-        if (!!onAreaPopOver == false) {
+        if (!onAreaPopOver) {
             setOpenNotification(!openNotification)
             setOpenNotificationMobile(!openNotificationMobile)
             setAnchorNotification(event.currentTarget)
@@ -177,804 +142,228 @@ export default function GlobalMenu({
         else setSubMenu([])
     }
 
-    // const newNotification = notification.notificationList
-    //   ? notification.notificationList.filter((notification) => notification.isNewNotification)
-    //   : []
-
     return (
         <ThemeProvider theme={FRSTTheme}>
-            {variant == 'LXP' ? (
-                <>
-                    <MenuMobile
-                        onClickExit={onClickExit}
-                        languageSelected={languageSelected}
-                        variant={'LXP'}
-                        items={menu}
-                        isVisible={isVisibleMenuMobile}
-                        setVisible={(e) => setIsVisibleMenuMobile(e)}
-                        onClickSite={onClickSite}
-                        onClickLinkedin={onClickLinkedin}
-                        onClickInstagram={onClickInstagram}
-                        onClickYoutube={onClickYoutube}
-                        onClickSpotify={onClickSpotify}
-                        onClickPodCast={onClickPodCast}
-                        customMenu={customMenu}
-                    />
-                    <SideMenu
-                        onClickExit={onClickExit}
-                        languageSelected={languageSelected}
-                        variant={'LXP'}
-                        items={menu}
-                        isVisible={isVisibleSideMenu}
-                        setVisible={(e) => setIsVisibleSideMenu(e)}
-                        onClickSite={onClickSite}
-                        onClickLinkedin={onClickLinkedin}
-                        onClickInstagram={onClickInstagram}
-                        onClickYoutube={onClickYoutube}
-                        onClickSpotify={onClickSpotify}
-                        onClickPodCast={onClickPodCast}
-                        customMenu={customMenu}
-                    />
-                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                        <S.MenuContainer
-                            $variant={variant}
+            <>
+                <MenuMobile
+                    onClickExit={onClickExit}
+                    languageSelected={languageSelected}
+                    variant={variant || 'default'}
+                    items={menu}
+                    isVisible={isVisibleMenuMobile}
+                    setVisible={(e) => setIsVisibleMenuMobile(e)}
+                    onClickSite={onClickSite}
+                    onClickLinkedin={onClickLinkedin}
+                    onClickInstagram={onClickInstagram}
+                    onClickYoutube={onClickYoutube}
+                    onClickSpotify={onClickSpotify}
+                    onClickPodCast={onClickPodCast}
+                    customMenu={customMenu}
+                />
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <S.MenuContainer
+                        $variant="default"
+                        style={style}
+                    >
+                        <S.MenuInner>
+                        {isCompact ? (
+                            <S.HamburgerButton style={{ marginLeft: 100 }} onClick={() => onClickMenuHamburger()}>
+                                <IconHamburgerMenu />
+                            </S.HamburgerButton>
+                        ) : (
+                            <S.WrapperLogo onClick={() => onClickLogo()}>
+                                {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}
+                            </S.WrapperLogo>
+                        )}
+
+                        <S.WrapperMenu
                             style={{
-                                paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
-                                paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
-                                ...style
+                                height: '100%',
+                                alignItems: 'center',
+                                justifyContent: InputField ? 'center' : undefined
                             }}
                         >
-                            {isMobileVersion && !HideHambMenu && (
-                                <S.HamburgerButton onClick={() => onClickMenuHamburger()}>
-                                    <IconHamburgerMenu />
-                                </S.HamburgerButton>
+                            {showSearchField && (
+                                InputField ? (
+                                    <InputField />
+                                ) : (
+                                    <FieldSearch
+                                        variant="LXP"
+                                        value={valueSearch}
+                                        onFilter={search.onFilter}
+                                        onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                        placeholder={search.label}
+                                        loading={loadingSearch}
+                                        textLoading={search.textLoading}
+                                        fieldSearchIsOpen={true}
+                                        setFieldSearchIsOpen={() => {}}
+                                        isLabeledResult={search.isLabeledResult}
+                                        listResults={search.isLabeledResult ? null : valueListSearch}
+                                        labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                        historicResults={search.historicResults}
+                                        isMobileVersion={isCompact}
+                                        hasOptionSeeAll={search.hasOptionSeeAll}
+                                        seeAll={search.seeAll}
+                                        style={{ width: isCompact ? '180px' : '332px' }}
+                                    />
+                                )
                             )}
-                            {isMobileVersion && HideHambMenu && (
-                                <S.ArrowButton onClick={() => setControlExpandedSearchMobile(false)}>
-                                    <BackArrow fill={FRSTTheme['colors'].selectItens} />
-                                </S.ArrowButton>
-                            )}
-                            {isTabletVersion && (
-                                <S.HamburgerButton onClick={() => onClickMenuHamburger()}>
-                                    <IconHamburgerMenu />
-                                </S.HamburgerButton>
-                            )}
-                            {!isMobileVersion && (
-                                <S.WrapperLogo
-                                    onClick={() => onClickLogo()}
-                                    style={{ marginRight: isTabletVersion && 32 }}
-                                >
-                                    {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}
-                                </S.WrapperLogo>
-                            )}
-                            {showLogo && (
-                                <S.WrapperLogo onClick={() => onClickLogo()} style={{ marginRight: '0px' }}>
-                                    {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}      
-                                </S.WrapperLogo>
-                            )}
-                            <S.WrapperMenu
-                                style={{
-                                    height: '100%',
-                                    justifyContent: InputField ? 'center' : 'space-between',
-                                    alignItems: 'center'
-                                }}
-                            >
-                                {!isMobileVersion &&
-                                    showSearchField &&
-                                    (InputField ? (
-                                        <InputField />
-                                    ) : (
-                                        <FieldSearch
+                        </S.WrapperMenu>
+
+                        <S.WrapperRightInfo>
+                            {!isCompact && notification && !hideNotification && (
+                                <>
+                                    {customMenu?.map((item, index) => (
+                                        <ItemGlobalMenu
+                                            label={item.label}
+                                            key={item.id ? item.id : index}
                                             variant="LXP"
-                                            value={valueSearch}
-                                            placeholder={search.label}
-                                            onFilter={search.onFilter}
-                                            loading={loadingSearch}
-                                            textLoading={search.textLoading}
-                                            setFieldSearchIsOpen={setControlExpandedSearchMobile}
-                                            fieldSearchIsOpen={controlExpandedSearchMobile}
-                                            isLabeledResult={search.isLabeledResult}
-                                            listResults={search.isLabeledResult ? null : valueListSearch}
-                                            labeledResultList={search.isLabeledResult ? valueListSearch : null}
-                                            historicResults={search.historicResults}
-                                            isMobileVersion={isMobileVersion}
-                                            hasOptionSeeAll={search.hasOptionSeeAll}
-                                            seeAll={search.seeAll}
+                                            type="menu"
+                                            pressed={item.id === SelectedItem || item.active}
+                                            icon={item.iconBegin}
+                                            handleOnClick={() => handleClickItem(item)}
+                                            customMenu={customMenu}
                                             style={{
-                                                width:
-                                                    windowSize[0] < 830
-                                                        ? '230px'
-                                                        : windowSize[0] > 1500
-                                                        ? '428px'
-                                                        : '332px'
+                                                paddingRight: '10px',
+                                                paddingLeft: '10px',
+                                                height: '100%',
+                                                flexDirection: 'inherit'
                                             }}
                                         />
                                     ))}
-
-                                <S.MenuContainer
-                                    $variant={variant}
-                                    style={{
-                                        height: '100%',
-                                        paddingLeft: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
-                                        paddingRight: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
-                                        justifyContent: isMobileVersion ? 'space-between' : 'flex-end'
-                                    }}
-                                >
-                                    {isMobileVersion &&
-                                        (InputField ? (
-                                            <InputField />
-                                        ) : (
-                                            <FieldSearch
-                                                variant="LXP"
-                                                value={valueSearch}
-                                                onChange={(e) => handleChangeValueSearch(e.target.value)}
-                                                placeholder={search.label}
-                                                onFilter={search.onFilter}
-                                                loading={loadingSearch}
-                                                textLoading={search.textLoading}
-                                                fieldSearchIsOpen={controlExpandedSearchMobile}
-                                                setFieldSearchIsOpen={setControlExpandedSearchMobile}
-                                                isLabeledResult={search.isLabeledResult}
-                                                listResults={search.isLabeledResult ? null : valueListSearch}
-                                                labeledResultList={search.isLabeledResult ? valueListSearch : null}
-                                                historicResults={search.historicResults}
-                                                isMobileVersion={isMobileVersion}
-                                                hasOptionSeeAll={search.hasOptionSeeAll}
-                                                seeAll={search.seeAll}
-                                                style={{
-                                                    width: isMobileVersion ? '180px' : '332px'
-                                                    // marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                                }}
-                                            />
-                                        ))}
-                                    {!isMobileVersion &&
-                                        !isTabletVersion &&
-                                        menu &&
-                                        menu.length > 0 &&
-                                        menu.map((item, index) => {
-                                            return (
-                                                <ItemGlobalMenu
-                                                    label={item.label}
-                                                    key={item.id ? item.id : index}
-                                                    variant="LXP"
-                                                    type="menu"
-                                                    pressed={item.id === SelectedItem || item.active}
-                                                    icon={item.iconBegin}
-                                                    handleOnClick={() => handleClickItem(item)}
-                                                    style={{
-                                                        paddingRight: '10px',
-                                                        paddingLeft: '10px',
-                                                        height: '100%'
-                                                    }}
-                                                />
-                                            )
-                                        })}
-
-                                    {!isMobileVersion && !isTabletVersion && notification && (
-                                        <div style={{ position: 'relative' }}>
-                                            <ItemGlobalMenu
-                                                label={textNotification}
-                                                variant="LXP"
-                                                type="menu"
-                                                pressed={false}
-                                                handleOnClick={() => onClickNotification}
-                                                icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
-                                                style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
-                                                customMenu={customMenu}
-                                            />
-
+                                    <S.WrapperIconNotification onClick={onClickNotification}>
+                                        <span
+                                            style={{ display: 'flex', alignItems: 'center' }}
+                                            onClick={handleOpenNotification}
+                                        >
+                                            <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
                                             {hasNewNotification ? (
-                                                <div
-                                                    style={{
-                                                        position: 'absolute',
-                                                        marginLeft: '50%',
-                                                        marginTop: '-54px'
-                                                    }}
-                                                >
+                                                <div style={{ position: 'relative', bottom: '5px', right: '10px' }}>
                                                     <HasNotificationIcon />
                                                 </div>
                                             ) : null}
-                                            <NotificationPopOver
-                                                handleClickMarkRead={notification.handleClickMarkRead}
-                                                isOpen={openNotification}
-                                                anchor={anchorNotification}
-                                                textEmptyState={notification.textEmptyState}
-                                                notificationList={updatedNotificationList}
-                                                textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                textNotification={notification.textNotification}
-                                                isMobile={false}
-                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                textBack={notification.textBack}
-                                                handleClickBack={() => handleCloseNotification()}
-                                                textDeleteAll={notification.textDeleteAll}
-                                                handleClickDeleteAll={notification.handleClickDeleteAll}
-                                                isLoading={notification?.isLoading}
-                                            />
-                                        </div>
-                                    )}
-                                    {isMobileVersion && notification && (
-                                        <S.WrapperIconNotificationMobile
-                                            onClick={onClickNotification}
-                                            style={{
-                                                borderBottom:
-                                                    openNotificationMobile && windowSize[0] <= 650
-                                                        ? `4px solid ${FRSTTheme['colors'].primary1}`
-                                                        : '',
-                                                height: windowSize[0] <= 650 ? '100%' : 'auto'
-                                            }}
-                                        >
-                                            <span
-                                                style={{
-                                                    display: 'inline-flex',
-                                                    justifyContent: 'flex-start',
-                                                    alignItems: 'center'
-                                                }}
-                                            >
-                                                <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                                                {hasNewNotification ? (
-                                                    <div style={{ marginLeft: '-12px' }}>
-                                                        {' '}
-                                                        <HasNotificationIcon />{' '}
-                                                    </div>
-                                                ) : null}
-                                            </span>
-                                        </S.WrapperIconNotificationMobile>
-                                    )}
-                                    {isTabletVersion && notification && (
-                                        <S.WrapperIconNotificationMobile
-                                            onClick={onClickNotification}
-                                            style={{
-                                                borderBottom:
-                                                    openNotificationMobile && windowSize[0] <= 650
-                                                        ? `4px solid ${FRSTTheme['colors'].primary1}`
-                                                        : '',
-                                                height: windowSize[0] <= 650 ? '100%' : 'auto'
-                                            }}
-                                        >
-                                            <span
-                                                style={{
-                                                    display: 'inline-flex',
-                                                    justifyContent: 'flex-start',
-                                                    alignItems: 'center'
-                                                }}
-                                            >
-                                                <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                                                {hasNewNotification ? (
-                                                    <div style={{ marginLeft: '-12px' }}>
-                                                        {' '}
-                                                        <HasNotificationIcon />{' '}
-                                                    </div>
-                                                ) : null}
-                                            </span>
-                                            {windowSize[0] >= 700 ? (
-                                                <NotificationPopOver
-                                                    handleClickMarkRead={notification.handleClickMarkRead}
-                                                    isOpen={openNotificationMobile}
-                                                    anchor={anchorNotification}
-                                                    textEmptyState={notification.textEmptyState}
-                                                    notificationList={updatedNotificationList}
-                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                    textNotification={notification.textNotification}
-                                                    isMobile={false}
-                                                    setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                    textBack={notification.textBack}
-                                                    handleClickBack={() => handleCloseNotification()}
-                                                    textDeleteAll={notification.textDeleteAll}
-                                                    handleClickDeleteAll={notification.handleClickDeleteAll}
-                                                    isLoading={notification?.isLoading}
-                                                />
-                                            ) : null}
-                                        </S.WrapperIconNotificationMobile>
-                                    )}
-                                </S.MenuContainer>
-                            </S.WrapperMenu>
-
-                            <S.WrapperRightInfo>
-                                <DropdownProfileMenu
-                                    variant="LXP"
-                                    user={user}
-                                    profileMenuText={profileMenuText}
-                                    handleProfileMenuClick={onClickProfileMenuText}
-                                    menuItems={user && user.menuItems}
-                                    isMobileVersion={isMobileVersion}
-                                    hiddenProfileMenu={hiddenProfileMenu}
-                                    showProfile={showProfile}
-                                    style={{
-                                        marginLeft: isMobileVersion ? '0px' : '5px',
-                                        marginRight: isMobileVersion ? '0px' : '5px'
-                                    }}
-                                />
-                                {customMenu?.map((item, index) => (
-                                    <ItemGlobalMenu
-                                        label={isMobileVersion ? '' : item.label}
-                                        key={item.id ? item.id : index}
-                                        variant="LXP"
-                                        type="menu"
-                                        pressed={item.id === SelectedItem || item.active}
-                                        icon={item.iconBegin}
-                                        handleOnClick={() => handleClickItem(item)}
-                                        customMenu={customMenu}
-                                        style={{
-                                            paddingRight: '10px',
-                                            paddingLeft: '10px',
-                                            height: '100%',
-                                            flexDirection: 'inherit'
-                                        }}
-                                    />
-                                ))}
-                                {/* {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
-                  <LanguagesDropdown
-                    variant="LXP"
-                    languages={[...languages]}
-                    selected={languageSelected}
-                    onSelect={(e) => onChangeLanguage(e)}
-                    distanceBtnDrop={'57px'}
-                  />
-                )} */}
-                            </S.WrapperRightInfo>
-                        </S.MenuContainer>
-                        {SubMenu && SubMenu.length > 0 && (
-                            <S.SubMenuContainer
-                                $variant={variant}
-                                $marginTop={marginTopSubMenu}
-                                style={{
-                                    paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
-                                    paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
-                                    ...style
-                                }}
-                            >
-                                {SubMenu.map((item, index) => {
-                                    return (
-                                        <ItemGlobalMenu
-                                            label={item.label}
-                                            key={item.id ? item.id : index}
-                                            variant="LXP"
-                                            type="submenu"
-                                            handleOnClick={() => item.onClick('tes')}
-                                            style={{ paddingRight: '10px', paddingLeft: '10px' }}
-                                        />
-                                    )
-                                })}
-                            </S.SubMenuContainer>
-                        )}
-                    </div>
-                    {openNotificationMobile && windowSize[0] < 700 ? (
-                        <NotificationPopOver
-                            handleClickMarkRead={notification.handleClickMarkRead}
-                            isOpen={openNotificationMobile}
-                            anchor={anchorNotification}
-                            textEmptyState={notification.textEmptyState}
-                            notificationList={updatedNotificationList}
-                            textMarkAllAsRead={notification.textMarkAllAsRead}
-                            textNotification={notification.textNotification}
-                            isMobile={true}
-                            setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                            textBack={notification.textBack}
-                            handleClickBack={() => handleCloseNotification()}
-                            textDeleteAll={notification.textDeleteAll}
-                            handleClickDeleteAll={notification.handleClickDeleteAll}
-                            isLoading={notification?.isLoading}
-                        />
-                    ) : null}
-                </>
-            ) : variant === 'default' ? (
-                <>
-                    <MenuMobile
-                        onClickExit={onClickExit}
-                        languageSelected={languageSelected}
-                        variant={'default'}
-                        items={menu}
-                        isVisible={isVisibleMenuMobile}
-                        setVisible={(e) => setIsVisibleMenuMobile(e)}
-                        onClickSite={onClickSite}
-                        onClickLinkedin={onClickLinkedin}
-                        onClickInstagram={onClickInstagram}
-                        onClickYoutube={onClickYoutube}
-                        onClickSpotify={onClickSpotify}
-                        onClickPodCast={onClickPodCast}
-                        customMenu={customMenu}
-                    />
-                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                        <S.MenuContainer
-                            $variant={variant}
-                            style={{
-                                paddingRight:
-                                    windowSize[0] > 1400
-                                        ? '70px'
-                                        : windowSize[0] > 1199
-                                        ? '50px'
-                                        : windowSize[0] < 500
-                                        ? '10px'
-                                        : '35px',
-                                paddingLeft:
-                                    windowSize[0] > 1400
-                                        ? '170px'
-                                        : windowSize[0] > 1199
-                                        ? '145px'
-                                        : windowSize[0] < 500
-                                        ? '10px'
-                                        : '35px',
-                                ...style
-                            }}
-                        >
-                            {isMobileVersion && (
-                                <S.HamburgerButton style={{ marginLeft: 0 }} onClick={() => onClickMenuHamburger()}>
-                                    <IconHamburgerMenu />
-                                </S.HamburgerButton>
-                            )}
-                            {isTabletVersion && (
-                                <S.HamburgerButton onClick={() => onClickMenuHamburger()}>
-                                    <IconHamburgerMenu />
-                                </S.HamburgerButton>
-                            )}
-                            {!isMobileVersion && !isTabletVersion && (
-                                <S.WrapperLogo onClick={() => onClickLogo()}>
-                                {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />}
-                                </S.WrapperLogo>
-                            )}
-                            {showLogo && (
-                                <S.WrapperLogo onClick={() => onClickLogo()} style={{ marginRight: '0px' }}>
-                                  {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" fill={FRSTTheme['colors'].primary1} />} 
-                                </S.WrapperLogo>
-                            )}
-                            <S.WrapperMenu
-                                style={{
-                                    height: '100%',
-                                    alignItems: 'center',
-                                    justifyContent: InputField ? 'center' : undefined
-                                }}
-                            >
-                                {!isMobileVersion &&
-                                    !isTabletVersion &&
-                                    showSearchField &&
-                                    (InputField ? (
-                                        <InputField />
-                                    ) : (
-                                        <FieldSearch
-                                            variant="LXP"
-                                            value={valueSearch}
-                                            onFilter={search.onFilter}
-                                            onChange={(e) => handleChangeValueSearch(e.target.value)}
-                                            placeholder={search.label}
-                                            loading={loadingSearch}
-                                            textLoading={search.textLoading}
-                                            fieldSearchIsOpen={controlExpandedSearchMobile}
-                                            setFieldSearchIsOpen={setControlExpandedSearchMobile}
-                                            isLabeledResult={search.isLabeledResult}
-                                            listResults={search.isLabeledResult ? null : valueListSearch}
-                                            labeledResultList={search.isLabeledResult ? valueListSearch : null}
-                                            historicResults={search.historicResults}
-                                            isMobileVersion={isMobileVersion}
-                                            hasOptionSeeAll={search.hasOptionSeeAll}
-                                            seeAll={search.seeAll}
-                                            style={{
-                                                width: isMobileVersion ? '190px' : '332px'
-                                            }}
-                                        />
-                                    ))}
-                            </S.WrapperMenu>
-
-                            <S.WrapperRightInfo>
-                                {isMobileVersion &&
-                                    (InputField ? (
-                                        <InputField />
-                                    ) : (
-                                        <FieldSearch
-                                            variant="LXP"
-                                            value={valueSearch}
-                                            onFilter={search.onFilter}
-                                            onChange={(e) => handleChangeValueSearch(e.target.value)}
-                                            placeholder={search.label}
-                                            loading={loadingSearch}
-                                            textLoading={search.textLoading}
-                                            fieldSearchIsOpen={controlExpandedSearchMobile}
-                                            setFieldSearchIsOpen={setControlExpandedSearchMobile}
-                                            isLabeledResult={search.isLabeledResult}
-                                            listResults={search.isLabeledResult ? null : valueListSearch}
-                                            labeledResultList={search.isLabeledResult ? valueListSearch : null}
-                                            historicResults={search.historicResults}
-                                            isMobileVersion={isMobileVersion}
-                                            hasOptionSeeAll={search.hasOptionSeeAll}
-                                            seeAll={search.seeAll}
-                                            style={{
-                                                width: isMobileVersion ? '180px' : '332px',
-                                                marginLeft: controlExpandedSearchMobile ? '-15px' : '-30px'
-                                            }}
-                                        />
-                                    ))}
-                                {isTabletVersion &&
-                                    (InputField ? (
-                                        <InputField />
-                                    ) : (
-                                        <FieldSearch
-                                            variant="LXP"
-                                            value={valueSearch}
-                                            onFilter={search.onFilter}
-                                            onChange={(e) => handleChangeValueSearch(e.target.value)}
-                                            placeholder={search.label}
-                                            loading={loadingSearch}
-                                            textLoading={search.textLoading}
-                                            fieldSearchIsOpen={controlExpandedSearchMobile}
-                                            setFieldSearchIsOpen={setControlExpandedSearchMobile}
-                                            isLabeledResult={search.isLabeledResult}
-                                            listResults={search.isLabeledResult ? null : valueListSearch}
-                                            labeledResultList={search.isLabeledResult ? valueListSearch : null}
-                                            historicResults={search.historicResults}
-                                            isMobileVersion={isMobileVersion}
-                                            hasOptionSeeAll={search.hasOptionSeeAll}
-                                            seeAll={search.seeAll}
-                                            style={{
-                                                width: isMobileVersion ? '180px' : '332px',
-                                                marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                            }}
-                                        />
-                                    ))}
-                                {!isMobileVersion && !isTabletVersion && notification && !hideNotification && (
-                                    <>
-                                        {customMenu?.map((item, index) => (
-                                            <ItemGlobalMenu
-                                                label={isMobileVersion ? '' : item.label}
-                                                key={item.id ? item.id : index}
-                                                variant="LXP"
-                                                type="menu"
-                                                pressed={item.id === SelectedItem || item.active}
-                                                icon={item.iconBegin}
-                                                handleOnClick={() => handleClickItem(item)}
-                                                customMenu={customMenu}
-                                                style={{
-                                                    paddingRight: '10px',
-                                                    paddingLeft: '10px',
-                                                    height: '100%',
-                                                    flexDirection: 'inherit'
-                                                }}
-                                            />
-                                        ))}
-
-                                        <S.WrapperIconNotification onClick={onClickNotification}>
-                                            <span
-                                                style={{
-                                                    display: 'flex',
-                                                    alignItems: 'center'
-                                                }}
-                                                onClick={handleOpenNotification}
-                                            >
-                                                <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
-                                                {hasNewNotification ? (
-                                                    <div style={{ position: 'relative', bottom: '5px', right: '10px' }}>
-                                                        <HasNotificationIcon />
-                                                    </div>
-                                                ) : null}{' '}
-                                                <S.WrapperIconNotificationText>
-                                                    {textNotification}
-                                                </S.WrapperIconNotificationText>
-                                            </span>
-                                            <NotificationPopOver
-                                                handleClickMarkRead={notification.handleClickMarkRead}
-                                                isOpen={openNotification}
-                                                anchor={anchorNotification}
-                                                textEmptyState={notification.textEmptyState}
-                                                notificationList={updatedNotificationList}
-                                                textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                textNotification={notification.textNotification}
-                                                isMobile={false}
-                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                textBack={notification.textBack}
-                                                handleClickBack={() => handleCloseNotification()}
-                                                textDeleteAll={notification.textDeleteAll}
-                                                handleClickDeleteAll={notification.handleClickDeleteAll}
-                                                isLoading={notification?.isLoading}
-                                            />
-                                        </S.WrapperIconNotification>
-                                    </>
-                                )}
-                                {isMobileVersion && notification && !hideNotification && (
-                                    <S.WrapperIconNotificationMobile
-                                        onClick={onClickNotification}
-                                        style={{
-                                            borderBottom:
-                                                openNotificationMobile && windowSize[0] <= 650
-                                                    ? `4px solid ${FRSTTheme['colors'].primary1}`
-                                                    : '',
-                                            height: windowSize[0] <= 650 ? '100%' : 'auto'
-                                        }}
-                                    >
-                                        <span
-                                            style={{
-                                                display: 'inline-flex',
-                                                justifyContent: 'flex-start',
-                                                alignItems: 'center'
-                                            }}
-                                        >
-                                            <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                                            {hasNewNotification ? (
-                                                <div style={{ marginLeft: '-12px' }}>
-                                                    {' '}
-                                                    <HasNotificationIcon />{' '}
-                                                </div>
-                                            ) : null}
+                                            <S.WrapperIconNotificationText>
+                                                {textNotification}
+                                            </S.WrapperIconNotificationText>
                                         </span>
-                                        {windowSize[0] > 700 ? (
-                                            <NotificationPopOver
-                                                handleClickMarkRead={notification.handleClickMarkRead}
-                                                isOpen={openNotificationMobile}
-                                                anchor={anchorNotification}
-                                                textEmptyState={notification.textEmptyState}
-                                                notificationList={updatedNotificationList}
-                                                textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                textNotification={notification.textNotification}
-                                                isMobile={false}
-                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                textBack={notification.textBack}
-                                                handleClickBack={() => handleCloseNotification()}
-                                                textDeleteAll={notification.textDeleteAll}
-                                                handleClickDeleteAll={notification.handleClickDeleteAll}
-                                                isLoading={notification?.isLoading}
-                                            />
-                                        ) : null}
-                                    </S.WrapperIconNotificationMobile>
-                                )}
-                                {isTabletVersion && notification && !hideNotification && (
-                                    <S.WrapperIconNotificationMobile
-                                        onClick={onClickNotification}
+                                        <NotificationPopOver
+                                            handleClickMarkRead={notification.handleClickMarkRead}
+                                            isOpen={openNotification}
+                                            anchor={anchorNotification}
+                                            textEmptyState={notification.textEmptyState}
+                                            notificationList={updatedNotificationList}
+                                            textMarkAllAsRead={notification.textMarkAllAsRead}
+                                            textNotification={notification.textNotification}
+                                            isMobile={false}
+                                            setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                            textBack={notification.textBack}
+                                            handleClickBack={() => handleCloseNotification()}
+                                            textDeleteAll={notification.textDeleteAll}
+                                            handleClickDeleteAll={notification.handleClickDeleteAll}
+                                            isLoading={notification?.isLoading}
+                                        />
+                                    </S.WrapperIconNotification>
+                                </>
+                            )}
+                            {isCompact && notification && !hideNotification && (
+                                <S.WrapperIconNotificationMobile onClick={onClickNotification}>
+                                    <span
                                         style={{
-                                            borderBottom:
-                                                openNotificationMobile && windowSize[0] <= 650
-                                                    ? `4px solid ${FRSTTheme['colors'].primary1}`
-                                                    : '',
-                                            height: windowSize[0] <= 650 ? '100%' : 'auto'
+                                            display: 'inline-flex',
+                                            justifyContent: 'flex-start',
+                                            alignItems: 'center'
                                         }}
                                     >
-                                        <span
-                                            style={{
-                                                display: 'inline-flex',
-                                                justifyContent: 'flex-start',
-                                                alignItems: 'center'
-                                            }}
-                                        >
-                                            <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                                            {hasNewNotification ? (
-                                                <div style={{ marginLeft: '-12px' }}>
-                                                    {' '}
-                                                    <HasNotificationIcon />{' '}
-                                                </div>
-                                            ) : null}
-                                        </span>
-                                        {windowSize[0] > 700 ? (
-                                            <NotificationPopOver
-                                                handleClickMarkRead={notification.handleClickMarkRead}
-                                                isOpen={openNotificationMobile}
-                                                anchor={anchorNotification}
-                                                textEmptyState={notification.textEmptyState}
-                                                notificationList={updatedNotificationList}
-                                                textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                textNotification={notification.textNotification}
-                                                isMobile={false}
-                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                textBack={notification.textBack}
-                                                handleClickBack={() => handleCloseNotification()}
-                                                textDeleteAll={notification.textDeleteAll}
-                                                handleClickDeleteAll={notification.handleClickDeleteAll}
-                                                isLoading={notification?.isLoading}
-                                            />
+                                        <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
+                                        {hasNewNotification ? (
+                                            <div style={{ marginLeft: '-12px' }}>
+                                                <HasNotificationIcon />
+                                            </div>
                                         ) : null}
-                                    </S.WrapperIconNotificationMobile>
-                                )}
-                                <DropdownProfileMenu
-                                    variant="LXP"
-                                    user={user}
-                                    profileMenuText={profileMenuText}
-                                    handleProfileMenuClick={onClickProfileMenuText}
-                                    menuItems={user && user.menuItems}
-                                    isMobileVersion={isMobileVersion}
-                                    hiddenProfileMenu={hiddenProfileMenu}
-                                    showProfile={showProfile}
-                                    style={{
-                                        marginLeft: isMobileVersion ? '0px' : '5px',
-                                        marginRight: isMobileVersion ? '0px' : '5px'
-                                    }}
-                                />
-                                {showNavigation && (
-                                    <S.Navigation onClick={onClickNavigation}>
-                                        {<HandWave />}
-                                        <S.TextNotification>Ajuda</S.TextNotification>
-                                    </S.Navigation>
-                                )}
-                                {showHelp && (
-                                    <S.Help
-                                        onClick={onClickHelp}
-                                        onMouseEnter={() => setShowTooltipHelp(true)}
-                                        onMouseLeave={() => setShowTooltipHelp(false)}
-                                    >
-                                        {<HelpIcon />}
-                                        <S.TextNotification>Suporte</S.TextNotification>
-                                    </S.Help>
-                                )}
-
-                                {showTooltipHelp && (
-                                    <div id="cardAjuda" style={{ position: 'relative' }}>
-                                        <S.TolltipTopbar>
-                                            Clique aqui para tirar suas dúvidas com o nosso suporte.
-                                        </S.TolltipTopbar>
-                                    </div>
-                                )}
-
-                                {/* {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
-                  <LanguagesDropdown
-                    variant="LXP"
-                    languages={[...languages]}
-                    selected={languageSelected}
-                    onSelect={(e) => onChangeLanguage(e)}
-                    distanceBtnDrop={'57px'}
-                  />
-                )} */}
-                            </S.WrapperRightInfo>
-                        </S.MenuContainer>
-                    </div>
-                    {openNotificationMobile && windowSize[0] <= 700 ? (
-                        <NotificationPopOver
-                            handleClickMarkRead={notification.handleClickMarkRead}
-                            isOpen={openNotificationMobile}
-                            anchor={anchorNotification}
-                            textEmptyState={notification.textEmptyState}
-                            notificationList={updatedNotificationList}
-                            textMarkAllAsRead={notification.textMarkAllAsRead}
-                            textNotification={notification.textNotification}
-                            isMobile={true}
-                            setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                            textBack={notification.textBack}
-                            handleClickBack={() => handleCloseNotification()}
-                            textDeleteAll={notification.textDeleteAll}
-                            handleClickDeleteAll={notification.handleClickDeleteAll}
-                            isLoading={notification?.isLoading}
-                        />
-                    ) : null}
-                </>
-            ) : (
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', ...style }}>
-                    <S.MenuContainer $variant={variant} style={{ ...style, display: 'none' }}>
-                        <S.WrapperLogo onClick={() => onClickLogo()}>
-                            {FrstIconFormatted ? FrstIconFormatted : <FRSTLogo height="28" />}
-                        </S.WrapperLogo>
-                        <S.WrapperMenu>
-                            {menu &&
-                                menu.length > 0 &&
-                                menu.map((item, index) => {
-                                    return (
-                                        <ItemGlobalMenu
-                                            label={item.label}
-                                            key={item.id ? item.id : index}
-                                            variant="default"
-                                            type="menu"
-                                            handleOnClick={() => item.onClick('tes')}
-                                            style={{ paddingRight: '10px', paddingLeft: '10px' }}
-                                        />
-                                    )
-                                })}
-                        </S.WrapperMenu>
-                        <S.WrapperRightInfo>
+                                    </span>
+                                </S.WrapperIconNotificationMobile>
+                            )}
                             <DropdownProfileMenu
-                                variant="default"
+                                variant="LXP"
                                 user={user}
-                                menuItems={user && user.menuItems}
-                                isMobileVersion={isMobileVersion}
-                                hiddenProfileMenu={hiddenProfileMenu}
                                 profileMenuText={profileMenuText}
                                 handleProfileMenuClick={onClickProfileMenuText}
+                                menuItems={user && user.menuItems}
+                                isMobileVersion={isCompact}
+                                hiddenProfileMenu={hiddenProfileMenu}
                                 showProfile={showProfile}
+                                style={{
+                                    marginLeft: isCompact ? '0px' : '5px',
+                                    marginRight: isCompact ? '0px' : '5px'
+                                }}
                             />
+                            {showNavigation && (
+                                <S.Navigation onClick={onClickNavigation}>
+                                    <HandWave />
+                                    <S.TextNotification>Ajuda</S.TextNotification>
+                                </S.Navigation>
+                            )}
+                            {showHelp && (
+                                <S.Help
+                                    onClick={onClickHelp}
+                                    onMouseEnter={() => setShowTooltipHelp(true)}
+                                    onMouseLeave={() => setShowTooltipHelp(false)}
+                                >
+                                    <HelpIcon />
+                                    {!isCompact && <S.TextNotification>Suporte</S.TextNotification>}
+                                </S.Help>
+                            )}
+                            {showTooltipHelp && (
+                                <div id="cardAjuda" style={{ position: 'relative' }}>
+                                    <S.TolltipTopbar>
+                                        Clique aqui para tirar suas dúvidas com o nosso suporte.
+                                    </S.TolltipTopbar>
+                                </div>
+                            )}
                         </S.WrapperRightInfo>
-                        {/* {languages && languages.length > 0 && (
-              <LanguagesDropdown
-                variant="default"
-                languages={[...languages]}
-                selected={languageSelected}
-                onSelect={(e) => onChangeLanguage(e)}
-                distanceBtnDrop={'45px'}
-              />
-            )} */}
+                        </S.MenuInner>
                     </S.MenuContainer>
+
+                    {SubMenu && SubMenu.length > 0 && (
+                        <S.SubMenuContainer
+                            $variant="default"
+                            $marginTop={marginTopSubMenu}
+                            style={style}
+                        >
+                            <S.MenuInner>
+                            {SubMenu.map((item, index) => (
+                                <ItemGlobalMenu
+                                    label={item.label}
+                                    key={item.id ? item.id : index}
+                                    variant="LXP"
+                                    type="submenu"
+                                    handleOnClick={() => item.onClick('tes')}
+                                    style={{ paddingRight: '10px', paddingLeft: '10px' }}
+                                />
+                            ))}
+                            </S.MenuInner>
+                        </S.SubMenuContainer>
+                    )}
                 </div>
-            )}
+                {isCompact && openNotificationMobile && notification && (
+                    <NotificationPopOver
+                        handleClickMarkRead={notification.handleClickMarkRead}
+                        isOpen={openNotificationMobile}
+                        anchor={anchorNotification}
+                        textEmptyState={notification.textEmptyState}
+                        notificationList={updatedNotificationList}
+                        textMarkAllAsRead={notification.textMarkAllAsRead}
+                        textNotification={notification.textNotification}
+                        isMobile={true}
+                        setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                        textBack={notification.textBack}
+                        handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
+                        isLoading={notification?.isLoading}
+                    />
+                )}
+            </>
         </ThemeProvider>
     )
 }
