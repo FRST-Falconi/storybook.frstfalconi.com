@@ -35,6 +35,7 @@ export const WrapperLogo = styled.div`
     cursor: pointer;
     position: relative;
     top: 3px;
+    margin-left: 140px;
 `
 export const HamburgerButton = styled.div`
     cursor: pointer;

@@ -13698,6 +13698,7 @@ const WrapperLogo = styled__default["default"].div `
     cursor: pointer;
     position: relative;
     top: 3px;
+    margin-left: 140px;
 `;
 const HamburgerButton = styled__default["default"].div `
     cursor: pointer;
@@ -14858,7 +14859,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
         else
             setSubMenu([]);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: variant || 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx(MenuContainer, { "$variant": "default", style: style, children: jsxRuntime.jsxs(MenuInner, { children: [isCompact ? (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 100 }, onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })) : (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: FrstIconFormatted ? FrstIconFormatted : jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: variant || 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx(MenuContainer, { "$variant": "default", style: style, children: jsxRuntime.jsxs(MenuInner, { children: [isCompact ? (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 120 }, onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })) : (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: FrstIconFormatted ? FrstIconFormatted : jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: {
                                             height: '100%',
                                             alignItems: 'center',
                                             justifyContent: InputField ? 'center' : undefined

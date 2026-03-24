@@ -167,7 +167,7 @@ export default function GlobalMenu({
                     >
                         <S.MenuInner>
                         {isCompact ? (
-                            <S.HamburgerButton style={{ marginLeft: 100 }} onClick={() => onClickMenuHamburger()}>
+                            <S.HamburgerButton style={{ marginLeft: 120 }} onClick={() => onClickMenuHamburger()}>
                                 <IconHamburgerMenu />
                             </S.HamburgerButton>
                         ) : (
