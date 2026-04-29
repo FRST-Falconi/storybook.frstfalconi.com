@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 export default function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick, id, style, border}: IAvatar) {
 
   const [isImage, setIsImage] = useState(!!src); 
-  const defaultImg = 'https://cdn-images.frstfalconi.cloud/path582.svg';
+  const defaultImg = 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg';
 
   useEffect(() =>{
     setIsImage(!!src)

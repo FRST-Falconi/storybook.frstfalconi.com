@@ -32,7 +32,7 @@ normal.args = {
                 marginTop: '32px'
             }}
         >
-            <img src="https://cdn-images.frstfalconi.cloud/dowload.png" />
+            <img src="https://lxp-cdn.frstfalconi.cloud/STORYBOOK/dowload.png" />
             <p style={{ marginTop: '32px', fontFamily: 'PT Sans', fontSize: '18px', color: '#222', fontWeight: 700 }}>
                 Arquivo enviado! Verifique sua caixa de entrada.
             </p>

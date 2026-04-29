@@ -11,7 +11,7 @@ export const ModalContainer = styled.div`
     left: 50%;
     background-color: white;
     transform: translate(-50%, -50%);
-    background-image: url('https://cdn-images.frstfalconi.cloud/fundo_laranja.png');
+    background-image: url('https://lxp-cdn.frstfalconi.cloud/STORYBOOK/fundo_laranja.png');
     background-repeat: no-repeat;
     background-position: top -554px right -126px;
 `

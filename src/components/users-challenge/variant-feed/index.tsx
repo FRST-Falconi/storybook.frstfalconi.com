@@ -60,7 +60,7 @@ export default function UsersChallengeFeed({
                         <Avatar
                             sx={{ width: 56, height: 56, cursor: 'pointer' }}
                             className={'avatar-image-only-owner'}
-                            src={avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                            src={avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                             onClick={() => onClickAvatar(userId)}
                         />
                     </Box>
@@ -98,7 +98,7 @@ export default function UsersChallengeFeed({
                                     alt={user.name}
                                     sx={{ width: 48, height: 48 }}
                                     className={user.author ? 'avatar-image-owner' : 'avatar-image-user'}
-                                    src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                                    src={user.avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                                     onClick={() => onClickAvatar(user.user_uuid)}
                                 />
                                 {user.author && (

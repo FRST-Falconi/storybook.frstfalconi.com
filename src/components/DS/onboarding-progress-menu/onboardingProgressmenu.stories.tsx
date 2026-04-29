@@ -13,7 +13,7 @@ normal.args = {
     level:{
         id:1,
         name: 'Iniciante',
-        avatar: 'https://cdn-images.frstfalconi.cloud/top01%201.png'
+        avatar: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/top01%201.png'
     },
     countChallenge: 0,
     textChallenge: 'desafios finalizados',

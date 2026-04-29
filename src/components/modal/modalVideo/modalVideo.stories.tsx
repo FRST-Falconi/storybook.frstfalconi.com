@@ -21,7 +21,7 @@ ModalDefaultVideo.args = {
   title: 'Cultura da Inovação',
   style: { textAlign: 'center', padding: 20 },
   language: 'en-US',
-  videoUrl: 'https://cdn-images.frstfalconi.cloud/aula_14__ciclos_de_aprendizagem%20(240p).mp4'
+  videoUrl: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/aula_14__ciclos_de_aprendizagem%20%28240p%29.mp4'
 }
 
 export const ModalVideoRating = Template.bind({})

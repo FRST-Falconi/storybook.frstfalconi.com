@@ -31,7 +31,7 @@ ModalNewFeaturesNormal.args = {
       title: 'titulo do topico 2',
       topicName: 'Topico 2',
       midia:
-        'https://cdn-images.frstfalconi.cloud/page_perfile.png',
+        'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/page_perfile.png',
       description:
         <p>Lorem ipsum dolor <a href="https://www.google.com" style={{color:"black", fontWeight:"bold", textDecoration:"none"}}>link</a></p>
     },
@@ -62,7 +62,7 @@ ModalNewFeaturesNormal.args = {
       title:
         'titulo do topico 6 titulo do topico 6 titulo do topico 6 titulo do topico 6 titulo do topico 6 titulo do topico 6',
       topicName: 'Topico 6',
-      midia: 'https://cdn-images.frstfalconi.cloud/CfFj.gif',
+      midia: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/CfFj.gif',
       description:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumqtaque pariatur  cumque dolores ullam ea at modi recusandae! cumque dolores ullam ea at modi recusandae!'
     }

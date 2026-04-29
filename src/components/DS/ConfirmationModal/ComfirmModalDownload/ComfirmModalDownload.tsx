@@ -26,7 +26,7 @@ export const ComfirmModalDownload = ({ emailUser, handleCloseModal, open }: Moda
                         marginTop: '32px'
                     }}
                 >
-                    <img src="https://cdn-images.frstfalconi.cloud/dowload.png" />
+                    <img src="https://lxp-cdn.frstfalconi.cloud/STORYBOOK/dowload.png" />
                     <p
                         style={{
                             marginTop: '32px',

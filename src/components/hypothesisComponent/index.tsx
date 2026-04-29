@@ -236,7 +236,7 @@ export const HypothesisComponent = ({
                         {votes?.slice(0, 2)?.map((vote, index) => {
                           return (
                             <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
-                              <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                              <img src={vote?.user?.avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'} />
                             </Styles.ImageContent>
                           )
                         })}
@@ -302,7 +302,7 @@ export const HypothesisComponent = ({
                         {votes?.slice(0, 2)?.map((vote, index) => {
                           return (
                             <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
-                              <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                              <img src={vote?.user?.avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'} />
                             </Styles.ImageContent>
                           )
                         })}
@@ -453,7 +453,7 @@ const ViewVotes = ({ hypothesisVotes, votesPluralText, votesSingularText }) => {
             {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
               return (
                 <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
-                  <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                  <img src={vote?.user?.avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'} />
                 </Styles.ImageContent>
               )
             })}

@@ -32,7 +32,7 @@ export default function UsersChallengeLXP({
                         <Avatar
                             sx={{ width: 56, height: 56, cursor: 'pointer' }}
                             className={'avatar-image-only-owner'}
-                            src={avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                            src={avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                             onClick={() => onClickAvatar(userId)}
                         />
                     </Box>
@@ -67,7 +67,7 @@ export default function UsersChallengeLXP({
                                     alt={user.name}
                                     sx={{ width: 40, height: 40 }}
                                     className={user.author ? 'avatar-image-owner' : 'avatar-image-user'}
-                                    src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                                    src={user.avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                                     onClick={() => onClickAvatar(user.user_uuid)}
                                 />
                             </Box>
