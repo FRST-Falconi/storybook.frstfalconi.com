@@ -4043,7 +4043,7 @@ export function FaseCincoDesafio() {
 }
 
 export function FaseFinalizadaDesafio() {
-    const faseFinalizada = 'https://cdn-images.frstfalconi.cloud/hall/bandeira-finalizado.svg'
+    const faseFinalizada = 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/bandeira-finalizado.svg'
     return (
         <img
             style={{
@@ -4182,7 +4182,7 @@ export function LampHelpBoxInput({ fill, width, height }: IconsProps) {
 }
 
 export function FaseFinalizada() {
-    const faseFinalizada = 'https://cdn-images.frstfalconi.cloud/hall/bandeira-finalizado.svg'
+    const faseFinalizada = 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/bandeira-finalizado.svg'
     return (
         <img
             style={{

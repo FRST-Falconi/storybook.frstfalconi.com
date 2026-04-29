@@ -23,7 +23,7 @@ export default function ModalShowUsers({ isOpen, handleClose, goalUsers = [], on
                 <Box display={'flex'} flexDirection={'column'} marginTop={'9px'} width={"100%"}>
                   <Box display={'flex'} alignItems={'center'} gap={'9px'}>
                     <Avatar
-                      src={user.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                      src={user.avatar || 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                       sx={{ width: 48, height: 48, marginBottom: '10px', cursor: 'pointer' }}
                       onClick={() => onClickAvatar(user.user_uuid)}
                     />

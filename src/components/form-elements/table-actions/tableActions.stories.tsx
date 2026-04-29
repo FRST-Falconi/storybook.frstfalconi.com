@@ -42,7 +42,7 @@ Normal.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '12/04/24',
                 'not_completed'
@@ -86,7 +86,7 @@ Normal.args = {
         {
             id: 6,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-6' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-6' },
                 'Fazer teste de usabilidade com 5 usuários',
                 '08/07/24',
                 'completed'
@@ -131,7 +131,7 @@ NormalOldVersion.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '12/04/24',
                 'not_completed'
@@ -175,7 +175,7 @@ NormalOldVersion.args = {
         {
             id: 6,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-6' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-6' },
                 'Fazer teste de usabilidade com 5 usuários',
                 '08/07/24',
                 'completed'
@@ -226,7 +226,7 @@ NormalResume.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '',
                 'not_completed'
@@ -260,7 +260,7 @@ NormalResume.args = {
         {
             id: 6,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-6' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-6' },
                 'Fazer teste de usabilidade com 5 usuários',
                 '',
                 'completed'
@@ -341,7 +341,7 @@ Message.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '12/04/24',
                 'not_completed'
@@ -387,7 +387,7 @@ Message.args = {
         {
             id: 6,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-6' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-6' },
                 'Fazer teste de usabilidade com 5 usuários',
                 '08/07/24',
                 'completed'
@@ -508,7 +508,7 @@ FotterAddAction.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '12/04/24',
                 'not_completed'
@@ -552,7 +552,7 @@ FotterAddAction.args = {
         {
             id: 6,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-6' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-6' },
                 'Fazer teste de usabilidade com 5 usuários',
                 '08/07/24',
                 'completed'
@@ -611,7 +611,7 @@ HiddeFotterAddActionExpandId.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '12/04/24',
                 'not_completed'
@@ -655,7 +655,7 @@ HiddeFotterAddActionExpandId.args = {
         {
             id: '6',
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-6' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-6' },
                 'Fazer teste de usabilidade com 5 usuários',
                 '08/07/24',
                 'completed'
@@ -713,7 +713,7 @@ EmptyStateChildren.args = {
         {
             id: 2,
             value: [
-                { src: 'https://cdn-images.frstfalconi.cloud/path582.svg', id: 'id-avatar-2' },
+                { src: 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg', id: 'id-avatar-2' },
                 'Implementar gamificação na plataforma',
                 '12/04/24',
                 'completed'

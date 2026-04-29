@@ -51,12 +51,12 @@ export default function CardFaseDesafios(props: CardFaseDesafiosProps) {
       </S.DescriptionContainer>
       <S.HypothesysAndActions>
         <Box className="items">
-          <img src="https://cdn-images.frstfalconi.cloud/hyphoteses.svg" alt="" />
+          <img src="https://lxp-cdn.frstfalconi.cloud/STORYBOOK/hyphoteses.svg" alt="" />
           <p className="text-items">Hipóteses</p>
           <p className="number-items">{props.Hypotheshis ? props.Hypotheshis : 0}</p>
         </Box>
         <Box className="items">
-          <img src="https://cdn-images.frstfalconi.cloud/action.svg" alt="" />
+          <img src="https://lxp-cdn.frstfalconi.cloud/STORYBOOK/action.svg" alt="" />
           <p className="text-items">Ações</p>
           <p className="number-items">{props.Actions ? props.Actions : 0}</p>
         </Box>

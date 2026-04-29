@@ -34,7 +34,7 @@ export default function CollaboratorAvatar({
                     >
                         <Avatar
                             size="32px"
-                            src={src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                            src={src ? src : 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                             isActiveClick={!!(onPressAvatar && uuid)}
                             style={{
                                 display: 'flex',
@@ -50,7 +50,7 @@ export default function CollaboratorAvatar({
             ) : (
                 <Avatar
                     size="32px"
-                    src={src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg'}
+                    src={src ? src : 'https://lxp-cdn.frstfalconi.cloud/STORYBOOK/path582.svg'}
                     onClick={null}
                     isActiveClick={!!(onPressAvatar && uuid)}
                 />
