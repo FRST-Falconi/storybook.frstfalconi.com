@@ -276,6 +276,81 @@ export const TextNotification = styled.p`
 `
 
 
+export const LanguageSelectorWrapper = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+`
+
+export const LanguageTrigger = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 9px;
+    color: #fff;
+    font-family: 'PT Sans';
+    font-size: 15px;
+    white-space: nowrap;
+
+    :hover {
+        background: #3a3a3a;
+    }
+`
+
+export const LanguageDropdown = styled.div<{ $isOpen: boolean }>`
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    background: #323232;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.35);
+    z-index: 9999;
+    overflow: hidden;
+    padding: 4px 0;
+`
+
+export const LanguageOption = styled.div<{ $isSelected: boolean }>`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family: 'PT Sans';
+    font-size: 15px;
+    color: #fff;
+    background: transparent;
+
+    :hover {
+        background: #3a3a3a;
+    }
+`
+
+export const LanguageOptionDot = styled.div<{ $isSelected: boolean }>`
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid ${({ $isSelected }) => ($isSelected ? '#D1D1D1' : '#8B8B8B')};
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+        content: '';
+        display: ${({ $isSelected }) => ($isSelected ? 'block' : 'none')};
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #FF4C00;
+    }
+`
+
 export const TolltipTopbar = styled.div`
   background: #fff;
   border-radius: 4px;

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as S from './globalMenuStyles'
 import { IGlobalMenu } from './globalMenu'
+import { LanguageIcon } from '../../../public/customIcons/LanguageIcon'
 
 import {
     BackArrow,
@@ -77,6 +78,8 @@ export default function GlobalMenu({
     const [hasNewNotification, setHasNewNotification] = useState(false)
     const [updatedNotificationList, setUpdatedNotificationList] = useState([])
     const [showTooltipHelp, setShowTooltipHelp] = useState(false)
+    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false)
+    const languageDropdownRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setHasNewNotification(!!notification?.hasNewNotification)
@@ -109,6 +112,30 @@ export default function GlobalMenu({
         setValueListSearch(search.listEntry)
         setLoadingSearch(search.loading)
     }, [search])
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+                setShowLanguageDropdown(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [])
+
+    const languageLabels: Record<string, string> = {
+        'pt-BR': 'Português (PT-BR)',
+        'pt-PT': 'Português (PT-PT)',
+        'en-US': 'Inglês (EN)',
+        'es': 'Espanhol (ES)'
+    }
+
+    const languageShortLabels: Record<string, string> = {
+        'pt-BR': 'PT-BR',
+        'pt-PT': 'PT-PT',
+        'en-US': 'EN',
+        'es': 'ES'
+    }
 
     const handleChangeValueSearch = (value) => {
         setValueSearch(value)
@@ -319,6 +346,31 @@ export default function GlobalMenu({
                                         Clique aqui para tirar suas dúvidas com o nosso suporte.
                                     </S.TolltipTopbar>
                                 </div>
+                            )}
+                            {languages && languages.length > 0 && (
+                                <S.LanguageSelectorWrapper ref={languageDropdownRef}>
+                                    <S.LanguageTrigger onClick={() => setShowLanguageDropdown((prev) => !prev)}>
+                                        <LanguageIcon fill="#fff" width="20" height="20" />
+                                        {!isCompact && (
+                                            <span>{languageShortLabels[languageSelected] || languageSelected}</span>
+                                        )}
+                                    </S.LanguageTrigger>
+                                    <S.LanguageDropdown $isOpen={showLanguageDropdown}>
+                                        {languages.map((lang) => (
+                                            <S.LanguageOption
+                                                key={lang}
+                                                $isSelected={lang === languageSelected}
+                                                onClick={() => {
+                                                    onChangeLanguage && onChangeLanguage(lang)
+                                                    setShowLanguageDropdown(false)
+                                                }}
+                                            >
+                                                <span>{languageLabels[lang] || lang}</span>
+                                                <S.LanguageOptionDot $isSelected={lang === languageSelected} />
+                                            </S.LanguageOption>
+                                        ))}
+                                    </S.LanguageDropdown>
+                                </S.LanguageSelectorWrapper>
                             )}
                         </S.WrapperRightInfo>
                         </S.MenuInner>
