@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-export const Container = styled.div<{ width?: string; height?: string }>`
-    display:flex;
+export const Container = styled.div<{ width?: string; height?: string; $versionFeed?: boolean }>`
+    display: flex;
+    gap: ${({ $versionFeed }) => ($versionFeed ? '12px' : '0')};
     width: ${({ width }) => width ? width : "100%"};
     height: ${({ height }) => height ? height : "auto"};
 `;
@@ -179,3 +180,118 @@ interface IButton {
     disabled?: boolean
     darkMode?: boolean
 }
+
+export const FeedBody = styled.div`
+    flex: 1;
+`
+
+export const FeedBubble = styled.div`
+    background: ${({ theme }) => theme.colors.neutralsGrey6};
+    border-radius: 16px;
+    border-top-left-radius: 4px;
+    padding: 14px;
+    transition: background-color 0.2s ease;
+    width: 100%;
+
+    &:hover {
+        background: #f5f5f5;
+    }
+`
+
+export const FeedHeader = styled.div`
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 8px;
+`
+
+export const FeedAuthor = styled.p`
+    margin: 0;
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+`
+
+export const FeedTime = styled.p`
+    margin: 2px 0 0;
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 11px;
+    color: ${({ theme }) => theme.colors.neutralsGrey3};
+`
+
+export const FeedRelationText = styled.span`
+    margin: 0 0 6px;
+    font-family: 'PT Sans';
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFFFFF;
+    background-color: #9CA3AF;
+    border-radius: 4px;
+    padding: 2px 8px;
+`
+
+export const LikeBadge = styled.div<{ $primaryColor: string }>`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: ${({ $primaryColor }) => `${$primaryColor}1a`};
+    color: ${({ $primaryColor }) => $primaryColor};
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 12px;
+`
+
+export const FeedText = styled.div`
+    color: ${({ theme }) => theme.colors.neutralsGrey2};
+    font-family: 'PT Sans';
+    font-weight: 400;
+    word-break: break-word;
+    line-height: 1.5;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin: 0;
+`
+
+export const FeedActions = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px;
+    margin-left: 12px;
+    align-items: center;
+
+    & > *:last-child {
+        transform: rotate(90deg);
+    }
+`
+
+export const FeedAction = styled.button<{ $primaryColor: string; $highlight?: boolean }>`
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 12px;
+    color: ${({ theme, $primaryColor, $highlight }) =>
+        $highlight ? $primaryColor : theme.colors.neutralsGrey3};
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: ${({ $primaryColor }) => $primaryColor};
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+`

@@ -15,7 +15,7 @@ Default.args = {
   userOffice: 'Líder de vendas',
   userCompany: 'Frst Falconi',
   imgProfile: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg',
-  commentTextWithMention:'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkllllllllllllllkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkklllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
+  commentTextWithMention:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   commentId: 'commentId-0001',
   commentText:
     "Uow, muito genial isso https://frstfalconi.com/  Uow, muito genial isso https://frstfalconi.com/ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type andUow, muito genial isso https://frstfalconi.com/ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and",
@@ -110,4 +110,51 @@ DarkMode.args = {
   deleteText: 'Excluir',
   limitMessageExceeded: 'Limite de caracteres excedido',
   darkMode: true
+}
+
+export const VersionFeed = Template.bind({})
+
+VersionFeed.args = {
+  ...Default.args,
+  versionFeed: true,
+  primaryColor: '#FF8A15',
+  likes: [
+    { id: '001', user_uuid: '001', user: null },
+    { id: '002', user_uuid: '002', user: null },
+  ],
+  loggedInUser: {
+    avatar: '',
+    id: '001',
+    name: {
+      name: 'Leticia Costa',
+      first_name: 'Leticia',
+      last_name: 'Costa'
+    }
+  },
+  commentUuid: 'comment-uuid-0001',
+  showAnswersButton: true,
+}
+
+export const VersionFeedOtherColor = Template.bind({})
+
+
+VersionFeedOtherColor.args = {
+  ...Default.args,
+  versionFeed: true,
+  primaryColor: '#8b5cf6',
+  likes: [
+    { id: '001', user_uuid: '001', user: null },
+    { id: '002', user_uuid: '002', user: null },
+  ],
+  loggedInUser: {
+    avatar: '',
+    id: '001',
+    name: {
+      name: 'Leticia Costa',
+      first_name: 'Leticia',
+      last_name: 'Costa'
+    }
+  },
+  commentUuid: 'comment-uuid-0001',
+  showAnswersButton: true,
 }
