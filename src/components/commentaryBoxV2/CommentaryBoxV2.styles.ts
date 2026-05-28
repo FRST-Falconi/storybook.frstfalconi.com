@@ -1,4 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const mentionLinkStyles = css<{ $primaryColor?: string }>`
+    a[data-mention-id] {
+        font-weight: bold !important;
+        color: ${({ $primaryColor, theme }) => $primaryColor || theme.colors.primary1} !important;
+        text-decoration: none;
+    }
+`
 
 export const Container = styled.div<{ width?: string; height?: string; $versionFeed?: boolean }>`
     display: flex;
@@ -148,7 +156,7 @@ export const FlexButtonContainer = styled.div<IButton>`
     }
 `
 
-export const Text = styled.div<{darkMode?: boolean}>`
+export const Text = styled.div<{ darkMode?: boolean; $primaryColor?: string }>`
     color: ${({theme, darkMode}) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey2};
     font-family: Work Sans;
     font-weight: 400;
@@ -161,6 +169,8 @@ export const Text = styled.div<{darkMode?: boolean}>`
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     margin: 0;
+
+    ${mentionLinkStyles}
 `
 
 export const TextContainer = styled.div`
@@ -247,7 +257,7 @@ export const LikeBadge = styled.div<{ $primaryColor: string }>`
     font-size: 12px;
 `
 
-export const FeedText = styled.div`
+export const FeedText = styled.div<{ $primaryColor?: string }>`
     color: ${({ theme }) => theme.colors.neutralsGrey2};
     font-family: 'PT Sans';
     font-weight: 400;
@@ -259,6 +269,8 @@ export const FeedText = styled.div`
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     margin: 0;
+
+    ${mentionLinkStyles}
 `
 
 export const FeedActions = styled.div`

@@ -39,4 +39,6 @@ export interface ICommentComentaryBoxReply {
   threadOpenByDefault: boolean
   darkMode?: boolean
   toHideText?: string
+  versionFeed?: boolean
+  primaryColor?: string
 }

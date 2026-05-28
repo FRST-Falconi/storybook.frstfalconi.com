@@ -36,5 +36,6 @@ export interface IInputComment {
   initialText?: string;
   darkMode?: boolean
   showEmojiPicker?: boolean
+  primaryColor?: string
 }
 

@@ -42,7 +42,9 @@ export const ThreadComments = ({
   toHideText,
   hideRepliesText,
   showLikeButton=true,
-  showAnswersButton=true
+  showAnswersButton=true,
+  versionFeed = false,
+  primaryColor = '#FF8A15'
 }: IThreadComments) => {
   const threadOpenByDefault = mainComment?.thread_open
   const [showAnswers, setShowAnswers] = useState(false)
@@ -131,6 +133,8 @@ export const ThreadComments = ({
             isLiked={mainComment?.isLiked}
             totalLikes={mainComment?.totalLikes}
             showAnswersButton={showAnswersButton}
+            versionFeed={versionFeed}
+            primaryColor={primaryColor}
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -209,6 +213,8 @@ export const ThreadComments = ({
                   threadOpenByDefault={!!threadOpenByDefault}
                   darkMode={darkMode}
                   toHideText={toHideText}
+                  versionFeed={versionFeed}
+                  primaryColor={primaryColor}
                 />
               </div>
             ))}

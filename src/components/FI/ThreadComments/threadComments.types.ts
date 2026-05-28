@@ -59,6 +59,8 @@ export interface IThreadComments {
   hideRepliesText?: string
   showLikeButton?: boolean
   showAnswersButton?:boolean
+  versionFeed?: boolean
+  primaryColor?: string
 }
 
 export interface IUser {

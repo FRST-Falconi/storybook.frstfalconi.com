@@ -168,6 +168,7 @@ export const CommentaryBoxV2 = ({
     <Styled.TextContainer id="textContainerId">
       {versionFeed ? (
         <Styled.FeedText
+          $primaryColor={primaryColor}
           style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
           id={iDCommentPosted}
           dangerouslySetInnerHTML={{
@@ -176,6 +177,7 @@ export const CommentaryBoxV2 = ({
         />
       ) : (
         <Styled.Text
+          $primaryColor={primaryColor}
           style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
           id={iDCommentPosted}
           dangerouslySetInnerHTML={{
@@ -327,6 +329,7 @@ export const CommentaryBoxV2 = ({
                 group_uuid={groupUuid}
                 getSearchUsers={getSearchUsers}
                 darkMode={darkMode}
+                primaryColor={primaryColor}
               />
             </Styled.FeedBody>
           ) : (
@@ -345,6 +348,7 @@ export const CommentaryBoxV2 = ({
               group_uuid={groupUuid}
               getSearchUsers={getSearchUsers}
               darkMode={darkMode}
+              primaryColor={primaryColor}
             />
           )
         ) : versionFeed ? (

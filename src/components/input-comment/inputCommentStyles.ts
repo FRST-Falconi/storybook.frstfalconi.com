@@ -21,6 +21,7 @@ interface IEmojiWindow {
 interface TextArea {
     height?: string
     darkMode?: boolean
+    $primaryColor?: string
 }
 
 export const InputWrapper = styled.div<Wrapper>`
@@ -63,7 +64,13 @@ export const InputText = styled.div<TextArea>`
         
     padding: 0;
     margin: 10px 4px 40px 15px;
-    border: none;    
+    border: none;
+
+    a[data-mention-id] {
+        font-weight: bold !important;
+        color: ${({ $primaryColor, theme }) => $primaryColor || theme.colors.primary1} !important;
+        text-decoration: none;
+    }
 `
 export const InputPlaceholder = styled.div<TextArea>`
     width: 100%;

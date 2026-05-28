@@ -74,6 +74,8 @@ const getSearchUsers = async (search: string): Promise<object[]> => {
 }
 
 Default.args = {
+  versionFeed: true,
+  primaryColor: '#8b5cf6',
   mainComment: {
     user: {
       uuid: 'user-0001',
