@@ -2,7 +2,6 @@ import Loading from '@components/DS/loading';
 import Avatar from '@components/avatar';
 import InputComment from '@components/input-comment';
 import { User } from '@components/input-comment/types';
-import MiniButton from '@components/mini-button';
 import { useEffect, useRef, useState } from 'react';
 import * as Styled from './inputReply.styles';
 import { IInputReply } from './inputReply.types';
@@ -20,7 +19,8 @@ export const InputReply = ({
   handleHiddenInput,
   group_uuid,
   limitMessageExceeded,
-  darkMode
+  darkMode,
+  primaryColor = '#FF8A15'
 }: IInputReply) => {
   const [comment, setComment] = useState<string>('');
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('');
@@ -110,13 +110,14 @@ export const InputReply = ({
           showEmojiPicker={darkMode}
         />
 
-        <MiniButton
+        <Styled.PublishButton
+          type="button"
+          $primaryColor={primaryColor}
           disabled={comment.length <= 0 || comment.length > limitInput || isLoading}
-          label={publishButtonText}
           onClick={() => handlePublish()}
-          variant="primary"
-          styles={{ marginLeft: 'auto', marginTop: '14px' }}
-        />
+        >
+          {publishButtonText}
+        </Styled.PublishButton>
         {isLoading && <Loading />}
       </Styled.InputContainer>
     </Styled.Container>

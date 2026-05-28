@@ -13,7 +13,8 @@ export interface IInputReply {    placeHolderText: string,
     parentId?:number,
     handleHiddenInput: (replyId?:string)=> void;
     limitMessageExceeded: string;
-    darkMode?: boolean
+    darkMode?: boolean;
+    primaryColor?: string;
 }
 
 interface onClickPublishButtonParams {

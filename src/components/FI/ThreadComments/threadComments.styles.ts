@@ -20,7 +20,7 @@ flex-direction:column;
 
 export const ViewReplysButtonContainer = styled.div<{darkMode?: boolean}>`
   color: ${({darkMode}) => darkMode ? '#EBEBEB' : '#444444'};
-  font-family: PT Sans;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -34,7 +34,7 @@ export const ViewReplysButtonContainer = styled.div<{darkMode?: boolean}>`
 
   @media screen  and (max-width:768px){
     color: ${({darkMode}) => darkMode ? '#EBEBEB' : '#444444'};
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

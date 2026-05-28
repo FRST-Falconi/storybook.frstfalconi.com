@@ -235,7 +235,7 @@ export const CommentaryBoxV2 = ({
                 tooltip: {
                     sx: {
                         backgroundColor: darkMode ? '#323232' : '#FFFFFF',
-                        fontFamily: 'PT Sans',
+                        fontFamily: 'Poppins, sans-serif',
                         fontWeight: 400,
                         fontSize: '14px',
                         lineHeight: 1.3,
@@ -271,7 +271,7 @@ export const CommentaryBoxV2 = ({
             </Styled.FlexButtonContainer>
           </Tooltip>
           <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444"),
-            fontFamily: 'PT Sans',
+            fontFamily: 'Poppins, sans-serif',
             fontSize: '14px',
             fontWeight: 700
           }}>
@@ -357,7 +357,9 @@ export const CommentaryBoxV2 = ({
               <Styled.FeedHeader>
                 <div>
                   <Styled.FeedAuthor>{userName}</Styled.FeedAuthor>
-                  <Styled.FeedTime>{howLongAgo}</Styled.FeedTime>
+                  <Styled.FeedTime>                
+                    {userOffice && userOffice} {userCompany && `• ${userCompany}`} {howLongAgo && `• ${howLongAgo}`}
+                  </Styled.FeedTime>
                 </div>
                 {likesCount > 0 ? (
                   <Styled.LikeBadge $primaryColor={primaryColor}>

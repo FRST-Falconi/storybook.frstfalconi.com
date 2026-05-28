@@ -36,7 +36,7 @@ export const UserDataContainer = styled.div`
 `
 export const Username = styled.h2<{darkMode?: boolean}>`
     color: ${({theme, darkMode}) => darkMode ? theme.colors.shadeWhite : theme.colors.neutralsGrey1 };
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -52,7 +52,7 @@ export const FirstChildUserData = styled.div`
 export const UserDataLastChild = styled.div<{darkMode?: boolean}>`
     display: flex;
     color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey4 : theme.colors.neutralsGrey3};
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -79,7 +79,7 @@ export const LikesContainer = styled.div`
     align-items: center;
     gap: 4px;
     color: #444;
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -105,7 +105,7 @@ export const RelationContainer = styled.div`
     border-radius: 4px;
     background: #9CA3AF;
     color: #FFFFFF;
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -121,7 +121,7 @@ export const InteractiveButtonsContainer = styled.div`
     margin-left: 40px;
     align-items: center;
     color: #444;
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -158,7 +158,7 @@ export const FlexButtonContainer = styled.div<IButton>`
 
 export const Text = styled.div<{ darkMode?: boolean; $primaryColor?: string }>`
     color: ${({theme, darkMode}) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey2};
-    font-family: Work Sans;
+    font-family: Poppins, sans-serif;
     font-weight: 400;
     word-break: break-word;
     line-height: 140%;
@@ -177,7 +177,7 @@ export const TextContainer = styled.div`
 `
 export const ShowMore = styled.span<{ isVisible: boolean; darkMode?: boolean }>`
     color: ${({ theme, darkMode }) => darkMode ? theme.colors.neutralsGrey5 : theme.colors.neutralsGrey2};
-    font-family: Work Sans;
+    font-family: Poppins, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -218,7 +218,7 @@ export const FeedHeader = styled.div`
 
 export const FeedAuthor = styled.p`
     margin: 0;
-    font-family: 'Work Sans';
+    font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 14px;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
@@ -226,7 +226,7 @@ export const FeedAuthor = styled.p`
 
 export const FeedTime = styled.p`
     margin: 2px 0 0;
-    font-family: 'PT Sans';
+    font-family: Poppins, sans-serif;
     font-weight: 400;
     font-size: 11px;
     color: ${({ theme }) => theme.colors.neutralsGrey3};
@@ -234,7 +234,7 @@ export const FeedTime = styled.p`
 
 export const FeedRelationText = styled.span`
     margin: 0 0 6px;
-    font-family: 'PT Sans';
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: #FFFFFF;
@@ -252,14 +252,14 @@ export const LikeBadge = styled.div<{ $primaryColor: string }>`
     flex-shrink: 0;
     background: ${({ $primaryColor }) => `${$primaryColor}1a`};
     color: ${({ $primaryColor }) => $primaryColor};
-    font-family: 'Work Sans';
+    font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 12px;
 `
 
 export const FeedText = styled.div<{ $primaryColor?: string }>`
     color: ${({ theme }) => theme.colors.neutralsGrey2};
-    font-family: 'PT Sans';
+    font-family: Poppins, sans-serif;
     font-weight: 400;
     word-break: break-word;
     line-height: 1.5;
@@ -291,7 +291,7 @@ export const FeedAction = styled.button<{ $primaryColor: string; $highlight?: bo
     background: transparent;
     padding: 0;
     cursor: pointer;
-    font-family: 'Work Sans';
+    font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 12px;
     color: ${({ theme, $primaryColor, $highlight }) =>

@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const SpanText = styled.p<{darkMode?: boolean}>`
     color: ${({darkMode}) => darkMode ? '#EBEBEB' : '#000'};
-    font-family: PT Sans;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -42,7 +42,7 @@ export const SaveButton = styled.button<{ $primaryColor: string; disabled?: bool
     border: 0;
     border-radius: 8px;
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-    font-family: 'Work Sans';
+    font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;

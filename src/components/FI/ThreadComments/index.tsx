@@ -169,6 +169,7 @@ export const ThreadComments = ({
               group_uuid={group_uuid}
               limitMessageExceeded={limitMessageExceeded}
               darkMode={darkMode}
+              primaryColor={primaryColor}
             />
           )}
         </div>
