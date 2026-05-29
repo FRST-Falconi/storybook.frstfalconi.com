@@ -13,7 +13,7 @@ interface IInputHook {
   value?: string
   replyMentionedUser?: User
   initialText?: string
-  primaryColor?: string
+  configColor?: string
 }
 
 export const useInputHook = ({
@@ -26,7 +26,7 @@ export const useInputHook = ({
   value,
   replyMentionedUser,
   initialText,
-  primaryColor
+  configColor
 }: IInputHook) => {
   const [showMention, setShowMention] = useState(false)
   const [inputSearch, setInputSearch] = useState('')
@@ -68,7 +68,7 @@ export const useInputHook = ({
     const mentionAnchorElement = document.createElement('a')
     mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`))
     mentionAnchorElement.style.fontWeight = 'bold'
-    mentionAnchorElement.style.color = primaryColor || DesignTokens.colors.primary1
+    mentionAnchorElement.style.color = configColor || DesignTokens.colors.primary1
     mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid)
     mentionAnchorElement.setAttribute('contenteditable', 'false')
     mentionAnchorElement.setAttribute('draggable', 'false')

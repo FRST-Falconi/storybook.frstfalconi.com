@@ -13,7 +13,7 @@ export interface IInputEdit {
     orText: string;
     group_uuid: string;
     darkMode?: boolean
-    primaryColor?: string
+    configColor?: string
 }
 
 export interface OnClickEditButtonParams {

@@ -42,7 +42,7 @@ export default function InputComment({
   initialText,
   darkMode,
   showEmojiPicker,
-  primaryColor
+  configColor
 }: IInputComment) {
   const {
     divPlaceholder,
@@ -68,7 +68,7 @@ export default function InputComment({
     value,
     replyMentionedUser,
     initialText,
-    primaryColor
+    configColor
   })
   const handlePaste = (e) => {
     const clipboardData = e.clipboardData || window.Clipboard
@@ -115,7 +115,7 @@ export default function InputComment({
             suppressContentEditableWarning={true}
             onPaste={handlePaste}
             darkMode={darkMode}
-            $primaryColor={primaryColor}
+            $primaryColor={configColor}
           >
           </Styles.InputText>
           <Styles.InputPlaceholder style={{ display: 'none' }} contentEditable={true} ref={divPlaceholder} suppressContentEditableWarning={true}>

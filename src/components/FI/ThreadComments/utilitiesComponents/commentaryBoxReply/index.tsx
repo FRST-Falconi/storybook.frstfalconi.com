@@ -41,7 +41,7 @@ export const CommentaryBoxReply = ({
   darkMode,
   toHideText,
   versionFeed = false,
-  primaryColor = '#FF8A15',
+  configColor = '#FF8A15',
   unlikedButtonText
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(threadOpenByDefault)
@@ -98,7 +98,7 @@ export const CommentaryBoxReply = ({
         isLiked={commentData?.isLiked}
         totalLikes={commentData?.totalLikes}
         versionFeed={versionFeed}
-        primaryColor={primaryColor}
+        configColor={configColor}
         unlikedButtonText={unlikedButtonText}
       />
 
@@ -133,7 +133,7 @@ export const CommentaryBoxReply = ({
           group_uuid={group_uuid}
           limitMessageExceeded={limitMessageExceeded}
           darkMode={darkMode}
-          primaryColor={primaryColor}
+          configColor={configColor}
         />
       )}
       {showAnswers &&
@@ -179,7 +179,7 @@ export const CommentaryBoxReply = ({
               isLiked={reply?.isLiked}
               totalLikes={reply?.totalLikes}
               versionFeed={versionFeed}
-              primaryColor={primaryColor}
+              configColor={configColor}
               unlikedButtonText={unlikedButtonText}
             />
           </>

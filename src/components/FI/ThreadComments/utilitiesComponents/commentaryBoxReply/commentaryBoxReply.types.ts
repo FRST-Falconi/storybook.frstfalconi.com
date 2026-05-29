@@ -40,6 +40,6 @@ export interface ICommentComentaryBoxReply {
   darkMode?: boolean
   toHideText?: string
   versionFeed?: boolean
-  primaryColor?: string
+  configColor?: string
   unlikedButtonText: string
 }

@@ -20,7 +20,7 @@ export const InputReply = ({
   group_uuid,
   limitMessageExceeded,
   darkMode,
-  primaryColor = '#FF8A15'
+  configColor = '#FF8A15'
 }: IInputReply) => {
   const [comment, setComment] = useState<string>('');
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('');
@@ -108,11 +108,12 @@ export const InputReply = ({
           limitMessageExceeded={limitMessageExceeded}
           darkMode={darkMode}
           showEmojiPicker={darkMode}
+          configColor={configColor}
         />
 
         <Styled.PublishButton
           type="button"
-          $primaryColor={primaryColor}
+          $primaryColor={configColor}
           disabled={comment.length <= 0 || comment.length > limitInput || isLoading}
           onClick={() => handlePublish()}
         >

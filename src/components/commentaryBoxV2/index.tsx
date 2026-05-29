@@ -60,7 +60,7 @@ export const CommentaryBoxV2 = ({
   totalLikes = 0,
   showAnswersButton,
   versionFeed,
-  primaryColor = DEFAULT_PRIMARY_COLOR,
+  configColor = DEFAULT_PRIMARY_COLOR,
   unlikedButtonText
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
@@ -169,7 +169,7 @@ export const CommentaryBoxV2 = ({
     <Styled.TextContainer id="textContainerId">
       {versionFeed ? (
         <Styled.FeedText
-          $primaryColor={primaryColor}
+          $primaryColor={configColor}
           style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
           id={iDCommentPosted}
           dangerouslySetInnerHTML={{
@@ -178,7 +178,7 @@ export const CommentaryBoxV2 = ({
         />
       ) : (
         <Styled.Text
-          $primaryColor={primaryColor}
+          $primaryColor={configColor}
           style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
           id={iDCommentPosted}
           dangerouslySetInnerHTML={{
@@ -197,7 +197,7 @@ export const CommentaryBoxV2 = ({
     <Styled.FeedActions>
       {showLikeButton && (
         <Styled.FeedAction
-          $primaryColor={primaryColor}
+          $primaryColor={configColor}
           type="button"
           onClick={itsLiked ? handleUnlike : handleLike}
           disabled={loadingLike}
@@ -206,7 +206,7 @@ export const CommentaryBoxV2 = ({
         </Styled.FeedAction>
       )}
       {showAnswersButton && (
-        <Styled.FeedAction $primaryColor={primaryColor} type="button" onClick={actionAnswer}>
+        <Styled.FeedAction $primaryColor={configColor} type="button" onClick={actionAnswer}>
           {answerButtonText}
         </Styled.FeedAction>
       )}
@@ -330,7 +330,7 @@ export const CommentaryBoxV2 = ({
                 group_uuid={groupUuid}
                 getSearchUsers={getSearchUsers}
                 darkMode={darkMode}
-                primaryColor={primaryColor}
+                configColor={configColor}
               />
             </Styled.FeedBody>
           ) : (
@@ -349,7 +349,7 @@ export const CommentaryBoxV2 = ({
               group_uuid={groupUuid}
               getSearchUsers={getSearchUsers}
               darkMode={darkMode}
-              primaryColor={primaryColor}
+              configColor={configColor}
             />
           )
         ) : versionFeed ? (
@@ -363,8 +363,8 @@ export const CommentaryBoxV2 = ({
                   </Styled.FeedTime>
                 </div>
                 {likesCount > 0 ? (
-                  <Styled.LikeBadge $primaryColor={primaryColor}>
-                    <ThumbsUp size={12} fill={primaryColor} color={primaryColor} />
+                  <Styled.LikeBadge $primaryColor={configColor}>
+                    <ThumbsUp size={12} fill={configColor} color={configColor} />
                     {likesCount}
                   </Styled.LikeBadge>
                 ) : null}
