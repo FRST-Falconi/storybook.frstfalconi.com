@@ -60,7 +60,8 @@ export const CommentaryBoxV2 = ({
   totalLikes = 0,
   showAnswersButton,
   versionFeed,
-  primaryColor = DEFAULT_PRIMARY_COLOR
+  primaryColor = DEFAULT_PRIMARY_COLOR,
+  unlikedButtonText
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
@@ -201,7 +202,7 @@ export const CommentaryBoxV2 = ({
           onClick={itsLiked ? handleUnlike : handleLike}
           disabled={loadingLike}
         >
-          {likeButtonText}
+          {itsLiked ? unlikedButtonText : likeButtonText}
         </Styled.FeedAction>
       )}
       {showAnswersButton && (

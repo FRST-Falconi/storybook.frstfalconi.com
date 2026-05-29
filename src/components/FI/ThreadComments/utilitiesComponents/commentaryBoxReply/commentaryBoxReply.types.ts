@@ -41,4 +41,5 @@ export interface ICommentComentaryBoxReply {
   toHideText?: string
   versionFeed?: boolean
   primaryColor?: string
+  unlikedButtonText: string
 }

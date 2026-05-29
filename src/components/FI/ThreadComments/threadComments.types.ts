@@ -61,6 +61,7 @@ export interface IThreadComments {
   showAnswersButton?:boolean
   versionFeed?: boolean
   primaryColor?: string
+  unlikedButtonText: string
 }
 
 export interface IUser {
