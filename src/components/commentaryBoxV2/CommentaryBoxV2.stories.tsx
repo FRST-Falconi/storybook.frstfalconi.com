@@ -32,6 +32,7 @@ Default.args = {
     alert('Visitar-Perfil')
   },
   likeButtonText: 'Curtir',
+  unlikedButtonText: "Descurtir",
   answerButtonText: 'Responder',
   showMoreText: 'Ver Mais',
   showLessText: 'Ver Menos',
@@ -117,7 +118,7 @@ export const VersionFeed = Template.bind({})
 VersionFeed.args = {
   ...Default.args,
   versionFeed: true,
-  primaryColor: '#FF8A15',
+  configColor: '#FF8A15',
   likes: [
     { id: '001', user_uuid: '001', user: null },
     { id: '002', user_uuid: '002', user: null },
@@ -141,7 +142,7 @@ export const VersionFeedOtherColor = Template.bind({})
 VersionFeedOtherColor.args = {
   ...Default.args,
   versionFeed: true,
-  primaryColor: '#8b5cf6',
+  configColor: '#8b5cf6',
   likes: [
     { id: '001', user_uuid: '001', user: null },
     { id: '002', user_uuid: '002', user: null },

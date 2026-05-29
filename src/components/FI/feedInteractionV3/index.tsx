@@ -93,7 +93,7 @@ export default function FeedInteractionV3(props: FeedInteractionV3Props) {
                             <Styles.IconBubble>
                                 <MessageCircle size={18} />
                             </Styles.IconBubble>
-                            <Styles.InteractionValue>{commentCount}</Styles.InteractionValue>
+                        {commentCount && <Styles.InteractionValue>{commentCount}</Styles.InteractionValue>}
                         </Styles.InteractionButton>
                     )}
                 </Styles.InteractionRow>
