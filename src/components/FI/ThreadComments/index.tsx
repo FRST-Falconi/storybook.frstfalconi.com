@@ -135,7 +135,7 @@ export const ThreadComments = ({
             totalLikes={mainComment?.totalLikes}
             showAnswersButton={showAnswersButton}
             versionFeed={versionFeed}
-            primaryColor={primaryColor}
+            configColor={primaryColor}
             unlikedButtonText={unlikedButtonText}
           />
 
@@ -171,7 +171,7 @@ export const ThreadComments = ({
               group_uuid={group_uuid}
               limitMessageExceeded={limitMessageExceeded}
               darkMode={darkMode}
-              primaryColor={primaryColor}
+              configColor={primaryColor}
             />
           )}
         </div>
@@ -217,7 +217,7 @@ export const ThreadComments = ({
                   darkMode={darkMode}
                   toHideText={toHideText}
                   versionFeed={versionFeed}
-                  primaryColor={primaryColor}
+                  configColor={primaryColor}
                   unlikedButtonText={unlikedButtonText}
                 />
               </div>

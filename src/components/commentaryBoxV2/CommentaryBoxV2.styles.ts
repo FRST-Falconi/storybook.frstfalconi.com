@@ -196,7 +196,7 @@ export const FeedBody = styled.div`
 `
 
 export const FeedBubble = styled.div`
-    background: ${({ theme }) => theme.colors.neutralsGrey6};
+    background: #f8f8f8;
     border-radius: 16px;
     border-top-left-radius: 4px;
     padding: 14px;
