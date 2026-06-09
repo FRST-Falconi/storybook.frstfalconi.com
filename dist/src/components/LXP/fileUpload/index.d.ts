@@ -1,0 +1,4 @@
+import '../../../shared/global.css';
+import { IFileUpload } from './FileUpload';
+export default function FileUpload({ variant, src, alt, disabled, startIcon, style, handleClick, selectedFile }: IFileUpload): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

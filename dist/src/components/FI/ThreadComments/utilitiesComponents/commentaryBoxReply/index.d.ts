@@ -1,0 +1,3 @@
+import { ICommentComentaryBoxReply } from './commentaryBoxReply.types';
+export declare const CommentaryBoxReply: ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, isAuthor, isOwnerPost, deleteText, editText, onClickDelete, onClickEdit, limitInput, cancelButtonText, saveButtonText, orText, limitMessageExceeded, placeHolderText, getSearchUsers, onClickLike, onClickUnlike, likeButtonText, loggedInUser, likes, replies, isGoalOwner, group_uuid, publishButtonText, onClickPublishButton, mainCommentUser, answersText, toViewText, answerText, threadOpenByDefault, darkMode, toHideText, versionFeed, configColor, unlikedButtonText }: ICommentComentaryBoxReply) => import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

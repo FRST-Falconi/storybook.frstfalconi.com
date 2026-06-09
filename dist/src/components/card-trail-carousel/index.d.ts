@@ -1,0 +1,4 @@
+import '../../shared/global.css';
+import { ICardTrailCarolsel } from './cardsTrailsCarousel';
+export default function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleButtons, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, label }: ICardTrailCarolsel): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

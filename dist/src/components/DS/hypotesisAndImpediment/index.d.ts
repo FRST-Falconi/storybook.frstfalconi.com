@@ -1,0 +1,3 @@
+import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment';
+export declare const HypothesisAndImpediment: ({ description, variant, type, avatar, id, index, authorGoalId, userLoggedId, authorName, handleViewProfile, authorId, hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDeleteVote, onChangeVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions, popperStyle }: IHypothesisAndImpedimentComponent) => import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

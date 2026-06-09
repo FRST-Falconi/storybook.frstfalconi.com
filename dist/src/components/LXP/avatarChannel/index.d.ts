@@ -1,0 +1,4 @@
+import '../../../shared/global.css';
+import { IAvatar } from './avatarChannel';
+export default function AvatarChannel({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage, isLink, isEdit }: IAvatar): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map
