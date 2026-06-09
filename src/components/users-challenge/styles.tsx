@@ -20,13 +20,13 @@ export const Container = styled.div`
     }
 `
 
-export const AvatarAutor = styled.div`
+export const AvatarAutor = styled.div<{ $bgColor: string }>`
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9;
-    background: #f26818;
+    background: ${({ $bgColor }) => $bgColor ?  $bgColor : '#f26818'};
     border-radius: 18px;
     right: 0.5rem;
     height: 12px;

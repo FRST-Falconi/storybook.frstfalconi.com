@@ -18,7 +18,8 @@ export default function UsersChallenge({
     companyName,
     createData,
     variant,
-    accessLevel
+    accessLevel,
+    configColor
 }: UsersChallengeProps) {
     return (
         <S.Container>
@@ -36,6 +37,7 @@ export default function UsersChallenge({
                         onUserNameClick={onUserNameClick}
                         userId={userId}
                         accessLevel={accessLevel}
+                        configColor={configColor}
                     />
                 )}
                 {variant === 'form' && (

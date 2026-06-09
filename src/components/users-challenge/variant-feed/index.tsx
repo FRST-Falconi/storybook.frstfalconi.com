@@ -17,7 +17,8 @@ export default function UsersChallengeFeed({
     areaName,
     companyName,
     createData,
-    accessLevel
+    accessLevel,
+    configColor
 }: UsersChallengeProps) {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -53,7 +54,7 @@ export default function UsersChallengeFeed({
     };
 
     return (
-        <S.Container>
+        <S.Container $borderColor={configColor}>
             {hasOnlyAutor ? (
                 <S.AvatarInfo>
                     <Box>
@@ -102,7 +103,7 @@ export default function UsersChallengeFeed({
                                     onClick={() => onClickAvatar(user.user_uuid)}
                                 />
                                 {user.author && (
-                                    <S.AvatarAutor>
+                                    <S.AvatarAutor $bgColor={configColor}>
                                         <p>Autor</p>
                                     </S.AvatarAutor>
                                 )}
@@ -115,7 +116,7 @@ export default function UsersChallengeFeed({
                         )}
                     </AvatarGroup>
 
-                    <S.AllAvatarUsers>
+                    <S.AllAvatarUsers $color={configColor}>
                         <Box display={'flex'} gap={'4px'} alignItems={'center'} flexWrap={'wrap'}>
                             {reorderedUsers.slice(0, maxVisibleUsers).map((user, index) => (
                                 <Box

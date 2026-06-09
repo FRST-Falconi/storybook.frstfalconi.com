@@ -18,4 +18,5 @@ export interface UsersChallengeProps {
   createData?: string | number
   variant?: string
   accessLevel?: AccessLevel
+  configColor?: string
 }
