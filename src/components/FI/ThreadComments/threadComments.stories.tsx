@@ -129,8 +129,14 @@ Default.args = {
   toViewText: 'Visualizar',
   answersText: 'Respostas',
   idCommentResponse: 'testeIdResposta',
-  showLikeButton: false,
-  showAnswersButton: false
+  showLikeButton: true,
+  showAnswersButton: true,
+  onClickLike: () => {
+    alert('Curtir')
+  },
+  onClickUnlike: () => {
+    alert('Descurtir')
+  }
 }
 
 DarkMode.args = {
