@@ -11,5 +11,13 @@ export default {
     format: 'cjs'
   },
   external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
-  plugins: [typescript(), postcss({ plugins: [] }), image({ limit: 1000000 })]
+  plugins: [
+    typescript({
+      include: ['**/*.ts', '**/*.tsx'],
+      exclude: ['**/*.d.ts', '**/*.stories.tsx', '**/*.stories.ts'],
+      check: false
+    }),
+    postcss({ plugins: [] }),
+    image({ limit: 1000000 })
+  ]
 }
