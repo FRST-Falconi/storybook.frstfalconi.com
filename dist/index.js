@@ -10178,6 +10178,78 @@ function ModalBase(props) {
                                             }, disabled: false }) })] }) }))] })] }) }));
 }
 
+const ContainerModalBoasVindas = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+
+  img {
+    width: fit-content;
+    height: fit-content;
+  }
+  div {
+    padding: 0rem 1rem;
+    margin-bottom: 20px;
+  }
+  h1 {
+    padding-left: 1rem;
+    font-family: "Work Sans";
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #222222;
+  }
+  p {
+    padding-left: 1rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.5rem;
+    color: #222222;
+    font-size: 16px;
+  }
+  li{
+    color:#222222;
+    font-size: 16px;
+  }
+`;
+
+const ModalBoasVindas = (props) => {
+    const [isOpenModalBoasVindas, setIsOpenModalBoasVindas] = React.useState(false);
+    React.useEffect(() => {
+        setIsOpenModalBoasVindas(props.isOpen);
+    }, [props.isOpen]);
+    function handleStepText(step) {
+        switch (step) {
+            case 1:
+                return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 1!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsx("li", { children: "Escolher um desafio que voc\u00EA ainda n\u00E3o saiba como solucionar;" }), jsxRuntime.jsx("li", { children: "Definir qual o seu objetivo com este desafio;" }), jsxRuntime.jsx("li", { children: "Escolher um indicador para mensurar o cen\u00E1rio atual e o resultado alcan\u00E7ado;" }), jsxRuntime.jsx("li", { children: "Refletir sobre o que voc\u00EA j\u00E1 sabe acerca do desafio;" }), jsxRuntime.jsx("li", { children: "Refletir sobre o que voc\u00EA ainda n\u00E3o sabe, ou precisa descobrir." })] })] }));
+            case 2:
+                return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 2!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsx("li", { children: "Definir Causas;" }), jsxRuntime.jsx("li", { children: "Definir hip\u00F3teses;" }), jsxRuntime.jsx("li", { children: "Criar pelo menos uma a\u00E7\u00E3o para a sua hip\u00F3tese priorizada." })] }), jsxRuntime.jsxs("p", { children: [jsxRuntime.jsx("strong", { children: "Dica: " }), "Acesse nosso material de apoio com mais informa\u00E7\u00F5es."] })] }));
+            case 3:
+                return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 3!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsx("li", { children: "Preencher quais testes foram feitos para suas a\u00E7\u00F5es" }), jsxRuntime.jsx("li", { children: "Definir o status das suas a\u00E7\u00F5es" }), jsxRuntime.jsx("li", { children: "Definir o n\u00EDvel de sucesso para cada uma de suas a\u00E7\u00F5es" }), jsxRuntime.jsx("li", { children: "Adicionar novas a\u00E7\u00F5es que n\u00E3o foram levantadas na fase anterior, mas que foram executadas." })] })] }));
+            case 4:
+                return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 4!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsx("li", { children: "Definir se alcan\u00E7ou seu objetivo principal" }), jsxRuntime.jsx("li", { children: "Mostrar seus resultados ou seus aprendizados com o desafio" }), jsxRuntime.jsx("li", { children: "Mostrar se obteve algum resultado ou aprendizado relacionado a alguma outra hipotese que n\u00E3o foi priorizada" })] })] }));
+            case 5:
+                return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 5!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsx("ul", { children: jsxRuntime.jsx("li", { children: "Definir quais s\u00E3o os pr\u00F3ximos passos do seu desafio" }) })] }));
+            default:
+                return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 1!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsx("li", { children: "Escolher um desafio que voc\u00EA ainda n\u00E3o saiba como solucionar;" }), jsxRuntime.jsx("li", { children: "Definir qual o seu objetivo com este desafio;" }), jsxRuntime.jsx("li", { children: "Escolher um indicador para mensurar o cen\u00E1rio atual e o resultado alcan\u00E7ado;" }), jsxRuntime.jsx("li", { children: "Refletir sobre o que voc\u00EA j\u00E1 sabe acerca do desafio;" }), jsxRuntime.jsx("li", { children: "Refletir sobre o que voc\u00EA ainda n\u00E3o sabe, ou precisa descobrir." })] })] }));
+        }
+    }
+    function handleModalBoasVindas() {
+        return (jsxRuntime.jsxs(ContainerModalBoasVindas, { children: [jsxRuntime.jsx("img", { src: props.suppMaterials[0]?.cover_img
+                        ? props.suppMaterials[0]?.cover_img
+                        : "https://lxp-cdn.frstfalconi.cloud/FORMS/boasVindasModal2.png", alt: "imgModalBoasVindas" }), props.suppMaterials[0]?.step ? (handleStepText(props.suppMaterials[0]?.step)) : (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h1", { children: "Boas-vindas \u00E0 fase 1!" }), jsxRuntime.jsx("p", { children: "Para concluir essa fase voc\u00EA precisar\u00E1:" }), jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsx("li", { children: "Escolher um desafio que voc\u00EA ainda n\u00E3o saiba como solucionar;" }), jsxRuntime.jsx("li", { children: "Definir qual o seu objetivo com este desafio;" }), jsxRuntime.jsx("li", { children: "Escolher um indicador para mensurar o cen\u00E1rio atual e o resultado alcan\u00E7ado;" }), jsxRuntime.jsx("li", { children: "Refletir sobre o que voc\u00EA j\u00E1 sabe acerca do desafio;" }), jsxRuntime.jsx("li", { children: "Refletir sobre o que voc\u00EA ainda n\u00E3o sabe, ou precisa descobrir." })] })] }))] }));
+    }
+    function handleClose() {
+        props.onClose();
+        setIsOpenModalBoasVindas(false);
+    }
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Modal, { open: isOpenModalBoasVindas, onClose: handleClose, onOpen: () => setIsOpenModalBoasVindas(true), animation: "BlowUp", handleCloseOnIcon: handleClose, showCloseButton: true, style: {
+                width: "100%",
+                maxWidth: "fit-content",
+                background: "#FFF9D7",
+            }, children: handleModalBoasVindas() }) }));
+};
+
 var css_248z$d = ".cardProblemaGestor-module_container__si6gB {\r\n    width: 100%;\r\n    padding-top: 30px;\r\n    padding-left: 16px;\r\n    padding-right: 16px;\r\n    padding-bottom: 16px;\r\n\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: row;\r\n    position: relative;\r\n}\r\n\r\n.cardProblemaGestor-module_container__si6gB:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 8px;\r\n    \r\n\r\n}\r\n\r\n.cardProblemaGestor-module_checkBox__SK00W {\r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    height: 100%;\r\n    padding-top: 20px;\r\n    padding-left: 12px;\r\n    \r\n\r\n    position: absolute;\r\n    left: 0;\r\n\r\n}\r\n\r\n.cardProblemaGestor-module_contentCard__0-ex3 {\r\n    \r\n    \r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n}\r\n\r\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: row;\r\n}\r\n\r\n.cardProblemaGestor-module_infoUser__naGfk {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    margin-left: 4px;\r\n}\r\n\r\n.cardProblemaGestor-module_tituloCard__i4n9p {\r\n    \r\n    margin-top: 4px;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    font-weight: 600;\r\n    font-size: 18px;\r\n    word-wrap: break-word;\r\n}\r\n\r\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\r\n    \r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.cardProblemaGestor-module_avaliacao__w2-fB {\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    \r\n}\r\n";
 var style$7 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
 styleInject(css_248z$d);
@@ -26074,6 +26146,7 @@ exports.ModalLearningTech = ModalLearningTech;
 exports.ModalNewFeatures = modalNewFeatures;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.ModalVideo = ModalVideo;
+exports.ModalWelcome = ModalBoasVindas;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
 exports.NewChallengeCard = NewChallengeCard;
 exports.NotificationCard = NotificationCard;
