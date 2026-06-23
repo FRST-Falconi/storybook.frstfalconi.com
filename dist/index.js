@@ -7202,16 +7202,23 @@ function Modal({ children, width, headerContent, style, onClose, onOpen, handleC
     }, [ModalWrapperRef, active, closeOnClickOutside, onClose]);
     React.useEffect(() => {
         if (open === true) {
+            originalOverflowRef.current = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
             if (onOpen)
                 onOpen();
         }
+        else {
+            document.body.style.overflow = originalOverflowRef.current || '';
+        }
         setActive(open);
+        return () => {
+            document.body.style.overflow = originalOverflowRef.current || '';
+        };
     }, [onOpen, open]);
     const handleClose = (e) => {
         if (propagationOnClose)
             e.stopPropagation();
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = originalOverflowRef.current || '';
         setActive(false);
         if (onClose)
             onClose(e);
