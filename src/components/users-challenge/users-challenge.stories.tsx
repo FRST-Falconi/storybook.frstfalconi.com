@@ -19,6 +19,7 @@ AllUsers.args = {
   onClickAvatar: () => console.log('Clicou na foto do avatar'),
   variant: 'feed',
   accessLevel: 'private',
+  configColor: '#181ff2',
   goalUsers: [
       {
           name: 'Isabella Lopes',

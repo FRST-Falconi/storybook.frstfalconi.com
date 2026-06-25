@@ -10,6 +10,9 @@ import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 import { InputEdit } from './utilitiesComponents'
 import { Tooltip } from '@mui/material'
+import { ThumbsUp } from 'lucide-react'
+
+const DEFAULT_PRIMARY_COLOR = '#FF8A15'
 
 export const CommentaryBoxV2 = ({
   userName,
@@ -55,7 +58,10 @@ export const CommentaryBoxV2 = ({
   darkMode,
   isLiked,
   totalLikes = 0,
-  showAnswersButton
+  showAnswersButton,
+  versionFeed,
+  configColor = DEFAULT_PRIMARY_COLOR,
+  unlikedButtonText
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
@@ -133,15 +139,164 @@ export const CommentaryBoxV2 = ({
     }
   }, [])
 
+  const renderMenuMore = () => {
+    if (!showOptions) return <div />
+
+    if (isAuthor) {
+      return (
+        <Styled.MenuMoreContainer darkMode={darkMode}>
+          <MenuMore isDarkMode={darkMode} options={authorOptions} style={{}} closeAfterClick={true} isHover={false} />
+        </Styled.MenuMoreContainer>
+      )
+    }
+
+    if (isOwnerPost) {
+      return (
+        <Styled.MenuMoreContainer darkMode={darkMode}>
+          <MenuMore isDarkMode={darkMode} options={ownerPost} style={{}} closeAfterClick={true} isHover={false} />
+        </Styled.MenuMoreContainer>
+      )
+    }
+
+    return (
+      <Styled.MenuMoreContainer darkMode={darkMode}>
+        <MenuMore isDarkMode={darkMode} options={[]} isHover={false} />
+      </Styled.MenuMoreContainer>
+    )
+  }
+
+  const renderCommentContent = () => (
+    <Styled.TextContainer id="textContainerId">
+      {versionFeed ? (
+        <Styled.FeedText
+          $primaryColor={configColor}
+          style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
+          id={iDCommentPosted}
+          dangerouslySetInnerHTML={{
+            __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
+          }}
+        />
+      ) : (
+        <Styled.Text
+          $primaryColor={configColor}
+          style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
+          id={iDCommentPosted}
+          dangerouslySetInnerHTML={{
+            __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
+          }}
+          darkMode={darkMode}
+        />
+      )}
+      <Styled.ShowMore darkMode={darkMode} isVisible={isEllipsisVisible} onClick={toggleExpand}>
+        {isExpanded ? showLessText : showMoreText}
+      </Styled.ShowMore>
+    </Styled.TextContainer>
+  )
+
+  const renderFeedActions = () => (
+    <Styled.FeedActions>
+      {showLikeButton && (
+        <Styled.FeedAction
+          $primaryColor={configColor}
+          type="button"
+          onClick={itsLiked ? handleUnlike : handleLike}
+          disabled={loadingLike}
+        >
+          {itsLiked ? unlikedButtonText : likeButtonText}
+        </Styled.FeedAction>
+      )}
+      {showAnswersButton && (
+        <Styled.FeedAction $primaryColor={configColor} type="button" onClick={actionAnswer}>
+          {answerButtonText}
+        </Styled.FeedAction>
+      )}
+      {renderMenuMore()}
+    </Styled.FeedActions>
+  )
+
+  const renderDefaultActions = () => (
+    <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
+      {showLikeButton && (
+        <>
+          <Tooltip
+            title={itsLiked ? 'Remover curtida' : 'Curtir'}
+            placement='bottom'
+            arrow
+            slotProps={{
+                popper: {
+                    modifiers: [
+                        {
+                            name: 'offset',
+                            options: {
+                                offset: [0, 0]
+                            }
+                        }
+                    ],
+                },
+                tooltip: {
+                    sx: {
+                        backgroundColor: darkMode ? '#323232' : '#FFFFFF',
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 400,
+                        fontSize: '14px',
+                        lineHeight: 1.3,
+                        textAlign: 'center',
+                        color: darkMode ? '#FFFFFF' : '#757575',
+                        border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD',
+                        boxShadow: '0px 25px 18px -20px #22222233'
+                    }
+                },
+                arrow: {
+                    sx:{
+                        ":before": {
+                            border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD'
+                        },
+                        color: darkMode ? '#323232' : '#FFFFFF'
+                    }
+                }
+            }}
+          >
+            <Styled.FlexButtonContainer
+              onClick={itsLiked ? handleUnlike : handleLike}
+              style={{
+                cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                pointerEvents: loadingLike ? 'none' : 'auto'
+              }}
+              darkMode={darkMode}
+            >
+              {itsLiked ? 
+                <IconLikeFilled customColor_1={darkMode ? '#151515' : '#FFFFFF'} /> 
+                : 
+                <IconLikeLine fill={darkMode ? "#EBEBEB" : "#444"} />
+              }
+            </Styled.FlexButtonContainer>
+          </Tooltip>
+          <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444"),
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: '14px',
+            fontWeight: 700
+          }}>
+            {likesCount}
+          </span>
+        </>
+      )}
+
+      {showAnswersButton &&
+        <MiniButton darkMode={darkMode} variant="terciary" onClick={actionAnswer} label={answerButtonText} styles={{color: darkMode ? '#EBEBEB' : '#444444'}} />
+      }
+      {renderMenuMore()}
+    </Styled.InteractiveButtonsContainer>
+  )
+
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <Styled.Container style={{ ...styles }}>
+      <Styled.Container style={{ ...styles }} $versionFeed={versionFeed}>
         <div style={{ position: 'relative' }}>
           <Avatar
-            size={isMainComment ? '48px' : '32px'}
+            size={versionFeed ? '40px' : isMainComment ? '48px' : '32px'}
             src={imgProfile}
             onClick={onClickUserInfo}
-            style={{ cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' }}
+            style={{ cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: versionFeed ? '0' : '6px' }}
           />
           {showInterconnectionLine && (
             <div
@@ -158,158 +313,86 @@ export const CommentaryBoxV2 = ({
         </div>
 
         {isModeEdit ? (
-          <InputEdit
-            placeHolderText={placeHolderText}
-            commentText={buildStringWithLinkHTML(commentText)}
-            commentTextWithMention={commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention)}
-            editButtonText={saveButtonText}
-            onClickEditButton={actionEditComment}
-            limitInput={limitInput}
-            cancelButtonText={cancelButtonText}
-            orText={orText}
-            limitMessageExceeded={limitMessageExceeded}
-            commentId={commentId}
-            setIsModeEdit={setIsModeEdit}
-            group_uuid={groupUuid}
-            getSearchUsers={getSearchUsers}
-            darkMode={darkMode}
-          />
+          versionFeed ? (
+            <Styled.FeedBody>
+              <InputEdit
+                placeHolderText={placeHolderText}
+                commentText={buildStringWithLinkHTML(commentText)}
+                commentTextWithMention={commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention)}
+                editButtonText={saveButtonText}
+                onClickEditButton={actionEditComment}
+                limitInput={limitInput}
+                cancelButtonText={cancelButtonText}
+                orText={orText}
+                limitMessageExceeded={limitMessageExceeded}
+                commentId={commentId}
+                setIsModeEdit={setIsModeEdit}
+                group_uuid={groupUuid}
+                getSearchUsers={getSearchUsers}
+                darkMode={darkMode}
+                configColor={configColor}
+              />
+            </Styled.FeedBody>
+          ) : (
+            <InputEdit
+              placeHolderText={placeHolderText}
+              commentText={buildStringWithLinkHTML(commentText)}
+              commentTextWithMention={commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention)}
+              editButtonText={saveButtonText}
+              onClickEditButton={actionEditComment}
+              limitInput={limitInput}
+              cancelButtonText={cancelButtonText}
+              orText={orText}
+              limitMessageExceeded={limitMessageExceeded}
+              commentId={commentId}
+              setIsModeEdit={setIsModeEdit}
+              group_uuid={groupUuid}
+              getSearchUsers={getSearchUsers}
+              darkMode={darkMode}
+              configColor={configColor}
+            />
+          )
+        ) : versionFeed ? (
+          <Styled.FeedBody>
+            <Styled.FeedBubble id={`comment_${commentUuid}`}>
+              <Styled.FeedHeader>
+                <div>
+                  <Styled.FeedAuthor>{userName}</Styled.FeedAuthor>
+                  <Styled.FeedTime>                
+                    {userOffice && userOffice} {userCompany && `• ${userCompany}`} {howLongAgo && `• ${howLongAgo}`}
+                  </Styled.FeedTime>
+                </div>
+                {likesCount > 0 ? (
+                  <Styled.LikeBadge $primaryColor={configColor}>
+                    <ThumbsUp size={12} fill={configColor} color={configColor} />
+                    {likesCount}
+                  </Styled.LikeBadge>
+                ) : null}
+              </Styled.FeedHeader>
+              {relationToPhaseText ? (
+                <Styled.FeedRelationText>{relationToPhaseText}</Styled.FeedRelationText>
+              ) : null}
+              {renderCommentContent()}
+            </Styled.FeedBubble>
+            {!isModeEdit && renderFeedActions()}
+          </Styled.FeedBody>
         ) : (
           <Styled.Box id={`comment_${commentUuid}`} darkMode={darkMode}>
             <Styled.UserDataContainer>
               <Styled.FirstChildUserData>
                 <Styled.Username darkMode={darkMode}>{userName}</Styled.Username>
-                {/* {likesCount > 0 && (
-                  <Styled.LikesContainer>
-                    <Styled.IconLikeContainer>
-                      <IconLikeFilled fill="#fff" stroke="#fff" customColor_1={'#757575'} width="16px" height="16px" />
-                    </Styled.IconLikeContainer>
-                    <p>{likesCount}</p>
-                  </Styled.LikesContainer>
-                )} */}
               </Styled.FirstChildUserData>
               <Styled.UserDataLastChild darkMode={darkMode}>
                 {userOffice && userOffice} {userCompany && `• ${userCompany}`} {howLongAgo && `• ${howLongAgo}`}
               </Styled.UserDataLastChild>
             </Styled.UserDataContainer>
             {relationToPhaseText && <Styled.RelationContainer>{relationToPhaseText}</Styled.RelationContainer>}
-            <Styled.TextContainer id="textContainerId">
-              <Styled.Text
-                style={isExpanded ? { display: 'block' } : { display: '-webkit-box' }}
-                id={iDCommentPosted}
-                dangerouslySetInnerHTML={{
-                  __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
-                }}
-                darkMode={darkMode}
-              />
-              <Styled.ShowMore darkMode={darkMode} isVisible={isEllipsisVisible} onClick={toggleExpand}>
-                {isExpanded ? showLessText : showMoreText}
-              </Styled.ShowMore>
-            </Styled.TextContainer>
+            {renderCommentContent()}
           </Styled.Box>
         )}
       </Styled.Container>
 
-      {!isModeEdit && (
-        <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
-          {showLikeButton && (
-            <>
-              <Tooltip
-                title={itsLiked ? 'Remover curtida' : 'Curtir'}
-                placement='bottom'
-                arrow
-                slotProps={{
-                    popper: {
-                        modifiers: [
-                            {
-                                name: 'offset',
-                                options: {
-                                    offset: [0, 0]
-                                }
-                            }
-                        ],
-                    },
-                    tooltip: {
-                        sx: {
-                            backgroundColor: darkMode ? '#323232' : '#FFFFFF',
-                            fontFamily: 'PT Sans',
-                            fontWeight: 400,
-                            fontSize: '14px',
-                            lineHeight: 1.3,
-                            textAlign: 'center',
-                            color: darkMode ? '#FFFFFF' : '#757575',
-                            border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD',
-                            boxShadow: '0px 25px 18px -20px #22222233'
-                        }
-                    },
-                    arrow: {
-                        sx:{
-                            ":before": {
-                                border: darkMode ? '1px solid #323232' : '1px solid #BDBDBD'
-                            },
-                            color: darkMode ? '#323232' : '#FFFFFF'
-                        }
-                    }
-                }}
-              >
-                <Styled.FlexButtonContainer
-                  onClick={itsLiked ? handleUnlike : handleLike}
-                  style={{
-                    cursor: loadingLike ? 'not-allowed !important' : 'pointer',
-                    pointerEvents: loadingLike ? 'none' : 'auto'
-                  }}
-                  darkMode={darkMode}
-                >
-                  {itsLiked ? 
-                    <IconLikeFilled customColor_1={darkMode ? '#151515' : '#FFFFFF'} /> 
-                    : 
-                    <IconLikeLine fill={darkMode ? "#EBEBEB" : "#444"} />
-                  }
-                  {/* <MiniButton
-                    variant="terciary"
-                    onClick={() => {}}
-                    label={likeButtonText}
-                    active={itsLiked}
-                    styles={{
-                      padding: '0px',
-                      cursor: loadingLike ? 'not-allowed !important' : 'pointer',
-                      pointerEvents: loadingLike ? 'none' : 'auto'
-                    }}
-                  /> */}
-                </Styled.FlexButtonContainer>
-              </Tooltip>
-              <span style={{color: itsLiked ? '#F26818' : (darkMode ? "#EBEBEB" : "#444"),
-                fontFamily: 'PT Sans',
-                fontSize: '14px',
-                fontWeight: 700
-              }}>
-                {likesCount}
-              </span>
-            </>
-          )}
-
-          {showAnswersButton &&
-            <MiniButton darkMode={darkMode} variant="terciary" onClick={actionAnswer} label={answerButtonText} styles={{color: darkMode ? '#EBEBEB' : '#444444'}} />
-          }
-          {showOptions ? (
-            isAuthor ? (
-              <Styled.MenuMoreContainer darkMode={darkMode} >
-                <MenuMore isDarkMode={darkMode} options={authorOptions} style={{}} closeAfterClick={true} isHover={false} />
-              </Styled.MenuMoreContainer>
-            ) : isOwnerPost ? (
-              <Styled.MenuMoreContainer darkMode={darkMode} >
-                <MenuMore isDarkMode={darkMode} options={ownerPost} style={{}} closeAfterClick={true} isHover={false} />
-              </Styled.MenuMoreContainer>
-            ) : (
-              <Styled.MenuMoreContainer darkMode={darkMode} >
-                <MenuMore isDarkMode={darkMode} options={[]} isHover={false} />
-              </Styled.MenuMoreContainer>
-            )
-          ) : (
-            <div />
-          )}
-        </Styled.InteractiveButtonsContainer>
-      )}
+      {!isModeEdit && !versionFeed && renderDefaultActions()}
     </ThemeProvider>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import PostFeed from './index'
-
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'FI/Post Feed',
@@ -316,4 +315,3 @@ Video.args = {
     handleLikeClick: () => alert('Liked!'),
     // onCommentChange: (e) => console.log(e.target.value)
 }
-

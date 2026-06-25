@@ -41,7 +41,8 @@ export default function InputComment({
   limitMessageExceeded,
   initialText,
   darkMode,
-  showEmojiPicker
+  showEmojiPicker,
+  configColor
 }: IInputComment) {
   const {
     divPlaceholder,
@@ -66,7 +67,8 @@ export default function InputComment({
     onChange,
     value,
     replyMentionedUser,
-    initialText
+    initialText,
+    configColor
   })
   const handlePaste = (e) => {
     const clipboardData = e.clipboardData || window.Clipboard
@@ -113,6 +115,7 @@ export default function InputComment({
             suppressContentEditableWarning={true}
             onPaste={handlePaste}
             darkMode={darkMode}
+            $primaryColor={configColor}
           >
           </Styles.InputText>
           <Styles.InputPlaceholder style={{ display: 'none' }} contentEditable={true} ref={divPlaceholder} suppressContentEditableWarning={true}>
@@ -127,6 +130,7 @@ export default function InputComment({
                 handleMentionUser(user)
               }}
               darkMode={darkMode}
+              configColor={configColor}
             />
           )}
         </Styles.InputWrapper>

@@ -20,7 +20,8 @@ export const InputEdit = ({
   commentId,
   group_uuid,
   setIsModeEdit,
-  darkMode
+  darkMode,
+  configColor = '#FF8A15'
 }: IInputEdit) => {
   const [comment, setComment] = useState<string>(commentText)
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>(commentTextWithMention)
@@ -78,6 +79,7 @@ export const InputEdit = ({
           initialText={CaptureFormattedValue || comment}
           darkMode={darkMode}
           showEmojiPicker={darkMode}
+          configColor={configColor}
         />
       </Styled.InputContainer>
       <Styled.ButtonsContainer>
@@ -85,13 +87,14 @@ export const InputEdit = ({
 
         <Styled.SpanText darkMode={darkMode}>{orText}</Styled.SpanText>
 
-        <MiniButton
+        <Styled.SaveButton
+          type="button"
+          $primaryColor={configColor}
           disabled={comment.length <= 0 || comment.length > limitInput || isLoading}
-          label={editButtonText}
           onClick={() => handlePublish()}
-          variant="primary"
-          styles={{}}
-        />
+        >
+          {editButtonText}
+        </Styled.SaveButton>
       </Styled.ButtonsContainer>
       {isLoading && <Loading />}
     </Styled.Container>

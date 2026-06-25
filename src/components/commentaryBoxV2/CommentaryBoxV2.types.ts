@@ -54,4 +54,7 @@ export interface ICommentaryBoxV2 {
     darkMode?: boolean
     isLiked?: boolean
     totalLikes?: number
+    versionFeed?: boolean
+    configColor?: string
+    unlikedButtonText: string
 }

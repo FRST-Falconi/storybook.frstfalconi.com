@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.div<{ $borderColor: string }>`
     display: flex;
     .avatar-image-only-owner {
         border: 2px solid #e2e8f0 !important;
@@ -8,7 +8,7 @@ export const Container = styled.div`
         cursor: pointer;
     }
     .avatar-image-owner {
-        border: 2px solid #f26818 !important;
+        border: 2px solid ${({ $borderColor }) => $borderColor ?  $borderColor : '#f26818'} !important;
         border-radius: 50%;
         cursor: pointer;
     }
@@ -19,13 +19,13 @@ export const Container = styled.div`
     }
 `
 
-export const AvatarAutor = styled.div`
+export const AvatarAutor = styled.div<{ $bgColor: string }>`
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9;
-    background: #f26818;
+    background: ${({ $bgColor }) => $bgColor ?  $bgColor : '#f26818'};
     border-radius: 18px;
     right: 0.5rem;
     height: 12px;
@@ -52,7 +52,7 @@ export const GoalInfoCompany = styled.p`
     line-height: normal;
 `
 
-export const AllAvatarUsers = styled.div`
+export const AllAvatarUsers = styled.div<{ $color: string }>`
     margin-left: 10px;
     max-width: 34rem;
     margin-bottom: 6px;
@@ -63,12 +63,12 @@ export const AllAvatarUsers = styled.div`
         color: #7e7e7e;
         cursor: pointer;
         &:hover {
-            color: #f18624;
-            text-decoration: underline #f18624;
+            color: ${({ $color }) => $color ?  $color : '#f18624'};
+            text-decoration: underline ${({ $color }) => $color ?  $color : '#f18624'};
         }
     }
     .owner {
-        color: #f18624;
+        color: ${({ $color }) => $color ?  $color : '#f18624'};
     }
     .not-owner {
         color: #222222;

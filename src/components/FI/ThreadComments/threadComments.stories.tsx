@@ -74,6 +74,8 @@ const getSearchUsers = async (search: string): Promise<object[]> => {
 }
 
 Default.args = {
+  versionFeed: true,
+  primaryColor: '#8b5cf6',
   mainComment: {
     user: {
       uuid: 'user-0001',
@@ -127,8 +129,14 @@ Default.args = {
   toViewText: 'Visualizar',
   answersText: 'Respostas',
   idCommentResponse: 'testeIdResposta',
-  showLikeButton: false,
-  showAnswersButton: false
+  showLikeButton: true,
+  showAnswersButton: true,
+  onClickLike: () => {
+    alert('Curtir')
+  },
+  onClickUnlike: () => {
+    alert('Descurtir')
+  }
 }
 
 DarkMode.args = {
