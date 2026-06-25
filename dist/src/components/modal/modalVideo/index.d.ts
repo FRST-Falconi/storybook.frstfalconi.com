@@ -14,6 +14,6 @@ interface ModalVideoProps {
     ratingDescription?: string;
     style?: React.CSSProperties;
 }
-export default function ModalVideo(props: ModalVideoProps): import("react/jsx-runtime").JSX.Element;
+export default function ModalVideo(props: ModalVideoProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

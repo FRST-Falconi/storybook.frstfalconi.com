@@ -19,6 +19,6 @@ interface IThumbListContent {
     imageSrcCanal?: string;
     urlCanal?: string;
 }
-export default function ThumbListContent(props: IThumbListContent): import("react/jsx-runtime").JSX.Element;
+export default function ThumbListContent(props: IThumbListContent): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

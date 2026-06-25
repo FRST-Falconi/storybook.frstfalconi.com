@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { TextFieldProps } from '../textfield';
-export default function Textarea(props: TextFieldProps): import("react/jsx-runtime").JSX.Element;
+export default function Textarea(props: TextFieldProps): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

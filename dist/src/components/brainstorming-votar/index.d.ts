@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../shared/global.css';
 export interface PropsVotar {
     textButton?: string;
@@ -6,5 +7,5 @@ export interface PropsVotar {
     votado?: boolean;
     user?: 'user' | 'userAutor';
 }
-export default function Votar(props: PropsVotar): import("react/jsx-runtime").JSX.Element;
+export default function Votar(props: PropsVotar): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

@@ -8,6 +8,6 @@ interface ISmallSRGBanner {
     traducao?: 'es-ES' | 'en-US';
     hideBtn?: boolean;
 }
-export default function SmallSRGBanner(props: ISmallSRGBanner): import("react/jsx-runtime").JSX.Element;
+export default function SmallSRGBanner(props: ISmallSRGBanner): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

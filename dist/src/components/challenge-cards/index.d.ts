@@ -1,6 +1,7 @@
+/// <reference types="react" />
 import '../../shared/global.css';
 import { IChallengeCard } from './challengeCard';
-export default function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, onClickEdit, style }: IChallengeCard): import("react/jsx-runtime").JSX.Element;
+export default function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, onClickEdit, style }: IChallengeCard): import("react").JSX.Element;
 export declare function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, handleDelete, handleEdit, variant }: {
     textContinue: any;
     textDelete: any;
@@ -9,5 +10,5 @@ export declare function MoreVerticalMenu({ textContinue, textDelete, textEdit, h
     handleDelete: any;
     handleEdit: any;
     variant: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

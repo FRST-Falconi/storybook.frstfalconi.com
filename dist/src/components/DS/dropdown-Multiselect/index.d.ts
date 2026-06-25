@@ -38,6 +38,6 @@ type ISelectedValue = {
     subDescription?: string;
     isVariant?: boolean;
 }[];
-export default function DropdownMultiselect(props: IDropdownMultiselect): import("react/jsx-runtime").JSX.Element;
+export default function DropdownMultiselect(props: IDropdownMultiselect): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../shared/global.css';
 interface Trail {
     id: string;
@@ -16,6 +17,6 @@ interface CalendarProps {
 /**
  * @param {CalendarProps} props
  */
-export default function CalendarCard(props: CalendarProps): import("react/jsx-runtime").JSX.Element;
+export default function CalendarCard(props: CalendarProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

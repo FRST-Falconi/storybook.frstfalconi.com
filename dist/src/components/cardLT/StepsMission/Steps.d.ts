@@ -22,6 +22,6 @@ interface StepParams {
  *
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
-export default function Steps(props: StepParams): import("react/jsx-runtime").JSX.Element;
+export default function Steps(props: StepParams): React.JSX.Element;
 export {};
 //# sourceMappingURL=Steps.d.ts.map

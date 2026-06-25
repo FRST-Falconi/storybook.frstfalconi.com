@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 import ParticipantThumbnails from '../participantThumbnails';
 interface objThumbnails {
@@ -10,6 +11,6 @@ interface ParticipantThumbnails {
     listThumbnails: Array<objThumbnails>;
     colorBackground?: string;
 }
-export default function ParticipantThumbnailsList({ listThumbnails, colorBackground }: ParticipantThumbnails): import("react/jsx-runtime").JSX.Element;
+export default function ParticipantThumbnailsList({ listThumbnails, colorBackground }: ParticipantThumbnails): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

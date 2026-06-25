@@ -1,3 +1,4 @@
+import React from 'react';
 export declare const ActioExperience: ({ handleClickTune, handleClickLift, stylesButton, stylesModal, isModalStartOpen, idButton, mainText }: {
     handleClickTune: () => void;
     handleClickLift: () => void;
@@ -6,5 +7,5 @@ export declare const ActioExperience: ({ handleClickTune, handleClickLift, style
     stylesModal?: any;
     isModalStartOpen?: boolean;
     idButton?: string;
-}) => import("react/jsx-runtime").JSX.Element;
+}) => React.JSX.Element;
 //# sourceMappingURL=index.d.ts.map

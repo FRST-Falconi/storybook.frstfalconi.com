@@ -130,6 +130,7 @@ export default function InputComment({
                 handleMentionUser(user)
               }}
               darkMode={darkMode}
+              configColor={configColor}
             />
           )}
         </Styles.InputWrapper>

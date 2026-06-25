@@ -13,6 +13,6 @@ interface RatingCurtidasParams {
  *
  * @componente
  */
-export default function RatingCurtidas(props: RatingCurtidasParams): import("react/jsx-runtime").JSX.Element;
+export default function RatingCurtidas(props: RatingCurtidasParams): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

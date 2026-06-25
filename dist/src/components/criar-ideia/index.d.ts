@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../shared/global.css';
 interface PropsCriarIdeia {
     textoCriar?: string;
@@ -15,6 +16,6 @@ interface PropsCriarIdeia {
     onClickButtonPublicar?: (e: any) => void;
     onClickCancelar?: (e: any) => void;
 }
-export default function CriarIdeia(props: PropsCriarIdeia): import("react/jsx-runtime").JSX.Element;
+export default function CriarIdeia(props: PropsCriarIdeia): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

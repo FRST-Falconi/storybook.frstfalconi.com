@@ -15,6 +15,6 @@ interface ModalLearningTechProps {
     handleConfirmation: () => void;
     style?: React.CSSProperties;
 }
-export default function ModalLearningTech(props: ModalLearningTechProps): import("react/jsx-runtime").JSX.Element;
+export default function ModalLearningTech(props: ModalLearningTechProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface IBannerProblemFeed extends stepsInfo {
     id: string;
     onClickUserInfo?: () => void;
@@ -98,6 +99,6 @@ interface stepsInfo {
     textNextSteps?: string;
     nextStepsValue?: string;
 }
-export default function BannerProblemFeed(props: IBannerProblemFeed): import("react/jsx-runtime").JSX.Element;
+export default function BannerProblemFeed(props: IBannerProblemFeed): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

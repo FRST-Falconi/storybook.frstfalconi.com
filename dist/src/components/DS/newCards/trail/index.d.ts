@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface Company {
     icon?: string;
     name?: string;
@@ -9,6 +10,6 @@ interface trailCardProps {
     company?: Company;
     handleClick: () => void;
 }
-export default function TrailCard({ banner, trailName, company, handleClick }: trailCardProps): import("react/jsx-runtime").JSX.Element;
+export default function TrailCard({ banner, trailName, company, handleClick }: trailCardProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

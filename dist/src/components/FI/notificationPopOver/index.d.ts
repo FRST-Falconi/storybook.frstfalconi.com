@@ -1,3 +1,4 @@
+/// <reference types="react" />
 type notificationCard = {
     notificationAvatar: string;
     notificationDescription: string;
@@ -27,6 +28,6 @@ interface INotificationPopOver {
     setOnAreaPopOver?: (e: any) => void;
     handleClickBack: () => void;
 }
-export default function NotificationPopOver(props: INotificationPopOver): import("react/jsx-runtime").JSX.Element;
+export default function NotificationPopOver(props: INotificationPopOver): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface Company {
     icon?: string;
     name?: string;
@@ -9,6 +10,6 @@ interface articlesProps {
     company: Company;
     handleClick: () => void;
 }
-export default function ArticleCard({ title, description, company, handleClick }: articlesProps): import("react/jsx-runtime").JSX.Element;
+export default function ArticleCard({ title, description, company, handleClick }: articlesProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,3 +1,4 @@
+import React from "react";
 interface VectorIconParam {
     color?: string;
 }
@@ -5,6 +6,6 @@ interface VectorIconParam {
  *
  * @componente
  */
-export default function VectorDown(props: VectorIconParam): import("react/jsx-runtime").JSX.Element;
+export default function VectorDown(props: VectorIconParam): React.JSX.Element;
 export {};
 //# sourceMappingURL=vectorDown.d.ts.map

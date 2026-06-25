@@ -17,6 +17,6 @@ interface IFeedInteraction {
     childrenCommentV2?: any;
     style?: React.CSSProperties;
 }
-export default function FeedInteractionV2(props: IFeedInteraction): import("react/jsx-runtime").JSX.Element;
+export default function FeedInteractionV2(props: IFeedInteraction): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -24,6 +24,6 @@ interface BannerLxpParams {
     onSaveInfo?: ([]: Iterable<any>) => void;
     onCancell?: () => void;
 }
-export default function BannerLxp(props: BannerLxpParams): import("react/jsx-runtime").JSX.Element;
+export default function BannerLxp(props: BannerLxpParams): React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

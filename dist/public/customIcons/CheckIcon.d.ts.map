@@ -1,1 +1,1 @@
-{"version":3,"file":"CheckIcon.d.ts","sourceRoot":"","sources":["../../../public/customIcons/CheckIcon.tsx"],"names":[],"mappings":"AAEA,wBAAgB,SAAS,CAAC,EAAE,MAAkB,EAAG,IAAe,EAAC;;;CAAA,2CAahE"}
+{"version":3,"file":"CheckIcon.d.ts","sourceRoot":"","sources":["../../../public/customIcons/CheckIcon.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAA;AAEzB,wBAAgB,SAAS,CAAC,EAAE,MAAkB,EAAG,IAAe,EAAC;;;CAAA,qBAahE"}

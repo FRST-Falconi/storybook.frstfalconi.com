@@ -1,5 +1,6 @@
+import React from 'react';
 export declare function CheckIcon({ stroke, fill }: {
     stroke?: string;
     fill?: string;
-}): import("react/jsx-runtime").JSX.Element;
+}): React.JSX.Element;
 //# sourceMappingURL=CheckIcon.d.ts.map

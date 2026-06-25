@@ -20,6 +20,6 @@ interface CardResultConquistaProps {
 /**
  * @param {CardResultConquistaProps} props
  */
-export default function CardResultConquista(props: CardResultConquistaProps): import("react/jsx-runtime").JSX.Element;
+export default function CardResultConquista(props: CardResultConquistaProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

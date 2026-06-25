@@ -1,3 +1,4 @@
+import React from 'react';
 export declare const StatsWithResult: ({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados }: {
     definicao?: any;
     hipoteses?: any;
@@ -5,5 +6,5 @@ export declare const StatsWithResult: ({ definicao, hipoteses, testes, resultado
     resultados?: any;
     proximosPassos?: any;
     finalizados?: any;
-}) => import("react/jsx-runtime").JSX.Element;
+}) => React.JSX.Element;
 //# sourceMappingURL=statsWithResult.d.ts.map

@@ -10,6 +10,6 @@ type TAccordionListprops = {
     value?: number;
     darkMode?: boolean;
 };
-export default function AccordionList({ title, children, isOpen, setIsOpen, isOldAccordionList, selectedItem, style, value, darkMode }: TAccordionListprops): import("react/jsx-runtime").JSX.Element;
+export default function AccordionList({ title, children, isOpen, setIsOpen, isOldAccordionList, selectedItem, style, value, darkMode }: TAccordionListprops): React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

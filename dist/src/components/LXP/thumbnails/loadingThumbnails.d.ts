@@ -1,4 +1,5 @@
+import React from 'react';
 export declare const LoadingThumbnails: ({ provided }: {
     provided: any;
-}) => import("react/jsx-runtime").JSX.Element;
+}) => React.JSX.Element;
 //# sourceMappingURL=loadingThumbnails.d.ts.map

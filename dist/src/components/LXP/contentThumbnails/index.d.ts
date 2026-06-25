@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 import { IContentThumbnails } from './contentThumbnails';
 export declare enum typeContent {
@@ -8,5 +9,5 @@ export declare enum typeContent {
     Quiz = 4,
     Certificate = 5
 }
-export default function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList, onChangeOrder, isOpen }: IContentThumbnails): import("react/jsx-runtime").JSX.Element;
+export default function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList, onChangeOrder, isOpen }: IContentThumbnails): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

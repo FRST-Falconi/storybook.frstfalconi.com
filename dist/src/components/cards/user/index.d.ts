@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 type statusAssessment = 'not-started' | 'started' | 'finished';
 interface UserCardProps {
@@ -21,6 +22,6 @@ interface UserCardProps {
 /**
  * @param {UserCardProps} props
  */
-export default function CalendarCard(props: UserCardProps): import("react/jsx-runtime").JSX.Element;
+export default function CalendarCard(props: UserCardProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

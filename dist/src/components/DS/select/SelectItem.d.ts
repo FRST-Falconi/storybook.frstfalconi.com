@@ -7,6 +7,6 @@ interface SelectProps {
     handleSelect?: (value: any) => void;
     disabled?: boolean;
 }
-export default function SelectItem({ value, label, selected, handleSelect, disabled }: SelectProps): import("react/jsx-runtime").JSX.Element;
+export default function SelectItem({ value, label, selected, handleSelect, disabled }: SelectProps): React.JSX.Element;
 export {};
 //# sourceMappingURL=SelectItem.d.ts.map

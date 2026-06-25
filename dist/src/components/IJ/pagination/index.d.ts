@@ -12,6 +12,6 @@ interface IPagination {
     style?: React.CSSProperties;
     buttonBackgroundColor?: string;
 }
-export default function Pagination(props: IPagination): import("react/jsx-runtime").JSX.Element;
+export default function Pagination(props: IPagination): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

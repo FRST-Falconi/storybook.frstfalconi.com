@@ -14,6 +14,6 @@ interface TagProps {
      */
     style?: React.CSSProperties;
 }
-export default function Tag(props: TagProps): import("react/jsx-runtime").JSX.Element;
+export default function Tag(props: TagProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

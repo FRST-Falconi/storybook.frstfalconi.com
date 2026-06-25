@@ -1,4 +1,5 @@
-export declare function ArrowIcon(): import("react/jsx-runtime").JSX.Element;
+import React from "react";
+export declare function ArrowIcon(): React.JSX.Element;
 interface SelectProps {
     placeholder?: string;
     children?: any;
@@ -6,6 +7,6 @@ interface SelectProps {
     defaultValue?: any;
     loading?: boolean;
 }
-export default function SelectLXP({ placeholder, defaultValue, children, onChange, loading }: SelectProps): import("react/jsx-runtime").JSX.Element;
+export default function SelectLXP({ placeholder, defaultValue, children, onChange, loading }: SelectProps): React.JSX.Element;
 export {};
 //# sourceMappingURL=SelectLXP.d.ts.map

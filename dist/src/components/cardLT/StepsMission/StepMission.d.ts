@@ -26,6 +26,6 @@ interface MissionStepsParams {
  *
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
-export default function MissionSteps(props: MissionStepsParams): import("react/jsx-runtime").JSX.Element;
+export default function MissionSteps(props: MissionStepsParams): React.JSX.Element;
 export {};
 //# sourceMappingURL=StepMission.d.ts.map

@@ -16,6 +16,6 @@ type ModalNewFeaturesProps = {
     onCurrentStep?: (CurrentStep: any) => void;
     steps: TopicsNewFeatues[];
 };
-declare const modalNewFeatures: ({ title, open, onClose, onFinish, steps, Exit, onCurrentStep }: ModalNewFeaturesProps) => import("react/jsx-runtime").JSX.Element;
+declare const modalNewFeatures: ({ title, open, onClose, onFinish, steps, Exit, onCurrentStep }: ModalNewFeaturesProps) => React.JSX.Element;
 export default modalNewFeatures;
 //# sourceMappingURL=index.d.ts.map

@@ -34,6 +34,6 @@ interface IPostFeed {
     isCommentV2?: boolean;
     childrenCommentV2?: any;
 }
-export default function PostFeed(props: IPostFeed): import("react/jsx-runtime").JSX.Element;
+export default function PostFeed(props: IPostFeed): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

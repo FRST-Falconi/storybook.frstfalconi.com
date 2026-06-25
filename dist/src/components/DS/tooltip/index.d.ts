@@ -7,5 +7,5 @@ export declare const TooltipV2: ({ children, content, direction, style }: {
     content: React.ReactNode;
     direction?: 'top' | 'bottom' | 'left' | 'right';
     style?: React.CSSProperties;
-}) => import("react/jsx-runtime").JSX.Element;
+}) => import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface VectorIconParam {
     color?: string;
 }
@@ -5,6 +6,6 @@ interface VectorIconParam {
  *
  * @componente
  */
-export default function Vector(props: VectorIconParam): import("react/jsx-runtime").JSX.Element;
+export default function Vector(props: VectorIconParam): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=vector.d.ts.map

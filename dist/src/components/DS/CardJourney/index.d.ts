@@ -13,5 +13,5 @@ export interface ICardJourney {
     onClickButton?: () => void;
     onClickRemove?: () => void;
 }
-export default function CardJourney({ userInfo, style, onClickButton, onClickProfile, onClickRemove }: ICardJourney): import("react/jsx-runtime").JSX.Element;
+export default function CardJourney({ userInfo, style, onClickButton, onClickProfile, onClickRemove }: ICardJourney): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

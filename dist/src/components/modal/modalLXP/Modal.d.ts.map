@@ -1,1 +1,1 @@
-{"version":3,"file":"Modal.d.ts","sourceRoot":"","sources":["../../../../../src/components/modal/modalLXP/Modal.tsx"],"names":[],"mappings":"AACA,OAAO,4BAA4B,CAAA;AAOnC,MAAM,CAAC,OAAO,UAAU,QAAQ,CAAC,KAAK,EAAE,GAAG,2CAmD1C"}
+{"version":3,"file":"Modal.d.ts","sourceRoot":"","sources":["../../../../../src/components/modal/modalLXP/Modal.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAmB,MAAM,OAAO,CAAA;AACvC,OAAO,4BAA4B,CAAA;AAOnC,MAAM,CAAC,OAAO,UAAU,QAAQ,CAAC,KAAK,EAAE,GAAG,qBAmD1C"}

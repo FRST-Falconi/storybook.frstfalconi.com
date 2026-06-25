@@ -1,1 +1,1 @@
-{"version":3,"file":"SwitchVoteIcon.d.ts","sourceRoot":"","sources":["../../../public/customIcons/SwitchVoteIcon.tsx"],"names":[],"mappings":"AACA,OAAO,EAAE,aAAa,EAAE,MAAM,OAAO,CAAA;AAErC,eAAO,MAAM,cAAc;YAMjB,aAAa,GAAG,SAAS;YACzB,MAAM;aACL,MAAM;aACN,MAAM;6CAShB,CAAA"}
+{"version":3,"file":"SwitchVoteIcon.d.ts","sourceRoot":"","sources":["../../../public/customIcons/SwitchVoteIcon.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAA;AACzB,OAAO,EAAE,aAAa,EAAE,MAAM,OAAO,CAAA;AAErC,eAAO,MAAM,cAAc;YAMjB,aAAa,GAAG,SAAS;YACzB,MAAM;aACL,MAAM;aACN,MAAM;uBAShB,CAAA"}

@@ -21,6 +21,6 @@ interface AvatarWithInfoParams {
  *
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
-export default function AvatarWithInfo(props: AvatarWithInfoParams): import("react/jsx-runtime").JSX.Element;
+export default function AvatarWithInfo(props: AvatarWithInfoParams): React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

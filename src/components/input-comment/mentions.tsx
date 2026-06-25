@@ -4,7 +4,7 @@ import { MentionProps } from './types';
 import { useMentions } from './useMentions';
 export const Mentions = (mention: MentionProps) => {
   const { selectedUser, setSelectedUser, mentionListRef } = useMentions(mention);
-  const { top, users, darkMode } = mention;
+  const { top, users, darkMode, configColor } = mention;
 
 
 

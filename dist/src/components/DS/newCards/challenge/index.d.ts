@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface ChallengeCardProps {
     selected?: boolean;
     avatar?: string;
@@ -24,6 +25,6 @@ interface ChallengeCardProps {
     showCheckbox?: boolean;
     showExecutionGroup: boolean;
 }
-export default function NewChallengeCard({ selected, avatar, name, role, description, lastStep, cardID, type_challenge, isIterator, isVisibleHeaderTypeChallenge, indicatorStart, indicatorCurrent, indicatorGoal, impact, relevance, handleSelected, handleClickChallenge, handleClickPresentation, onClickAvatar, handleGroupExecution, iteratorNumber, resultNumber, showCheckbox, showExecutionGroup, }: ChallengeCardProps): import("react/jsx-runtime").JSX.Element;
+export default function NewChallengeCard({ selected, avatar, name, role, description, lastStep, cardID, type_challenge, isIterator, isVisibleHeaderTypeChallenge, indicatorStart, indicatorCurrent, indicatorGoal, impact, relevance, handleSelected, handleClickChallenge, handleClickPresentation, onClickAvatar, handleGroupExecution, iteratorNumber, resultNumber, showCheckbox, showExecutionGroup, }: ChallengeCardProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -31,6 +31,6 @@ export interface TextFieldProps {
     textFieldStyle?: React.CSSProperties;
     containerTextFieldStyle?: React.CSSProperties;
 }
-export default function TextField(props: TextFieldProps): import("react/jsx-runtime").JSX.Element;
+export default function TextField(props: TextFieldProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

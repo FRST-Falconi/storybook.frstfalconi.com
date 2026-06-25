@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface User {
     id: number;
     name: string;
@@ -12,5 +13,5 @@ export interface MentionProps extends Readonly<{
     inputSearch?: string;
 }> {
 }
-export declare const Mentions: (mention: MentionProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Mentions: (mention: MentionProps) => import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

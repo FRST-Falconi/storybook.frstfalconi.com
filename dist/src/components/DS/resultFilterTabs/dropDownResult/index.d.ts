@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IResult } from '../resultFilterTabs';
 interface DropdownProps {
     isOpen: boolean;
@@ -7,6 +8,6 @@ interface DropdownProps {
     maxTabs: number;
     onClickResultList: (result: IResult) => void;
 }
-export default function DropdownResult({ isOpen, anchor, onClose, ResultList, onClickResultList }: DropdownProps): import("react/jsx-runtime").JSX.Element;
+export default function DropdownResult({ isOpen, anchor, onClose, ResultList, onClickResultList }: DropdownProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

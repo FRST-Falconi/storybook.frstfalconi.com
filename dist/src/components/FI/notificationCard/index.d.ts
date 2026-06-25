@@ -12,6 +12,6 @@ interface INotificationCard {
     handleClickDelete: () => Promise<void>;
     onClickUserInfo?: () => void;
 }
-export default function NotificationCard(props: INotificationCard): import("react/jsx-runtime").JSX.Element;
+export default function NotificationCard(props: INotificationCard): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

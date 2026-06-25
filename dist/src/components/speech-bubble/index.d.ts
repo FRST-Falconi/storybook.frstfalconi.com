@@ -1,4 +1,5 @@
+import React from 'react';
 import '../../shared/global.css';
 import { ISpeehBubble } from './speechBubble';
-export default function SpeechBubble(props: ISpeehBubble): import("react/jsx-runtime").JSX.Element;
+export default function SpeechBubble(props: ISpeehBubble): React.JSX.Element;
 //# sourceMappingURL=index.d.ts.map

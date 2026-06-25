@@ -11,6 +11,6 @@ interface RocketButtonParams {
  *
  * @componente
  */
-export default function RocketButton(props: RocketButtonParams): import("react/jsx-runtime").JSX.Element;
+export default function RocketButton(props: RocketButtonParams): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -30,6 +30,6 @@ interface RatingParams {
  *
  * @componente
  */
-export default function Rating(props: RatingParams): import("react/jsx-runtime").JSX.Element;
+export default function Rating(props: RatingParams): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

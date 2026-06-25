@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface peopleCardProps {
     avatar: string;
     name: string;
@@ -10,6 +11,6 @@ interface peopleCardProps {
     handleClickInvite?: () => void;
     handleClickMessage?: () => void;
 }
-export default function PeopleCard({ avatar, name, area, position, showBtnProfile, showBtnInvite, showBtnMessage, handleClickProfile, handleClickInvite, handleClickMessage }: peopleCardProps): import("react/jsx-runtime").JSX.Element;
+export default function PeopleCard({ avatar, name, area, position, showBtnProfile, showBtnInvite, showBtnMessage, handleClickProfile, handleClickInvite, handleClickMessage }: peopleCardProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

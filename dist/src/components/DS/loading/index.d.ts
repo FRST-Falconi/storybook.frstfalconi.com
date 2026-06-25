@@ -15,6 +15,6 @@ interface ILoading {
     positionLoadingText?: loadPosition;
     style?: React.CSSProperties;
 }
-export default function Loading(props: ILoading): import("react/jsx-runtime").JSX.Element;
+export default function Loading(props: ILoading): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

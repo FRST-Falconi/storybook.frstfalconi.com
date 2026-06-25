@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface ObjItemDesafio {
     title: string;
     count: number;
@@ -14,6 +15,6 @@ interface ObjQuantidadeDesafio {
     finalizados?: ObjItemDesafio;
     languagem?: string;
 }
-export default function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados, languagem }: ObjQuantidadeDesafio): import("react/jsx-runtime").JSX.Element;
+export default function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados, languagem }: ObjQuantidadeDesafio): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

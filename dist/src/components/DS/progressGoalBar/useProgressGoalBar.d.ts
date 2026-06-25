@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare enum CurrentVariant {
     Normal = "Normal",
     Warning = "Warning",
@@ -21,9 +22,9 @@ export declare const useProgressGoalBar: ({ start, current, goal }: {
         goal: number;
         barRef: string;
         currentVariant: CurrentVariant;
-        message: import("react/jsx-runtime").JSX.Element;
-        currentTextInit: import("react/jsx-runtime").JSX.Element;
-        TextoGoalDefault: import("react/jsx-runtime").JSX.Element;
+        message: import("react").JSX.Element;
+        currentTextInit: import("react").JSX.Element;
+        TextoGoalDefault: import("react").JSX.Element;
         currenText?: undefined;
         stabilizeExceedingText?: undefined;
         textGoal?: undefined;
@@ -34,10 +35,10 @@ export declare const useProgressGoalBar: ({ start, current, goal }: {
         goal: number;
         barRef: string;
         currentVariant: CurrentVariant;
-        message: import("react/jsx-runtime").JSX.Element;
-        currenText: import("react/jsx-runtime").JSX.Element;
-        currentTextInit: import("react/jsx-runtime").JSX.Element;
-        TextoGoalDefault: import("react/jsx-runtime").JSX.Element;
+        message: import("react").JSX.Element;
+        currenText: import("react").JSX.Element;
+        currentTextInit: import("react").JSX.Element;
+        TextoGoalDefault: import("react").JSX.Element;
         stabilizeExceedingText?: undefined;
         textGoal?: undefined;
         bar?: undefined;
@@ -47,9 +48,9 @@ export declare const useProgressGoalBar: ({ start, current, goal }: {
         goal: number;
         barRef: string;
         currentVariant: CurrentVariant;
-        message: import("react/jsx-runtime").JSX.Element;
-        currenText: import("react/jsx-runtime").JSX.Element;
-        stabilizeExceedingText: import("react/jsx-runtime").JSX.Element;
+        message: import("react").JSX.Element;
+        currenText: import("react").JSX.Element;
+        stabilizeExceedingText: import("react").JSX.Element;
         currentTextInit?: undefined;
         TextoGoalDefault?: undefined;
         textGoal?: undefined;
@@ -60,9 +61,9 @@ export declare const useProgressGoalBar: ({ start, current, goal }: {
         goal: number;
         barRef: string;
         currentVariant: CurrentVariant;
-        message: import("react/jsx-runtime").JSX.Element;
-        currentTextInit: import("react/jsx-runtime").JSX.Element;
-        textGoal: import("react/jsx-runtime").JSX.Element;
+        message: import("react").JSX.Element;
+        currentTextInit: import("react").JSX.Element;
+        textGoal: import("react").JSX.Element;
         TextoGoalDefault?: undefined;
         currenText?: undefined;
         stabilizeExceedingText?: undefined;
@@ -73,9 +74,9 @@ export declare const useProgressGoalBar: ({ start, current, goal }: {
         goal: number;
         barRef: string;
         currentVariant: CurrentVariant;
-        message: import("react/jsx-runtime").JSX.Element;
-        currenText: import("react/jsx-runtime").JSX.Element;
-        TextoGoalDefault: import("react/jsx-runtime").JSX.Element;
+        message: import("react").JSX.Element;
+        currenText: import("react").JSX.Element;
+        TextoGoalDefault: import("react").JSX.Element;
         currentTextInit?: undefined;
         stabilizeExceedingText?: undefined;
         textGoal?: undefined;
@@ -86,9 +87,9 @@ export declare const useProgressGoalBar: ({ start, current, goal }: {
         goal: number;
         bar: string;
         currentVariant: CurrentVariant;
-        message: import("react/jsx-runtime").JSX.Element;
-        currenText: import("react/jsx-runtime").JSX.Element;
-        TextoGoalDefault: import("react/jsx-runtime").JSX.Element;
+        message: import("react").JSX.Element;
+        currenText: import("react").JSX.Element;
+        TextoGoalDefault: import("react").JSX.Element;
         barRef?: undefined;
         currentTextInit?: undefined;
         stabilizeExceedingText?: undefined;

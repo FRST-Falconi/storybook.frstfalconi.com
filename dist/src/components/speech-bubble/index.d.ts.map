@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../src/components/speech-bubble/index.tsx"],"names":[],"mappings":"AACA,OAAO,yBAAyB,CAAA;AAIhC,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,KAAK,EAAE,YAAY,2CAqBvD"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../src/components/speech-bubble/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAmB,MAAM,OAAO,CAAA;AACvC,OAAO,yBAAyB,CAAA;AAIhC,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,KAAK,EAAE,YAAY,qBAqBvD"}

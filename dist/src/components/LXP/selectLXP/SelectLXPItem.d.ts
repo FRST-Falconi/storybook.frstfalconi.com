@@ -1,3 +1,4 @@
+import React from "react";
 type valueEnum = string | number | boolean | null;
 interface SelectProps {
     value?: valueEnum;
@@ -6,6 +7,6 @@ interface SelectProps {
     handleSelect?: (value: any) => void;
     disabled?: boolean;
 }
-export default function SelectLXPItem({ value, label, selected, handleSelect, disabled }: SelectProps): import("react/jsx-runtime").JSX.Element;
+export default function SelectLXPItem({ value, label, selected, handleSelect, disabled }: SelectProps): React.JSX.Element;
 export {};
 //# sourceMappingURL=SelectLXPItem.d.ts.map

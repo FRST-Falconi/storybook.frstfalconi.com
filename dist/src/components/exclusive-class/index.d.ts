@@ -1,4 +1,5 @@
+/// <reference types="react" />
 import '../../shared/global.css';
 import { IExclusiveClass } from './exclusiveClass';
-export default function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }: IExclusiveClass): import("react/jsx-runtime").JSX.Element;
+export default function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }: IExclusiveClass): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

@@ -1,2 +1,3 @@
-export declare function CloseIcon(): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+export declare function CloseIcon(): React.JSX.Element;
 //# sourceMappingURL=CloseIcon.d.ts.map

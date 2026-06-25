@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 interface CardProblemGestorProps {
     problemID: string;
@@ -22,6 +23,6 @@ interface CardProblemGestorProps {
 /**
  * @param {CardProblemGestorProps} props
  */
-export default function CardProblemGestor(props: CardProblemGestorProps): import("react/jsx-runtime").JSX.Element;
+export default function CardProblemGestor(props: CardProblemGestorProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

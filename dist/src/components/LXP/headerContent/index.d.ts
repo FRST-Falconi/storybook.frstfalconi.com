@@ -18,6 +18,6 @@ interface HeaderContentParams {
     style?: React.CSSProperties;
     height?: number | string;
 }
-export default function HeaderContent(props: HeaderContentParams): import("react/jsx-runtime").JSX.Element;
+export default function HeaderContent(props: HeaderContentParams): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

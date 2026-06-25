@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 interface ParticipantThumbnails {
     imgThumbnails?: any;
@@ -6,6 +7,6 @@ interface ParticipantThumbnails {
     handleFunctionThumbnail?: () => void;
     author?: string;
 }
-export default function ParticipantThumbnails({ imgThumbnails, titleThumbnail, descpThumbnail, handleFunctionThumbnail, author }: ParticipantThumbnails): import("react/jsx-runtime").JSX.Element;
+export default function ParticipantThumbnails({ imgThumbnails, titleThumbnail, descpThumbnail, handleFunctionThumbnail, author }: ParticipantThumbnails): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

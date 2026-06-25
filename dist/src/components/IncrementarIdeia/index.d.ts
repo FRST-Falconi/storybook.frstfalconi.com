@@ -11,6 +11,6 @@ interface PropsIcrementarIdeia {
     value?: string;
     styles: React.CSSProperties;
 }
-export default function IcrementarIdeia(props: PropsIcrementarIdeia): import("react/jsx-runtime").JSX.Element;
+export default function IcrementarIdeia(props: PropsIcrementarIdeia): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

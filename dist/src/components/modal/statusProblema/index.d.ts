@@ -8,6 +8,6 @@ interface ModalStatusProblemaProps {
     handleClose: () => void;
     style: React.CSSProperties;
 }
-export default function ModalStatusProblema(props: ModalStatusProblemaProps): import("react/jsx-runtime").JSX.Element;
+export default function ModalStatusProblema(props: ModalStatusProblemaProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

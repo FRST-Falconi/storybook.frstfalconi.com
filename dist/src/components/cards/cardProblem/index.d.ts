@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 interface CardProblemProps {
     selected: boolean;
@@ -28,6 +29,6 @@ interface CardProblemProps {
 /**
  * @param {CardProblemProps} props
  */
-export default function CardProblem(props: CardProblemProps): import("react/jsx-runtime").JSX.Element;
+export default function CardProblem(props: CardProblemProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

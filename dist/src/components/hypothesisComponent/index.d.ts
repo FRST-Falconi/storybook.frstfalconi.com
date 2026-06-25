@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { Vote } from './types';
 export declare const HypothesisComponent: ({ description, type, id, title, votes, onVote, canVote, canViewVote, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, hasEditHipotesis, onDeleteHipotesis, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, authorGoalId, changeVoteText, onSaveEditHipotesis }: {
     description: string;
@@ -27,5 +28,5 @@ export declare const HypothesisComponent: ({ description, type, id, title, votes
     onChangeVote?: (hypothesiId: string) => any;
     changeVoteText?: string;
     onSaveEditHipotesis?: (description: string) => void;
-}) => import("react/jsx-runtime").JSX.Element;
+}) => import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

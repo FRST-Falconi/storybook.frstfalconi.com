@@ -1,3 +1,4 @@
+import React from 'react';
 export default function StepController({ top, numberCurrentStep, numberTotalSteps, labelHome, labelContact, prevStep, nextStep, goToStart, goToContact }: {
     top?: string;
     numberCurrentStep: number;
@@ -8,5 +9,5 @@ export default function StepController({ top, numberCurrentStep, numberTotalStep
     nextStep: () => void;
     goToStart: () => void;
     goToContact: () => void;
-}): import("react/jsx-runtime").JSX.Element;
+}): React.JSX.Element;
 //# sourceMappingURL=index.d.ts.map

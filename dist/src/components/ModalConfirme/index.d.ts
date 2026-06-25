@@ -6,6 +6,6 @@ interface ModalConfirmeProps {
     children: ReactNode;
     onConfirm: () => void;
 }
-export declare const ModalConfirme: ({ open, onClose, title, children, onConfirm }: ModalConfirmeProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ModalConfirme: ({ open, onClose, title, children, onConfirm }: ModalConfirmeProps) => import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

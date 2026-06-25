@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import './styles/theme.css';
 import './styles/primereact.css';
 import './styles/primeflex.css';
@@ -9,5 +10,5 @@ export default function DropdownSelectMultiple({ placeholderSelect, placeholderF
     optionLabel: any;
     listItems: any;
     isDisabled: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

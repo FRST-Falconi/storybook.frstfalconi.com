@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface RocketButtonParam {
     /**
      * @prop {string} colorPrimaria: Cor do rocket do botão
@@ -12,6 +13,6 @@ interface RocketButtonParam {
  *
  * @componente
  */
-export default function RocketButtonIcon(props: RocketButtonParam): import("react/jsx-runtime").JSX.Element;
+export default function RocketButtonIcon(props: RocketButtonParam): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=RocketButtonIcon.d.ts.map

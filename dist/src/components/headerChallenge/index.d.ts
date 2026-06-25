@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../shared/global.css';
 interface HeaderChallengeProps {
     firstLine?: string;
@@ -5,6 +6,6 @@ interface HeaderChallengeProps {
     desktopBackground?: any;
     mobileBackground?: any;
 }
-export default function HeaderChallenge({ firstLine, secondLine, desktopBackground, mobileBackground }: HeaderChallengeProps): import("react/jsx-runtime").JSX.Element;
+export default function HeaderChallenge({ firstLine, secondLine, desktopBackground, mobileBackground }: HeaderChallengeProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

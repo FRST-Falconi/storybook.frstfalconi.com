@@ -20,6 +20,6 @@ interface IAudioPlayer {
     exitSound?: number;
     style?: React.CSSProperties;
 }
-export default function AudioPlayer(props: IAudioPlayer): import("react/jsx-runtime").JSX.Element;
+export default function AudioPlayer(props: IAudioPlayer): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=old_index.d.ts.map

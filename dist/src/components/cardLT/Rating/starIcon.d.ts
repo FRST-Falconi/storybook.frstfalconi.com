@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface StarIconParam {
     color: string;
 }
@@ -5,6 +6,6 @@ interface StarIconParam {
  *
  * @componente
  */
-export default function StarIcon(props: StarIconParam): import("react/jsx-runtime").JSX.Element;
+export default function StarIcon(props: StarIconParam): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=starIcon.d.ts.map

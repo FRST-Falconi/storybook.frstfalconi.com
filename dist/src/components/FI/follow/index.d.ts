@@ -12,6 +12,6 @@ interface FollowInfo {
     isFollowing: boolean;
     handleChange: () => void;
 }
-export default function Follow(props: IFollow): import("react/jsx-runtime").JSX.Element;
+export default function Follow(props: IFollow): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

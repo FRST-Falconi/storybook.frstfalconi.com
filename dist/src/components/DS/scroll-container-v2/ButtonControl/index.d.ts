@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare function ButtonControll({ onClick, onClickLongPress, isVisible, direction, ArrowScroll, sizeButton, styles }: {
     onClick: any;
     onClickLongPress: any;
@@ -6,5 +7,5 @@ export declare function ButtonControll({ onClick, onClickLongPress, isVisible, d
     ArrowScroll: any;
     sizeButton: any;
     styles: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

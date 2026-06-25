@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { ContainerModalBoasVindas } from "./styles";
-import { Modal } from "index";
-
+import Modal from "../../DS/modal";
 interface ModalBoasVindasProps {
   isOpen: boolean;
   onClose: () => void;

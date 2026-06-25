@@ -1,6 +1,7 @@
+/// <reference types="react" />
 /**
  *
  * @componente
  */
-export default function ErrorIcon(): import("react/jsx-runtime").JSX.Element;
+export default function ErrorIcon(): import("react").JSX.Element;
 //# sourceMappingURL=errorIcon.d.ts.map

@@ -18,6 +18,6 @@ interface IListSelector {
     selectedItens: (itens: any) => void;
     style: React.CSSProperties;
 }
-export default function ListSelector(props: IListSelector): import("react/jsx-runtime").JSX.Element;
+export default function ListSelector(props: IListSelector): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -3,6 +3,6 @@ import { TooltipProps } from '@mui/material/Tooltip';
 type LightTooltipProps = TooltipProps & {
     title: React.ReactNode;
 };
-export declare const LightTooltip: ({ title, children, ...props }: LightTooltipProps) => import("react/jsx-runtime").JSX.Element;
+export declare const LightTooltip: ({ title, children, ...props }: LightTooltipProps) => React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

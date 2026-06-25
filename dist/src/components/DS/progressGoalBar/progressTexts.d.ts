@@ -1,14 +1,15 @@
+import React from 'react';
 export declare const MESSAGES: {
-    reachedGoal: import("react/jsx-runtime").JSX.Element;
-    progressExceeded: import("react/jsx-runtime").JSX.Element;
-    progressImproved: import("react/jsx-runtime").JSX.Element;
-    progressNoResults: import("react/jsx-runtime").JSX.Element;
-    progressNoGoal: import("react/jsx-runtime").JSX.Element;
-    currentTextResult: import("react/jsx-runtime").JSX.Element;
-    currentTextInitAndResult: import("react/jsx-runtime").JSX.Element;
-    currentTextInit: import("react/jsx-runtime").JSX.Element;
-    stabilizeExceedingText: import("react/jsx-runtime").JSX.Element;
-    textGoal: import("react/jsx-runtime").JSX.Element;
-    TextoGoalDefault: import("react/jsx-runtime").JSX.Element;
+    reachedGoal: React.JSX.Element;
+    progressExceeded: React.JSX.Element;
+    progressImproved: React.JSX.Element;
+    progressNoResults: React.JSX.Element;
+    progressNoGoal: React.JSX.Element;
+    currentTextResult: React.JSX.Element;
+    currentTextInitAndResult: React.JSX.Element;
+    currentTextInit: React.JSX.Element;
+    stabilizeExceedingText: React.JSX.Element;
+    textGoal: React.JSX.Element;
+    TextoGoalDefault: React.JSX.Element;
 };
 //# sourceMappingURL=progressTexts.d.ts.map

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import '../../../shared/global.css';
 interface CardFaseDesafiosProps {
     cardTitle?: string;
@@ -13,6 +14,6 @@ interface CardFaseDesafiosProps {
     textButton?: string;
     textButtonContinue?: string;
 }
-export default function CardFaseDesafios(props: CardFaseDesafiosProps): import("react/jsx-runtime").JSX.Element;
+export default function CardFaseDesafios(props: CardFaseDesafiosProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

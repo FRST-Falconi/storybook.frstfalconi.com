@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface Company {
     icon?: string;
     name?: string;
@@ -12,6 +13,6 @@ interface cardContentProps {
     handleDownload?: () => void;
     handleClickCard?: () => void;
 }
-export default function CardContent({ contentType, contentImage, contentDescription, company, enableDownload, handleDownload, handleClickCard }: cardContentProps): import("react/jsx-runtime").JSX.Element;
+export default function CardContent({ contentType, contentImage, contentDescription, company, enableDownload, handleDownload, handleClickCard }: cardContentProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

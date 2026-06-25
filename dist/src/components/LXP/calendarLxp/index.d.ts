@@ -6,6 +6,6 @@ interface CalendarLxpParams {
     onSave?: ([]: Iterable<any>) => void;
     handleClose?: () => void;
 }
-export default function CalendarLxp(props: CalendarLxpParams): import("react/jsx-runtime").JSX.Element;
+export default function CalendarLxp(props: CalendarLxpParams): React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export default function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled, ArrowIcon }: {
     placeholder: any;
     valueSelect: any;
@@ -7,5 +8,5 @@ export default function SelectFRST({ placeholder, valueSelect, handleValueSelect
     style: any;
     disabled: any;
     ArrowIcon?: any;
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

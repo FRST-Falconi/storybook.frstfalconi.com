@@ -1,3 +1,4 @@
+import * as React from 'react';
 interface Mentor {
     avatar: string;
     name: string;
@@ -15,6 +16,6 @@ interface ModuleCardProps {
     notStarted?: boolean;
     labels: any;
 }
-export default function CardTrail(props: ModuleCardProps): import("react/jsx-runtime").JSX.Element;
+export default function CardTrail(props: ModuleCardProps): React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

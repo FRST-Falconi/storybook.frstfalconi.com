@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import './styles/theme.css';
 import './styles/primereact.css';
 import './styles/primeflex.css';
@@ -11,5 +12,5 @@ export default function FiltroGaleriaDesafios({ placeholderSelect, handleValueSe
     textButtonClear: any;
     textBusca: any;
     valueSelect?: any[];
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

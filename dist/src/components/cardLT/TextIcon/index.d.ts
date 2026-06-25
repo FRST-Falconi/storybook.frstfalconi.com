@@ -22,6 +22,6 @@ interface TextIconParams {
  *
  * @componente
  */
-export default function TextIcon(props: TextIconParams): import("react/jsx-runtime").JSX.Element;
+export default function TextIcon(props: TextIconParams): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

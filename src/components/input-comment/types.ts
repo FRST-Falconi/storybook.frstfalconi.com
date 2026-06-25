@@ -15,6 +15,7 @@ export interface MentionProps
     onSelect: (user: User) => void
     users: User[]
     darkMode?: boolean
+    configColor?: string
   }> { }
 
 export interface IInputComment {

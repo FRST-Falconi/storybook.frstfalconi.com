@@ -21,6 +21,6 @@ interface ButtonProps {
     buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>;
     backgroundColor?: string;
 }
-export default function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount, buttonProps, backgroundColor, }: ButtonProps): import("react/jsx-runtime").JSX.Element;
+export default function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount, buttonProps, backgroundColor, }: ButtonProps): React.JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

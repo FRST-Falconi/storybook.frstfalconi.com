@@ -7,6 +7,6 @@ interface ConfirmationModalProps {
     onConfirm: () => void;
     labelButton: string;
 }
-export declare const ConfirmationModal: ({ open, onClose, title, children, onConfirm, labelButton }: ConfirmationModalProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ConfirmationModal: ({ open, onClose, title, children, onConfirm, labelButton }: ConfirmationModalProps) => import("react").JSX.Element;
 export {};
 //# sourceMappingURL=ConfirmationModal.d.ts.map

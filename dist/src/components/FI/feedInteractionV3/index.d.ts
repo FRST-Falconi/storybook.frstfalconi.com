@@ -15,5 +15,5 @@ export interface FeedInteractionV3Props {
     handleCommentsClick?: () => void;
     handleViewsClick?: () => void;
 }
-export default function FeedInteractionV3(props: FeedInteractionV3Props): import("react/jsx-runtime").JSX.Element;
+export default function FeedInteractionV3(props: FeedInteractionV3Props): React.JSX.Element;
 //# sourceMappingURL=index.d.ts.map

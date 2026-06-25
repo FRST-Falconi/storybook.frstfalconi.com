@@ -37,6 +37,6 @@ interface IFeedInteraction {
     childrenCommentV2?: any;
     isVisibleAvaliations?: boolean;
 }
-export default function FeedInteraction(props: IFeedInteraction): import("react/jsx-runtime").JSX.Element;
+export default function FeedInteraction(props: IFeedInteraction): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

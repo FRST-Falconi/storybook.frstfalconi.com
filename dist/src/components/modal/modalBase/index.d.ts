@@ -12,6 +12,6 @@ interface ModalBaseProps {
     ratingDescription?: string;
     children: ReactNode;
 }
-export default function ModalBase(props: ModalBaseProps): import("react/jsx-runtime").JSX.Element;
+export default function ModalBase(props: ModalBaseProps): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map
