@@ -5909,7 +5909,7 @@ const FeedAction = styled__default["default"].button `
 `;
 
 const Button$3 = styled__default["default"].div `
-    ${({ variant, disabled, active, theme, isTooltipActive, darkMode }) => {
+    ${({ variant, disabled, active, theme, isTooltipActive, darkMode, configColor }) => {
     let styleVariant = {
         'primary': styled.css `
                     display: flex;
@@ -5919,7 +5919,7 @@ const Button$3 = styled__default["default"].div `
                     gap: 8px;
                     width: fit-content;
                     height: 32px;
-                    background: ${disabled ? '#BDBDBD' : '#F26818'};
+                    background: ${disabled ? '#BDBDBD' : configColor ? configColor : '#F26818'};
                     border-radius: 8px;
                     cursor: ${disabled ? 'default' : 'pointer'};
                     font-family: 'Work Sans';
@@ -5932,7 +5932,7 @@ const Button$3 = styled__default["default"].div `
                     color: ${({ theme }) => theme.colors.shadeWhite};
                     user-select:none;
                     &:hover {
-                        background: ${disabled ? '#BDBDBD' : '#D14211'};
+                        background: ${disabled ? '#BDBDBD' : configColor ? `${configColor}80` : '#D14211'};
                     }
                 `,
         'secondary': styled.css `

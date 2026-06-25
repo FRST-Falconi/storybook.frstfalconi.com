@@ -4,6 +4,7 @@ interface IButton {
     active?: boolean;
     isTooltipActive?: boolean;
     darkMode?: boolean;
+    configColor?: string;
 }
 export declare const Button: import("styled-components").StyledComponent<"div", any, IButton, never>;
 export {};
