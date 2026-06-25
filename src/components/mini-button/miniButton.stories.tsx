@@ -16,6 +16,7 @@ primary.args = {
   variant: 'primary',
   label: 'Button text',
   disabled: false,
+  configColor: '#181ff2',
   onClick: () => {
     alert('Click')
   }
