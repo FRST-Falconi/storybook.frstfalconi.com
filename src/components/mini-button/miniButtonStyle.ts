@@ -7,10 +7,11 @@ interface IButton {
     active?: boolean
     isTooltipActive?: boolean
     darkMode?: boolean
+    configColor?: string
 }
 
 export const Button = styled.div<IButton>`
-    ${({variant, disabled,active, theme, isTooltipActive, darkMode}) => {
+    ${({variant, disabled,active, theme, isTooltipActive, darkMode, configColor}) => {
         
         let styleVariant = {
             'primary': css`
@@ -21,7 +22,7 @@ export const Button = styled.div<IButton>`
                     gap: 8px;
                     width: fit-content;
                     height: 32px;
-                    background: ${disabled ? '#BDBDBD' : '#F26818'};
+                    background: ${disabled ? '#BDBDBD' : configColor ? configColor :'#F26818'};
                     border-radius: 8px;
                     cursor: ${disabled ? 'default' : 'pointer'};
                     font-family: 'Work Sans';
@@ -34,7 +35,7 @@ export const Button = styled.div<IButton>`
                     color: ${({theme}) => theme.colors.shadeWhite};
                     user-select:none;
                     &:hover {
-                        background: ${disabled ? '#BDBDBD' : '#D14211'};
+                        background: ${disabled ? '#BDBDBD' : configColor ? `${configColor}80` : '#D14211'};
                     }
                 `,
             'secondary': css`

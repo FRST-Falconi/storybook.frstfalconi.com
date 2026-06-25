@@ -11,4 +11,5 @@ export interface IMiniButton {
     active?: boolean
     tooltipText?: string
     darkMode?: boolean
+    configColor?: string
 }
