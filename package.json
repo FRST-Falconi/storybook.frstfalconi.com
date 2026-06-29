@@ -1,10 +1,14 @@
 {
     "name": "frst-components",
     "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
-    "version": "0.37.0",
+    "version": "0.38.0",
     "private": false,
     "main": "./dist/index.js",
+    "module": "./dist/esm/index.js",
     "types": "./dist/index.d.ts",
+    "sideEffects": [
+        "**/*.css"
+    ],
     "scripts": {
         "build": "rimraf dist && mkdirp dist && rollup --config rollup.config.js",
         "sb": "start-storybook -p 6006 -s public",
